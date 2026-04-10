@@ -270,3 +270,48 @@ for (const task of tasks) {
 
 fs.writeFileSync(path.join(apiDir, "recommend.json"), JSON.stringify(recommendData), "utf-8");
 console.log(`wrote public/api/v1/ (${contentTypes.length} type files + index + recommend)`);
+
+// ─── robots.txt ──────────────────────────────────────────
+
+fs.writeFileSync(
+  path.join(PUBLIC_DIR, "robots.txt"),
+  `User-agent: *
+Allow: /
+Allow: /content/
+
+Sitemap: https://ai-future-ready.com/sitemap.xml
+Host: https://ai-future-ready.com
+`,
+  "utf-8"
+);
+console.log("wrote public/robots.txt");
+
+// ─── sitemap.xml ─────────────────────────────────────────
+
+const baseUrl = "https://ai-future-ready.com";
+const today = new Date().toISOString().split("T")[0];
+const sitemapEntries: string[] = [];
+
+sitemapEntries.push(`  <url><loc>${baseUrl}</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>`);
+
+for (const section of SECTIONS) {
+  sitemapEntries.push(`  <url><loc>${baseUrl}/${section.dir}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`);
+  sitemapEntries.push(`  <url><loc>${baseUrl}/content/${section.dir}/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`);
+  const dir = path.join(CONTENT_DIR, section.dir);
+  for (const file of getFilesInDir(dir)) {
+    const slug = file.replace(/\.md$/, "");
+    sitemapEntries.push(`  <url><loc>${baseUrl}/${section.dir}/${slug}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`);
+    sitemapEntries.push(`  <url><loc>${baseUrl}/content/${section.dir}/${file}</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>`);
+  }
+}
+
+fs.writeFileSync(
+  path.join(PUBLIC_DIR, "sitemap.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${sitemapEntries.join("\n")}
+</urlset>
+`,
+  "utf-8"
+);
+console.log(`wrote public/sitemap.xml (${sitemapEntries.length} URLs)`);
