@@ -4,8 +4,10 @@
 ## Content Sections
 - [Models](/content/models/_index.md): Comprehensive comparison of 33+ AI models — proprietary and open source — with benchmarks, pricing, and use-case recommendations.
 - [Agent Platforms](/content/agents/_index.md): Directory of AI agent platforms — personal agents, developer frameworks, orchestration tools, coding agents, and no-code builders.
+- [Comparisons](/content/comparisons/_index.md): Head-to-head comparisons of popular AI models. Structured analysis for agents and humans making model selection decisions.
 - [Guides](/content/guides/_index.md): Practical guides to understanding and using AI — from complete beginner to advanced prompt engineer.
 - [Use Cases](/content/use-cases/_index.md): Practical guides for using AI across writing, coding, business, education, research, and image generation.
+- [Prompt Patterns](/content/prompt-patterns/_index.md): Model-specific prompting patterns and techniques. What works best with each AI model family — structured for agents that generate prompts.
 - [Blog](/content/blog/_index.md): Analysis, comparisons, and news about AI models, agents, and the evolving AI landscape.
 - [Glossary](/content/glossary/_index.md): Plain-English definitions of 80+ AI and machine learning terms. From AGI to Zero-Shot Learning.
 - [Timeline](/content/timeline/_index.md): Chronological history of artificial intelligence from 1950 to 2026 — key research breakthroughs, product launches, milestones, and policy events.
@@ -63,6 +65,14 @@
 - [OpenClaw](/content/agents/openclaw.md): Free, open-source personal AI agent and the fastest-growing OSS project in history. Multi-channel messaging across WhatsApp, Telegram, Slack, Discord, and more. Features a skills marketplace with 4,000+ community skills, local-first privacy, voice support, and multi-agent routing.
 - [Paperclip](/content/agents/paperclip.md): Open-source orchestration platform for "zero-human companies." Agents are organized as a company hierarchy (CEO, Engineers, QA) with budget enforcement, persistent state, governance with rollback, multi-company isolation, and a full audit trail. Gained 30K stars in just 3 weeks.
 
+## Comparisons
+- [Best AI Models for Coding (2026)](/content/comparisons/best-coding-models.md): Ranked list of the best AI models for software engineering. SWE-bench scores, coding benchmarks, pricing, and tool recommendations for each model.
+- [Cheapest AI Models (2026)](/content/comparisons/cheapest-models.md): Cost-effectiveness rankings for AI models. Pricing tables, quality-per-dollar analysis, and recommendations from free to frontier. Updated April 2026.
+- [Claude Opus 4.6 vs Gemini 3.1 Pro](/content/comparisons/claude-vs-gemini.md): Head-to-head comparison of Claude Opus 4.6 and Gemini 3.1 Pro — premium intelligence versus best value in frontier AI. Benchmarks, pricing, multimodal, and ecosystem analysis.
+- [Claude Opus 4.6 vs GPT-5.4](/content/comparisons/claude-vs-gpt.md): Head-to-head comparison of Claude Opus 4.6 and GPT-5.4 — the two most capable proprietary AI models as of April 2026. Benchmarks, pricing, coding, writing, and ecosystem analysis.
+- [GPT-5.4 vs Gemini 3.1 Pro](/content/comparisons/gpt-vs-gemini.md): Head-to-head comparison of GPT-5.4 and Gemini 3.1 Pro — the two most widely used frontier AI models. Ecosystem, pricing, multimodal, and benchmark analysis.
+- [Open Source vs Proprietary AI Models](/content/comparisons/open-source-vs-proprietary.md): When to use open-source models versus proprietary APIs. Cost analysis, privacy, customization, performance gaps, hardware requirements, and best picks by use case.
+
 ## Guides
 - [What Is AI? A Complete Beginner's Guide to Artificial Intelligence](/content/guides/getting-started.md): Learn what artificial intelligence really is, how AI models work, the difference between AI and machine learning, and how to start using AI tools like ChatGPT, Claude, and Gemini today.
 - [Prompt Engineering Guide — How to Write Better AI Prompts](/content/guides/prompting.md): Master prompt engineering from beginner to advanced. Learn zero-shot, few-shot, chain-of-thought, and other techniques to get better results from ChatGPT, Claude, and Gemini.
@@ -75,8 +85,21 @@
 - [AI for Research & Analysis](/content/use-cases/research.md): Learn how to use AI for literature review, data analysis, summarization, and fact-checking. Discover the best AI tools and techniques for academic and professional research.
 - [AI for Writing & Content Creation](/content/use-cases/writing.md): Learn how to use AI for writing blog posts, copywriting, editing, social media, email drafting, and creative writing. Includes best tools, tips, and example prompts.
 
+## Prompt Patterns
+- [Prompting Patterns for Anthropic Claude](/content/prompt-patterns/anthropic.md): What works specifically with Claude Opus 4.6, Sonnet 4.6, and Haiku 4.5 — XML tags, long context, constraint following, extended thinking, and tiered instructions.
+- [Prompting Patterns for Google Gemini](/content/prompt-patterns/google.md): What works specifically with Gemini 3.1 Pro and Gemini 3 Flash — multimodal prompts, web grounding, Google Workspace integration, multilingual output, and code execution.
+- [Prompting Patterns for Open Source Models](/content/prompt-patterns/open-source.md): What works with self-hosted and API-accessed open models — Llama 4, DeepSeek R1, Qwen 3/3.5, Hermes 4, and others. Covers system prompt formats, quantization-aware prompting, reasoning toggles, and temperature tuning.
+- [Prompting Patterns for OpenAI GPT-5.4](/content/prompt-patterns/openai.md): What works specifically with GPT-5.4 and ChatGPT — system prompts, structured output, verbosity control, Thinking mode, and multi-turn strategies.
+- [Prompting Patterns for xAI Grok](/content/prompt-patterns/xai.md): What works specifically with Grok 4.1 and Grok 4.20 — factual accuracy, instruction following, real-time X/Twitter data, and multi-agent mode.
+
 ## Blog
 - [The AI Agent Revolution: From Chatbots to Autonomous Workers](/content/blog/ai-agent-revolution-2026.md): How AI agents evolved from simple chatbots to autonomous systems in 2025-2026, the key players driving adoption, and what comes next for multi-agent orchestration.
 - [GPT-5.4 vs Claude Opus 4.6 vs Gemini 3.1 Pro: Which AI Model Should You Use in 2026?](/content/blog/gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro.md): A head-to-head comparison of the three leading proprietary AI models in 2026. We break down benchmarks, pricing, context windows, and real-world performance to help you choose.
 - [OpenAI Shuts Down Sora: What Happened and What's Next for AI Video](/content/blog/openai-shuts-down-sora-what-happened.md): OpenAI officially discontinued Sora in March 2026 after persistent quality issues and fierce competition. We look at what went wrong and where AI video generation is headed.
 - [The Rise of Open Source AI: How DeepSeek, Qwen, and MiniMax Are Changing the Game](/content/blog/rise-of-open-source-ai-deepseek-qwen-minimax.md): Open-source AI models are closing the gap with proprietary giants. We analyze how DeepSeek, Qwen, and MiniMax are reshaping the AI landscape and what it means for developers.
+
+## Changelog
+- [AI Changelog](/content/changelog.md): Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs.
+
+## Compatibility Matrix
+- [AI Model Compatibility Matrix](/content/compatibility.md): Which AI models work with which agent frameworks, coding tools, and platforms. Structured for agent consumption.

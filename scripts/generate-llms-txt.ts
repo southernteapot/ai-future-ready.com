@@ -43,8 +43,10 @@ function getFilesInDir(dir: string): string[] {
 const SECTIONS = [
   { dir: "models", label: "Models" },
   { dir: "agents", label: "Agent Platforms" },
+  { dir: "comparisons", label: "Comparisons" },
   { dir: "guides", label: "Guides" },
   { dir: "use-cases", label: "Use Cases" },
+  { dir: "prompt-patterns", label: "Prompt Patterns" },
   { dir: "blog", label: "Blog" },
   { dir: "glossary", label: "Glossary" },
   { dir: "timeline", label: "Timeline" },
@@ -108,6 +110,23 @@ for (const entry of allEntries) {
   }
 
   indexLines.push(`- [${entry.title}](${entry.mdPath}): ${entry.description}`);
+}
+
+// Standalone files
+const standaloneFiles = [
+  { file: "changelog.md", label: "Changelog" },
+  { file: "compatibility.md", label: "Compatibility Matrix" },
+];
+
+for (const sf of standaloneFiles) {
+  const entry = readMd(path.join(CONTENT_DIR, sf.file));
+  if (entry) {
+    indexLines.push("");
+    indexLines.push(`## ${sf.label}`);
+    indexLines.push(`- [${entry.title}](/content/${sf.file}): ${entry.description}`);
+    // Also add to allEntries for llms-full.txt
+    allEntries.push({ ...entry, mdPath: `/content/${sf.file}`, section: sf.label });
+  }
 }
 
 indexLines.push("");

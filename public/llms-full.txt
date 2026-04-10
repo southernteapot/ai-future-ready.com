@@ -1,7 +1,7 @@
 # AI Future Ready — Full Content
 > All content from aifutureready.com in a single file.
 > Generated: 2026-04-10
-> Total files: 68
+> Total files: 83
 
 ---
 
@@ -2509,6 +2509,935 @@ At three weeks old with 30K stars, this is peak hype-cycle. The TypeScript/Node.
 
 ---
 
+<!-- file: /content/comparisons/_index.md -->
+
+---
+title: "Model Comparisons"
+type: index
+description: "Head-to-head comparisons of popular AI models. Structured analysis for agents and humans making model selection decisions."
+last_updated: "2026-04-10"
+---
+
+# Model Comparisons
+
+Head-to-head comparisons of popular AI models with opinionated recommendations.
+
+## Head-to-Head Comparisons
+
+| Comparison | Summary |
+|------------|---------|
+| [Claude Opus 4.6 vs GPT-5.4](claude-vs-gpt.md) | The two most capable proprietary models. Claude wins on coding, GPT wins on ecosystem breadth. |
+| [Claude Opus 4.6 vs Gemini 3.1 Pro](claude-vs-gemini.md) | Premium intelligence vs best value. Gemini costs 60% less with comparable reasoning. |
+| [GPT-5.4 vs Gemini 3.1 Pro](gpt-vs-gemini.md) | Ecosystem giant vs multimodal leader. Both have 1M context, wildly different pricing. |
+
+## Category Comparisons
+
+| Comparison | Summary |
+|------------|---------|
+| [Open Source vs Proprietary](open-source-vs-proprietary.md) | When to self-host vs when to pay for an API. Cost, privacy, and performance trade-offs. |
+| [Best Coding Models](best-coding-models.md) | Ranked list of the best models for software engineering, with SWE-bench numbers and tool recommendations. |
+| [Cheapest Models](cheapest-models.md) | Cost-effectiveness rankings. Quality-per-dollar analysis from free to frontier. |
+
+---
+
+<!-- file: /content/comparisons/best-coding-models.md -->
+
+---
+title: "Best AI Models for Coding (2026)"
+type: comparison
+description: "Ranked list of the best AI models for software engineering. SWE-bench scores, coding benchmarks, pricing, and tool recommendations for each model."
+last_updated: "2026-04-10"
+tags:
+- "coding"
+- "swe-bench"
+- "comparison"
+- "software-engineering"
+- "ranking"
+---
+
+# Best AI Models for Coding (2026)
+
+Ranked by real-world software engineering capability. SWE-bench scores, benchmark numbers, pricing, and which coding tool to pair each model with.
+
+## The Rankings
+
+### #1: Claude Opus 4.6
+
+| Metric | Score |
+|--------|-------|
+| Coding benchmark | 97/100 |
+| SWE-bench | 80.8% |
+| Reasoning | 96/100 |
+| Context window | 1M tokens |
+| Pricing | $5/$25 per 1M tokens |
+| Speed | 62/100 |
+
+The best coding model by a clear margin. 80.8% SWE-bench is the highest score any model has achieved. Opus 4.6 excels at complex multi-file refactors, understands large codebases holistically, and produces code that requires fewer corrections than any competitor. The 1M context window means it can hold an entire mid-size codebase in a single pass.
+
+The tradeoffs are speed (62/100 -- it thinks carefully) and output cost ($25/M tokens -- the highest among frontier models). For complex coding work where accuracy matters, both are worth paying.
+
+**Best coding tool:** Claude Code. The CLI agent is purpose-built for Claude and delivers the best agentic coding experience available.
+
+### #2: MiniMax M2.7
+
+| Metric | Score |
+|--------|-------|
+| Coding benchmark | 95/100 |
+| SWE-bench | Not disclosed |
+| Reasoning | 90/100 |
+| Context window | 128K tokens |
+| Pricing | $0.53/$0.53 per 1M tokens |
+| Speed | 85/100 |
+
+The open-source coding sleeper hit. 95/100 on coding benchmarks at $0.53 per million tokens for both input and output. That is roughly 1/50th of Opus's output cost with only a 2-point gap on coding scores. For autonomous coding agents that make many API calls, the economics are transformative.
+
+The ecosystem is less mature (Chinese-first documentation, Modified MIT license) and the 128K context window is a quarter of Opus's. But for pure coding throughput on a budget, nothing comes close.
+
+**Best coding tool:** Cursor (via custom API endpoint) or any tool supporting OpenAI-compatible APIs.
+
+### #3: GLM-5
+
+| Metric | Score |
+|--------|-------|
+| Coding benchmark | 93/100 |
+| SWE-bench | 77.8% |
+| Reasoning | 90/100 |
+| Context window | 128K tokens |
+| Pricing | Free (self-hosted) / Zhipu API |
+| Speed | 70/100 |
+
+The best open-source model for real-world software engineering by SWE-bench numbers. 77.8% puts it ahead of GPT-5.4 (74.9%) and every other open model. The MIT license with no usage restrictions makes it the cleanest option for enterprise self-hosting.
+
+Requires serious hardware (8x A100 80GB for FP16), and the Western ecosystem is thin. But the numbers speak for themselves.
+
+**Best coding tool:** Self-hosted with vLLM, accessible via Cursor or any OpenAI-compatible tool.
+
+### #4: Claude Sonnet 4.6
+
+| Metric | Score |
+|--------|-------|
+| Coding benchmark | 93/100 |
+| SWE-bench | Not disclosed |
+| Reasoning | 91/100 |
+| Context window | 1M tokens |
+| Pricing | $3/$15 per 1M tokens |
+| Speed | 82/100 |
+
+The daily-driver coding model. Sonnet 4.6 matches GLM-5's 93/100 coding score while being faster (82 vs 70 speed), cheaper than Opus, and backed by the full Anthropic ecosystem. It is the first Sonnet that beats a previous Opus generation in coding evaluations. The 1M context window at $3/$15 is excellent value.
+
+For most developers, Sonnet 4.6 is the right default. You only need to step up to Opus for the hardest coding tasks.
+
+**Best coding tool:** Claude Code (switches seamlessly between Sonnet and Opus) or Cursor.
+
+### #5: GPT-5.4
+
+| Metric | Score |
+|--------|-------|
+| Coding benchmark | 92/100 |
+| SWE-bench | 74.9% |
+| Reasoning | 95/100 |
+| Context window | 1M tokens |
+| Pricing | $5/$15 per 1M tokens |
+| Speed | 80/100 |
+
+Strong all-around, with the broadest ecosystem integration. 74.9% SWE-bench is solid -- below Claude's 80.8% but above most open models. GPT-5.4's real advantage for coding is ecosystem: GitHub Copilot is built on it, and the OpenAI Assistants API has the most mature third-party tooling.
+
+The thinking variant (GPT-5.4 Thinking, 93/100 coding) is better for competition-level programming at $10/$40, but the base model handles most real-world coding well.
+
+**Best coding tool:** GitHub Copilot (native integration) or Cursor.
+
+### #6: Qwen 3.5 397B-A17B
+
+| Metric | Score |
+|--------|-------|
+| Coding benchmark | 92/100 |
+| SWE-bench | Not disclosed |
+| Reasoning | 91/100 |
+| Context window | 256K tokens |
+| Pricing | Free (self-hosted) / Alibaba Cloud API |
+| Speed | 82/100 |
+
+The most well-rounded open-source option. Matches GPT-5.4 on coding (92/100) while being free to self-host under Apache 2.0. The 17B active parameters in a 397B MoE architecture means it runs on surprisingly reasonable hardware (single GPU with Q4 quantization). The 256K context window is better than most open models.
+
+**Best coding tool:** Cursor (via custom API) or self-hosted with Ollama/vLLM.
+
+### #7: Gemini 3.1 Pro
+
+| Metric | Score |
+|--------|-------|
+| Coding benchmark | 91/100 |
+| SWE-bench | Not disclosed |
+| Reasoning | 93/100 |
+| Context window | 1M tokens |
+| Pricing | $2/$12 per 1M tokens |
+| Speed | 78/100 |
+
+Best value among proprietary models for coding. At $2/$12, it is 60% cheaper than Claude Opus on input and 52% cheaper on output, with a 91/100 coding score that handles most programming tasks well. The free tier through Google AI Studio makes it the easiest to start with.
+
+**Best coding tool:** Google Antigravity (free, Gemini-native) or Cursor.
+
+### #8: Nemotron-Cascade 2
+
+| Metric | Score |
+|--------|-------|
+| Coding benchmark | 90/100 |
+| SWE-bench | Not disclosed |
+| Reasoning | 88/100 |
+| Context window | 1M tokens |
+| Pricing | Free (open weights) |
+| Speed | 92/100 |
+
+The best coding model you can run on consumer hardware. 90/100 coding with only 3B active parameters, running on a single RTX 4090. Gold medals at IOI and ICPC World Finals. 87.2% on LiveCodeBench v6. The hybrid Mamba-2 + Transformer architecture enables a 1M context window with sub-linear memory scaling.
+
+If you want a local coding model that does not require enterprise GPU infrastructure, this is the answer.
+
+**Best coding tool:** Ollama (for local serving) connected to Cursor or VS Code.
+
+### #9: Qwen 3
+
+| Metric | Score |
+|--------|-------|
+| Coding benchmark | 90/100 |
+| SWE-bench | Not disclosed |
+| Reasoning | 88/100 |
+| Context window | 128K tokens |
+| Pricing | Free (self-hosted) / Alibaba Cloud API |
+| Speed | 80/100 |
+
+Overtook Llama as the most-downloaded model family on HuggingFace. The Qwen3-Coder-Next variant is specifically optimized for code generation. Apache 2.0 license, massive community, and variants from 0.6B (phones) to 235B (multi-GPU). Best multilingual coding model (95/100 multilingual).
+
+**Best coding tool:** Cursor or self-hosted with vLLM.
+
+### #10: DeepSeek V3.2
+
+| Metric | Score |
+|--------|-------|
+| Coding benchmark | 88/100 |
+| SWE-bench | Not disclosed |
+| Reasoning | 88/100 |
+| Context window | 128K tokens |
+| Pricing | $0.27/$1.10 per 1M tokens |
+| Speed | 82/100 |
+
+The cheapest capable coding model via API. At $0.27/$1.10, it costs roughly 5% of what GPT-5.4 charges with an 88/100 coding score. MIT license for self-hosting. For high-volume coding tasks where cost matters more than squeezing out the last few points of accuracy, V3.2 is the rational choice.
+
+**Best coding tool:** Cursor (via OpenAI-compatible API).
+
+## Coding Tool Recommendations
+
+| Tool | Best For | Price |
+|------|----------|-------|
+| Claude Code | Professional software engineering, agentic coding, complex refactors | Included in Claude Pro ($20/mo) / Max ($100-200/mo) |
+| GitHub Copilot | Broad IDE integration, code completion, GPT ecosystem users | $10-39/mo |
+| Cursor | Model flexibility, trying different models, power users | $20/mo (Pro) |
+| Google Antigravity | Free coding with Gemini and Claude, Google ecosystem users | Free |
+| Amazon Kiro | Spec-driven development, AWS ecosystem, Bedrock model access | Preview pricing TBD |
+| Windsurf | Integrated coding agent (now owned by Cognition/Devin) | $15/mo |
+
+## The Verdict
+
+**For professional software engineering:** Claude Opus 4.6 via Claude Code. The SWE-bench leadership translates directly to fewer bugs, better refactors, and less time spent correcting model output.
+
+**For daily coding (best value):** Claude Sonnet 4.6 via Claude Code or Cursor. 93/100 coding at $3/$15 is 80% of Opus quality at 60% of the output cost.
+
+**For budget-conscious coding:** MiniMax M2.7 ($0.53/M tokens) or DeepSeek V3.2 ($0.27/$1.10) via Cursor. Near-frontier coding at a fraction of the cost.
+
+**For local/self-hosted coding:** Nemotron-Cascade 2 on consumer hardware (RTX 4090), or GLM-5 on enterprise hardware (8x A100). Both under permissive licenses.
+
+**For coding in non-English languages:** Qwen 3 or Qwen 3.5. Best multilingual support with strong coding performance.
+
+---
+
+<!-- file: /content/comparisons/cheapest-models.md -->
+
+---
+title: "Cheapest AI Models (2026)"
+type: comparison
+description: "Cost-effectiveness rankings for AI models. Pricing tables, quality-per-dollar analysis, and recommendations from free to frontier. Updated April 2026."
+last_updated: "2026-04-10"
+tags:
+- "pricing"
+- "cost"
+- "budget"
+- "comparison"
+- "ranking"
+---
+
+# Cheapest AI Models (2026)
+
+Ranked by cost-effectiveness -- not just cheapest, but best quality per dollar spent. Because a free model that cannot do your task costs you infinite money in wasted time.
+
+## Full Pricing Table
+
+### Proprietary API Models (by output cost)
+
+| Model | Provider | Input / 1M tokens | Output / 1M tokens | Reasoning | Coding | Free Tier |
+|-------|----------|-------------------|---------------------|-----------|--------|-----------|
+| Gemini 3 Flash | Google | $0.15 | $0.60 | 82 | 80 | Yes |
+| Claude Haiku 4.5 | Anthropic | $1.00 | $5.00 | 82 | 84 | No |
+| Grok 4.20 | xAI | $2.00 | $6.00 | 85 | 88 | No |
+| Gemini 3.1 Pro | Google | $2.00 | $12.00 | 93 | 91 | Yes |
+| Claude Sonnet 4.6 | Anthropic | $3.00 | $15.00 | 91 | 93 | No |
+| GPT-5.4 | OpenAI | $5.00 | $15.00 | 95 | 92 | No |
+| Grok 4.1 | xAI | $3.00 | $15.00 | 91 | 90 | No |
+| Claude Opus 4.6 | Anthropic | $5.00 | $25.00 | 96 | 97 | No |
+| GPT-5.4 Thinking | OpenAI | $10.00 | $40.00 | 98 | 93 | No |
+
+### Open Source API Models (by output cost)
+
+| Model | Provider | Input / 1M tokens | Output / 1M tokens | Reasoning | Coding | License |
+|-------|----------|-------------------|---------------------|-----------|--------|---------|
+| DeepSeek V3.2 | DeepSeek | $0.27 | $1.10 | 88 | 88 | MIT |
+| MiniMax M2.7 | MiniMax | $0.53 | $0.53 | 90 | 95 | Modified MIT |
+| DeepSeek R1 | DeepSeek | $0.55 | $2.19 | 92 | 88 | MIT |
+| Mistral 3 | Mistral | $2.00 | $6.00 | 86 | 87 | Apache 2.0 |
+| Command R+ | Cohere | $2.50 | $2.50 | 82 | 78 | CC-BY-NC 4.0 |
+
+### Free Self-Hosted Models (hardware cost only)
+
+| Model | Provider | Active Parameters | Min Hardware | Reasoning | Coding | License |
+|-------|----------|-------------------|-------------|-----------|--------|---------|
+| Nemotron-Cascade 2 | NVIDIA | 3B | 1x RTX 4090 | 88 | 90 | NVIDIA Open |
+| Gemma 4 (26B MoE) | Google | 3.8B | 1x RTX 4090 | 84 | 83 | Apache 2.0 |
+| Phi-4 | Microsoft | 14B | 1x RTX 3060 | 78 | 80 | MIT |
+| SmolLM3 3B | Hugging Face | 3B | 1x RTX 3060 | 68 | 70 | Apache 2.0 |
+| Qwen 3.5 (Q4) | Alibaba | 17B | 1x RTX 4090 | 91 | 92 | Apache 2.0 |
+| Llama 4 Maverick (Q4) | Meta | 17B | 2x RTX 4090 | 87 | 82 | Llama Community |
+| DeepSeek V3.2 (Q4) | DeepSeek | 37B | 2x A100 | 88 | 88 | MIT |
+| GLM-5 (Q4) | Zhipu AI | 40B | 2x A100 | 90 | 93 | MIT |
+
+## Quality-Per-Dollar Rankings
+
+The real question is not "what is cheapest?" but "what gives me the most capability per dollar?" Here is how each model stacks up, measuring the average of reasoning + coding scores divided by output cost per million tokens.
+
+### Best Value: Proprietary APIs
+
+**Tier 1 -- Exceptional value:**
+
+1. **Gemini 3 Flash** -- $0.60 output, 81 average quality. By far the most tokens-per-dollar for any proprietary model. For high-volume classification, summarization, and extraction, nothing touches this.
+
+2. **Gemini 3.1 Pro** -- $12.00 output, 92 average quality. The best frontier model for the price. 93/100 reasoning at $2/$12 is the sweet spot where quality and cost intersect.
+
+3. **Grok 4.20** -- $6.00 output, 86.5 average quality. Surprisingly good value with the lowest hallucination rate of any model. The fast tier pricing punches above its weight.
+
+**Tier 2 -- Good value:**
+
+4. **Claude Haiku 4.5** -- $5.00 output, 83 average quality. Solid for Anthropic-ecosystem users who need speed over maximum quality.
+
+5. **Claude Sonnet 4.6** -- $15.00 output, 92 average quality. Matches Gemini 3.1 Pro quality at higher cost, but better coding and writing.
+
+**Tier 3 -- Premium (justified for specific use cases):**
+
+6. **GPT-5.4** -- $15.00 output, 93.5 average quality. You are paying for the ecosystem as much as the model.
+
+7. **Claude Opus 4.6** -- $25.00 output, 96.5 average quality. The coding premium. Only justified when you genuinely need the best.
+
+8. **GPT-5.4 Thinking** -- $40.00 output, 95.5 average quality. The reasoning ceiling. Only for genuinely hard problems.
+
+### Best Value: Open Source APIs
+
+1. **MiniMax M2.7** -- $0.53 output, 92.5 average quality. The best quality-per-dollar in the entire AI market. 95/100 coding at 53 cents per million output tokens is almost disrespectful to the competition.
+
+2. **DeepSeek V3.2** -- $1.10 output, 88 average quality. The safe default for budget-conscious API use. Strong across the board, MIT license, established provider.
+
+3. **DeepSeek R1** -- $2.19 output, 90 average quality. The math specialist on a budget. 94/100 math at $2.19 output is remarkable.
+
+### Best Value: Self-Hosted
+
+1. **Nemotron-Cascade 2** -- Single RTX 4090, 89 average quality. The most impressive model-per-FLOP ever released. 90/100 coding on consumer hardware.
+
+2. **Qwen 3.5 (quantized)** -- Single RTX 4090, 91.5 average quality. Higher raw quality than Cascade 2, but needs Q4 quantization to fit on consumer hardware.
+
+3. **Gemma 4 (26B MoE)** -- Single RTX 4090, 83.5 average quality. Solid general-purpose option from Google, Apache 2.0 licensed.
+
+## Cost Scenarios
+
+### Scenario 1: Startup with 1M tokens/day
+
+Monthly volume: ~30M input tokens, ~10M output tokens.
+
+| Option | Monthly Cost |
+|--------|-------------|
+| Gemini 3 Flash | $10.50 |
+| DeepSeek V3.2 API | $19.10 |
+| MiniMax M2.7 API | $21.20 |
+| Gemini 3.1 Pro | $180.00 |
+| Claude Sonnet 4.6 | $240.00 |
+| GPT-5.4 | $300.00 |
+| Claude Opus 4.6 | $400.00 |
+| Self-hosted Nemotron-Cascade 2 | ~$0 (own hardware) |
+
+**Recommendation:** Start with Gemini 3 Flash or DeepSeek V3.2 API. Upgrade to Gemini 3.1 Pro or Sonnet 4.6 when quality requirements increase.
+
+### Scenario 2: Enterprise with 100M tokens/day
+
+Monthly volume: ~2B input tokens, ~1B output tokens.
+
+| Option | Monthly Cost |
+|--------|-------------|
+| Gemini 3 Flash | $900 |
+| DeepSeek V3.2 API | $1,640 |
+| Self-hosted DeepSeek V3.2 | $15,000-20,000 (8x A100 rental) |
+| Gemini 3.1 Pro | $16,000 |
+| Claude Sonnet 4.6 | $21,000 |
+| GPT-5.4 | $25,000 |
+| Claude Opus 4.6 | $35,000 |
+
+**Recommendation:** Self-host DeepSeek V3.2 or use the API. For quality-critical tasks, route to Gemini 3.1 Pro or Claude Sonnet 4.6. Self-hosting breaks even with proprietary APIs at this volume.
+
+### Scenario 3: Individual developer
+
+Monthly volume: ~2M input tokens, ~1M output tokens (moderate daily use).
+
+| Option | Monthly Cost |
+|--------|-------------|
+| Gemini 3 Flash | $0.69 |
+| Gemini 3.1 Pro (free tier) | $0 (within limits) |
+| DeepSeek V3.2 API | $1.64 |
+| Claude Haiku 4.5 | $7.00 |
+| OpenAI Go plan | $8.00/month (flat) |
+| Claude Sonnet 4.6 | $21.00 |
+| ChatGPT Plus | $20.00/month (flat) |
+| Claude Pro | $20.00/month (flat) |
+
+**Recommendation:** Gemini 3.1 Pro free tier for experimentation. DeepSeek V3.2 API for production use. Claude Pro or ChatGPT Plus subscription for interactive daily use.
+
+## The Free Options
+
+Models you can use right now without spending anything:
+
+1. **Gemini 3.1 Pro via Google AI Studio** -- Full frontier model, free tier with rate limits. Best free option for quality.
+2. **Gemini 3 Flash via Google AI Studio** -- Free tier, blazing fast, 1M context.
+3. **Self-hosted open models via Ollama** -- Nemotron-Cascade 2, Gemma 4, Phi-4, SmolLM3, and dozens more. Free if you own a GPU.
+4. **DeepSeek API** -- Generous free tier for V3.2 and R1.
+5. **Google Antigravity IDE** -- Free AI coding IDE with Gemini and Claude built in.
+6. **Qwen/Llama/Mistral via HuggingFace** -- Download and run locally. Free forever.
+
+## The Verdict
+
+**If cost is your only constraint:** Self-host Nemotron-Cascade 2 on consumer hardware (free after GPU purchase) or use Gemini 3 Flash via API ($0.15/$0.60). Both are competent for routine tasks.
+
+**If you want the best value without sacrificing quality:** Gemini 3.1 Pro at $2/$12 or MiniMax M2.7 at $0.53/$0.53. Both deliver near-frontier quality at a fraction of premium pricing.
+
+**If you want a budget coding model:** MiniMax M2.7 at $0.53 is the best quality-per-dollar for coding. DeepSeek V3.2 at $0.27/$1.10 is the best for general-purpose use.
+
+**The uncomfortable truth:** Most people are overpaying for AI. Claude Opus 4.6 and GPT-5.4 are exceptional models, but Gemini 3.1 Pro delivers 90-95% of their capability at 40-60% of the cost. Unless you have a specific reason to need the absolute frontier -- coding accuracy, writing quality, maximum reasoning ceiling -- the mid-tier models are where the value is. The models at $0.15-$2.00 per million tokens are good enough for most real-world tasks. The models at $5-$25 are for when "good enough" is not good enough.
+
+---
+
+<!-- file: /content/comparisons/claude-vs-gemini.md -->
+
+---
+title: "Claude Opus 4.6 vs Gemini 3.1 Pro"
+type: comparison
+description: "Head-to-head comparison of Claude Opus 4.6 and Gemini 3.1 Pro — premium intelligence versus best value in frontier AI. Benchmarks, pricing, multimodal, and ecosystem analysis."
+last_updated: "2026-04-10"
+tags:
+- "claude"
+- "gemini"
+- "anthropic"
+- "google"
+- "comparison"
+---
+
+# Claude Opus 4.6 vs Gemini 3.1 Pro
+
+Premium intelligence versus best value. Claude Opus 4.6 is the most capable coding model available. Gemini 3.1 Pro delivers 90%+ of that capability at 60% less cost. The question is whether the gap justifies the price.
+
+## At a Glance
+
+| | Claude Opus 4.6 | Gemini 3.1 Pro |
+|---|---|---|
+| **Provider** | Anthropic | Google |
+| **Release** | February 2026 | February 2026 |
+| **Context Window** | 1M tokens | 1M tokens |
+| **Input Pricing** | $5.00 / 1M tokens | $2.00 / 1M tokens |
+| **Output Pricing** | $25.00 / 1M tokens | $12.00 / 1M tokens |
+| **Reasoning** | 96/100 | 93/100 |
+| **Coding** | 97/100 | 91/100 |
+| **Math** | 93/100 | 92/100 |
+| **Writing** | 95/100 | 89/100 |
+| **Multilingual** | 88/100 | 93/100 |
+| **Speed** | 62/100 | 78/100 |
+| **SWE-bench** | 80.8% | Not disclosed |
+| **Modalities** | Text, Image | Text, Image, Video, Audio |
+| **Free Tier** | No | Yes (Google AI Studio) |
+
+## Pricing
+
+This is the elephant in the room. Gemini 3.1 Pro costs $2/$12 per million tokens versus Claude's $5/$25. That is 60% cheaper on input and 52% cheaper on output. Over any significant volume, the difference is substantial.
+
+A workload processing 5 million input tokens and generating 2 million output tokens per month costs $60 with Gemini versus $75 with Claude. Scale that to enterprise volumes and the gap becomes six figures annually. Gemini also has a free tier through Google AI Studio, making it the easiest frontier model to start experimenting with.
+
+**Winner: Gemini 3.1 Pro**, decisively.
+
+## Coding
+
+Claude Opus 4.6 leads with 97/100 on coding benchmarks and 80.8% on SWE-bench. Gemini 3.1 Pro scores 91/100 on coding. That 6-point gap is significant for software engineering -- it translates to better handling of complex refactors, more accurate multi-file changes, and fewer errors in generated code.
+
+Claude Code, the CLI agent built on Claude, is purpose-built for coding workflows. Gemini is available in Google Antigravity (free IDE) and Cursor, but neither integration is as deeply optimized as Claude Code is for Claude.
+
+For occasional coding assistance, Gemini is more than adequate. For professional software engineering where accuracy directly impacts productivity, Claude's lead is worth the premium.
+
+**Winner: Claude Opus 4.6.**
+
+## Reasoning and Math
+
+Closer than you might expect. Claude scores 96/100 on reasoning versus Gemini's 93/100. On math, it is 93 versus 92 -- nearly identical. For most reasoning tasks, both models perform well enough that you will not notice the difference.
+
+Where Claude pulls ahead is on the hardest problems. The 3-point reasoning gap becomes more apparent on multi-step analysis, complex logical chains, and problems that require holding many constraints in mind simultaneously. For routine analysis and research, Gemini's reasoning is perfectly sufficient.
+
+**Winner: Claude Opus 4.6**, but the margin is narrow enough that Gemini's price advantage may offset it.
+
+## Writing
+
+Claude Opus 4.6 scores 95/100 on writing versus Gemini's 89/100. This is one of the larger gaps in the comparison, and it is immediately noticeable. Claude produces more natural prose with better structure, tone control, and nuance. Gemini's writing is competent but can feel more formulaic and less polished.
+
+For content creation, long-form writing, marketing copy, and any task where the text quality itself is the deliverable, Claude is clearly superior. For summarization, extraction, and tasks where the content matters more than the style, Gemini is fine.
+
+**Winner: Claude Opus 4.6.**
+
+## Multimodal
+
+Gemini 3.1 Pro supports text, image, video, and audio natively. Claude supports text and image only. This is the widest capability gap in the comparison.
+
+Gemini can analyze video content, process audio, and work across modalities in ways Claude simply cannot. For applications involving video understanding, audio transcription, or mixed-media analysis, Gemini is the only choice between these two.
+
+Even for image analysis alone, Gemini's native multimodal training gives it an edge in understanding visual content. Claude handles images well, but Gemini was built multimodal from the ground up.
+
+**Winner: Gemini 3.1 Pro.**
+
+## Multilingual
+
+Gemini scores 93/100 on multilingual versus Claude's 88/100. For non-English work, Gemini is the stronger choice. Google's training data advantage in global languages is evident -- Gemini handles European, Asian, and African languages with more consistent quality than Claude.
+
+**Winner: Gemini 3.1 Pro.**
+
+## Speed
+
+Gemini at 78/100 is notably faster than Claude at 62/100. Responses come back quicker, which matters for interactive use, chat applications, and any workflow where you are waiting on the model. Claude's slower speed reflects its more deliberate approach to complex tasks, but for rapid iteration, Gemini feels more responsive.
+
+**Winner: Gemini 3.1 Pro.**
+
+## Ecosystem
+
+Different ecosystems, different strengths. Google's ecosystem includes Workspace integration, Google Cloud/Vertex AI, Google AI Studio (free), and the Antigravity IDE. If your organization runs on Google Cloud, Gemini is the natural fit.
+
+Anthropic's ecosystem is smaller but includes Claude Code (best coding CLI), the agent teams feature, and growing enterprise adoption in regulated industries. Claude has a reputation for being more careful and trustworthy with sensitive content, which matters in healthcare, legal, and financial services.
+
+**Winner: Depends on your stack.** Google Cloud users should lean Gemini. Developers and enterprises in regulated industries should lean Claude.
+
+## The Verdict
+
+**Pick Claude Opus 4.6 if:**
+- Coding is your primary use case and accuracy is non-negotiable.
+- Writing quality is a key requirement.
+- You need the absolute highest reasoning ceiling for complex analytical tasks.
+- You work in a regulated industry where Claude's safety-focused approach matters.
+- You use Claude Code for software engineering.
+
+**Pick Gemini 3.1 Pro if:**
+- Cost matters. At nearly half the price, Gemini is the better value for most workloads.
+- You need multimodal capabilities beyond text and image (video, audio).
+- Multilingual support is important for your use case.
+- You are in the Google Cloud ecosystem.
+- You want a free tier to prototype and experiment.
+- Speed and responsiveness matter for your application.
+
+**The honest answer:** Gemini 3.1 Pro is the better default choice for most people. It delivers 90-95% of Claude's capability at 50-60% of the cost, with better multimodal support and a free tier. Claude Opus 4.6 justifies its premium for coding, writing, and the hardest reasoning tasks -- but those are specific use cases, not the general case. If you are budget-conscious and do not need the absolute best coding model, start with Gemini.
+
+---
+
+<!-- file: /content/comparisons/claude-vs-gpt.md -->
+
+---
+title: "Claude Opus 4.6 vs GPT-5.4"
+type: comparison
+description: "Head-to-head comparison of Claude Opus 4.6 and GPT-5.4 — the two most capable proprietary AI models as of April 2026. Benchmarks, pricing, coding, writing, and ecosystem analysis."
+last_updated: "2026-04-10"
+tags:
+- "claude"
+- "gpt"
+- "anthropic"
+- "openai"
+- "comparison"
+---
+
+# Claude Opus 4.6 vs GPT-5.4
+
+The two most capable proprietary AI models available. This is the comparison most people are actually trying to make, and the answer is less obvious than either fanbase wants it to be.
+
+## At a Glance
+
+| | Claude Opus 4.6 | GPT-5.4 |
+|---|---|---|
+| **Provider** | Anthropic | OpenAI |
+| **Release** | February 2026 | March 2026 |
+| **Context Window** | 1M tokens | 1M tokens |
+| **Input Pricing** | $5.00 / 1M tokens | $5.00 / 1M tokens |
+| **Output Pricing** | $25.00 / 1M tokens | $15.00 / 1M tokens |
+| **Reasoning** | 96/100 | 95/100 |
+| **Coding** | 97/100 | 92/100 |
+| **Math** | 93/100 | 95/100 |
+| **Writing** | 95/100 | 93/100 |
+| **Multilingual** | 88/100 | 90/100 |
+| **Speed** | 62/100 | 80/100 |
+| **SWE-bench** | 80.8% | 74.9% |
+| **AIME** | Not disclosed | 94.6% |
+| **Modalities** | Text, Image | Text, Image, Audio |
+
+## Coding
+
+This is where the comparison tilts hardest. Claude Opus 4.6 scores 97/100 on coding benchmarks and 80.8% on SWE-bench -- the highest of any model, proprietary or open. GPT-5.4 lands at 92/100 coding and 74.9% SWE-bench. That 6-point SWE-bench gap represents a meaningful difference in real-world software engineering: Opus handles complex multi-file refactors, understands codebases holistically, and produces code that requires fewer corrections.
+
+Claude Code, Anthropic's CLI coding agent, is built exclusively on Claude models and is arguably the best agentic coding tool available. GPT-5.4 powers GitHub Copilot and is available in Cursor and Windsurf, giving it broader tool coverage but not the same depth of integration.
+
+**Winner: Claude Opus 4.6**, and it is not close.
+
+## Reasoning and Math
+
+GPT-5.4 edges ahead on math (95 vs 93) and matches closely on reasoning (95 vs 96). The AIME score of 94.6% is exceptional. For competition-level math and scientific reasoning, GPT-5.4 has a slight advantage -- and GPT-5.4 Thinking pushes further to 98/100 reasoning and 97/100 math, though at $10/$40 per million tokens.
+
+Claude Opus 4.6's reasoning score of 96 is marginally higher than GPT-5.4's 95, but in practice the difference is negligible for most tasks. Both models handle complex multi-step reasoning well.
+
+**Winner: GPT-5.4**, by a narrow margin. GPT-5.4 Thinking wins decisively if you are willing to pay for it.
+
+## Writing
+
+Claude has consistently produced better prose than GPT, and this generation continues the pattern. Opus 4.6 scores 95/100 on writing versus GPT-5.4's 93/100. The difference shows up in nuance: Claude produces text with better structure, more natural phrasing, and fewer of the formulaic patterns that GPT tends toward.
+
+For content creation, copywriting, editing, and any task where the quality of the text itself matters, Claude is the better choice. GPT-5.4 is perfectly competent for drafting, summarization, and business writing -- the gap only becomes apparent when you are pushing for quality.
+
+**Winner: Claude Opus 4.6.**
+
+## Speed
+
+GPT-5.4 is significantly faster. An 80/100 speed score versus Opus's 62/100 means GPT responds more quickly and feels more interactive. This matters for real-time applications, chat interfaces, and any workflow where latency affects user experience.
+
+Opus 4.6 thinks carefully, and you feel it. For complex tasks that benefit from deliberation, the slower speed is a feature. For rapid-fire Q&A and interactive coding assistance, it can be a frustration.
+
+**Winner: GPT-5.4.**
+
+## Pricing
+
+Input pricing is identical at $5.00 per million tokens. Output pricing is where they diverge: Opus 4.6 charges $25.00 per million output tokens versus GPT-5.4's $15.00. For output-heavy workloads (code generation, long-form writing, detailed analysis), GPT-5.4 is 40% cheaper on the output side.
+
+Both offer 1M token context windows. Neither charges a surcharge for long-context usage, which is a significant improvement over previous generations.
+
+For budget-conscious users who still want frontier quality, the output cost difference adds up. A workload generating 10 million output tokens per month costs $250 with Opus versus $150 with GPT -- $100/month more for Claude.
+
+**Winner: GPT-5.4**, on output cost. Input is a tie.
+
+## Ecosystem
+
+This is GPT's strongest advantage. OpenAI's ecosystem is the largest in AI: ChatGPT has hundreds of millions of users, the API has the deepest third-party integration, Microsoft 365 Copilot runs on GPT, and the Assistants API has a mature plugin marketplace. If you are building within an organization that already uses Microsoft tooling, GPT-5.4 is the path of least resistance.
+
+Anthropic's ecosystem is smaller but growing rapidly. Claude Code is best-in-class for agentic coding. The agent teams feature is unique to Claude. And Anthropic's safety-focused approach resonates with enterprises in regulated industries. But the third-party integration landscape is thinner than OpenAI's.
+
+GPT-5.4 also supports audio modality natively, which Claude does not. For voice-based applications, GPT is the only option among these two.
+
+**Winner: GPT-5.4.**
+
+## Multimodal
+
+GPT-5.4 supports text, image, and audio natively. Claude Opus 4.6 supports text and image. Neither supports video input (Gemini wins that category).
+
+For image understanding and analysis, both are strong. For audio processing, GPT is the only choice. If your workflow involves transcription, voice analysis, or audio-to-text pipelines, Claude cannot do it natively.
+
+**Winner: GPT-5.4**, due to audio support.
+
+## The Verdict
+
+**Pick Claude Opus 4.6 if:**
+- Coding is your primary use case. The SWE-bench gap is real and consequential.
+- Writing quality matters. Claude produces noticeably better prose.
+- You use Claude Code or are building agentic workflows with Anthropic's SDK.
+- You need the absolute highest coding accuracy and are willing to pay for slower output.
+
+**Pick GPT-5.4 if:**
+- You are already in the OpenAI/Microsoft ecosystem and switching cost is high.
+- Speed matters for your use case -- GPT is 30% faster.
+- Your workload is output-heavy and the $10/M token output savings adds up.
+- You need audio modality or broad third-party integrations.
+- Math and scientific reasoning are your primary tasks.
+
+**The honest answer:** Claude Opus 4.6 is the better model for coding and writing. GPT-5.4 is the better model for ecosystem, speed, and value on output-heavy workloads. Most developers should default to Claude for coding work and GPT for everything else -- or, more practically, use Claude Sonnet 4.6 as their daily driver at $3/$15 and save both Opus and GPT for the tasks that genuinely require frontier capability.
+
+---
+
+<!-- file: /content/comparisons/gpt-vs-gemini.md -->
+
+---
+title: "GPT-5.4 vs Gemini 3.1 Pro"
+type: comparison
+description: "Head-to-head comparison of GPT-5.4 and Gemini 3.1 Pro — the two most widely used frontier AI models. Ecosystem, pricing, multimodal, and benchmark analysis."
+last_updated: "2026-04-10"
+tags:
+- "gpt"
+- "gemini"
+- "openai"
+- "google"
+- "comparison"
+---
+
+# GPT-5.4 vs Gemini 3.1 Pro
+
+The two models with the largest user bases. GPT-5.4 powers ChatGPT and the Microsoft ecosystem. Gemini 3.1 Pro powers Google Search, Workspace, and the fastest-growing AI platform. Both have 1M token context windows. The pricing difference is dramatic.
+
+## At a Glance
+
+| | GPT-5.4 | Gemini 3.1 Pro |
+|---|---|---|
+| **Provider** | OpenAI | Google |
+| **Release** | March 2026 | February 2026 |
+| **Context Window** | 1M tokens | 1M tokens |
+| **Input Pricing** | $5.00 / 1M tokens | $2.00 / 1M tokens |
+| **Output Pricing** | $15.00 / 1M tokens | $12.00 / 1M tokens |
+| **Reasoning** | 95/100 | 93/100 |
+| **Coding** | 92/100 | 91/100 |
+| **Math** | 95/100 | 92/100 |
+| **Writing** | 93/100 | 89/100 |
+| **Multilingual** | 90/100 | 93/100 |
+| **Speed** | 80/100 | 78/100 |
+| **AIME** | 94.6% | Not disclosed |
+| **SWE-bench** | 74.9% | Not disclosed |
+| **Modalities** | Text, Image, Audio | Text, Image, Video, Audio |
+| **Free Tier** | No (Go plan at $8/mo) | Yes (Google AI Studio) |
+
+## Pricing
+
+GPT-5.4 costs $5/$15. Gemini 3.1 Pro costs $2/$12. On input, GPT is 2.5x more expensive. On output, the gap narrows to 1.25x. For input-heavy workloads (long document analysis, RAG pipelines), Gemini's pricing advantage is enormous. For output-heavy workloads (code generation, content creation), the difference is smaller but still favors Gemini.
+
+Gemini has a free tier through Google AI Studio. GPT has the Go plan at $8/month, which is a paid tier. For experimentation and low-volume use, Gemini wins by default.
+
+**Winner: Gemini 3.1 Pro.**
+
+## Reasoning and Math
+
+GPT-5.4 leads on both reasoning (95 vs 93) and math (95 vs 92). The AIME score of 94.6% is one of the highest published benchmarks. For problems requiring the deepest analytical reasoning -- math competitions, formal logic, scientific analysis -- GPT has a clear edge.
+
+GPT-5.4 Thinking pushes further to 98/100 reasoning and 97/100 math for an additional cost ($10/$40 per million tokens). Gemini has no equivalent thinking mode for the 3.1 Pro model (Deep Think is a separate model in the Gemini 3 series).
+
+For everyday reasoning tasks -- summarization, analysis, Q&A -- the 2-3 point gap between GPT and Gemini is unlikely to matter. Both handle standard business and research queries well.
+
+**Winner: GPT-5.4.**
+
+## Coding
+
+Close but GPT edges ahead: 92/100 versus 91/100 on coding benchmarks, with a 74.9% SWE-bench score. The gap is small enough that for most coding tasks, both models produce similar results. Neither is the coding leader -- that title belongs to Claude Opus 4.6 at 97/100 and 80.8% SWE-bench.
+
+GPT-5.4 has deeper coding tool integration through GitHub Copilot, which is the most widely used coding assistant. Gemini is available in Google Antigravity (free) and Cursor.
+
+**Winner: GPT-5.4**, by a slim margin.
+
+## Writing
+
+GPT-5.4 scores 93/100 on writing versus Gemini's 89/100. A 4-point gap that is noticeable in practice. GPT produces more polished prose with better structure and fewer repetitive patterns. Gemini's writing is competent but can be inconsistent -- brilliant on one prompt, formulaic on the next.
+
+For professional content creation, GPT is the more reliable choice. For drafting, summarization, and functional writing, both are adequate.
+
+**Winner: GPT-5.4.**
+
+## Multimodal
+
+This is where Gemini pulls away. It supports text, image, video, and audio natively -- all trained as first-class modalities. GPT-5.4 supports text, image, and audio, but not video.
+
+If your workflow involves video analysis, Gemini is the only option between these two. Even for image and audio tasks, Gemini's native multimodal training gives it an architectural advantage. Google's training data pipeline for visual and audio content is arguably the largest in the world.
+
+**Winner: Gemini 3.1 Pro.**
+
+## Multilingual
+
+Gemini scores 93/100 versus GPT's 90/100. Google's global reach across Search, Translate, and other services gives Gemini a data advantage in non-English languages. For applications serving a global audience or processing multilingual content, Gemini is the better pick.
+
+**Winner: Gemini 3.1 Pro.**
+
+## Speed
+
+Nearly identical. GPT at 80/100 versus Gemini at 78/100. In practice, both feel responsive and interactive. This is not a differentiating factor.
+
+**Winner: Tie.**
+
+## Ecosystem
+
+Two massive ecosystems, different centers of gravity.
+
+**GPT-5.4:** ChatGPT (hundreds of millions of users), Microsoft 365 Copilot, Azure OpenAI, GitHub Copilot, Assistants API, plugin marketplace, and the largest third-party developer community in AI. If your organization is Microsoft-centric, GPT is the default.
+
+**Gemini 3.1 Pro:** Google Search AI, Google Workspace, Vertex AI, Google AI Studio (free), Antigravity IDE (free), Android integration, and the Chrome extension ecosystem. If your organization is Google-centric, Gemini is the default.
+
+The OpenAI developer community is larger today, but Google's distribution advantage (Search, Android, Chrome) gives Gemini unmatched consumer reach.
+
+**Winner: Depends entirely on your existing stack.**
+
+## Consistency
+
+An underrated dimension. GPT-5.4 tends to produce more predictable, consistent outputs across prompt variations. Gemini can be more variable -- high highs and low lows depending on how you phrase the request. For production applications where predictability matters, this favors GPT.
+
+**Winner: GPT-5.4.**
+
+## The Verdict
+
+**Pick GPT-5.4 if:**
+- Reasoning and math are your primary use cases.
+- You are in the Microsoft/Azure ecosystem.
+- Writing quality matters for your outputs.
+- You need consistent, predictable behavior in production.
+- You already use GitHub Copilot or ChatGPT Plus.
+
+**Pick Gemini 3.1 Pro if:**
+- Budget is a primary concern. Gemini delivers 90%+ of GPT's quality at 40-60% of the cost.
+- You need video processing or the broadest multimodal support.
+- Multilingual support is important.
+- You are in the Google Cloud ecosystem.
+- You want a free tier to get started.
+- You need the largest possible developer distribution (via Google products).
+
+**The honest answer:** Gemini 3.1 Pro is the better value. GPT-5.4 is the more polished product. For most users, the quality difference between a 95 and 93 on reasoning does not justify a 2.5x input price increase. Gemini should be the default for cost-conscious teams, with GPT reserved for workloads where the last few percentage points of reasoning, writing quality, or ecosystem integration genuinely matter. And for coding specifically, neither of these models is the best choice -- that is Claude Opus 4.6.
+
+---
+
+<!-- file: /content/comparisons/open-source-vs-proprietary.md -->
+
+---
+title: "Open Source vs Proprietary AI Models"
+type: comparison
+description: "When to use open-source models versus proprietary APIs. Cost analysis, privacy, customization, performance gaps, hardware requirements, and best picks by use case."
+last_updated: "2026-04-10"
+tags:
+- "open-source"
+- "proprietary"
+- "self-hosting"
+- "comparison"
+- "cost-analysis"
+---
+
+# Open Source vs Proprietary AI Models
+
+The gap between open-source and proprietary AI models has narrowed dramatically since 2024. In some categories, it has closed entirely. The decision is no longer "can open source do what I need?" but "which trade-offs matter for my specific situation?"
+
+## The Performance Gap in April 2026
+
+The gap depends entirely on what you are measuring.
+
+| Category | Best Proprietary | Score | Best Open Source | Score | Gap |
+|----------|-----------------|-------|-----------------|-------|-----|
+| Reasoning | GPT-5.4 Thinking | 98 | Kimi K2.5 | 93 | 5 pts |
+| Coding | Claude Opus 4.6 | 97 | MiniMax M2.7 | 95 | 2 pts |
+| Math | GPT-5.4 Thinking | 97 | Qwen 3.5 | 94 | 3 pts |
+| Writing | Claude Opus 4.6 | 95 | Llama 4 Maverick / Mistral 3 | 86 | 9 pts |
+| Multilingual | Gemini 3.1 Pro | 93 | Qwen 3.5 | 97 | Open wins |
+| Speed | Claude Haiku 4.5 / Gemini Flash | 95 | Nemotron-Cascade 2 | 92 | 3 pts |
+
+Key observations:
+
+- **Coding is nearly closed.** MiniMax M2.7 (95/100) and GLM-5 (93/100, 77.8% SWE-bench) are competitive with all but the best proprietary model. For many coding tasks, open source is good enough.
+- **Math is nearly closed.** Qwen 3.5 (94/100) and DeepSeek R1 (94/100) rival proprietary models. DeepSeek R1 beat OpenAI o1 on AIME and MATH when it launched.
+- **Multilingual: open source wins.** Qwen 3.5 at 97/100 across 201 languages beats every proprietary model.
+- **Writing is the biggest gap.** No open model matches Claude (95) or GPT (93) on prose quality. The best open models score 86.
+- **Reasoning still favors proprietary.** GPT-5.4 Thinking at 98/100 has no open-source equivalent. But the gap from 93 to 98 only matters for the hardest problems.
+
+## Cost Analysis
+
+### API Pricing Comparison
+
+| Model | Input | Output | Quality Tier |
+|-------|-------|--------|-------------|
+| Claude Opus 4.6 | $5.00 | $25.00 | Premium |
+| GPT-5.4 | $5.00 | $15.00 | Premium |
+| Gemini 3.1 Pro | $2.00 | $12.00 | Premium |
+| Grok 4.20 | $2.00 | $6.00 | Mid-tier |
+| Claude Haiku 4.5 | $1.00 | $5.00 | Budget |
+| DeepSeek R1 | $0.55 | $2.19 | Budget |
+| MiniMax M2.7 | $0.53 | $0.53 | Budget |
+| DeepSeek V3.2 | $0.27 | $1.10 | Budget |
+| Gemini 3 Flash | $0.15 | $0.60 | Budget |
+| Self-hosted open source | Hardware cost only | Hardware cost only | Varies |
+
+### Self-Hosting Cost Breakdown
+
+Running your own models eliminates per-token costs but introduces hardware costs:
+
+**High-end setup (GLM-5, DeepSeek V3.2, Qwen 3.5 at FP16):**
+- 8x NVIDIA A100 80GB: ~$15,000-20,000/month (cloud rental) or ~$120,000 one-time purchase
+- Break-even vs. proprietary API: ~50-100M tokens/month depending on the model you are replacing
+
+**Mid-range setup (Llama 4 Maverick, Mistral 3 at FP16):**
+- 4x A100 80GB: ~$8,000-10,000/month (cloud) or ~$60,000 purchase
+- Break-even vs. proprietary API: ~30-50M tokens/month
+
+**Consumer setup (Nemotron-Cascade 2, Gemma 4, small Qwen variants):**
+- 1x RTX 4090 24GB: ~$2,000 one-time purchase
+- Break-even vs. proprietary API: Immediate (hardware is a sunk cost for most developers)
+
+**The math is clear:** If you process more than ~50M tokens/month, self-hosting a high-end open model is cheaper than proprietary APIs. If you process less, the API is simpler and cheaper when you factor in operational overhead.
+
+## Privacy and Data Sovereignty
+
+This is often the real decision driver, not performance or cost.
+
+**Proprietary APIs mean your data leaves your infrastructure.** OpenAI, Anthropic, and Google all have data processing agreements, but the data still transits through their servers. For healthcare (HIPAA), financial services, government, and any organization with strict data residency requirements, this can be a non-starter.
+
+**Self-hosted open models keep data on your infrastructure.** No data leaves your network. No terms of service can change retroactively. No third-party has access to your prompts or outputs. For regulated industries, this is often the only acceptable option.
+
+**Middle ground:** Most proprietary providers offer enterprise tiers with data processing agreements, SOC 2 compliance, and options to disable training on your data. Google offers on-premises Gemini through Vertex AI. These options narrow the gap but do not eliminate it -- the data still transits through provider infrastructure.
+
+## Customization
+
+Open-source models can be fine-tuned, distilled, quantized, and modified without restriction (license permitting). This matters for:
+
+- **Domain-specific fine-tuning:** Training a model on your company's codebase, documentation, or domain-specific data.
+- **Quantization for edge deployment:** Running Q4-quantized models on consumer GPUs, phones, or embedded devices.
+- **Custom safety/alignment:** Adjusting the model's behavior, tone, or restrictions to match your use case.
+- **Architectural modification:** Swapping attention mechanisms, adding adapters, or building custom inference pipelines.
+
+Proprietary models offer limited customization. OpenAI and Google offer fine-tuning APIs, but the degree of control is far less than what you get with open weights. Anthropic does not currently offer fine-tuning.
+
+## Best Open-Source Picks by Use Case
+
+| Use Case | Recommended Model | Why |
+|----------|-------------------|-----|
+| General purpose | Qwen 3.5 397B-A17B | Best all-rounder: 91 reasoning, 92 coding, 94 math, 97 multilingual. Apache 2.0. |
+| Coding | GLM-5 | 77.8% SWE-bench, 93/100 coding. Best open model for software engineering. MIT license. |
+| Coding (budget hardware) | Nemotron-Cascade 2 | 90/100 coding on a single RTX 4090. Gold medals on IMO/IOI/ICPC. |
+| Coding (API, cheapest) | MiniMax M2.7 | 95/100 coding at $0.53/M tokens. Absurd value. |
+| Math/reasoning | DeepSeek R1 | 94/100 math, beat OpenAI o1 on AIME. MIT license. $0.55/$2.19 via API. |
+| Multilingual | Qwen 3.5 397B-A17B | 97/100 multilingual, 201 languages. Nothing else comes close. |
+| European compliance | Mistral 3 | Apache 2.0 from a Paris-based company. Designed for EU AI Act compliance. |
+| Consumer hardware | Nemotron-Cascade 2 (3B active) | Runs on RTX 4090 or even RTX 3090. Best performance-per-FLOP available. |
+| Phone/edge | Gemma 4 E2B / Qwen 3.5 small variants | Sub-4B parameter models designed for mobile and embedded deployment. |
+| Community/ecosystem | Llama 4 Maverick | Largest community, most fine-tunes, deepest tooling integration. |
+
+## When to Use Proprietary APIs
+
+Open source is not always the answer. Use proprietary APIs when:
+
+1. **Writing quality is critical.** The 9-point gap on writing (Claude 95, best open 86) is the largest remaining advantage. No open model matches Claude or GPT on prose quality.
+2. **You need the absolute ceiling on reasoning.** GPT-5.4 Thinking at 98/100 has no open-source equivalent for the hardest problems.
+3. **Operational simplicity matters more than cost.** API calls require zero infrastructure management. For small teams or startups, the engineering time saved by not managing GPU clusters is real.
+4. **You need multimodal beyond text and image.** Gemini's native video and audio support has no open-source equivalent at comparable quality.
+5. **Enterprise support and SLAs are required.** OpenAI, Anthropic, and Google offer enterprise agreements, uptime guarantees, and dedicated support. Open-source support is community-based.
+
+## The Verdict
+
+**Start with open source if:**
+- Data privacy or sovereignty is a hard requirement.
+- You process high token volumes (50M+/month) and cost optimization is important.
+- You need fine-tuning or custom model behavior.
+- Your use case is coding, math, or multilingual work -- where the gap is smallest.
+- You have the GPU infrastructure or are willing to invest in it.
+
+**Start with proprietary if:**
+- Writing quality is a primary output.
+- You need the highest possible reasoning for genuinely hard problems.
+- Your team is small and managing infrastructure is a distraction.
+- You need video/audio multimodal capabilities.
+- Enterprise SLAs and support matter.
+
+**The honest answer:** The best strategy for most organizations is a hybrid approach. Use proprietary APIs (Claude Opus 4.6 for coding, Gemini 3.1 Pro for general tasks) for quality-critical workloads, and route high-volume, cost-sensitive, or privacy-sensitive tasks to self-hosted open models (DeepSeek V3.2, Qwen 3.5, or Nemotron-Cascade 2). The models are not mutually exclusive -- treat them as tools in a toolbox and pick the right one for each job.
+
+---
+
 <!-- file: /content/guides/_index.md -->
 
 ---
@@ -4065,6 +4994,1294 @@ Want to compare more AI models side by side? Visit our [AI model comparison page
 
 ---
 
+<!-- file: /content/prompt-patterns/_index.md -->
+
+---
+title: "Prompt Patterns by Model"
+type: index
+description: "Model-specific prompting patterns and techniques. What works best with each AI model family — structured for agents that generate prompts."
+last_updated: "2026-04-10"
+---
+
+# Prompt Patterns by Model
+
+Every AI model has quirks. A prompt that produces great results with Claude might fall flat with GPT, and a technique that shines on Grok might be unnecessary for Gemini. These guides document what actually works with each model family -- the patterns, formatting tricks, and techniques that get the best output from each one.
+
+These are not generic prompting tips. For universal prompting fundamentals, read our [Prompt Engineering Guide](/guides/prompting). The pages below are about what is *different* for each model.
+
+---
+
+## Pattern Files
+
+### [OpenAI GPT-5.4](openai.md)
+Prompting patterns for GPT-5.4 and ChatGPT. Covers system prompt behavior, structured output, verbosity control, Thinking mode for hard reasoning, and Custom Instructions for persistent preferences.
+
+### [Anthropic Claude](anthropic.md)
+Prompting patterns for Claude Opus 4.6, Sonnet 4.6, and Haiku 4.5. Covers XML tag structuring, long-context strategies, constraint following, extended thinking, tiered instructions, and artifact generation.
+
+### [Google Gemini](google.md)
+Prompting patterns for Gemini 3.1 Pro and Gemini 3 Flash. Covers multimodal prompting, web grounding, Google Workspace integration, multilingual output, and code execution.
+
+### [xAI Grok](xai.md)
+Prompting patterns for Grok 4.1 and Grok 4.20. Covers factual accuracy prompting, complex instruction following, real-time X/Twitter data access, and multi-agent mode.
+
+### [Open Source Models](open-source.md)
+Prompting patterns for Llama 4, DeepSeek R1, Qwen 3/3.5, Hermes 4, and other self-hosted models. Covers system prompt formats, quantization-aware prompting, reasoning toggles, and temperature tuning.
+
+---
+
+## How to Use These Patterns
+
+**If you are prompting manually:** Read the guide for your model, then adapt the example prompts to your task.
+
+**If you are building an AI agent:** Use these patterns to generate model-appropriate prompts programmatically. The patterns are structured so you can map them to template variables.
+
+**If you are switching models:** Compare two model pages side-by-side to understand what you need to change in your prompts when migrating.
+
+---
+
+<!-- file: /content/prompt-patterns/anthropic.md -->
+
+---
+title: "Prompting Patterns for Anthropic Claude"
+type: prompt-pattern
+description: "What works specifically with Claude Opus 4.6, Sonnet 4.6, and Haiku 4.5 — XML tags, long context, constraint following, extended thinking, and tiered instructions."
+last_updated: "2026-04-10"
+tags:
+  - anthropic
+  - claude
+  - opus
+  - sonnet
+  - haiku
+  - prompt-patterns
+---
+
+# Prompting Patterns for Anthropic Claude
+
+Claude handles prompts differently than GPT or Gemini. It was trained with a focus on instruction-following precision, long-context reasoning, and nuanced output. The patterns that get the best results from Claude are specific to how it processes structure and constraints.
+
+This guide covers Claude Opus 4.6, Sonnet 4.6, and Haiku 4.5. The same patterns work across all three tiers -- Opus is the most capable, Sonnet is the best balance of speed and quality, and Haiku is the fastest and cheapest.
+
+For general prompting techniques that work across all models, see the [Prompt Engineering Guide](/guides/prompting).
+
+---
+
+## XML Tags: Claude's Secret Weapon
+
+Claude responds exceptionally well to XML-style tags for organizing prompt sections. This is the single most impactful pattern for Claude -- it dramatically improves how Claude parses and follows complex prompts.
+
+The tags are not real XML and do not need to be valid markup. They are structural markers that tell Claude "this section is context," "this section is instructions," "this section is an example." Claude was specifically trained to recognize and respect these boundaries.
+
+```
+<instructions>
+You are a code reviewer. Review the code below for bugs, performance
+issues, and readability. For each issue, explain the problem and
+provide a fix.
+
+Rules:
+- Focus only on substantive issues, not style nitpicks
+- Rate overall code quality on a scale of 1-10
+- If the code is good, say so briefly and move on
+</instructions>
+
+<context>
+This is a Python microservice that handles payment processing. It runs
+on AWS Lambda with a 30-second timeout. The team uses Python 3.12 and
+follows PEP 8.
+</context>
+
+<code>
+def process_payment(amount, currency, customer_id):
+    response = stripe.charges.create(
+        amount=amount,
+        currency=currency,
+        customer=customer_id
+    )
+    db.execute("INSERT INTO payments VALUES (?, ?, ?)",
+               (customer_id, amount, response.id))
+    return {"status": "success", "charge_id": response.id}
+</code>
+```
+
+Common tags that work well with Claude:
+- `<instructions>` -- what you want Claude to do
+- `<context>` -- background information
+- `<examples>` -- input/output examples
+- `<constraints>` -- rules and boundaries
+- `<input>` or `<document>` -- the content to process
+- `<output_format>` -- how you want the response structured
+
+You can nest them, combine them, and invent your own. Claude treats any XML-like tag as a section boundary.
+
+---
+
+## Long Context: Put the Question After the Context
+
+With 1M tokens of context across all tiers, Claude can process entire codebases, full document collections, and lengthy datasets in a single prompt. But *where* you place your question matters.
+
+The pattern: put all context material first, then your question or instructions at the end. Claude weights the end of the prompt more heavily for determining what to do, while the beginning serves as reference material.
+
+```
+<documents>
+
+<document title="Q1 Financial Report">
+[... 15 pages of financial data ...]
+</document>
+
+<document title="Q2 Financial Report">
+[... 15 pages of financial data ...]
+</document>
+
+<document title="Board Meeting Notes - March">
+[... 5 pages of meeting notes ...]
+</document>
+
+</documents>
+
+<instructions>
+Based on the documents above, answer these questions:
+
+1. What was the quarter-over-quarter revenue growth rate?
+2. Which product line showed the largest margin improvement?
+3. What risks were discussed in the board meeting that could affect Q3?
+
+For each answer, cite the specific document and section where you found
+the information.
+</instructions>
+```
+
+This "context first, question last" pattern produces noticeably better results than putting the question at the top. Claude will reference the full context but focus its response on the instructions at the end.
+
+---
+
+## Constraint Following: "Do This But Not That"
+
+Claude excels at following explicit constraints -- especially negative constraints. If there are things you *do not* want Claude to do, say so directly. Claude is more reliable at respecting boundaries than most models.
+
+```
+<instructions>
+Explain blockchain technology for a business audience.
+
+Do:
+- Use analogies from traditional business (ledgers, contracts, audits)
+- Keep paragraphs under 4 sentences
+- Include one real-world use case that is NOT cryptocurrency
+
+Do not:
+- Mention Bitcoin, Ethereum, or any specific cryptocurrency
+- Use technical jargon (hash, nonce, Merkle tree, consensus mechanism)
+- Include disclaimers about volatility or investment risk
+- Start with a dictionary-style definition
+</instructions>
+```
+
+Claude handles this "do/do not" pattern cleanly. It will follow the positive instructions while reliably avoiding the negative ones. This is particularly useful for:
+
+- Content generation where you need to avoid certain topics
+- Code generation where you want to exclude certain libraries or patterns
+- Analysis where you want to focus on specific angles and ignore others
+
+---
+
+## Extended Thinking: For Complex Tasks
+
+Claude's extended thinking feature gives the model time to reason through complex problems before responding. Unlike GPT-5.4 Thinking, this is not activated by the prompt itself -- it is an API parameter (`thinking: { type: "enabled", budget_tokens: 10000 }`).
+
+In Claude.ai (the web interface), extended thinking is available as a toggle. Turn it on for:
+
+- Complex coding tasks (architecture decisions, debugging multi-file issues)
+- Math and logic problems
+- Long-document analysis where synthesis is required
+- Any task where you notice Claude's first answer is shallow or wrong
+
+You do not need to prompt "think step by step" with Claude. If extended thinking is enabled, Claude will automatically use it when the task warrants it. Your prompt should focus on *what* you want, not *how* Claude should think.
+
+```
+<context>
+[paste a 2,000-line Python codebase here]
+</context>
+
+<instructions>
+This codebase has a bug: when two users simultaneously update the same
+record, one update is silently lost. Find the race condition, explain
+why it happens, and provide a fix that uses optimistic locking.
+</instructions>
+```
+
+With extended thinking enabled, Claude will reason through the codebase methodically before responding. Without it, Claude might jump to the most obvious candidate and miss the actual bug.
+
+---
+
+## Nuanced Writing: Give Claude a Voice
+
+Claude produces less formulaic prose than most models. It does not default to the "listicle with emoji" style that plagues AI-generated content. But to get the best writing out of Claude, give it a specific voice or style to match rather than just a topic.
+
+```
+<instructions>
+Write a 500-word essay arguing that most productivity advice is
+counterproductive.
+
+Voice and style:
+- Write like Paul Graham: conversational but intellectually rigorous
+- Short paragraphs (2-3 sentences max)
+- Start with a contrarian observation, not a thesis statement
+- Use specific examples, not generic ones
+- No bullet points, no headers, no bold text -- just flowing prose
+- The tone should be "smart friend explaining something at dinner,"
+  not "business blog post"
+</instructions>
+```
+
+Claude responds well to style references (named authors, publications, specific tones) and to explicit structural guidance. The more specific you are about *how* you want something written, the more distinctive the output.
+
+---
+
+## Artifacts: Standalone Outputs in Claude.ai
+
+When using Claude.ai, Claude can create "artifacts" -- standalone pieces of content that appear in a separate panel. These include code files, HTML pages, SVG graphics, diagrams, and interactive React components.
+
+To trigger artifact creation, be explicit about wanting a standalone output:
+
+```
+Create an interactive calculator that converts between Celsius and
+Fahrenheit. It should:
+- Have a single input field with a toggle for C→F or F→C
+- Update the result in real-time as the user types
+- Show the formula used below the result
+- Use clean, minimal styling with a dark theme
+
+Make this as a standalone interactive artifact.
+```
+
+Claude will produce a complete, runnable React component. Artifacts are useful when you want something you can copy, download, or interact with directly rather than reading it inline in the conversation.
+
+---
+
+## Tiered Instructions: Hierarchical Prompts
+
+Claude handles hierarchical instructions well. You can give it a high-level goal, then specific rules, then examples -- and it will respect all three levels without losing track.
+
+```
+<goal>
+You are helping me prepare for a job interview at a senior engineering
+level. Your job is to ask me technical questions, evaluate my answers,
+and give me honest feedback.
+</goal>
+
+<rules>
+- Ask one question at a time
+- Wait for my answer before proceeding
+- After I answer, rate it on a scale of 1-5 and explain what a
+  perfect answer would include
+- Vary difficulty: alternate between medium and hard questions
+- Cover these topics: system design, algorithms, behavioral
+- If I say "skip," move to the next question without judgment
+- After 10 questions, give me an overall assessment with specific
+  areas to improve
+</rules>
+
+<examples>
+Good question: "Design a URL shortening service that handles 100M
+new URLs per day. Walk me through your approach."
+
+Bad question: "What is a hash table?" (too basic for senior level)
+
+Good feedback: "3/5. You covered the basic architecture well but
+didn't address data partitioning or cache invalidation, which are
+critical at this scale. A strong answer would also discuss trade-offs
+between consistency and availability."
+</examples>
+
+Start with your first question.
+```
+
+The three-tier structure (goal, rules, examples) gives Claude a clear hierarchy: the goal defines success, the rules define behavior, and the examples calibrate quality. Claude follows all three levels simultaneously without conflating them.
+
+---
+
+## Quick Reference
+
+- **XML tags:** Use `<instructions>`, `<context>`, `<examples>`, and similar tags to separate prompt sections. This is the highest-impact pattern for Claude.
+- **Long context:** With 1M tokens, paste entire documents and codebases. Always put your question/instructions *after* the context, not before.
+- **Constraints:** Claude excels at "do this but not that" instructions. Be explicit about both what you want and what you want to avoid.
+- **Extended thinking:** Activated via API parameter or toggle in Claude.ai, not by prompt. Use it for complex reasoning, debugging, and multi-document analysis.
+- **Writing quality:** Give Claude a specific voice, style reference, or structural guidance. It produces less formulaic output than most models when given room.
+- **Artifacts:** In Claude.ai, ask for "standalone" or "interactive" outputs to get artifacts (code, HTML, diagrams) in a separate panel.
+- **Tiered instructions:** Structure complex prompts as goal (what) > rules (how) > examples (calibration). Claude respects the hierarchy.
+- **Negative instructions:** "Do not" instructions are followed reliably. Use them to prevent common AI output patterns you want to avoid.
+
+---
+
+<!-- file: /content/prompt-patterns/google.md -->
+
+---
+title: "Prompting Patterns for Google Gemini"
+type: prompt-pattern
+description: "What works specifically with Gemini 3.1 Pro and Gemini 3 Flash — multimodal prompts, web grounding, Google Workspace integration, multilingual output, and code execution."
+last_updated: "2026-04-10"
+tags:
+  - google
+  - gemini
+  - prompt-patterns
+  - multimodal
+---
+
+# Prompting Patterns for Google Gemini
+
+Gemini is Google's model family, and its strengths are different from GPT or Claude. Where GPT leads in ecosystem breadth and Claude leads in instruction precision, Gemini leads in multimodal capabilities, web access, and integration with Google's product suite. The prompting patterns that get the best results from Gemini reflect these differences.
+
+This guide covers Gemini 3.1 Pro (the flagship) and Gemini 3 Flash (the fast, cheap option). Both share the same patterns, but Pro handles more complex tasks and longer reasoning chains.
+
+For general prompting techniques that work across all models, see the [Prompt Engineering Guide](/guides/prompting).
+
+---
+
+## Multimodal: Images, Video, and Audio Natively
+
+Gemini natively processes images, video, and audio alongside text. This is not a bolt-on feature -- Gemini was multimodal from its architecture. You can mix media types in a single prompt and Gemini will reason across all of them.
+
+The key to good multimodal prompts: tell Gemini *what* to look at and *what format* you want the analysis in.
+
+```
+[attach image of a restaurant receipt]
+
+Extract all items from this receipt into a structured table with columns:
+Item, Quantity, Unit Price, Total. Include tax, tip, and grand total
+as separate rows at the bottom.
+
+If any text is unclear or partially obscured, mark it as "[unclear]"
+rather than guessing.
+```
+
+For video analysis:
+
+```
+[attach 2-minute product demo video]
+
+Watch this product demo and create:
+1. A timeline of features shown, with timestamps
+2. Three strengths of the demo (what was communicated well)
+3. Three weaknesses (what was confusing or missing)
+4. A suggested 30-second script that covers only the most compelling
+   features, suitable for a social media ad
+```
+
+For audio:
+
+```
+[attach audio file of a customer support call]
+
+Transcribe this call and then analyze it:
+- Summarize the customer's issue in 2 sentences
+- Rate the support agent's performance (1-5) on: empathy, resolution
+  speed, product knowledge
+- Flag any moments where the customer expressed frustration
+- List any follow-up actions that were promised
+```
+
+Gemini handles all of these natively. When attaching multiple files, reference them explicitly ("in the first image," "at the 1:30 mark in the video") so Gemini knows what you are referring to.
+
+---
+
+## Web Grounding: Built-In Search
+
+Gemini has built-in web search capabilities. You do not need a plugin or extension -- Gemini can search the web, read current pages, and ground its responses in real-time information.
+
+This is a major differentiator. Use it for tasks where currency matters:
+
+```
+What were the top 3 AI announcements in the past week? For each one:
+- What was announced and by whom
+- Why it matters
+- Link to the primary source
+
+Verify each claim against current search results. Do not rely on your
+training data for anything dated after January 2026.
+```
+
+Web grounding is also useful for fact-checking within a larger task:
+
+```
+I'm writing an article about electric vehicle adoption in Europe.
+Here are my draft claims -- verify each one against current data and
+correct any that are outdated or wrong:
+
+1. Norway leads EV adoption at over 80% of new car sales
+2. The EU plans to ban new ICE vehicles by 2035
+3. Germany has the most public charging stations in Europe
+4. EV battery costs have fallen below $100/kWh
+
+For each claim, tell me: Accurate / Outdated / Incorrect, and provide
+the current correct figure with a source.
+```
+
+When you want Gemini to use web search, be explicit. Phrases like "search for current data," "verify against current sources," and "find the latest" signal to Gemini that it should ground its response in live web results rather than training data.
+
+---
+
+## Google Workspace Integration
+
+When using Gemini through Google Workspace (Gmail, Docs, Sheets, Drive), you can reference your own documents directly. This is a workflow advantage no other model matches.
+
+```
+Look at the spreadsheet "Q1 Sales Pipeline" in my Google Sheets.
+
+Analyze the data and tell me:
+1. Which deals are most likely to close this month (based on stage and
+   last activity date)
+2. Total pipeline value by sales rep
+3. Which deals have been stale for more than 30 days with no activity
+
+Format the results as a summary I can paste into an email to the
+sales team.
+```
+
+In Gmail:
+
+```
+Search my inbox for all emails from the engineering team about the
+"Project Atlas" migration in the past 2 weeks.
+
+Summarize:
+- Current status of the migration
+- Any blockers or risks mentioned
+- Action items assigned to me
+- Next milestone date
+```
+
+The Workspace integration means Gemini can work with your actual data rather than requiring you to copy-paste it. This is Gemini's most underappreciated capability for business users.
+
+---
+
+## Conciseness: Ask for Detail Explicitly
+
+Gemini can default to shorter responses, especially Gemini 3 Flash. If you want comprehensive output, say so explicitly. Do not assume Gemini will elaborate on its own.
+
+```
+Short (Gemini's default tendency):
+
+  Explain microservices architecture.
+
+  [Gemini may give a 3-4 sentence overview]
+
+Better:
+
+  Explain microservices architecture in detail. Cover:
+  - Core principles and how they differ from monolithic architecture
+  - Communication patterns (sync vs async, REST vs gRPC vs messaging)
+  - Data management strategies (database per service, event sourcing)
+  - Common failure patterns and how to handle them
+  - When NOT to use microservices
+
+  Aim for a comprehensive explanation that a mid-level developer could
+  use as a reference. Include concrete examples for each point.
+```
+
+The fix: be explicit about the depth and breadth you want. Enumerate the sub-topics. Gemini responds well to structured requests where you list exactly what you want covered.
+
+Conversely, if you want Gemini to be *more* concise (which is less common but does happen with Pro), the same techniques that work with GPT apply: "maximum 3 sentences," "one paragraph," "bullet points only."
+
+---
+
+## Multilingual: Strongest Cross-Language Performance
+
+Gemini has the strongest multilingual capabilities of any major model. It handles translation, cross-language analysis, and multilingual content generation with high quality across a wide range of languages.
+
+When working across languages, specify the output language explicitly:
+
+```
+I have a customer support FAQ written in English. Translate it to
+Brazilian Portuguese (pt-BR), but do not just translate literally.
+Adapt the tone and examples to be culturally appropriate for a
+Brazilian audience.
+
+For technical terms that are commonly used in English in Brazil
+(like "software," "backup," "login"), keep them in English.
+
+After translating, flag any FAQ entries where the answer might need
+to be different for Brazilian customers (e.g., payment methods,
+business hours, legal requirements).
+
+[paste FAQ content]
+```
+
+Gemini also excels at multilingual analysis:
+
+```
+Here are customer reviews in 5 languages: English, Spanish, Japanese,
+German, and French.
+
+Analyze all reviews together and produce a single English-language
+report that covers:
+- Overall sentiment distribution across all languages
+- Top 3 complaints (with example quotes translated to English)
+- Top 3 praised features
+- Any concerns that appear only in specific language/market segments
+
+[paste reviews]
+```
+
+---
+
+## Code Execution: Run It, Don't Just Write It
+
+Gemini can execute code in its environment, which makes it uniquely useful for data analysis tasks. Instead of just generating code and hoping it works, Gemini can run it and show you the results.
+
+```
+Here's a CSV of our website traffic data for the past 12 months.
+
+Run a Python analysis that:
+1. Identifies the top 5 traffic sources by volume
+2. Calculates month-over-month growth rate for each source
+3. Finds any seasonal patterns (are certain months consistently
+   higher or lower?)
+4. Creates a visualization showing traffic trends by source over time
+
+Show me the chart and a summary of your findings. If any data looks
+anomalous, flag it.
+
+[paste or attach CSV data]
+```
+
+Gemini will write the Python code, execute it, generate the chart, and narrate the findings. This is faster than the usual workflow of "AI generates code, you copy it to a notebook, you debug it, you run it."
+
+This pattern works best for:
+- Data analysis and visualization
+- Statistical calculations where you need verified numbers
+- Quick data transformations (CSV to JSON, cleaning datasets)
+- Prototyping algorithms where you want to see actual output
+
+---
+
+## Quick Reference
+
+- **Multimodal:** Gemini natively processes images, video, and audio. Tell it what to look at and what format you want the analysis in. Reference specific files or timestamps explicitly.
+- **Web grounding:** Gemini has built-in search. Use phrases like "verify against current data" and "search for the latest" to trigger web-grounded responses.
+- **Google Workspace:** When using Gemini in Workspace, reference your Docs, Sheets, and emails directly. No copy-pasting needed.
+- **Conciseness:** Gemini can default to shorter responses. Explicitly ask for comprehensive, detailed output and enumerate the sub-topics you want covered.
+- **Multilingual:** Specify the output language explicitly. Gemini handles translation, cross-language analysis, and cultural adaptation well.
+- **Code execution:** Ask Gemini to run code, not just write it. Useful for data analysis, visualization, and verifying calculations.
+- **Structured requests:** Gemini responds well to numbered lists of requirements. Enumerate what you want rather than describing it in prose.
+
+---
+
+<!-- file: /content/prompt-patterns/open-source.md -->
+
+---
+title: "Prompting Patterns for Open Source Models"
+type: prompt-pattern
+description: "What works with self-hosted and API-accessed open models — Llama 4, DeepSeek R1, Qwen 3/3.5, Hermes 4, and others. Covers system prompt formats, quantization-aware prompting, reasoning toggles, and temperature tuning."
+last_updated: "2026-04-10"
+tags:
+  - open-source
+  - llama
+  - deepseek
+  - qwen
+  - hermes
+  - self-hosted
+  - prompt-patterns
+---
+
+# Prompting Patterns for Open Source Models
+
+Open source models are a different game. You control the infrastructure, the configuration, and often the prompt template format itself. The patterns that work with proprietary models (GPT, Claude, Gemini) do not always transfer directly -- open models have different system prompt formats, different sensitivity to temperature and quantization, and model-specific features like reasoning toggles.
+
+This guide covers the practical prompting differences for the most capable open models: Llama 4 (Scout and Maverick), DeepSeek R1 and V3.2, Qwen 3 and 3.5, and Hermes 4. These patterns apply whether you are self-hosting or accessing these models through API providers.
+
+For general prompting techniques that work across all models, see the [Prompt Engineering Guide](/guides/prompting).
+
+---
+
+## System Prompt Formats: Model-Specific Templates
+
+Unlike proprietary models where the API handles prompt formatting, open models require you to use the correct chat template. Using the wrong format degrades output quality significantly -- the model may ignore your system prompt, produce garbled output, or fail to follow instructions.
+
+### Llama 4 (Meta)
+
+Llama 4 uses a specific template with `[INST]` tags:
+
+```
+<|begin_of_text|><|start_header_id|>system<|end_header_id|>
+
+You are a helpful assistant specializing in Python code review.
+Always explain your reasoning before suggesting changes. Focus on
+correctness, readability, and performance in that order.
+<|eot_id|><|start_header_id|>user<|end_header_id|>
+
+Review this function for issues:
+
+def get_users(db, status):
+    query = f"SELECT * FROM users WHERE status = '{status}'"
+    return db.execute(query).fetchall()
+<|eot_id|><|start_header_id|>assistant<|end_header_id|>
+```
+
+If you are using a framework like vLLM, llama.cpp, or Ollama, the template is usually applied automatically. But if you are hitting a raw endpoint or building your own serving stack, you must apply the template yourself. Getting it wrong is one of the most common causes of poor performance with open models.
+
+### ChatML Format (Qwen, Hermes, many others)
+
+Many models use the ChatML format, including Qwen 3/3.5 and Hermes 4:
+
+```
+<|im_start|>system
+You are a data analyst. When given a dataset, always start by
+describing the shape of the data (rows, columns, types) before
+analyzing it. Present findings as numbered insights, most important
+first.
+<|im_end|>
+<|im_start|>user
+Here's our monthly sales data for 2025:
+[paste CSV data]
+What trends do you see?
+<|im_end|>
+<|im_start|>assistant
+```
+
+### Alpaca Format (older/fine-tuned models)
+
+Some fine-tuned models still use the Alpaca instruction format:
+
+```
+### Instruction:
+You are a technical writer. Rewrite the following error message to be
+user-friendly. Keep it under 15 words.
+
+### Input:
+Error 0x8007045D: The request could not be performed because of an
+I/O device error.
+
+### Response:
+```
+
+**Rule of thumb:** Check the model card on Hugging Face for the correct chat template before deploying. Most inference failures with open models trace back to prompt formatting issues.
+
+---
+
+## Quantization Awareness: More Explicit Prompts for Smaller Models
+
+When running quantized models (Q4, Q5, Q8 via GGUF), you are trading precision for speed and memory. Q4 models lose some instruction-following ability compared to their full-precision counterparts. The fix is more explicit prompts.
+
+What changes with quantized models:
+- They are more likely to drift from complex instructions
+- They handle fewer simultaneous constraints
+- Ambiguous prompts produce worse results than with full-precision models
+- Output formatting is less reliable
+
+Pattern for quantized models -- be brutally explicit:
+
+```
+TASK: Classify the following customer email.
+
+CATEGORIES (pick exactly one):
+- BILLING: about charges, invoices, refunds, payments
+- TECHNICAL: about bugs, errors, how-to, integrations
+- ACCOUNT: about login, permissions, settings, cancellation
+- OTHER: does not fit above categories
+
+OUTPUT FORMAT: Return ONLY the category name, nothing else.
+No explanation. No preamble. Just the single word.
+
+EMAIL:
+"Hi, I've been trying to connect your API to our Salesforce instance
+but keep getting a 403 error. I've double-checked our API key and it
+seems correct. Can someone help?"
+
+CATEGORY:
+```
+
+With a full-precision model, you could write this more casually and it would figure out what you want. With a Q4 quantization, the explicit format, the enumerated categories, and the "return ONLY the category name" instruction prevent the model from adding unwanted explanation or picking an off-list category.
+
+---
+
+## DeepSeek R1: Explicit Reasoning Mode
+
+DeepSeek R1 is one of the strongest reasoning models available as open source. It has explicit "think" and "non-think" modes. For hard problems, you want to trigger the thinking mode.
+
+The simplest way:
+
+```
+Think step by step.
+
+A company has 3 data centers. Each has an independent failure rate of
+2% per month. They need at least 2 data centers running to serve
+customers.
+
+What is the probability of a service outage (fewer than 2 data centers
+running) in any given month? What about over a full year?
+
+Show your complete calculation.
+```
+
+"Think step by step" is not just a suggestion with DeepSeek R1 -- it activates the model's explicit reasoning chain. You will see the model produce a `<think>` block with its working before giving the final answer.
+
+For tasks where you do NOT want the reasoning overhead (simple lookups, formatting, translation), skip the reasoning trigger:
+
+```
+Translate the following English text to formal Japanese. Do not explain
+your translation choices. Output only the Japanese text.
+
+"We are pleased to announce that the quarterly review meeting has been
+rescheduled to March 15th at 2:00 PM."
+```
+
+The difference in latency between think mode and direct mode is substantial. Use think mode only when accuracy on a hard problem justifies the wait.
+
+---
+
+## Qwen 3/3.5: Hybrid Reasoning
+
+Qwen 3 and 3.5 support a similar hybrid approach to DeepSeek, with explicit control over whether the model reasons before answering.
+
+**Think mode** (for complex tasks):
+
+```
+/think
+
+You are reviewing a distributed system design. The system uses
+eventual consistency with a 5-second propagation delay.
+
+A user updates their profile name on Server A, then immediately reads
+their profile from Server B. Describe all possible outcomes, the
+probability of each, and how you would solve the inconsistency problem
+with minimal latency impact.
+```
+
+The `/think` prefix tells Qwen to engage its reasoning mode. The model will produce its chain-of-thought before answering.
+
+**Non-think mode** (for fast responses):
+
+```
+/no_think
+
+Convert this JSON to a Python dataclass:
+
+{"name": "string", "age": "int", "email": "string", "roles": ["string"],
+ "active": "bool"}
+```
+
+Qwen 3.5 is particularly strong on multilingual tasks, supporting 201 languages. When working cross-language, specify the output language and script explicitly:
+
+```
+/no_think
+
+Summarize the following Japanese article in English. 3 bullet points
+maximum. Focus on the business implications, not the technical details.
+
+[paste Japanese text]
+```
+
+---
+
+## Hermes Models: Think Tags for Reasoning Control
+
+Hermes 4 (based on Llama 4 Maverick, 405B parameters) supports explicit `<think>` tags that toggle reasoning mode. This gives you fine-grained control over when the model reasons and when it responds directly.
+
+```
+<|im_start|>system
+You are a code security auditor. When analyzing code, use <think> tags
+to reason through potential vulnerabilities before presenting your
+findings.
+<|im_end|>
+<|im_start|>user
+Review this authentication function for security issues:
+
+def authenticate(username, password):
+    user = db.query(f"SELECT * FROM users WHERE username='{username}'")
+    if user and user.password == password:
+        return create_session(user.id)
+    return None
+<|im_end|>
+<|im_start|>assistant
+<think>
+Let me analyze this step by step...
+- SQL injection via f-string formatting in the query
+- Plaintext password comparison (no hashing)
+- No rate limiting or brute force protection
+- Session creation doesn't check if user is active/banned
+</think>
+
+I found 4 security vulnerabilities in this function...
+```
+
+You can also instruct Hermes to skip thinking for simple tasks by telling it not to use `<think>` tags:
+
+```
+Do not use <think> tags. Respond directly.
+
+What is the current LTS version of Node.js?
+```
+
+---
+
+## Context Limits and Temperature
+
+### Context Windows
+
+Most open models have 128K token context windows -- large by historical standards but notably smaller than the 1M windows offered by GPT-5.4, Claude, and Gemini. Some specifics:
+
+- **Llama 4 Scout:** 10M tokens (the exception -- massive context)
+- **Llama 4 Maverick:** 1M tokens
+- **DeepSeek R1/V3.2:** 128K tokens
+- **Qwen 3.5:** 128K tokens
+- **Hermes 4:** 128K tokens
+
+For models with 128K context, plan your prompts accordingly. You cannot paste a full codebase like you can with Claude or Gemini. Instead, provide only the relevant files or sections, and be explicit about what you are including and why:
+
+```
+I'm debugging a race condition in our order processing system. Here are
+the 3 relevant files (out of ~200 in the codebase). The issue is that
+two concurrent orders for the same item can both succeed even when only
+one item is in stock.
+
+File 1 - order_service.py (the main order processing logic):
+[paste file]
+
+File 2 - inventory.py (stock management):
+[paste file]
+
+File 3 - database.py (transaction handling):
+[paste file]
+
+Focus on the interaction between these files. The bug is in how
+inventory is checked and decremented.
+```
+
+### Temperature Settings
+
+Open models often need lower temperature than proprietary models for consistent output. Proprietary models have extensive post-training that stabilizes output; open models can be more erratic at higher temperatures.
+
+Recommended temperature ranges for open models:
+- **Factual/analytical tasks:** 0.1 - 0.3
+- **Code generation:** 0.2 - 0.4
+- **General conversation:** 0.5 - 0.7
+- **Creative writing:** 0.7 - 0.9
+
+If you are getting inconsistent output from an open model, lowering the temperature is the first thing to try. A Q4 quantized model at temperature 0.9 will produce noticeably noisier output than the same model at 0.3.
+
+---
+
+## Quick Reference
+
+- **System prompt format:** Use the correct template for your model. Llama 4 uses header tags, Qwen/Hermes use ChatML, some fine-tunes use Alpaca. Check the model card.
+- **Quantization:** Q4/Q5 models need more explicit prompts. Enumerate options, specify output format exactly, and use "return ONLY" constraints.
+- **DeepSeek R1:** Add "Think step by step" to activate reasoning mode. Skip it for simple tasks to reduce latency.
+- **Qwen 3/3.5:** Use `/think` for hard tasks and `/no_think` for fast responses. Strong multilingual support across 201 languages.
+- **Hermes 4:** Use `<think>` tags for explicit reasoning control. Tell the model not to use them when you want direct responses.
+- **Context limits:** Most open models have 128K context (exceptions: Llama 4 Scout 10M, Maverick 1M). Include only relevant files and explain what you included.
+- **Temperature:** Use lower temperatures than proprietary models. Start at 0.3 for factual tasks, 0.5 for conversation, 0.7 for creative work.
+- **Verification:** Open models, especially quantized ones, need more output verification than proprietary models. Spot-check factual claims and code correctness.
+
+---
+
+<!-- file: /content/prompt-patterns/openai.md -->
+
+---
+title: "Prompting Patterns for OpenAI GPT-5.4"
+type: prompt-pattern
+description: "What works specifically with GPT-5.4 and ChatGPT — system prompts, structured output, verbosity control, Thinking mode, and multi-turn strategies."
+last_updated: "2026-04-10"
+tags:
+  - openai
+  - gpt-5.4
+  - chatgpt
+  - prompt-patterns
+---
+
+# Prompting Patterns for OpenAI GPT-5.4
+
+GPT-5.4 is OpenAI's flagship model and the backbone of ChatGPT. It is the most widely used model in the world, which means it has been fine-tuned heavily on conversational patterns and instruction-following. This guide covers what works *specifically* with GPT-5.4 -- the patterns that exploit its strengths and work around its defaults.
+
+For general prompting techniques that work across all models, see the [Prompt Engineering Guide](/guides/prompting).
+
+---
+
+## System Prompts: GPT Follows Them Closely
+
+GPT-5.4 pays strong attention to system prompts. If you are using the API or building with the Assistants API, the system prompt is your most powerful tool. GPT treats it as persistent instructions that override conversational drift.
+
+In ChatGPT, you get the same effect through Custom Instructions (Settings > Personalization > Custom Instructions). Whatever you put there applies to every new conversation.
+
+The key insight: GPT-5.4 handles *detailed* system prompts well. You do not need to be brief -- you can write multi-paragraph instructions and GPT will follow them. Be exhaustive about what you want.
+
+```
+System prompt:
+
+You are a senior technical writer at a B2B SaaS company. Your writing
+style is clear, direct, and jargon-free. You always:
+- Use short sentences (under 20 words when possible)
+- Break complex ideas into numbered steps
+- Include a concrete example for every abstract concept
+- Avoid buzzwords like "leverage," "synergy," and "paradigm"
+- End every response with a suggested next step for the reader
+
+When asked to write documentation, always structure it as:
+1. One-sentence summary
+2. Prerequisites
+3. Step-by-step instructions
+4. Common errors and fixes
+5. Related docs
+```
+
+This level of detail works well with GPT-5.4. Other models may lose track of instructions this long, but GPT handles it reliably.
+
+---
+
+## Structured Output: GPT Excels at Format Compliance
+
+GPT-5.4 is exceptionally good at producing structured output when you specify the format explicitly. JSON, markdown tables, CSV, YAML, code blocks -- if you tell GPT exactly what shape you want, it delivers consistently.
+
+For the API, OpenAI offers a dedicated "JSON mode" and structured outputs feature that guarantees valid JSON. But even in plain ChatGPT, specifying format works well.
+
+```
+Analyze the following 5 customer reviews and output your analysis as a
+JSON array. Each element should have these fields:
+
+- "review_id": sequential number starting at 1
+- "sentiment": "positive", "negative", or "mixed"
+- "key_topics": array of 1-3 topic strings
+- "action_needed": boolean
+- "summary": one-sentence summary of the review
+
+Reviews:
+1. "Love the new dashboard! So much faster than before."
+2. "Support took 3 days to respond to my billing issue."
+3. "The API works great but the documentation is outdated."
+4. "We're canceling. Too many outages last month."
+5. "Good product overall, fair price for what you get."
+```
+
+GPT will produce clean, valid JSON with exactly the fields you specified. If you need nested structures or specific data types, specify those too -- GPT respects the schema.
+
+---
+
+## Verbosity Control: Taming the Default Output Length
+
+GPT-5.4 tends verbose. If you do not tell it otherwise, it will produce long, thorough responses with preambles, disclaimers, and extensive explanations. Sometimes that is what you want. Often it is not.
+
+The fix is explicit: tell GPT how long or short you want the response.
+
+```
+Explain the difference between TCP and UDP.
+
+Constraints:
+- Maximum 4 sentences
+- No introductory phrasing like "Great question!" or "Sure!"
+- No disclaimers or caveats
+- Just the technical comparison, nothing else
+```
+
+Other effective verbosity controls:
+- "Respond in exactly 3 bullet points"
+- "One paragraph maximum"
+- "Give me the answer in a single sentence"
+- "Skip the preamble -- start with the answer directly"
+
+These work because GPT-5.4's instruction-following is strong. It respects explicit length constraints more reliably than vague requests like "be concise."
+
+---
+
+## Thinking Mode: Built-In Chain-of-Thought
+
+GPT-5.4 Thinking is a variant that has built-in chain-of-thought reasoning for math, science, coding, and other hard reasoning tasks. You do not need to prompt it with "think step by step" -- it automatically engages extended reasoning when the problem warrants it.
+
+When to use Thinking mode vs. standard GPT-5.4:
+
+- **Use Thinking mode** for: math competition problems, formal logic, complex debugging, scientific calculations, multi-step reasoning where accuracy matters more than speed
+- **Use standard GPT-5.4** for: writing, conversation, summarization, creative tasks, anything where speed matters
+
+With Thinking mode, you can write straightforward prompts and let the model handle the reasoning process internally:
+
+```
+A cylindrical water tank has a radius of 3 meters and a height of 8
+meters. Water is being pumped in at a rate of 2 cubic meters per minute.
+The tank has a leak at the bottom that lets water out at a rate
+proportional to the square root of the current water height, with
+proportionality constant 0.5.
+
+Find the steady-state water height and how long it takes to reach 90%
+of that height starting from empty.
+```
+
+No special prompting needed. GPT-5.4 Thinking will work through the differential equation, find the equilibrium, and solve the transient. With standard GPT-5.4, you would need to explicitly prompt chain-of-thought to get reliable accuracy on this kind of problem.
+
+---
+
+## Multi-Turn Conversations: Maintaining Context
+
+GPT-5.4 maintains context well across long conversations, especially with its 1M token context window. It can reference earlier messages accurately and build on previous outputs without repeating itself.
+
+Patterns that work well in multi-turn:
+
+**Iterative refinement** -- give feedback and GPT improves on its previous output without losing the thread:
+
+```
+Turn 1: Write a product description for a noise-canceling headphone
+aimed at remote workers.
+
+Turn 2: Good start. Make it more specific about the noise-canceling
+technology -- mention ANC with transparency mode. Also cut the length
+in half.
+
+Turn 3: Perfect length. Now write 3 variations: one for Amazon listing,
+one for our website hero section, one for a Facebook ad.
+```
+
+**Reference earlier context** -- GPT can pull from earlier in the conversation:
+
+```
+Turn 1: [paste a 5-page requirements document]
+
+Turn 2: Based on the requirements above, write user stories for the
+authentication module only. Use the format: "As a [role], I want
+[feature], so that [benefit]."
+
+Turn 3: Now estimate story points for each user story you wrote, using
+Fibonacci sizing. Add a risk flag for any story that depends on a
+third-party API.
+```
+
+GPT handles this kind of progressive building well. The main failure mode is when conversations get very long (thousands of turns) -- if you notice GPT losing track, start a new conversation and paste the essential context at the top.
+
+---
+
+## Custom Instructions: Persistent Preferences
+
+In ChatGPT, Custom Instructions let you set two things that apply to every conversation:
+
+1. **"What would you like ChatGPT to know about you?"** -- your background, role, preferences
+2. **"How would you like ChatGPT to respond?"** -- style, format, and behavior rules
+
+This is underused. Good Custom Instructions eliminate the need to repeat yourself in every conversation.
+
+Example Custom Instructions setup:
+
+```
+What to know about me:
+I'm a backend engineer working in Python and Go. I deploy to AWS.
+I prefer simple solutions over clever ones. I care about error handling,
+testing, and observability. I work on a team of 6 and we use GitHub
+for code review.
+
+How to respond:
+- Use code examples in Python unless I specify otherwise
+- Always include error handling in code samples
+- When suggesting architecture, consider cost and operational complexity
+- Never suggest solutions that require vendor lock-in without flagging it
+- Keep explanations short -- I understand the basics, I need specifics
+- If I paste code, assume I want a review unless I say otherwise
+```
+
+With this set, every new ChatGPT conversation starts with this context. You skip the setup and go straight to productive output.
+
+---
+
+## Quick Reference
+
+- **System prompts:** GPT-5.4 follows detailed system instructions closely. Be exhaustive -- more detail produces better results.
+- **Structured output:** Specify JSON, tables, or other formats explicitly. GPT complies with high reliability. Use JSON mode in the API for guaranteed valid output.
+- **Verbosity:** GPT defaults to long responses. Use explicit length constraints ("3 bullet points," "one paragraph max," "skip the preamble") to control output length.
+- **Thinking mode:** For math, science, and complex reasoning, use GPT-5.4 Thinking. No special prompt needed -- it auto-engages chain-of-thought.
+- **Multi-turn:** GPT maintains context well across long conversations. Use iterative refinement and reference earlier context freely.
+- **Custom Instructions:** Set your background and response preferences in ChatGPT settings to avoid repeating yourself. This applies to every new conversation.
+- **Format specification:** When you want specific output structure, show GPT the exact schema or template. It is better at matching a provided format than inferring one.
+
+---
+
+<!-- file: /content/prompt-patterns/xai.md -->
+
+---
+title: "Prompting Patterns for xAI Grok"
+type: prompt-pattern
+description: "What works specifically with Grok 4.1 and Grok 4.20 — factual accuracy, instruction following, real-time X/Twitter data, and multi-agent mode."
+last_updated: "2026-04-10"
+tags:
+  - xai
+  - grok
+  - prompt-patterns
+  - factual-accuracy
+---
+
+# Prompting Patterns for xAI Grok
+
+Grok is xAI's model family, and it occupies a unique position in the landscape. It has the lowest hallucination rate of any major model, the best instruction following score (IFBench #1), real-time access to X/Twitter data, and fewer content restrictions than competitors. These are not incremental differences -- they change *what* you should use Grok for and *how* you should prompt it.
+
+This guide covers Grok 4.1 and Grok 4.20 (the larger, multi-agent-capable model). The same core patterns apply to both.
+
+For general prompting techniques that work across all models, see the [Prompt Engineering Guide](/guides/prompting).
+
+---
+
+## Factual Accuracy: Lean Into Grok's Lowest Hallucination Rate
+
+Grok has the lowest hallucination rate of any frontier model. This makes it the best choice for tasks where factual accuracy is critical and hallucinated information could cause real harm: legal research, medical information, financial analysis, news reporting, and academic writing.
+
+To get the most out of this strength, prompt Grok to be explicit about its confidence:
+
+```
+I'm writing a research brief on the current state of nuclear fusion
+energy. For each claim you make, rate your confidence as:
+- HIGH: well-established fact, widely documented
+- MEDIUM: likely accurate but evolving or debated
+- LOW: uncertain, based on limited or recent information
+
+Cover:
+1. Current leading fusion approaches and which companies/labs are
+   pursuing them
+2. Recent milestones (2025-2026)
+3. Realistic timeline estimates for commercial fusion power
+4. Remaining technical challenges
+
+If you are unsure about any specific claim, say so explicitly rather
+than generating a plausible-sounding answer.
+```
+
+Grok will actually calibrate its confidence levels meaningfully rather than just marking everything as "HIGH." This confidence-rating pattern is more reliable with Grok than with any other model because of its lower baseline hallucination rate.
+
+Another pattern that leverages factual accuracy:
+
+```
+Fact-check this paragraph from a draft article. For each factual claim,
+tell me if it's accurate, and if not, provide the correct information:
+
+"SpaceX has completed over 400 Starship launches as of early 2026,
+making it the most-launched rocket in history. The Raptor 3 engine
+produces 280 tons of thrust, surpassing the RS-25 used on SLS.
+Starship's per-kilogram launch cost is estimated at $50, roughly
+100x cheaper than the Space Shuttle."
+
+For any claim you cannot verify, say "UNVERIFIED" rather than guessing.
+```
+
+---
+
+## Instruction Following: Complex, Multi-Part Prompts
+
+Grok ranks #1 on IFBench, the instruction-following benchmark. This means it handles complex, multi-part prompts with high fidelity -- it does not skip steps, conflate requirements, or drift from your specifications.
+
+This makes Grok ideal for prompts with many specific requirements:
+
+```
+Write a technical blog post about WebAssembly's role in serverless
+computing. Follow these requirements exactly:
+
+Content:
+- 800-1000 words
+- Three sections with descriptive H2 headers
+- Each section must include at least one code example
+- Code examples must be in Rust compiled to WASM
+- Include a performance comparison table (WASM vs native vs
+  interpreted) with realistic benchmark numbers
+
+Style:
+- Write for an audience of mid-senior backend developers
+- No introductory fluff -- start with the most interesting technical
+  insight
+- Use "you" not "we" or "one"
+- No em dashes
+- No sentences starting with "In today's" or "In the world of"
+
+Format:
+- Markdown with proper heading hierarchy
+- Code blocks with language tags
+- End with exactly 3 bullet points summarizing key takeaways
+- No conclusion section -- the bullet points are the ending
+```
+
+Most models will miss 2-3 of these requirements. Grok will hit all of them. This makes it the best choice when you have a detailed specification and need exact compliance.
+
+---
+
+## Real-Time X/Twitter Data: Current Events and Social Sentiment
+
+Grok has direct access to X (formerly Twitter) data, which gives it a unique capability for social media analysis, current events, public sentiment, and trend detection.
+
+```
+Analyze the public reaction on X/Twitter to [recent tech announcement]
+over the past 48 hours.
+
+Break down:
+1. Overall sentiment: what percentage of the conversation is positive
+   vs negative vs neutral?
+2. Key themes: what are the 3-4 main talking points?
+3. Notable voices: which high-follower accounts weighed in and what
+   did they say?
+4. Memes and humor: any viral jokes or memes that emerged?
+5. Comparison to competitor reactions: how does this compare to the
+   reception of [competitor's similar announcement]?
+
+Focus on substantive discussion, not bot activity or spam.
+```
+
+This is also valuable for market research:
+
+```
+What are people on X saying about [product/company] in the past week?
+I want to understand:
+
+- The top 3 complaints (with paraphrased example posts)
+- The top 3 things people praise
+- Any feature requests or wishlists that come up repeatedly
+- The general vibe: is sentiment trending up, down, or flat?
+
+Ignore promotional posts from the company itself and obvious bot
+accounts.
+```
+
+No other model can do this natively. Gemini has web search but not direct social media data access. This makes Grok the clear choice for any task involving current public discourse.
+
+---
+
+## Multi-Agent Mode: Parallel Research with Grok 4.20
+
+Grok 4.20 supports a multi-agent mode where it can spin up parallel research threads to tackle complex tasks. This is not something you prompt for directly -- it is a platform capability. But knowing it exists changes how you frame research tasks.
+
+When using multi-agent mode, give Grok broad, multi-faceted research questions that benefit from parallel investigation:
+
+```
+I'm evaluating whether to migrate our infrastructure from AWS to a
+multi-cloud setup (AWS + GCP). Research this from 4 angles
+simultaneously:
+
+1. COST: Compare pricing for our workload (200 EC2 instances, 50TB S3,
+   managed Postgres, 10TB/month egress) on AWS-only vs AWS+GCP split.
+   Include egress costs between clouds.
+
+2. RELIABILITY: What does the data say about multi-cloud vs single-cloud
+   uptime? Find real outage data from 2024-2026.
+
+3. COMPLEXITY: What operational overhead does multi-cloud add? Estimate
+   the additional engineering headcount needed.
+
+4. VENDOR LOCK-IN: Which of our current AWS services have no GCP
+   equivalent, and what is the migration effort for each?
+
+Synthesize all 4 angles into a single recommendation with clear
+trade-offs.
+```
+
+In multi-agent mode, Grok researches each angle in parallel and then synthesizes. The result is faster and more thorough than a sequential approach.
+
+---
+
+## Less Censored: Tasks Other Models Refuse
+
+Grok has fewer content restrictions than GPT, Claude, or Gemini. This is a practical difference, not just a philosophical one. Tasks that other models refuse or heavily caveat -- competitive analysis that involves criticism, security research, certain creative writing scenarios, blunt assessments -- Grok handles straightforwardly.
+
+This does not mean Grok has no guardrails. It still refuses clearly harmful requests. But for legitimate tasks that fall in the gray area where other models add excessive disclaimers or refuse to engage, Grok is more willing to give you a direct answer.
+
+---
+
+## Quick Reference
+
+- **Factual accuracy:** Grok has the lowest hallucination rate. Ask it to rate confidence (HIGH/MEDIUM/LOW) on claims. Use it for fact-critical tasks: legal, medical, financial, academic.
+- **Instruction following:** #1 on IFBench. Grok handles complex, multi-part prompts with many specific requirements without skipping or conflating them.
+- **Real-time X/Twitter data:** Grok has native access to social media data. Use it for sentiment analysis, trend detection, public reaction tracking, and market research.
+- **Multi-agent mode:** Grok 4.20 supports parallel research. Frame broad research questions with multiple angles for simultaneous investigation.
+- **Less censored:** Grok handles gray-area tasks that other models refuse or over-caveat. Useful for competitive analysis, security research, and blunt assessments.
+- **Confidence calibration:** Grok's confidence ratings are more meaningful than other models' because its baseline hallucination rate is lower. Ask for explicit confidence levels on factual claims.
+
+---
+
 <!-- file: /content/blog/_index.md -->
 
 ---
@@ -5222,5 +7439,209 @@ Up-to-date pricing comparison for AI model APIs.
 | Nemotron-Cascade 2 | NVIDIA | Free | Free / Free (open weights) | NVIDIA Open Model License |
 
 *Prices as of April 2026. Check provider websites for current rates.*
+
+---
+
+<!-- file: /content/changelog.md -->
+
+---
+title: "AI Changelog"
+type: changelog
+description: "Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs."
+last_updated: "2026-04-10"
+---
+
+# AI Changelog
+
+What changed in AI, in reverse chronological order. Designed for agents with knowledge cutoffs.
+
+## April 2026
+
+- **2026-04-10** -- Gemma 4 released by Google. Apache 2.0 license, #3 on Arena AI (1,452 Elo). Four variants from edge (E2B) to workstation (31B). Natively multimodal, 140+ languages.
+
+## March 2026
+
+- **2026-03** -- GPT-5.4 released by OpenAI. Unifies reasoning, coding, and agentic capabilities. 94.6% AIME, 74.9% SWE-bench. $5/$15 per 1M tokens.
+- **2026-03** -- GPT-5.4 Thinking released by OpenAI. Extended reasoning mode, 98/100 reasoning, 97/100 math. $10/$40 per 1M tokens.
+- **2026-03** -- Grok 4.20 released by xAI. Lowest hallucination rate (78% Omniscience), #1 instruction following (83% IFBench). 2M token context, 248 tok/sec.
+- **2026-03-25** -- OpenAI shuts down Sora video generation. Pivoting to robotics. Underwhelming commercial returns and fierce competition cited.
+- **2026-03** -- Claude Code source code accidentally leaked via npm packaging error. 512,000 lines exposed. Second security incident in a week after CMS misconfiguration exposed "Claude Mythos" model details.
+- **2026-03** -- Nemotron 3 Super and Nemotron-Cascade 2 released by NVIDIA. Cascade 2 achieves gold-medal performance on IMO, IOI, and ICPC with only 3B active parameters. Runs on a single RTX 4090.
+- **2026-03** -- Mistral Small 4 released. 119B total, 6.5B active MoE. Apache 2.0.
+- **2026-03** -- MiniMax M2.7 released. Near-frontier intelligence (95/100 coding) at $0.53/M tokens. Open weights.
+- **2026-03-05** -- GitHub Copilot Agentic Code Review ships. Expands Copilot from code completion to autonomous code review.
+
+## February 2026
+
+- **2026-02** -- Claude Opus 4.6 released by Anthropic. 1M context (no surcharge), 80.8% SWE-bench, 97/100 coding. $5/$25 per 1M tokens. Agent teams feature. Internal codename "Fennec."
+- **2026-02** -- Claude Sonnet 4.6 released by Anthropic. First Sonnet preferred over previous Opus in coding evals. $3/$15 per 1M tokens. 1M context.
+- **2026-02** -- Gemini 3.1 Pro released by Google. Improved reasoning and agentic capabilities. $2/$12 per 1M tokens with free tier via Google AI Studio.
+- **2026-02** -- GLM-5 released by Zhipu AI. 77.8% SWE-bench (top open model for coding). 50.4% on Humanity's Last Exam. MIT license.
+- **2026-02** -- Qwen 3.5 released by Alibaba. 397B-A17B MoE, 256K context, 201 languages, 94/100 math. Apache 2.0.
+- **2026-02** -- Cohere Tiny Aya 3.35B released. 70+ languages at 3.35B parameters. CC-BY-NC 4.0.
+- **2026-02** -- EU AI Act prohibited practices enforcement begins. Social scoring and real-time biometric surveillance banned. AI literacy obligations take effect.
+- **2026-02** -- Ads appear in free ChatGPT for US users. Free and Go tier users now see advertisements.
+
+## January 2026
+
+- **2026-01** -- Apple announces partnership with Google to use Gemini AI in the next version of Siri. Major partnership shift away from OpenAI.
+- **2026-01** -- ChatGPT Go plan launches globally. $8/month tier between Free and Plus.
+- **2026-01-01** -- Multiple state AI laws take effect: California AI Safety Act, California Transparency in Frontier AI Act, Texas Responsible AI Governance Act.
+
+## December 2025
+
+- **2025-12** -- Mistral 3 released by Mistral AI. Flagship MoE model suite (675B total, 41B active), Apache 2.0. European alternative for enterprise AI. $2/$6 per 1M tokens.
+- **2025-12** -- Gemini 3 Flash released by Google. Replaces Gemini 2.5 Flash as default model in consumer app and Google Search AI responses. $0.15/$0.60 per 1M tokens.
+- **2025-12** -- GPT-5.2 released by OpenAI. Reportedly hastened by Google's Gemini 3 launch.
+- **2025-12** -- Trump White House issues executive order "Ensuring a National Policy Framework for AI." Creates AI Litigation Task Force to challenge state AI laws. Aims to preempt state-by-state regulation.
+
+## November 2025
+
+- **2025-11** -- Google Gemini 3 Pro and 3 Deep Think launch. State-of-the-art reasoning with multimodal capabilities. Replaces Gemini 2.5 series.
+- **2025-11** -- Google Antigravity AI IDE launches free. Agent-first IDE with built-in Claude Opus 4.6 and Gemini 3.1 Pro.
+- **2025-11** -- xAI Grok 4.1 released. 65% fewer hallucinations (down to 4.22%), Thinking and Non-thinking configurations.
+- **2025-11** -- Claude Opus 4.5 released by Anthropic. 67% price cut, making premium intelligence more affordable.
+- **2025-11** -- Claude Haiku 4.5 released by Anthropic. Matches Claude Sonnet 4 on coding and agent tasks at $1/$5 per 1M tokens.
+
+## September 2025
+
+- **2025-09** -- DeepSeek V3.2 released. Sparse attention mechanism, on par with GPT-5.1 and Gemini 3 Pro on benchmarks. MIT license. $0.27/$1.10 per 1M tokens.
+- **2025-09** -- Claude Sonnet 4.5 released by Anthropic. 77.2% SWE-bench Verified.
+
+## August 2025
+
+- **2025-08** -- GPT-5 launches by OpenAI. Unified multimodal system with smart routing. 94.6% AIME, 74.9% SWE-bench. 256K context.
+- **2025-08** -- Claude Opus 4.1 released by Anthropic. Improved code generation, search reasoning, and instruction adherence.
+- **2025-08** -- EU AI Act GPAI rules take effect. Governance and obligations for General-Purpose AI models become applicable.
+- **2025-08** -- DeepSeek V3.1 released under MIT License. Hybrid thinking/non-thinking modes, surpasses prior models by 40% on SWE-bench.
+
+## July 2025
+
+- **2025-07** -- Grok 4 and Grok 4 Heavy launched by xAI. xAI claims Grok 4 is "the most intelligent model in the world." Native tool use and real-time search.
+- **2025-07** -- Amazon Kiro IDE preview. Spec-driven AI coding IDE on Amazon Bedrock.
+- **2025-07** -- Cognition AI acquires Windsurf AI IDE. Consolidation in the AI coding tools market.
+- **2025-07** -- EU AI Act enters into force (full regulation framework).
+
+## June 2025
+
+- **2025-06** -- Qwen 3 released by Alibaba. Overtakes Llama as most-downloaded model family on HuggingFace. Hybrid reasoning, 119 languages, Apache 2.0.
+
+## May 2025
+
+- **2025-05** -- Claude Opus 4 and Claude Sonnet 4 released by Anthropic. Opus 4 classified Level 3 on Anthropic's safety scale. Most capable Claude model at time of release.
+- **2025-05** -- DeepSeek R1-0528 update. Improved reasoning capabilities.
+
+## April 2025
+
+- **2025-04** -- Llama 4 released by Meta. Scout (109B, 10M context) and Maverick (400B, 1M context) variants. MoE architecture with 17B active parameters.
+
+## March 2025
+
+- **2025-03** -- GPT-4.5 released by OpenAI. Improved creativity, reduced hallucinations, broader world knowledge.
+- **2025-03** -- Gemini 2.5 Pro released by Google DeepMind. Thinking model with strong reasoning and 1M context.
+
+## February 2025
+
+- **2025-02** -- Claude 3.7 Sonnet released by Anthropic. Hybrid reasoning mode combining standard and extended thinking.
+
+## January 2025
+
+- **2025-01** -- DeepSeek R1 released. Open-source reasoning model rivaling frontier models at a fraction of training cost. MIT license. Beat OpenAI o1 on AIME and MATH. $0.55/$2.19 per 1M tokens.
+
+---
+
+<!-- file: /content/compatibility.md -->
+
+---
+title: "AI Model Compatibility Matrix"
+type: reference
+description: "Which AI models work with which agent frameworks, coding tools, and platforms. Structured for agent consumption."
+last_updated: "2026-04-10"
+---
+
+# AI Model Compatibility Matrix
+
+Which models work with which tools. Updated April 2026.
+
+## Agent Framework Compatibility
+
+| Framework | OpenAI (GPT) | Anthropic (Claude) | Google (Gemini) | Open Source (Llama, etc.) |
+|-----------|:------------:|:------------------:|:---------------:|:-------------------------:|
+| LangGraph | Full | Full | Full | Full (via OpenAI-compatible API) |
+| CrewAI | Full | Full | Full | Full (via LiteLLM) |
+| AutoGen | Full | Full | Full | Full (via OpenAI-compatible API) |
+| Mastra | Full | Full | Full | Partial (via OpenAI-compatible API) |
+| OpenAI Agents SDK | Full | No | No | Partial (OpenAI-compatible endpoints) |
+| Anthropic Agent SDK | No | Full | No | No |
+| Google ADK | Partial | Partial | Full | Partial (via Vertex AI Model Garden) |
+
+**Notes:**
+
+- **LangGraph** and **CrewAI** are the most model-agnostic frameworks. They support virtually any model through LangChain's model abstraction or LiteLLM.
+- **OpenAI Agents SDK** is locked to the OpenAI API format. Open-source models that expose an OpenAI-compatible API (via vLLM, Ollama, etc.) can work but are not officially supported.
+- **Anthropic Agent SDK** only works with Claude models via the Anthropic API. No third-party model support.
+- **Google ADK** is optimized for Gemini but supports other models through Vertex AI Model Garden and LiteLLM integration.
+- **Mastra** uses a TypeScript-first approach with native support for OpenAI, Anthropic, and Google. Open-source model support depends on the provider exposing a compatible API.
+
+## Coding Tool Model Support
+
+| Tool | Default Model | Other Models Supported |
+|------|---------------|----------------------|
+| Claude Code | Claude Opus 4.6 | Claude Sonnet 4.6, Claude Haiku 4.5 |
+| GitHub Copilot | GPT-5.4 | Claude Sonnet 4.6, Gemini 3.1 Pro, GPT-5.4 Thinking |
+| Cursor | Claude Sonnet 4.6 | Claude Opus 4.6, GPT-5.4, GPT-5.4 Thinking, Gemini 3.1 Pro, DeepSeek V3.2, custom models |
+| Windsurf | Claude Sonnet 4.6 | Claude Opus 4.6, GPT-5.4, Gemini 3.1 Pro |
+| Google Antigravity | Gemini 3.1 Pro | Claude Opus 4.6 |
+| Amazon Kiro | Claude Sonnet 4.6 (via Bedrock) | Claude Opus 4.6, Llama 4, Mistral 3 (via Bedrock) |
+
+**Notes:**
+
+- **Cursor** offers the broadest model support among AI IDEs, including the ability to bring your own API key for virtually any model.
+- **Claude Code** is Claude-only. You cannot swap in a different provider's model.
+- **GitHub Copilot** added multi-model support in late 2025. Claude and Gemini models are available alongside the default GPT.
+- **Google Antigravity** ships with both Gemini and Claude built in, but it is free and primarily a Gemini showcase.
+- **Amazon Kiro** runs on Bedrock, so model support is limited to what Bedrock offers. All major providers are represented.
+
+## API Provider Compatibility
+
+| Provider | REST API | Python SDK | TypeScript SDK | OpenAI-Compatible API |
+|----------|:--------:|:----------:|:--------------:|:---------------------:|
+| OpenAI | Yes | Yes | Yes | Yes (is the standard) |
+| Anthropic | Yes | Yes | Yes | No (different format) |
+| Google | Yes | Yes | Yes | No (different format) |
+| xAI | Yes | Yes | Yes | Yes |
+| DeepSeek | Yes | Yes | No official | Yes |
+| Mistral | Yes | Yes | Yes | Yes |
+| Together AI | Yes | Yes | Yes | Yes |
+| OpenRouter | Yes | Yes | Yes | Yes |
+
+**Notes:**
+
+- **OpenAI-compatible API** is the de facto standard. Most open-source serving tools (vLLM, Ollama, llama.cpp) expose this format, making it easy to swap models.
+- **Anthropic** uses a distinct API format (Messages API). You need the Anthropic SDK or a wrapper like LiteLLM to use Claude in OpenAI-compatible tooling.
+- **Google** also uses a distinct format (Gemini API / Vertex AI). Same situation -- use the Google SDK or a compatibility layer.
+- **xAI**, **DeepSeek**, **Mistral**, **Together AI**, and **OpenRouter** all support the OpenAI-compatible format, making them drop-in replacements in most tooling.
+- **OpenRouter** aggregates 200+ models behind a single OpenAI-compatible endpoint. Useful for testing multiple models without managing separate API keys.
+
+## Hosting Platforms for Open Source Models
+
+| Platform | Llama 4 | DeepSeek V3.2 | Qwen 3.5 | Mistral 3 | Gemma 4 |
+|----------|:-------:|:-------------:|:---------:|:---------:|:-------:|
+| Ollama | Yes | Yes | Yes | Yes | Yes |
+| vLLM | Yes | Yes | Yes | Yes | Yes |
+| llama.cpp | Yes | Yes | Yes | Yes | Yes |
+| HuggingFace | Yes | Yes | Yes | Yes | Yes |
+| Together AI | Yes | Yes | Yes | Yes | Yes |
+| Replicate | Yes | Yes | Partial | Yes | Yes |
+| NVIDIA NIM | Yes | Yes | Partial | Yes | Yes |
+
+**Notes:**
+
+- **Ollama** is the easiest way to run models locally. One-command install, automatic quantization, and an OpenAI-compatible API. Best for development and testing.
+- **vLLM** is the production standard for self-hosted serving. High throughput, PagedAttention, and continuous batching. Use this for production deployments.
+- **llama.cpp** remains the best option for running models on consumer hardware (CPU, Apple Silicon, single GPU). Supports GGUF quantization for every model listed.
+- **HuggingFace** hosts the original weights for all models. Use the Transformers library or download weights for use with other serving tools.
+- **Together AI** offers managed hosting with per-token pricing. No infrastructure to manage. Good middle ground between self-hosting and proprietary APIs.
+- **Qwen 3.5** and some Chinese-origin models may have delayed or partial support on Western-focused platforms. Check for the specific variant you need.
 
 ---
