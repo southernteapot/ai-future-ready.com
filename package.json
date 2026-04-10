@@ -4,9 +4,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "tsx scripts/generate-llms-txt.ts",
+    "prebuild": "tsx scripts/generate-llms-txt.ts && cp -r content public/content",
     "build": "next build",
-    "build:cf": "tsx scripts/generate-llms-txt.ts && npx opennextjs-cloudflare build",
+    "build:cf": "tsx scripts/generate-llms-txt.ts && cp -r content public/content && npx opennextjs-cloudflare build",
     "deploy": "npm run build:cf && npx wrangler deploy",
     "start": "next start",
     "lint": "eslint"
