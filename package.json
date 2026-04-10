@@ -6,6 +6,8 @@
     "dev": "next dev",
     "prebuild": "tsx scripts/generate-llms-txt.ts",
     "build": "next build",
+    "build:cf": "tsx scripts/generate-llms-txt.ts && npx opennextjs-cloudflare build",
+    "deploy": "npm run build:cf && npx wrangler deploy",
     "start": "next start",
     "lint": "eslint"
   },
@@ -21,6 +23,7 @@
   },
   "devDependencies": {
     "@modelcontextprotocol/sdk": "^1.29.0",
+    "@opennextjs/cloudflare": "^1.19.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -31,6 +34,7 @@
     "tailwindcss": "^4",
     "tsx": "^4.21.0",
     "turndown": "^7.2.4",
-    "typescript": "^5"
+    "typescript": "^5",
+    "wrangler": "^4.81.1"
   }
 }

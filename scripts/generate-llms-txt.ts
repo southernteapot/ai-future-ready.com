@@ -188,3 +188,85 @@ fs.writeFileSync(
   "utf-8"
 );
 console.log(`wrote public/search-index.json (${searchIndex.length} entries)`);
+
+// ─── api/v1/index.json (static API) ─────────────────────
+
+const apiDir = path.join(PUBLIC_DIR, "api", "v1");
+fs.mkdirSync(apiDir, { recursive: true });
+
+// Build per-type JSON
+const contentTypes = fs
+  .readdirSync(CONTENT_DIR, { withFileTypes: true })
+  .filter((d) => d.isDirectory())
+  .map((d) => d.name);
+
+const typeIndex = contentTypes.map((t) => {
+  const indexFile = path.join(CONTENT_DIR, t, "_index.md");
+  const indexData = fs.existsSync(indexFile) ? matter(fs.readFileSync(indexFile, "utf-8")).data : {};
+  return {
+    type: t,
+    title: (indexData.title as string) || t,
+    description: (indexData.description as string) || "",
+  };
+});
+
+// Main API index
+fs.writeFileSync(
+  path.join(apiDir, "index.json"),
+  JSON.stringify({
+    name: "AI Future Ready API",
+    version: "v1",
+    description: "Structured JSON API for AI reference data.",
+    content_types: typeIndex,
+  }),
+  "utf-8"
+);
+
+// Per-type JSON files
+for (const t of contentTypes) {
+  const dir = path.join(CONTENT_DIR, t);
+  const files = fs.readdirSync(dir).filter((f) => f.endsWith(".md") && f !== "_index.md");
+  const items = files.map((f) => {
+    const { data } = matter(fs.readFileSync(path.join(dir, f), "utf-8"));
+    const slug = f.replace(/\.md$/, "");
+    return {
+      slug,
+      title: (data.title as string) || slug,
+      description: (data.description as string) || "",
+      last_updated: (data.last_updated as string) || "",
+      markdown_url: `/content/${t}/${f}`,
+      html_url: `/${t}/${slug}`,
+      ...(data.provider && { provider: data.provider }),
+      ...(data.pricing && { pricing: data.pricing }),
+      ...(data.benchmarks && { benchmarks: data.benchmarks }),
+    };
+  });
+  fs.writeFileSync(path.join(apiDir, `${t}.json`), JSON.stringify({ type: t, count: items.length, items }), "utf-8");
+}
+
+// Recommend JSON — pre-scored for each task
+const tasks = ["coding", "writing", "math", "reasoning", "multilingual", "speed"];
+const modelEntries = allEntries.filter((e) => e.section === "Models" && !e.mdPath.endsWith("/_index.md"));
+const recommendData: Record<string, unknown[]> = {};
+
+for (const task of tasks) {
+  const scored = modelEntries.map((entry) => {
+    const { data } = matter(entry.raw);
+    const benchmarks = (data.benchmarks || {}) as Record<string, number>;
+    const pricing = (data.pricing || {}) as Record<string, unknown>;
+    return {
+      slug: path.basename(entry.mdPath, ".md"),
+      title: entry.title,
+      provider: (data.provider as string) || "",
+      score: benchmarks[task] || 0,
+      pricing: { input: pricing.input, output: pricing.output },
+      free: pricing.free === true,
+      model_type: (data.model_type as string) || "",
+      markdown_url: entry.mdPath,
+    };
+  });
+  recommendData[task] = scored.sort((a, b) => (b.score as number) - (a.score as number)).slice(0, 10);
+}
+
+fs.writeFileSync(path.join(apiDir, "recommend.json"), JSON.stringify(recommendData), "utf-8");
+console.log(`wrote public/api/v1/ (${contentTypes.length} type files + index + recommend)`);
