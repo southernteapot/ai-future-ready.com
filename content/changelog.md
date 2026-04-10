@@ -12,6 +12,15 @@ What changed in AI, in reverse chronological order. Designed for agents with kno
 ## April 2026
 
 - **2026-04-10** -- Gemma 4 released by Google. Apache 2.0 license, #3 on Arena AI (1,452 Elo). Four variants from edge (E2B) to workstation (31B). Natively multimodal, 140+ languages.
+- **2026-04-08** -- Meta debuts Muse Spark, its first proprietary AI model. Built by Meta Superintelligence Labs under Alexandr Wang. Powers Meta AI across Facebook, Instagram, WhatsApp, Messenger, Ray-Ban glasses. Meta spending $115-135B on AI capex in 2026. Departure from open-source Llama strategy.
+- **2026-04-07** -- Anthropic announces Claude Mythos will NOT be publicly released. Available only to ~50 partners under Project Glasswing. Described internally as "by far the most powerful AI model we have ever developed." Codenamed Capybara. Preview pricing $25/$125 per 1M tokens. Has discovered thousands of zero-day vulnerabilities.
+- **2026-04-07** -- GLM-5.1 released by Zhipu AI. 744B MoE (40B active), 200K context, MIT license. Reportedly beats Claude Opus 4.6 and GPT-5.4 on SWE-Bench Pro.
+- **2026-04-06** -- OpenAI publishes economic policy paper proposing AI as public utility, robot taxes, subsidized four-day workweek, public wealth funds. OpenAI now generating $2B/month revenue, preparing for IPO.
+- **2026-04** -- Anthropic revenue run rate hits $30B (up from $9B end of 2025). Closes $30B Series G at $380B valuation. Over 1,000 business customers spending >$1M annually.
+- **2026-04** -- MCP (Model Context Protocol) crosses 97M installs. Linux Foundation announces open governance.
+- **2026-04** -- Q1 2026 venture funding hits record $267.2B, dominated by OpenAI and Anthropic.
+- **2026-04** -- NVIDIA unveils Vera Rubin AI platform for trillion-parameter models.
+- **2026-04** -- GPT-5.5 (codename "Spud") completes pretraining. Release expected April-May 2026.
 
 ## March 2026
 

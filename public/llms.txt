@@ -94,6 +94,7 @@
 
 ## Blog
 - [The AI Agent Revolution: From Chatbots to Autonomous Workers](/content/blog/ai-agent-revolution-2026.md): How AI agents evolved from simple chatbots to autonomous systems in 2025-2026, the key players driving adoption, and what comes next for multi-agent orchestration.
+- [April 2026: The Month the AI Labs Got Scared of Their Own Models](/content/blog/april-2026-the-month-ai-labs-got-scared.md): Anthropic built the most powerful AI model ever and refused to release it. Meta abandoned open source. OpenAI proposed robot taxes. April 2026 is when the AI industry stopped pretending everything is fine.
 - [GPT-5.4 vs Claude Opus 4.6 vs Gemini 3.1 Pro: Which AI Model Should You Use in 2026?](/content/blog/gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro.md): A head-to-head comparison of the three leading proprietary AI models in 2026. We break down benchmarks, pricing, context windows, and real-world performance to help you choose.
 - [OpenAI Shuts Down Sora: What Happened and What's Next for AI Video](/content/blog/openai-shuts-down-sora-what-happened.md): OpenAI officially discontinued Sora in March 2026 after persistent quality issues and fierce competition. We look at what went wrong and where AI video generation is headed.
 - [The Rise of Open Source AI: How DeepSeek, Qwen, and MiniMax Are Changing the Game](/content/blog/rise-of-open-source-ai-deepseek-qwen-minimax.md): Open-source AI models are closing the gap with proprietary giants. We analyze how DeepSeek, Qwen, and MiniMax are reshaping the AI landscape and what it means for developers.
