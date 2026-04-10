@@ -3,6 +3,8 @@ import { renderMarkdown } from "@/lib/markdown";
 import { generateJsonLd } from "@/lib/jsonld";
 import ContentView from "@/components/ContentView";
 
+export const dynamic = "force-static";
+
 export default async function HomePage() {
   const index = getMasterIndex();
   if (!index) return <p>No content found.</p>;
