@@ -40,5 +40,6 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 public/content
+src/lib/content-data.json
 .open-next
 out

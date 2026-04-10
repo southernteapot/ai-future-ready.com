@@ -286,6 +286,39 @@ Host: https://ai-future-ready.com
 );
 console.log("wrote public/robots.txt");
 
+// ─── content-data.json (pre-parsed content for runtime) ──
+
+const contentData: Record<string, Record<string, { meta: Record<string, unknown>; content: string; raw: string }>> = {};
+
+// Master index
+const masterIndexPath = path.join(CONTENT_DIR, "_index.md");
+if (fs.existsSync(masterIndexPath)) {
+  const rawFile = fs.readFileSync(masterIndexPath, "utf-8");
+  const { data: mData, content: mContent } = matter(rawFile);
+  contentData["_root"] = { "_index": { meta: mData, content: mContent, raw: rawFile } };
+}
+
+// All content types
+const allDirs = fs.readdirSync(CONTENT_DIR, { withFileTypes: true }).filter(d => d.isDirectory()).map(d => d.name);
+for (const t of allDirs) {
+  contentData[t] = {};
+  const dir = path.join(CONTENT_DIR, t);
+  for (const file of fs.readdirSync(dir).filter(f => f.endsWith(".md"))) {
+    const slug = file.replace(/\.md$/, "");
+    const rawFile = fs.readFileSync(path.join(dir, file), "utf-8");
+    const { data, content } = matter(rawFile);
+    contentData[t][slug] = { meta: data, content, raw: rawFile };
+  }
+}
+
+fs.writeFileSync(
+  path.join(process.cwd(), "src", "lib", "content-data.json"),
+  JSON.stringify(contentData),
+  "utf-8"
+);
+const cdSize = Math.round(Buffer.byteLength(JSON.stringify(contentData), "utf-8") / 1024);
+console.log(`wrote src/lib/content-data.json (${cdSize} KB)`);
+
 // ─── sitemap.xml ─────────────────────────────────────────
 
 const baseUrl = "https://ai-future-ready.com";
