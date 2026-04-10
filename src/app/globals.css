@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @theme inline {
   --color-background: var(--background);
@@ -161,6 +162,31 @@ body {
 .prose pre code {
   background: none;
   padding: 0;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+.prose th {
+  text-align: left;
+  padding: 0.75rem;
+  font-weight: 600;
+  color: var(--foreground);
+  border-bottom: 2px solid var(--color-card-border);
+}
+
+.prose td {
+  padding: 0.75rem;
+  color: var(--color-muted);
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.prose tr:last-child td {
+  border-bottom: none;
 }
 
 /* FAQ Schema-friendly styles */

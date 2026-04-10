@@ -1,0 +1,50 @@
+---
+title: "Falcon 3"
+type: model
+id: "falcon-3"
+provider: "Technology Innovation Institute"
+model_type: "open-source"
+release_date: "2025"
+description: "Runs on regular (non-gaming) laptops. Designed for accessibility and low-resource deployment. From UAE-based Technology Innovation Institute."
+last_updated: "2026-04-10"
+context_window: "32K tokens"
+website: "https://falconllm.tii.ae"
+license: "Apache 2.0"
+modality:
+- "text"
+tags:
+- "technology innovation institute"
+- "open-source"
+- "text"
+pricing:
+  input: "Free (Apache 2.0)"
+  output: "Free (Apache 2.0)"
+  free: true
+benchmarks:
+  reasoning: 70
+  coding: 68
+  math: 67
+  writing: 72
+  multilingual: 70
+  speed: 94
+parameters: "3B to 10B variants"
+hardware_requirements: "10B: 8GB VRAM; 3B: 4GB VRAM; runs on consumer laptops"
+best_for:
+- "Laptop deployment"
+- "Offline use"
+- "Developing regions"
+- "Education"
+- "Low-resource environments"
+---
+
+# Falcon 3
+
+The model built for the laptop you already own. Falcon 3 does not chase benchmark records -- it chases accessibility. The 3B variant runs on 4GB of VRAM, meaning even a basic office laptop with integrated graphics can handle it. The 10B variant needs just 8GB. Speed at 94/100 makes it one of the fastest models in our rankings.
+
+The benchmarks are honest about the trade-off: reasoning 70, coding 68, math 67, writing 72, multilingual 70. These are not impressive numbers in absolute terms. But evaluated against the hardware requirement of "a regular laptop," they are genuinely useful. You get a functional AI assistant that works offline, keeps data local, and costs nothing to run.
+
+The Technology Innovation Institute in the UAE designed Falcon 3 with developing regions and education in mind, and it shows. Apache 2.0 licensing, minimal hardware requirements, and straightforward deployment make it the most accessible open model available. No GPU rental, no API keys, no internet connection required.
+
+Compared to SmolLM3 3B at the same parameter count, Falcon 3 trades slightly lower coding scores for better writing and multilingual capability. Compared to Gemma 3's 4B variant, Falcon is less capable but lighter on resources.
+
+**When to pick something else:** If you have even a mid-range GPU (16GB VRAM), Mistral Small 3 or Gemma 4's 26B MoE variant are dramatically more capable. For multilingual edge deployment specifically, Cohere Tiny Aya covers 70+ languages with better multilingual scores. Falcon 3 is for when compute is genuinely scarce.
