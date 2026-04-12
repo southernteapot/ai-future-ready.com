@@ -1,6 +1,7 @@
 ---
 title: "What Is AI? A Complete Beginner's Guide to Artificial Intelligence"
 type: guide
+id: "getting-started"
 description: "Learn what artificial intelligence really is, how AI models work, the difference between AI and machine learning, and how to start using AI tools like ChatGPT, Claude, and Gemini today."
 last_updated: "2026-04-10"
 tags:

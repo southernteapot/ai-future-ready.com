@@ -1,6 +1,7 @@
 ---
 title: "AI for Research & Analysis"
 type: use-case
+id: "use-case-research"
 description: "Learn how to use AI for literature review, data analysis, summarization, and fact-checking. Discover the best AI tools and techniques for academic and professional research."
 last_updated: "2026-04-10"
 tags:

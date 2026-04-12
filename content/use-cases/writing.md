@@ -1,6 +1,7 @@
 ---
 title: "AI for Writing & Content Creation"
 type: use-case
+id: "use-case-writing"
 description: "Learn how to use AI for writing blog posts, copywriting, editing, social media, email drafting, and creative writing. Includes best tools, tips, and example prompts."
 last_updated: "2026-04-10"
 tags:

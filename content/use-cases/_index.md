@@ -1,13 +1,14 @@
 ---
 title: "AI Use Cases"
 type: index
+id: "use-cases"
 description: "Practical guides for using AI across writing, coding, business, education, research, and image generation."
 last_updated: "2026-04-10"
 ---
 
 # AI Use Cases
 
-Practical guides for using AI in different domains.
+Practical guides for using AI in different domains. Each use case is tagged by category and available via the [JSON API](/api/v1/use-cases.json) — demonstrating how agents retrieve domain-specific recommendations.
 
 | Use Case | Description |
 |----------|-------------|

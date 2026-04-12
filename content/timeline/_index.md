@@ -1,11 +1,14 @@
 ---
 title: "AI Timeline"
 type: timeline
+id: "timeline"
 description: "Chronological history of artificial intelligence from 1950 to 2026 — key research breakthroughs, product launches, milestones, and policy events."
 last_updated: "2026-04-10"
 ---
 
 # AI Timeline
+
+A chronological history of artificial intelligence from 1950 to 2026. Each event is typed by category (Research, Product, Policy) and scope (Major, Minor) — structured temporal data that agents can filter and query via the [JSON API](/api/v1/timeline.json).
 
 A chronological history of artificial intelligence from 1950 to 2026.
 

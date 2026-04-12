@@ -1,6 +1,7 @@
 ---
 title: "AI for Education & Learning"
 type: use-case
+id: "use-case-education"
 description: "Discover how to use AI for tutoring, study aids, language learning, and creating educational content. Practical tips for students, teachers, and lifelong learners."
 last_updated: "2026-04-10"
 tags:

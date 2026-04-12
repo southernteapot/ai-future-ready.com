@@ -1,6 +1,7 @@
 ---
 title: "Claude Opus 4.6 vs Gemini 3.1 Pro"
 type: comparison
+id: "claude-vs-gemini"
 description: "Head-to-head comparison of Claude Opus 4.6 and Gemini 3.1 Pro — premium intelligence versus best value in frontier AI. Benchmarks, pricing, multimodal, and ecosystem analysis."
 last_updated: "2026-04-10"
 tags:

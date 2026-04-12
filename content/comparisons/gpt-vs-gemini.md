@@ -1,6 +1,7 @@
 ---
 title: "GPT-5.4 vs Gemini 3.1 Pro"
 type: comparison
+id: "gpt-vs-gemini"
 description: "Head-to-head comparison of GPT-5.4 and Gemini 3.1 Pro — the two most widely used frontier AI models. Ecosystem, pricing, multimodal, and benchmark analysis."
 last_updated: "2026-04-10"
 tags:

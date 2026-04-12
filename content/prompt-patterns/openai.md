@@ -1,6 +1,7 @@
 ---
 title: "Prompting Patterns for OpenAI GPT-5.4"
 type: prompt-pattern
+id: "prompt-openai"
 description: "What works specifically with GPT-5.4 and ChatGPT — system prompts, structured output, verbosity control, Thinking mode, and multi-turn strategies."
 last_updated: "2026-04-10"
 tags:

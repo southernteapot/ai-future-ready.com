@@ -1,6 +1,7 @@
 ---
 title: "AI for Coding & Development"
 type: use-case
+id: "use-case-coding"
 description: "Learn how to use AI for code generation, debugging, code review, documentation, and learning to code. Includes best tools like GitHub Copilot, Claude Code, Cursor, and more."
 last_updated: "2026-04-10"
 tags:

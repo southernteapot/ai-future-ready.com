@@ -1,6 +1,7 @@
 ---
 title: "AI Future Ready"
 type: index
+id: "site-index"
 description: "Agent-ready AI reference. Structured markdown with YAML frontmatter, JSON APIs, and machine-readable discovery. Built for both humans and AI agents."
 last_updated: "2026-04-11"
 agent_protocols:

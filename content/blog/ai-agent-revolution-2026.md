@@ -1,6 +1,7 @@
 ---
 title: "The AI Agent Revolution: From Chatbots to Autonomous Workers"
 type: blog
+id: "ai-agent-revolution-2026"
 slug: "ai-agent-revolution-2026"
 description: "How AI agents evolved from simple chatbots to autonomous systems in 2025-2026, the key players driving adoption, and what comes next for multi-agent orchestration."
 date: "2026-04-01"

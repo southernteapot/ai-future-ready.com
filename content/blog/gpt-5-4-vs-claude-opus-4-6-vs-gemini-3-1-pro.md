@@ -1,6 +1,7 @@
 ---
 title: "GPT-5.4 vs Claude Opus 4.6 vs Gemini 3.1 Pro: Which AI Model Should You Use in 2026?"
 type: blog
+id: "gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro"
 slug: "gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro"
 description: "A head-to-head comparison of the three leading proprietary AI models in 2026. We break down benchmarks, pricing, context windows, and real-world performance to help you choose."
 date: "2026-03-28"

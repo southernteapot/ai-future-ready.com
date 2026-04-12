@@ -1,6 +1,7 @@
 ---
 title: "Prompt Engineering Guide — How to Write Better AI Prompts"
 type: guide
+id: "prompting"
 description: "Master prompt engineering from beginner to advanced. Learn zero-shot, few-shot, chain-of-thought, and other techniques to get better results from ChatGPT, Claude, and Gemini."
 last_updated: "2026-04-10"
 tags:

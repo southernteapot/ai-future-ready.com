@@ -1,6 +1,7 @@
 ---
 title: "Blog"
 type: index
+id: "blog"
 description: "Analysis, comparisons, and news about AI models, agents, and the evolving AI landscape."
 last_updated: "2026-04-10"
 ---

@@ -503,7 +503,7 @@ You don't need to do all ten. Each one adds value independently. The first three
 
 This checklist is v0.1 — a starting point, not a finished standard.
 
-**Use it now.** Walk through the ten criteria for your own site. The quick self-assessment at the top takes two minutes. The full criteria will show you exactly where your gaps are.
+**Use it now.** Walk through the ten criteria for your own site. Or take the [two-minute self-audit](/score) — ten questions, instant maturity level and gap analysis.
 
 **Start with Level 2.** Four changes — llms.txt, raw content, metadata, robots.txt — deliver most of the benefit. Don't overthink it.
 

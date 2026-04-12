@@ -1,6 +1,7 @@
 ---
 title: "April 2026: The Month the AI Labs Got Scared of Their Own Models"
 type: blog
+id: "april-2026-the-month-ai-labs-got-scared"
 slug: "april-2026-the-month-ai-labs-got-scared"
 description: "Anthropic built the most powerful AI model ever and refused to release it. Meta abandoned open source. OpenAI proposed robot taxes. April 2026 is when the AI industry stopped pretending everything is fine."
 date: "2026-04-10"

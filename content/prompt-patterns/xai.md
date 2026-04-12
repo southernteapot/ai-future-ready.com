@@ -1,6 +1,7 @@
 ---
 title: "Prompting Patterns for xAI Grok"
 type: prompt-pattern
+id: "prompt-xai"
 description: "What works specifically with Grok 4.1 and Grok 4.20 — factual accuracy, instruction following, real-time X/Twitter data, and multi-agent mode."
 last_updated: "2026-04-10"
 tags:

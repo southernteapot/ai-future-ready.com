@@ -1,13 +1,14 @@
 ---
 title: "AI Models"
 type: index
+id: "models"
 description: "Comprehensive comparison of 33+ AI models — proprietary and open source — with benchmarks, pricing, and use-case recommendations."
 last_updated: "2026-04-10"
 ---
 
 # AI Models
 
-Comprehensive comparison of current AI models with benchmarks, pricing, and recommendations.
+Comprehensive comparison of current AI models with benchmarks, pricing, and recommendations. Every model has structured YAML metadata with typed fields — pricing, benchmarks, context windows — queryable via the [JSON API](/api/v1/models.json) and [recommendation engine](/api/v1/recommend.json).
 
 ## Proprietary Models
 

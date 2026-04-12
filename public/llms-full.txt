@@ -803,7 +803,7 @@ You don't need to do all ten. Each one adds value independently. The first three
 
 This checklist is v0.1 — a starting point, not a finished standard.
 
-**Use it now.** Walk through the ten criteria for your own site. The quick self-assessment at the top takes two minutes. The full criteria will show you exactly where your gaps are.
+**Use it now.** Walk through the ten criteria for your own site. Or take the [two-minute self-audit](/score) — ten questions, instant maturity level and gap analysis.
 
 **Start with Level 2.** Four changes — llms.txt, raw content, metadata, robots.txt — deliver most of the benefit. Don't overthink it.
 
@@ -828,13 +828,14 @@ We're building tools and services around this spec.
 ---
 title: "AI Models"
 type: index
+id: "models"
 description: "Comprehensive comparison of 33+ AI models — proprietary and open source — with benchmarks, pricing, and use-case recommendations."
 last_updated: "2026-04-10"
 ---
 
 # AI Models
 
-Comprehensive comparison of current AI models with benchmarks, pricing, and recommendations.
+Comprehensive comparison of current AI models with benchmarks, pricing, and recommendations. Every model has structured YAML metadata with typed fields — pricing, benchmarks, context windows — queryable via the [JSON API](/api/v1/models.json) and [recommendation engine](/api/v1/recommend.json).
 
 ## Proprietary Models
 
@@ -2673,13 +2674,14 @@ The catch is that Yi-1.5 is showing its age. Released in 2025, it predates the c
 ---
 title: "AI Agent Platforms"
 type: index
+id: "agents"
 description: "Directory of AI agent platforms — personal agents, developer frameworks, orchestration tools, coding agents, and no-code builders."
 last_updated: "2026-04-10"
 ---
 
 # AI Agent Platforms
 
-Directory of AI agent platforms and frameworks for building autonomous AI systems.
+Directory of AI agent platforms and frameworks for building autonomous AI systems. Each platform is structured with typed metadata — category, license, languages, pricing — available via the [JSON API](/api/v1/agents.json) and as [raw markdown](/content/agents/).
 
 ## Personal Agent
 
@@ -3332,6 +3334,7 @@ At three weeks old with 30K stars, this is peak hype-cycle. The TypeScript/Node.
 ---
 title: "Model Comparisons"
 type: index
+id: "comparisons"
 description: "Head-to-head comparisons of popular AI models. Structured analysis for agents and humans making model selection decisions."
 last_updated: "2026-04-10"
 ---
@@ -3363,6 +3366,7 @@ Head-to-head comparisons of popular AI models with opinionated recommendations.
 ---
 title: "Best AI Models for Coding (2026)"
 type: comparison
+id: "best-coding-models"
 description: "Ranked list of the best AI models for software engineering. SWE-bench scores, coding benchmarks, pricing, and tool recommendations for each model."
 last_updated: "2026-04-10"
 tags:
@@ -3571,6 +3575,7 @@ The cheapest capable coding model via API. At $0.27/$1.10, it costs roughly 5% o
 ---
 title: "Cheapest AI Models (2026)"
 type: comparison
+id: "cheapest-models"
 description: "Cost-effectiveness rankings for AI models. Pricing tables, quality-per-dollar analysis, and recommendations from free to frontier. Updated April 2026."
 last_updated: "2026-04-10"
 tags:
@@ -3748,6 +3753,7 @@ Models you can use right now without spending anything:
 ---
 title: "Claude Opus 4.6 vs Gemini 3.1 Pro"
 type: comparison
+id: "claude-vs-gemini"
 description: "Head-to-head comparison of Claude Opus 4.6 and Gemini 3.1 Pro — premium intelligence versus best value in frontier AI. Benchmarks, pricing, multimodal, and ecosystem analysis."
 last_updated: "2026-04-10"
 tags:
@@ -3871,6 +3877,7 @@ Anthropic's ecosystem is smaller but includes Claude Code (best coding CLI), the
 ---
 title: "Claude Opus 4.6 vs GPT-5.4"
 type: comparison
+id: "claude-vs-gpt"
 description: "Head-to-head comparison of Claude Opus 4.6 and GPT-5.4 — the two most capable proprietary AI models as of April 2026. Benchmarks, pricing, coding, writing, and ecosystem analysis."
 last_updated: "2026-04-10"
 tags:
@@ -3988,6 +3995,7 @@ For image understanding and analysis, both are strong. For audio processing, GPT
 ---
 title: "GPT-5.4 vs Gemini 3.1 Pro"
 type: comparison
+id: "gpt-vs-gemini"
 description: "Head-to-head comparison of GPT-5.4 and Gemini 3.1 Pro — the two most widely used frontier AI models. Ecosystem, pricing, multimodal, and benchmark analysis."
 last_updated: "2026-04-10"
 tags:
@@ -4120,6 +4128,7 @@ An underrated dimension. GPT-5.4 tends to produce more predictable, consistent o
 ---
 title: "Open Source vs Proprietary AI Models"
 type: comparison
+id: "open-source-vs-proprietary"
 description: "When to use open-source models versus proprietary APIs. Cost analysis, privacy, customization, performance gaps, hardware requirements, and best picks by use case."
 last_updated: "2026-04-10"
 tags:
@@ -4261,13 +4270,14 @@ Open source is not always the answer. Use proprietary APIs when:
 ---
 title: "Guides"
 type: index
+id: "guides"
 description: "Practical guides to understanding and using AI — from complete beginner to advanced prompt engineer."
 last_updated: "2026-04-10"
 ---
 
 # Guides
 
-Practical guides to understanding and using AI.
+Practical guides to understanding and using AI. Each guide is structured with YAML metadata and available as [raw markdown](/content/guides/) for agent consumption.
 
 | Guide | Level | Description |
 |-------|-------|-------------|
@@ -4281,6 +4291,7 @@ Practical guides to understanding and using AI.
 ---
 title: "What Is AI? A Complete Beginner's Guide to Artificial Intelligence"
 type: guide
+id: "getting-started"
 description: "Learn what artificial intelligence really is, how AI models work, the difference between AI and machine learning, and how to start using AI tools like ChatGPT, Claude, and Gemini today."
 last_updated: "2026-04-10"
 tags:
@@ -4545,6 +4556,7 @@ Now that you understand the basics, here are the best next steps:
 ---
 title: "Prompt Engineering Guide — How to Write Better AI Prompts"
 type: guide
+id: "prompting"
 description: "Master prompt engineering from beginner to advanced. Learn zero-shot, few-shot, chain-of-thought, and other techniques to get better results from ChatGPT, Claude, and Gemini."
 last_updated: "2026-04-10"
 tags:
@@ -5034,13 +5046,14 @@ You now have a solid foundation in prompt engineering. Here are some next steps:
 ---
 title: "AI Use Cases"
 type: index
+id: "use-cases"
 description: "Practical guides for using AI across writing, coding, business, education, research, and image generation."
 last_updated: "2026-04-10"
 ---
 
 # AI Use Cases
 
-Practical guides for using AI in different domains.
+Practical guides for using AI in different domains. Each use case is tagged by category and available via the [JSON API](/api/v1/use-cases.json) — demonstrating how agents retrieve domain-specific recommendations.
 
 | Use Case | Description |
 |----------|-------------|
@@ -5058,6 +5071,7 @@ Practical guides for using AI in different domains.
 ---
 title: "AI for Business & Productivity"
 type: use-case
+id: "use-case-business"
 description: "Learn how to use AI for email management, meeting notes, data analysis, customer service, marketing, and project management. Practical tips and tool recommendations for business professionals."
 last_updated: "2026-04-10"
 tags:
@@ -5184,6 +5198,7 @@ Compare the AI models powering these tools on our [model comparison page](/model
 ---
 title: "AI for Coding & Development"
 type: use-case
+id: "use-case-coding"
 description: "Learn how to use AI for code generation, debugging, code review, documentation, and learning to code. Includes best tools like GitHub Copilot, Claude Code, Cursor, and more."
 last_updated: "2026-04-10"
 tags:
@@ -5300,6 +5315,7 @@ For a deeper comparison of the AI models behind these tools, check out our [AI m
 ---
 title: "AI for Education & Learning"
 type: use-case
+id: "use-case-education"
 description: "Discover how to use AI for tutoring, study aids, language learning, and creating educational content. Practical tips for students, teachers, and lifelong learners."
 last_updated: "2026-04-10"
 tags:
@@ -5418,6 +5434,7 @@ For a deeper comparison of the AI models behind these tools, visit our [AI model
 ---
 title: "AI for Image Generation"
 type: use-case
+id: "use-case-images"
 description: "Learn how to use AI image generators like DALL-E, Midjourney, Stable Diffusion, and Adobe Firefly. Includes prompt-writing tips and use cases for marketing, social media, and product design."
 last_updated: "2026-04-10"
 tags:
@@ -5576,6 +5593,7 @@ To understand the AI models behind these image generators, visit our [AI model c
 ---
 title: "AI for Research & Analysis"
 type: use-case
+id: "use-case-research"
 description: "Learn how to use AI for literature review, data analysis, summarization, and fact-checking. Discover the best AI tools and techniques for academic and professional research."
 last_updated: "2026-04-10"
 tags:
@@ -5679,6 +5697,7 @@ For more on how different AI models handle research tasks, visit our [model comp
 ---
 title: "AI for Writing & Content Creation"
 type: use-case
+id: "use-case-writing"
 description: "Learn how to use AI for writing blog posts, copywriting, editing, social media, email drafting, and creative writing. Includes best tools, tips, and example prompts."
 last_updated: "2026-04-10"
 tags:
@@ -5817,6 +5836,7 @@ Want to compare more AI models side by side? Visit our [AI model comparison page
 ---
 title: "Prompt Patterns by Model"
 type: index
+id: "prompt-patterns"
 description: "Model-specific prompting patterns and techniques. What works best with each AI model family — structured for agents that generate prompts."
 last_updated: "2026-04-10"
 ---
@@ -5863,6 +5883,7 @@ Prompting patterns for Llama 4, DeepSeek R1, Qwen 3/3.5, Hermes 4, and other sel
 ---
 title: "Prompting Patterns for Anthropic Claude"
 type: prompt-pattern
+id: "prompt-anthropic"
 description: "What works specifically with Claude Opus 4.6, Sonnet 4.6, and Haiku 4.5 — XML tags, long context, constraint following, extended thinking, and tiered instructions."
 last_updated: "2026-04-10"
 tags:
@@ -6135,6 +6156,7 @@ The three-tier structure (goal, rules, examples) gives Claude a clear hierarchy:
 ---
 title: "Prompting Patterns for Google Gemini"
 type: prompt-pattern
+id: "prompt-google"
 description: "What works specifically with Gemini 3.1 Pro and Gemini 3 Flash — multimodal prompts, web grounding, Google Workspace integration, multilingual output, and code execution."
 last_updated: "2026-04-10"
 tags:
@@ -6388,6 +6410,7 @@ This pattern works best for:
 ---
 title: "Prompting Patterns for Open Source Models"
 type: prompt-pattern
+id: "prompt-open-source"
 description: "What works with self-hosted and API-accessed open models — Llama 4, DeepSeek R1, Qwen 3/3.5, Hermes 4, and others. Covers system prompt formats, quantization-aware prompting, reasoning toggles, and temperature tuning."
 last_updated: "2026-04-10"
 tags:
@@ -6696,6 +6719,7 @@ If you are getting inconsistent output from an open model, lowering the temperat
 ---
 title: "Prompting Patterns for OpenAI GPT-5.4"
 type: prompt-pattern
+id: "prompt-openai"
 description: "What works specifically with GPT-5.4 and ChatGPT — system prompts, structured output, verbosity control, Thinking mode, and multi-turn strategies."
 last_updated: "2026-04-10"
 tags:
@@ -6910,6 +6934,7 @@ With this set, every new ChatGPT conversation starts with this context. You skip
 ---
 title: "Prompting Patterns for xAI Grok"
 type: prompt-pattern
+id: "prompt-xai"
 description: "What works specifically with Grok 4.1 and Grok 4.20 — factual accuracy, instruction following, real-time X/Twitter data, and multi-agent mode."
 last_updated: "2026-04-10"
 tags:
@@ -7105,6 +7130,7 @@ This does not mean Grok has no guardrails. It still refuses clearly harmful requ
 ---
 title: "Blog"
 type: index
+id: "blog"
 description: "Analysis, comparisons, and news about AI models, agents, and the evolving AI landscape."
 last_updated: "2026-04-10"
 ---
@@ -7126,6 +7152,7 @@ last_updated: "2026-04-10"
 ---
 title: "The AI Agent Revolution: From Chatbots to Autonomous Workers"
 type: blog
+id: "ai-agent-revolution-2026"
 slug: "ai-agent-revolution-2026"
 description: "How AI agents evolved from simple chatbots to autonomous systems in 2025-2026, the key players driving adoption, and what comes next for multi-agent orchestration."
 date: "2026-04-01"
@@ -7195,6 +7222,7 @@ By the end of 2026, multi-agent orchestration will be as common in production so
 ---
 title: "April 2026: The Month the AI Labs Got Scared of Their Own Models"
 type: blog
+id: "april-2026-the-month-ai-labs-got-scared"
 slug: "april-2026-the-month-ai-labs-got-scared"
 description: "Anthropic built the most powerful AI model ever and refused to release it. Meta abandoned open source. OpenAI proposed robot taxes. April 2026 is when the AI industry stopped pretending everything is fine."
 date: "2026-04-10"
@@ -7293,6 +7321,7 @@ The models are ready. The question is whether we are.
 ---
 title: "GPT-5.4 vs Claude Opus 4.6 vs Gemini 3.1 Pro: Which AI Model Should You Use in 2026?"
 type: blog
+id: "gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro"
 slug: "gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro"
 description: "A head-to-head comparison of the three leading proprietary AI models in 2026. We break down benchmarks, pricing, context windows, and real-world performance to help you choose."
 date: "2026-03-28"
@@ -7356,6 +7385,7 @@ The honest truth? All three are extraordinarily capable. The gap between them is
 ---
 title: "OpenAI Shuts Down Sora: What Happened and What's Next for AI Video"
 type: blog
+id: "openai-shuts-down-sora-what-happened"
 slug: "openai-shuts-down-sora-what-happened"
 description: "OpenAI officially discontinued Sora in March 2026 after persistent quality issues and fierce competition. We look at what went wrong and where AI video generation is headed."
 date: "2026-03-20"
@@ -7413,6 +7443,7 @@ The dream of effortless, high-quality AI video generation isn't dead. It's just 
 ---
 title: "The Rise of Open Source AI: How DeepSeek, Qwen, and MiniMax Are Changing the Game"
 type: blog
+id: "rise-of-open-source-ai-deepseek-qwen-minimax"
 slug: "rise-of-open-source-ai-deepseek-qwen-minimax"
 description: "Open-source AI models are closing the gap with proprietary giants. We analyze how DeepSeek, Qwen, and MiniMax are reshaping the AI landscape and what it means for developers."
 date: "2026-03-10"
@@ -7474,11 +7505,14 @@ But the trend is clear: the era of proprietary AI models having a commanding lea
 ---
 title: "AI Glossary"
 type: glossary
+id: "glossary"
 description: "Plain-English definitions of 80+ AI and machine learning terms. From AGI to Zero-Shot Learning."
 last_updated: "2026-04-10"
 ---
 
 # AI Glossary
+
+Plain-English definitions of key AI and machine learning terms. Each term is indexed in the [search index](/search-index.json) and available as [raw markdown](/content/glossary/_index.md) — a working example of how structured content serves both humans and AI agents.
 
 Plain-English definitions of key AI and machine learning terms.
 
@@ -7803,11 +7837,14 @@ AI systems that can create new content such as text, images, audio, video, or co
 ---
 title: "AI Timeline"
 type: timeline
+id: "timeline"
 description: "Chronological history of artificial intelligence from 1950 to 2026 — key research breakthroughs, product launches, milestones, and policy events."
 last_updated: "2026-04-10"
 ---
 
 # AI Timeline
+
+A chronological history of artificial intelligence from 1950 to 2026. Each event is typed by category (Research, Product, Policy) and scope (Major, Minor) — structured temporal data that agents can filter and query via the [JSON API](/api/v1/timeline.json).
 
 A chronological history of artificial intelligence from 1950 to 2026.
 
@@ -8304,11 +8341,14 @@ GitHub launches Agentic Code Review on March 5, expanding Copilot from code comp
 ---
 title: "AI Model Pricing"
 type: index
+id: "pricing"
 description: "Up-to-date pricing comparison for AI model APIs — input/output token costs, free tiers, and subscription plans."
 last_updated: "2026-04-10"
 ---
 
 # AI Model Pricing
+
+All pricing data below is also available as structured fields in the [JSON API](/api/v1/models.json) — agents can compare costs programmatically without parsing this table.
 
 Up-to-date pricing comparison for AI model APIs.
 
@@ -8364,6 +8404,7 @@ Up-to-date pricing comparison for AI model APIs.
 ---
 title: "AI Changelog"
 type: changelog
+id: "changelog"
 description: "Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs."
 last_updated: "2026-04-10"
 ---
@@ -8481,6 +8522,7 @@ What changed in AI, in reverse chronological order. Designed for agents with kno
 ---
 title: "AI Model Compatibility Matrix"
 type: reference
+id: "compatibility"
 description: "Which AI models work with which agent frameworks, coding tools, and platforms. Structured for agent consumption."
 last_updated: "2026-04-10"
 ---

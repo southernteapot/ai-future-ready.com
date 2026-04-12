@@ -1,6 +1,7 @@
 ---
 title: "AI for Business & Productivity"
 type: use-case
+id: "use-case-business"
 description: "Learn how to use AI for email management, meeting notes, data analysis, customer service, marketing, and project management. Practical tips and tool recommendations for business professionals."
 last_updated: "2026-04-10"
 tags:

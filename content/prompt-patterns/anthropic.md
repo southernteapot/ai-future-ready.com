@@ -1,6 +1,7 @@
 ---
 title: "Prompting Patterns for Anthropic Claude"
 type: prompt-pattern
+id: "prompt-anthropic"
 description: "What works specifically with Claude Opus 4.6, Sonnet 4.6, and Haiku 4.5 — XML tags, long context, constraint following, extended thinking, and tiered instructions."
 last_updated: "2026-04-10"
 tags:

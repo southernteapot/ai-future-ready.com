@@ -1,6 +1,7 @@
 ---
 title: "Open Source vs Proprietary AI Models"
 type: comparison
+id: "open-source-vs-proprietary"
 description: "When to use open-source models versus proprietary APIs. Cost analysis, privacy, customization, performance gaps, hardware requirements, and best picks by use case."
 last_updated: "2026-04-10"
 tags:

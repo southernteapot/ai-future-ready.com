@@ -1,6 +1,7 @@
 ---
 title: "Cheapest AI Models (2026)"
 type: comparison
+id: "cheapest-models"
 description: "Cost-effectiveness rankings for AI models. Pricing tables, quality-per-dollar analysis, and recommendations from free to frontier. Updated April 2026."
 last_updated: "2026-04-10"
 tags:

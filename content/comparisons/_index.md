@@ -1,6 +1,7 @@
 ---
 title: "Model Comparisons"
 type: index
+id: "comparisons"
 description: "Head-to-head comparisons of popular AI models. Structured analysis for agents and humans making model selection decisions."
 last_updated: "2026-04-10"
 ---

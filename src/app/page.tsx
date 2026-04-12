@@ -199,7 +199,7 @@ export default function HomePage() {
       </section>
 
       {/* Agent-Ready Checklist CTA */}
-      <section className="border-t border-neutral-800 pt-12 space-y-8">
+      <section className="border-t border-neutral-800 pt-12 space-y-6">
         <div className="space-y-3">
           <h2 className="text-xl font-bold text-white">
             Make your site agent-ready
@@ -209,38 +209,52 @@ export default function HomePage() {
             fix that.
           </p>
         </div>
-        <Link
-          href="/checklist"
-          className="group block p-6 border border-neutral-600 rounded-lg hover:border-neutral-400 transition-colors max-w-2xl"
-        >
-          <span className="text-base text-white font-bold block group-hover:underline">
-            The Agent-Ready Website Checklist &rarr;
-          </span>
-          <p className="text-sm text-neutral-400 mt-2">
-            Ten criteria. Five maturity levels. Common failure modes.
-            A practical spec for making any website work for AI agents.
-          </p>
-        </Link>
+        <div className="grid gap-3 sm:grid-cols-2 max-w-2xl">
+          <Link
+            href="/score"
+            className="group block p-5 border border-neutral-600 rounded-lg hover:border-neutral-400 transition-colors"
+          >
+            <span className="text-sm text-white font-bold block group-hover:underline">
+              Score your site &rarr;
+            </span>
+            <p className="text-xs text-neutral-500 mt-1.5">
+              Ten questions. Two minutes. Find your maturity level
+              and specific gaps.
+            </p>
+          </Link>
+          <Link
+            href="/checklist"
+            className="group block p-5 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors"
+          >
+            <span className="text-sm text-white font-bold block group-hover:underline">
+              Read the checklist &rarr;
+            </span>
+            <p className="text-xs text-neutral-500 mt-1.5">
+              Full spec with criteria, failure modes, and a five-level
+              maturity model.
+            </p>
+          </Link>
+        </div>
         <div className="flex gap-3 max-w-2xl">
           <Link
             href="/standard"
-            className="block px-4 py-3 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors flex-1"
+            className="block px-4 py-2.5 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors flex-1"
           >
-            <span className="text-sm text-white font-semibold">
+            <span className="text-xs text-white font-semibold">
               Technical spec
             </span>
-            <span className="text-xs text-neutral-500 ml-2">
-              Formats, schemas, protocols
+            <span className="text-xs text-neutral-600 ml-2">
+              Formats &amp; protocols
             </span>
           </Link>
           <a
             href="mailto:brian@aifutureready.com?subject=Agent-Ready%20Audit"
-            className="block px-4 py-3 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors flex-1"
+            className="block px-4 py-2.5 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors flex-1"
           >
-            <span className="text-sm text-white font-semibold">
+            <span className="text-xs text-white font-semibold">
               Get an audit
             </span>
-            <span className="text-xs text-neutral-500 ml-2">
+            <span className="text-xs text-neutral-600 ml-2">
               Professional evaluation
             </span>
           </a>

@@ -1,11 +1,14 @@
 ---
 title: "AI Model Pricing"
 type: index
+id: "pricing"
 description: "Up-to-date pricing comparison for AI model APIs — input/output token costs, free tiers, and subscription plans."
 last_updated: "2026-04-10"
 ---
 
 # AI Model Pricing
+
+All pricing data below is also available as structured fields in the [JSON API](/api/v1/models.json) — agents can compare costs programmatically without parsing this table.
 
 Up-to-date pricing comparison for AI model APIs.
 

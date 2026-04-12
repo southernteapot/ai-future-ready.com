@@ -1,6 +1,7 @@
 ---
 title: "Prompting Patterns for Google Gemini"
 type: prompt-pattern
+id: "prompt-google"
 description: "What works specifically with Gemini 3.1 Pro and Gemini 3 Flash — multimodal prompts, web grounding, Google Workspace integration, multilingual output, and code execution."
 last_updated: "2026-04-10"
 tags:

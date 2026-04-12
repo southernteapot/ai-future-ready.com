@@ -1,6 +1,7 @@
 ---
 title: "Best AI Models for Coding (2026)"
 type: comparison
+id: "best-coding-models"
 description: "Ranked list of the best AI models for software engineering. SWE-bench scores, coding benchmarks, pricing, and tool recommendations for each model."
 last_updated: "2026-04-10"
 tags:

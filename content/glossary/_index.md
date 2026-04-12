@@ -1,11 +1,14 @@
 ---
 title: "AI Glossary"
 type: glossary
+id: "glossary"
 description: "Plain-English definitions of 80+ AI and machine learning terms. From AGI to Zero-Shot Learning."
 last_updated: "2026-04-10"
 ---
 
 # AI Glossary
+
+Plain-English definitions of key AI and machine learning terms. Each term is indexed in the [search index](/search-index.json) and available as [raw markdown](/content/glossary/_index.md) — a working example of how structured content serves both humans and AI agents.
 
 Plain-English definitions of key AI and machine learning terms.
 

@@ -1,6 +1,7 @@
 ---
 title: "The Rise of Open Source AI: How DeepSeek, Qwen, and MiniMax Are Changing the Game"
 type: blog
+id: "rise-of-open-source-ai-deepseek-qwen-minimax"
 slug: "rise-of-open-source-ai-deepseek-qwen-minimax"
 description: "Open-source AI models are closing the gap with proprietary giants. We analyze how DeepSeek, Qwen, and MiniMax are reshaping the AI landscape and what it means for developers."
 date: "2026-03-10"

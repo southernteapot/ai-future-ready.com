@@ -1,13 +1,14 @@
 ---
 title: "AI Agent Platforms"
 type: index
+id: "agents"
 description: "Directory of AI agent platforms — personal agents, developer frameworks, orchestration tools, coding agents, and no-code builders."
 last_updated: "2026-04-10"
 ---
 
 # AI Agent Platforms
 
-Directory of AI agent platforms and frameworks for building autonomous AI systems.
+Directory of AI agent platforms and frameworks for building autonomous AI systems. Each platform is structured with typed metadata — category, license, languages, pricing — available via the [JSON API](/api/v1/agents.json) and as [raw markdown](/content/agents/).
 
 ## Personal Agent
 

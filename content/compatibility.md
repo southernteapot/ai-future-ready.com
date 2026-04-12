@@ -1,6 +1,7 @@
 ---
 title: "AI Model Compatibility Matrix"
 type: reference
+id: "compatibility"
 description: "Which AI models work with which agent frameworks, coding tools, and platforms. Structured for agent consumption."
 last_updated: "2026-04-10"
 ---

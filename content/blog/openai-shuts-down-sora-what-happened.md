@@ -1,6 +1,7 @@
 ---
 title: "OpenAI Shuts Down Sora: What Happened and What's Next for AI Video"
 type: blog
+id: "openai-shuts-down-sora-what-happened"
 slug: "openai-shuts-down-sora-what-happened"
 description: "OpenAI officially discontinued Sora in March 2026 after persistent quality issues and fierce competition. We look at what went wrong and where AI video generation is headed."
 date: "2026-03-20"

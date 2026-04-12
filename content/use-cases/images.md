@@ -1,6 +1,7 @@
 ---
 title: "AI for Image Generation"
 type: use-case
+id: "use-case-images"
 description: "Learn how to use AI image generators like DALL-E, Midjourney, Stable Diffusion, and Adobe Firefly. Includes prompt-writing tips and use cases for marketing, social media, and product design."
 last_updated: "2026-04-10"
 tags:

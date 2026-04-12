@@ -1,6 +1,7 @@
 ---
 title: "Claude Opus 4.6 vs GPT-5.4"
 type: comparison
+id: "claude-vs-gpt"
 description: "Head-to-head comparison of Claude Opus 4.6 and GPT-5.4 — the two most capable proprietary AI models as of April 2026. Benchmarks, pricing, coding, writing, and ecosystem analysis."
 last_updated: "2026-04-10"
 tags:

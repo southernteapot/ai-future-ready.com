@@ -1,6 +1,7 @@
 ---
 title: "AI Changelog"
 type: changelog
+id: "changelog"
 description: "Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs."
 last_updated: "2026-04-10"
 ---

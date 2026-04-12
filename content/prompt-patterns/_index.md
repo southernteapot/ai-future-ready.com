@@ -1,6 +1,7 @@
 ---
 title: "Prompt Patterns by Model"
 type: index
+id: "prompt-patterns"
 description: "Model-specific prompting patterns and techniques. What works best with each AI model family — structured for agents that generate prompts."
 last_updated: "2026-04-10"
 ---

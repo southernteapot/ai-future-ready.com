@@ -175,6 +175,7 @@ const searchIndex = allEntries
       title: entry.title,
       description: entry.description,
       section: entry.section,
+      id: (data.id as string) || undefined,
       href: entry.mdPath
         .replace(/^\/content/, "")
         .replace(/\.md$/, ""),
@@ -233,6 +234,7 @@ for (const t of contentTypes) {
     const slug = f.replace(/\.md$/, "");
     return {
       slug,
+      id: (data.id as string) || slug,
       title: (data.title as string) || slug,
       description: (data.description as string) || "",
       last_updated: (data.last_updated as string) || "",

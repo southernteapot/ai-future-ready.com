@@ -1,6 +1,7 @@
 ---
 title: "Prompting Patterns for Open Source Models"
 type: prompt-pattern
+id: "prompt-open-source"
 description: "What works with self-hosted and API-accessed open models — Llama 4, DeepSeek R1, Qwen 3/3.5, Hermes 4, and others. Covers system prompt formats, quantization-aware prompting, reasoning toggles, and temperature tuning."
 last_updated: "2026-04-10"
 tags:
