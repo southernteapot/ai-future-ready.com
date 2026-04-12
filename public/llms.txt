@@ -2,8 +2,8 @@
 > The agent-ready web — a specification, checklist, and working demonstration of websites built for both humans and AI agents. Includes a structured AI reference library with models, agents, comparisons, and analysis.
 
 ## Content Sections
-- [Standard](/content/standard/_index.md): A specification for building websites that serve both humans and AI agents. Defines the architecture, metadata, access protocols, and trust signals that make web content machine-usable.
-- [Checklist](/content/checklist/_index.md): Score your website's agent-readiness. 100-point rubric across 5 categories: content structure, machine access, discovery, trust, and relationships.
+- [Standard](/content/standard/_index.md): Technical specification for agent-ready web architecture. Defines content formats, metadata schemas, access protocols, discovery mechanisms, and trust signals.
+- [Checklist](/content/checklist/_index.md): A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.
 - [Models](/content/models/_index.md): Comprehensive comparison of 33+ AI models — proprietary and open source — with benchmarks, pricing, and use-case recommendations.
 - [Agent Platforms](/content/agents/_index.md): Directory of AI agent platforms — personal agents, developer frameworks, orchestration tools, coding agents, and no-code builders.
 - [Comparisons](/content/comparisons/_index.md): Head-to-head comparisons of popular AI models. Structured analysis for agents and humans making model selection decisions.

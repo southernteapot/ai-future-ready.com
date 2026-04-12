@@ -198,52 +198,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Is Your Site Agent-Ready? */}
+      {/* Agent-Ready Checklist CTA */}
       <section className="space-y-6 border-t border-neutral-800 pt-12">
         <h2 className="text-xl font-bold text-white">
-          Is your site agent-ready?
+          Make your site agent-ready
         </h2>
         <p className="text-sm text-neutral-400 max-w-3xl leading-relaxed">
-          Most websites score below 20 out of 100 on our agent-readiness
-          rubric. They have no llms.txt, no structured API, no raw content
-          access, no metadata schema. AI agents visiting those sites scrape
-          HTML, guess at structure, and hallucinate the rest.
+          Most websites are invisible to AI agents. No discovery protocol,
+          no structured metadata, no raw content access. Agents scrape HTML,
+          guess at structure, and hallucinate the rest. Four changes can fix
+          that.
         </p>
-        <div className="grid gap-4 sm:grid-cols-3">
-          <Link
-            href="/checklist"
-            className="block p-5 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors"
-          >
-            <span className="text-sm text-white font-semibold block">
-              Score your site
-            </span>
-            <p className="text-xs text-neutral-500 mt-2">
-              100-point checklist across 5 categories. Takes 10 minutes.
-              Find out where you stand.
-            </p>
-          </Link>
+        <Link
+          href="/checklist"
+          className="block p-6 border border-neutral-600 rounded-lg hover:border-neutral-400 transition-colors max-w-3xl"
+        >
+          <span className="text-base text-white font-bold block">
+            The Agent-Ready Website Checklist
+          </span>
+          <p className="text-sm text-neutral-400 mt-2 leading-relaxed">
+            Ten concrete criteria — from discovery to trust signals.
+            What each one is, why it matters, what good looks like,
+            and how to fail at it. Plus a five-level maturity model
+            from scrape-only to agent-native.
+          </p>
+          <span className="text-xs text-neutral-500 mt-3 block">
+            v0.1 — the first portable artifact of the agent-ready web
+          </span>
+        </Link>
+        <div className="flex gap-4 max-w-3xl">
           <Link
             href="/standard"
-            className="block p-5 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors"
+            className="block p-4 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors flex-1"
           >
             <span className="text-sm text-white font-semibold block">
-              Read the standard
+              Technical spec
             </span>
-            <p className="text-xs text-neutral-500 mt-2">
-              The full specification for agent-ready web architecture.
-              What to build and why.
+            <p className="text-xs text-neutral-500 mt-1">
+              Format specifications, schemas, and protocols for implementers.
             </p>
           </Link>
           <a
             href="mailto:brian@aifutureready.com?subject=Agent-Ready%20Audit"
-            className="block p-5 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors"
+            className="block p-4 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors flex-1"
           >
             <span className="text-sm text-white font-semibold block">
               Get an audit
             </span>
-            <p className="text-xs text-neutral-500 mt-2">
-              Professional evaluation with a detailed scorecard,
-              gap analysis, and implementation roadmap.
+            <p className="text-xs text-neutral-500 mt-1">
+              Professional evaluation with scorecard and implementation roadmap.
             </p>
           </a>
         </div>
