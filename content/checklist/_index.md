@@ -38,6 +38,32 @@ This is not a future problem. It's happening now. And the fix isn't a chatbot wi
 
 ---
 
+## Quick Self-Assessment
+
+Before diving into the details, answer these ten questions about your site. Be honest.
+
+| # | Question | Yes / No |
+|---|----------|----------|
+| 1 | Can an agent find an index of your content without crawling every page? | |
+| 2 | Can an agent get your content as raw text or structured data — not just HTML? | |
+| 3 | Does every content item carry consistent, typed metadata (title, type, date, description)? | |
+| 4 | Does every content item have a stable ID that survives URL changes? | |
+| 5 | Can an agent tell when your content was last updated and by whom? | |
+| 6 | Can an agent verify whether its cached copy of your content is still current? | |
+| 7 | Can an agent traverse relationships between your content programmatically? | |
+| 8 | Can an agent find out what changed since its last visit without re-crawling? | |
+| 9 | Can an agent query your content with filters — not just fetch individual pages? | |
+| 10 | Does your site work for both humans and agents from the same content source? | |
+
+**Count your "yes" answers:**
+
+- **0–2:** Level 0–1. Agents are scraping and guessing. Start with the [Minimum Viable Agent-Ready Site](#minimum-viable-agent-ready-site) section below.
+- **3–5:** Level 2. You have the basics. Read the full criteria to find your gaps.
+- **6–8:** Level 3. You're ahead of most of the web. Focus on trust, relationships, and change visibility.
+- **9–10:** Level 4. You're building the future web. Tell us how it's going.
+
+---
+
 ## The Criteria
 
 Ten areas, organized from "agents can find you" to "agents can trust and act on your content."
@@ -281,52 +307,96 @@ Partial implementation — this is an area we score ourselves honestly on:
 
 ---
 
+## Common Anti-Patterns
+
+Things that look like progress but aren't.
+
+**"We added a chatbot."** A chatbot widget is not agent-readiness. It's a single interface bolted onto unstructured content. Agents don't use chatbot widgets — they need programmatic access to your content and metadata. A chatbot makes your site conversational for humans. Agent-readiness makes your site machine-readable for any agent, framework, or workflow.
+
+**"We have an API — behind authentication."** If your content is public on the website but requires an API key to access programmatically, you're telling agents to scrape. Every barrier between public content and machine access is a barrier to accurate representation. Auth makes sense for private data. For public content, it's just friction.
+
+**"We export to PDF."** A PDF is a rendered artifact, not structured data. It's better than nothing, but agents can't reliably extract metadata, filter fields, or traverse relationships from a PDF. It's a step above HTML scraping, but only barely.
+
+**"Our `last_updated` is automatic."** If your CMS sets `last_updated` on every deploy, every page always says "today." That's worse than no date at all — it's actively misleading. Agents rely on timestamps to assess freshness. Automatic timestamps destroy that signal.
+
+**"We have structured data — in JSON-LD for SEO."** JSON-LD in your HTML `<head>` is a start, but it's typically limited to schema.org types for search engines: Organization, Article, Product. Agent-readiness requires richer, content-specific metadata (pricing fields, benchmark scores, context windows) available outside the HTML page. SEO-focused structured data is Level 1. Agent-readiness starts at Level 2.
+
+**"We built a separate API version."** If your API serves different content than your website, you now have two sources of truth that will drift apart. Agent-readiness means serving the same content through multiple access paths — not maintaining parallel content databases. Single source, multiple representations.
+
+---
+
 ## Maturity Model
 
 Not every site needs to implement all ten criteria on day one. This model describes a progression from where most sites are today to where the web is heading.
 
+---
+
 ### Level 0: Scrape-Only
 
-The default state of most websites today.
+*Where most of the web is right now.*
 
-- Content is locked in HTML templates
-- No structured metadata beyond basic `<title>` and `<meta>` tags
-- No raw content access — agents must parse rendered HTML
-- No discovery — agents crawl and guess
-- JavaScript may be required to see content
+**Defining traits.**
+- Content is locked inside HTML templates, navigation structures, and JavaScript rendering
+- No structured metadata beyond `<title>` and basic `<meta>` tags
+- No machine-readable content access — agents must parse rendered HTML
+- No discovery mechanism — agents crawl and guess what exists
+- Content may require JavaScript, authentication, or CAPTCHA to view
 
-*Most corporate sites, news sites, and e-commerce platforms are here.*
+**What agents experience.** They fetch your HTML, strip tags, guess at structure, and hallucinate anything they can't extract. Pricing? Probably wrong. Product details? Partially inferred. Relationships between pages? Invisible.
+
+**Limitations.** Agents can't reliably represent your content. They can't tell what's current, what's related, or what's authoritative. Your site is effectively invisible to AI-mediated discovery.
+
+**What separates this from Level 1.** Semantic HTML and basic metadata. The bar is low.
+
+---
 
 ### Level 1: Readable
 
-The site is at least parseable by agents, even if not optimized for them.
+*The site is parseable, even if not optimized for agents.*
 
+**Defining traits.**
 - Content is in the HTML (not behind JavaScript rendering)
 - Basic metadata exists: `<title>`, `<meta description>`, Open Graph tags
 - `robots.txt` doesn't block agents
 - XML sitemap exists
-- HTML is semantic (headings, lists, tables — not just `<div>` soup)
+- HTML is semantic — headings, lists, tables, not just nested `<div>` elements
 
-*Sites built with SSR frameworks, WordPress with good themes, and well-structured static sites are often here.*
+**What this unlocks.** Agents can at least read your content by parsing HTML. The structure is guessable from semantic markup. Basic metadata gives agents a title and summary without reading the full page.
+
+**Limitations.** Agents still have to scrape. They're parsing HTML, not reading structured data. Metadata is limited to what HTML `<meta>` tags can express. There's no discovery beyond the sitemap, and no way to get content without the rendering chrome.
+
+**What separates this from Level 2.** Raw content access and an `llms.txt` file. The jump from "parseable HTML" to "structured, fetchable content" is the most important transition in this model.
+
+*Sites built with server-side rendering, WordPress with clean themes, and well-structured static sites are often here. Most documentation sites are here.*
+
+---
 
 ### Level 2: Structured
 
-Agents can get content in a useful format without scraping HTML.
+*Agents can get your content in a useful format without scraping HTML.*
 
-- **Everything in Level 1, plus:**
-- Raw content available at predictable URLs (markdown, JSON, or equivalent)
+**Defining traits.**
+- Raw content available at predictable URLs — markdown, JSON, or equivalent
 - Consistent metadata schema across content of the same type
 - `llms.txt` file for agent discovery
 - `last_updated` timestamps on all content
 - Stable, documented URL patterns
 
-*This is where the leverage starts. Most of the agent-readiness benefit comes from reaching Level 2.*
+**What this unlocks.** Agents can discover your content, fetch it in a clean format, and extract metadata without parsing HTML. This is where agents go from "guessing" to "understanding." An agent can now answer "what models does this site cover?" or "what's the pricing for product X?" from structured data.
+
+**Limitations.** No queryable API — agents must fetch individual files and process them locally. No canonical IDs, so URL changes break agent caches. Limited provenance: agents know when content changed, but not whether it was verified. No relationship data beyond what's in the content body.
+
+**What separates this from Level 3.** A queryable API, canonical identifiers, and provenance metadata. Level 2 is a document store. Level 3 is a knowledge base.
+
+*This is where the leverage starts. Most of the agent-readiness benefit comes from reaching Level 2. If you do nothing else, do this.*
+
+---
 
 ### Level 3: Agent-Ready
 
-Agents can efficiently find, query, verify, and cross-reference content.
+*Agents can efficiently find, query, verify, and cross-reference your content.*
 
-- **Everything in Level 2, plus:**
+**Defining traits.**
 - JSON API with typed, queryable fields
 - Canonical identifiers that survive URL changes
 - Authorship and provenance metadata
@@ -334,48 +404,119 @@ Agents can efficiently find, query, verify, and cross-reference content.
 - Tags and taxonomy for filtering
 - Bulk access option (full content dump or paginated API)
 
-*This is the target for most sites that take agent traffic seriously. This site is here.*
+**What this unlocks.** Agents can query your content ("show me all models under $5/M input tokens"), verify freshness, cross-reference items via stable IDs, and build your content into workflows. Your site becomes a reliable data source, not just a readable one.
+
+**Limitations.** Agents can't efficiently detect changes without re-polling. No content integrity verification — agents must re-fetch to check for updates. Relationships between content aren't explicit in metadata. Volatile data (pricing, scores) isn't marked as volatile.
+
+**What separates this from Level 4.** Trust infrastructure (hashes, confidence signals, verification dates) and relationship metadata. Level 3 is a reliable knowledge base. Level 4 is a trusted, interconnected knowledge graph.
+
+*This is the target for most sites that take agent traffic seriously. This site is at Level 3.*
+
+---
 
 ### Level 4: Agent-Native
 
-The site is built for agents as a first-class audience, with full trust infrastructure and relationship data.
+*The site is built for agents as a first-class audience.*
 
-- **Everything in Level 3, plus:**
+**Defining traits.**
 - `/.well-known/ai.json` discovery endpoint
 - Typed relationships between content in metadata
-- JSON/RSS change feed
-- Content integrity hashes
+- JSON/RSS change feed for efficient update detection
+- Content integrity hashes for cache validation
 - Confidence signals on volatile fields
 - `last_verified` timestamps distinct from `last_updated`
 - Schema documentation for all content types
 - MCP server or equivalent tool integration
 
-*This is the frontier. Very few sites are here today. It's where the web is going.*
+**What this unlocks.** Agents can subscribe to changes instead of polling. They can validate cached content without re-fetching. They can traverse your content graph programmatically. They can distinguish between stable facts and volatile data. They can integrate your content into agentic workflows through tool protocols.
+
+**Limitations.** You're maintaining a sophisticated agent infrastructure. The effort is justified for sites where agent traffic is a primary audience — developer platforms, product catalogs, knowledge bases, documentation. For a five-page marketing site, Level 2 is plenty.
+
+*This is the frontier. Very few sites are here today. It's where the web is heading.*
 
 ---
 
-## What Level Are You?
+## Minimum Viable Agent-Ready Site
 
-Be honest. Most sites are Level 0 or Level 1. That's not a failure — it's the current state of the web. But the gap between Level 1 and Level 2 is where agents go from "guessing" to "understanding," and it's smaller than you think.
+You don't need to implement everything above. Here's the shortest path from Level 0 to Level 2 — the level where agents go from scraping to understanding.
 
-**The highest-leverage moves to reach Level 2:**
-1. Add `llms.txt` — takes an hour, gives agents a front door
-2. Serve raw content at predictable URLs — markdown or JSON alongside your HTML
-3. Add consistent metadata — at minimum: title, type, description, last_updated
-4. Make sure `robots.txt` allows agent access
+### If you do four things, do these
 
-Four changes. That gets you further than any AI chatbot widget.
+**1. Create `llms.txt`.**
+A plain text file at your site root that lists your content with descriptions and URLs. This is the single highest-leverage change you can make. It takes less than an hour. See [llms-txt.org](https://llms-txt.org) for the format.
+
+```
+# Your Site Name
+
+> What your site contains, in one sentence.
+
+## Products
+- [Product A](/products/a): One-line description
+- [Product B](/products/b): One-line description
+
+## Documentation
+- [Getting Started](/docs/start): One-line description
+```
+
+**2. Serve raw content alongside HTML.**
+For every content page, make the source available at a predictable URL. If you use a CMS, add a route that returns the content body with metadata as JSON. If you use markdown, serve the `.md` files directly.
+
+The URL pattern should be guessable: if the page is at `/products/widget`, the raw content should be at `/content/products/widget.md` or `/api/products/widget.json`.
+
+**3. Add consistent metadata.**
+Every content item should have these four fields in a machine-readable format:
+
+```yaml
+title: "Page Title"
+type: "product"
+description: "One-line summary."
+last_updated: "2026-04-12"
+```
+
+The format (YAML frontmatter, JSON, JSON-LD) matters less than consistency. Every page of the same type should have the same fields.
+
+**4. Open `robots.txt`.**
+Make sure you're not blocking agent access to content and API paths. Check that `robots.txt` doesn't disallow your content directories. Add explicit `Allow` directives for content paths.
+
+### Implementation order for going further
+
+After the four basics, here's the priority order for additional criteria — ranked by effort-to-impact ratio:
+
+| Priority | Criterion | Why next |
+|----------|-----------|----------|
+| 1 | Structured APIs | Transforms your site from fetchable to queryable |
+| 2 | Canonical IDs | Prevents cache breakage, costs almost nothing to add |
+| 3 | Provenance & timestamps | Lets agents assess freshness — critical for trust |
+| 4 | Search index | Enables filtering without hitting every file |
+| 5 | Tags & taxonomy | Makes relationships discoverable |
+| 6 | Change feed | Lets agents subscribe instead of poll |
+| 7 | Content hashes | Enables cache validation |
+| 8 | Confidence signals | Distinguishes stable from volatile data |
+| 9 | Typed relationships | Full content graph traversal |
+| 10 | MCP/tool integration | Direct agent tool access |
+
+You don't need to do all ten. Each one adds value independently. The first three after the basics (API, IDs, provenance) are what separate Level 2 from Level 3.
 
 ---
 
-## Next Steps
+## What Comes Next
 
-**Use this checklist.** Walk through the ten criteria for your own site. Be honest about where you are. Most of the value is in identifying the gaps, not in achieving a perfect score.
+This checklist is v0.1 — a starting point, not a finished standard.
 
-**Start with Level 2.** Don't try to go from Level 0 to Level 4. The four changes above — llms.txt, raw content, metadata, robots.txt — deliver most of the benefit.
+**Use it now.** Walk through the ten criteria for your own site. The quick self-assessment at the top takes two minutes. The full criteria will show you exactly where your gaps are.
 
-**Read the full standard.** The [Agent-Ready Web Standard](/standard) provides deeper technical detail on each criterion, including format specifications and implementation patterns.
+**Start with Level 2.** Four changes — llms.txt, raw content, metadata, robots.txt — deliver most of the benefit. Don't overthink it.
 
-**Want help implementing?** We're building tools and services around this spec. If you want a professional agent-readiness evaluation with a detailed scorecard and implementation roadmap: [brian@aifutureready.com](mailto:brian@aifutureready.com?subject=Agent-Ready%20Audit).
+**Go deeper.** The [Agent-Ready Web Standard](/standard) has the technical specifications: format definitions, metadata schemas, API patterns, and protocol details for implementers.
 
-**This is v0.1.** The spec will evolve as the agent ecosystem matures. If you implement it, we want to hear what worked and what didn't.
+---
+
+### Want help?
+
+We're building tools and services around this spec.
+
+**Agent-readiness audit.** A professional evaluation of your site — detailed scorecard across all ten criteria, specific gaps identified, prioritized implementation roadmap. Not a generic report. A specific, technical assessment of your site's agent readiness. [brian@aifutureready.com](mailto:brian@aifutureready.com?subject=Agent-Ready%20Audit)
+
+**Coming soon.** Implementation templates, starter configs, and an automated scoring tool. If you want early access, get in touch.
+
+**Built something with this?** We want to hear about it. What worked, what didn't, what's missing from the spec. This is v0.1 for a reason.

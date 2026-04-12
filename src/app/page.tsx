@@ -199,55 +199,50 @@ export default function HomePage() {
       </section>
 
       {/* Agent-Ready Checklist CTA */}
-      <section className="space-y-6 border-t border-neutral-800 pt-12">
-        <h2 className="text-xl font-bold text-white">
-          Make your site agent-ready
-        </h2>
-        <p className="text-sm text-neutral-400 max-w-3xl leading-relaxed">
-          Most websites are invisible to AI agents. No discovery protocol,
-          no structured metadata, no raw content access. Agents scrape HTML,
-          guess at structure, and hallucinate the rest. Four changes can fix
-          that.
-        </p>
+      <section className="border-t border-neutral-800 pt-12 space-y-8">
+        <div className="space-y-3">
+          <h2 className="text-xl font-bold text-white">
+            Make your site agent-ready
+          </h2>
+          <p className="text-sm text-neutral-400 max-w-2xl">
+            Most websites are invisible to AI agents. Four changes can
+            fix that.
+          </p>
+        </div>
         <Link
           href="/checklist"
-          className="block p-6 border border-neutral-600 rounded-lg hover:border-neutral-400 transition-colors max-w-3xl"
+          className="group block p-6 border border-neutral-600 rounded-lg hover:border-neutral-400 transition-colors max-w-2xl"
         >
-          <span className="text-base text-white font-bold block">
-            The Agent-Ready Website Checklist
+          <span className="text-base text-white font-bold block group-hover:underline">
+            The Agent-Ready Website Checklist &rarr;
           </span>
-          <p className="text-sm text-neutral-400 mt-2 leading-relaxed">
-            Ten concrete criteria — from discovery to trust signals.
-            What each one is, why it matters, what good looks like,
-            and how to fail at it. Plus a five-level maturity model
-            from scrape-only to agent-native.
+          <p className="text-sm text-neutral-400 mt-2">
+            Ten criteria. Five maturity levels. Common failure modes.
+            A practical spec for making any website work for AI agents.
           </p>
-          <span className="text-xs text-neutral-500 mt-3 block">
-            v0.1 — the first portable artifact of the agent-ready web
-          </span>
         </Link>
-        <div className="flex gap-4 max-w-3xl">
+        <div className="flex gap-3 max-w-2xl">
           <Link
             href="/standard"
-            className="block p-4 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors flex-1"
+            className="block px-4 py-3 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors flex-1"
           >
-            <span className="text-sm text-white font-semibold block">
+            <span className="text-sm text-white font-semibold">
               Technical spec
             </span>
-            <p className="text-xs text-neutral-500 mt-1">
-              Format specifications, schemas, and protocols for implementers.
-            </p>
+            <span className="text-xs text-neutral-500 ml-2">
+              Formats, schemas, protocols
+            </span>
           </Link>
           <a
             href="mailto:brian@aifutureready.com?subject=Agent-Ready%20Audit"
-            className="block p-4 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors flex-1"
+            className="block px-4 py-3 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors flex-1"
           >
-            <span className="text-sm text-white font-semibold block">
+            <span className="text-sm text-white font-semibold">
               Get an audit
             </span>
-            <p className="text-xs text-neutral-500 mt-1">
-              Professional evaluation with scorecard and implementation roadmap.
-            </p>
+            <span className="text-xs text-neutral-500 ml-2">
+              Professional evaluation
+            </span>
           </a>
         </div>
       </section>
