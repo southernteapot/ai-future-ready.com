@@ -4,12 +4,11 @@ import { useState } from "react";
 import Link from "next/link";
 
 const NAV_ITEMS = [
+  { href: "/standard", label: "Standard" },
+  { href: "/checklist", label: "Checklist" },
   { href: "/models", label: "Models" },
   { href: "/agents", label: "Agents" },
-  { href: "/guides", label: "Guides" },
-  { href: "/use-cases", label: "Use Cases" },
-  { href: "/glossary", label: "Glossary" },
-  { href: "/timeline", label: "Timeline" },
+  { href: "/comparisons", label: "Comparisons" },
   { href: "/blog", label: "Blog" },
   { href: "/search", label: "Search" },
 ];

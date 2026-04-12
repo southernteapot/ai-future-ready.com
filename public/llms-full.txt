@@ -1,7 +1,420 @@
 # AI Future Ready — Full Content
 > All content from aifutureready.com in a single file.
 > Generated: 2026-04-12
-> Total files: 84
+> Total files: 86
+
+---
+
+<!-- file: /content/standard/_index.md -->
+
+---
+title: "The Agent-Ready Web Standard"
+type: standard
+id: "agent-ready-web-standard"
+version: "0.1.0"
+description: "A specification for building websites that serve both humans and AI agents. Defines the architecture, metadata, access protocols, and trust signals that make web content machine-usable."
+last_updated: "2026-04-11"
+status: "draft"
+tags:
+  - standard
+  - specification
+  - agent-ready
+  - architecture
+---
+
+# The Agent-Ready Web Standard
+
+**Version 0.1.0 — Draft**
+
+## The Problem
+
+Most websites are built for one audience: humans using browsers. Content is locked inside HTML templates, navigation structures, JavaScript rendering, and authentication walls. AI agents that try to use these sites must scrape, parse, guess, and hallucinate to fill in the gaps.
+
+This is not sustainable. AI agents are a growing share of web traffic. They research products, compare options, summarize content, and act on behalf of users. Every website that an agent cannot reliably read is a website that gets skipped, misrepresented, or replaced by a competitor that agents can understand.
+
+The fix is not adding a chatbot. The fix is building the site right.
+
+## The Standard
+
+An agent-ready website meets five requirements:
+
+1. **Structured Content** — Content is stored in a structured, parseable format with consistent metadata
+2. **Machine Access** — Content is available in machine-readable form without scraping HTML
+3. **Discovery** — Agents can find what's available without crawling every page
+4. **Trust & Provenance** — Content carries metadata that lets agents assess reliability
+5. **Relationships & Context** — Content is connected, not isolated
+
+Each requirement has specific, testable criteria. See the [Agent-Ready Checklist](/checklist) for the full scored rubric.
+
+## 1. Structured Content
+
+Content must be more than rendered HTML. It must have:
+
+### Consistent Metadata Schema
+
+Every content item carries machine-readable metadata in a predictable format. At minimum:
+
+- `title` — human-readable title
+- `type` — content category (product, article, doc, page, etc.)
+- `description` — one-line summary
+- `last_updated` — ISO 8601 date of last content change
+
+The specific format (YAML frontmatter, JSON-LD, microdata, RDFa) matters less than consistency. Every page of the same type should have the same metadata fields.
+
+### Stable Identifiers
+
+Every content item has a permanent, unique identifier that survives URL changes, redesigns, and restructuring. This is not the URL — URLs change. This is a canonical ID embedded in the content metadata.
+
+```yaml
+id: "claude-opus-4.6"
+```
+
+Agents use these identifiers to reference, cache, and cross-link content. If IDs change, agent caches break silently.
+
+### Typed Content
+
+Content declares what it is. A product page is not the same as a blog post is not the same as a glossary entry. Each content type has its own metadata schema, and that schema is documented.
+
+## 2. Machine Access
+
+An agent should never need to parse HTML to get content. The site must provide at least one machine-readable access path:
+
+### Raw Content
+
+The source content (markdown, structured text, or equivalent) is available at a predictable URL pattern. For example:
+
+- `/content/models/claude-opus-4.6.md` — raw markdown with metadata
+- `/api/v1/models/claude-opus-4.6.json` — structured JSON
+
+### Structured API
+
+A JSON API exposes content with typed fields, not just rendered text. The API should support:
+
+- Listing all content of a type
+- Fetching individual items by ID or slug
+- Filtering or searching
+
+### No Scraping Required
+
+Public content should be accessible without JavaScript rendering, CAPTCHAs, authentication, or rate limiting that blocks legitimate agent access. If content is public for humans, it should be public for agents.
+
+## 3. Discovery
+
+An agent visiting the site for the first time should be able to understand what's available without crawling every page.
+
+### llms.txt
+
+A machine-readable index file at `/llms.txt` that lists all content sections and individual items. This is the front door for AI agents. See [llms-txt.org](https://llms-txt.org) for the emerging standard.
+
+### Well-Known Discovery
+
+A discovery endpoint at `/.well-known/ai.json` that declares the site's agent-ready capabilities:
+
+```json
+{
+  "name": "Example Site",
+  "llms_txt": "/llms.txt",
+  "api": "/api/v1/",
+  "raw_content": "/content/",
+  "search": "/search-index.json",
+  "feed": "/feed.json",
+  "schemas": "/api/v1/schemas/"
+}
+```
+
+### Sitemap
+
+An XML sitemap that includes both human-readable page URLs and machine-readable content URLs.
+
+### Robots.txt
+
+Explicitly allows agent access to content directories and API endpoints.
+
+## 4. Trust & Provenance
+
+Agents need to assess whether content is reliable. Static content with no provenance metadata is a black box. Agent-ready content provides:
+
+### Timestamps
+
+- `last_updated` — when the content was last modified
+- `last_verified` — when the factual accuracy was last confirmed (distinct from "edited a typo")
+- `created` — when the content was first published
+
+### Authorship
+
+- `author` — who created or maintains the content
+- `source` — where the information came from (if applicable)
+
+### Confidence Signals
+
+Some fields are more volatile than others. Pricing changes weekly. Benchmarks are contested. Agent-ready content marks volatile fields:
+
+```yaml
+pricing:
+  input: "$5.00 / 1M tokens"
+  output: "$25.00 / 1M tokens"
+  _confidence: "check-provider"
+  _as_of: "2026-04-01"
+```
+
+### Content Integrity
+
+A content hash (e.g., SHA-256 of the body) lets agents verify cached content without re-fetching:
+
+```yaml
+content_hash: "a3f2b8c..."
+```
+
+## 5. Relationships & Context
+
+Content in isolation is less useful than content in context. Agent-ready sites make relationships explicit.
+
+### Typed Relationships
+
+Content links to related content with typed relationships in metadata, not just inline markdown links:
+
+```yaml
+related:
+  - id: "claude-vs-gpt"
+    type: comparison
+    relationship: "compared_in"
+  - id: "claude-code"
+    type: agent
+    relationship: "used_by"
+```
+
+### Taxonomy
+
+Content is categorized with consistent tags and categories that agents can use for filtering and grouping.
+
+### Change Feed
+
+A JSON feed at `/feed.json` provides timestamped content changes. Agents can subscribe to know what's new without polling every file.
+
+### Schema Declarations
+
+Each content type publishes its metadata schema, so agents know exactly what fields to expect:
+
+```
+GET /api/v1/schemas/model.json
+```
+
+Returns the field names, types, and descriptions for model content.
+
+## Compliance Levels
+
+Not every site needs all of this. The standard defines three levels:
+
+### Level 1: Accessible (score 40+)
+
+The site provides machine-readable content and basic metadata. An agent can read content without scraping HTML.
+
+**Minimum requirements:**
+- Raw content available at predictable URLs
+- Consistent metadata (title, type, description, last_updated)
+- robots.txt allows agent access
+- XML sitemap
+
+### Level 2: Structured (score 70+)
+
+The site provides structured APIs, discovery, and trust signals. An agent can efficiently find, query, and verify content.
+
+**Adds:**
+- llms.txt discovery file
+- JSON API with typed fields
+- Stable content identifiers
+- Timestamps and authorship metadata
+- Schema documentation
+
+### Level 3: Agent-Native (score 90+)
+
+The site is built for agents as a first-class audience. Full metadata, relationships, change feeds, and trust signals.
+
+**Adds:**
+- Well-known discovery endpoint
+- Typed relationships between content
+- Change feed
+- Confidence signals on volatile fields
+- Content integrity hashes
+- MCP server or equivalent tool integration
+
+## Implementation
+
+This site — [aifutureready.com](https://aifutureready.com) — is a Level 3 implementation of this standard. Every feature described above is live and inspectable.
+
+See the [Agent-Ready Checklist](/checklist) to score your own site.
+
+Need help implementing? Contact us at [brian@aifutureready.com](mailto:brian@aifutureready.com).
+
+## Contributing
+
+This standard is a draft. It will evolve as the agent ecosystem matures. If you have feedback, implementation experience, or want to adopt it, reach out.
+
+---
+
+<!-- file: /content/checklist/_index.md -->
+
+---
+title: "Agent-Ready Checklist"
+type: checklist
+id: "agent-ready-checklist"
+description: "Score your website's agent-readiness. 100-point rubric across 5 categories: content structure, machine access, discovery, trust, and relationships."
+last_updated: "2026-04-11"
+version: "0.1.0"
+total_points: 100
+categories:
+  - name: "Content Structure"
+    max_points: 20
+  - name: "Machine Access"
+    max_points: 20
+  - name: "Discovery"
+    max_points: 20
+  - name: "Trust & Provenance"
+    max_points: 20
+  - name: "Relationships & Context"
+    max_points: 20
+scoring:
+  agent_native: 90
+  structured: 70
+  accessible: 40
+  not_ready: 0
+tags:
+  - checklist
+  - audit
+  - scoring
+  - agent-ready
+---
+
+# Agent-Ready Checklist
+
+Score your website against this rubric. 100 points total across 5 categories. Be honest — partial credit counts.
+
+## How to Score
+
+For each item, assign the points listed if your site meets the criteria. Partial implementations get partial credit. Add up your total at the end.
+
+---
+
+## 1. Content Structure (20 points)
+
+How well your content is organized for machine consumption.
+
+| Points | Criteria |
+|--------|----------|
+| 5 | **Structured source format.** Content is stored as markdown, structured JSON, or equivalent — not only as HTML templates. An agent can get the content without parsing rendered HTML. |
+| 5 | **Consistent metadata schema.** Every content item of the same type has the same metadata fields (title, description, type, date). No missing fields, no inconsistent naming. |
+| 5 | **Stable identifiers.** Every content item has a permanent, unique ID in its metadata that survives URL changes. This is not the URL — it is a canonical identifier. |
+| 3 | **Typed content.** Content declares its type (product, article, doc, glossary entry, etc.) and each type has a defined schema. |
+| 2 | **No embedded rendering logic.** Content does not require JavaScript, server-side rendering, or a specific framework to parse. Raw content is self-contained. |
+
+**Your score: ___ / 20**
+
+---
+
+## 2. Machine Access (20 points)
+
+Whether agents can get your content without scraping.
+
+| Points | Criteria |
+|--------|----------|
+| 5 | **Raw content access.** Source content (markdown, structured text, JSON) is available at predictable URLs — not just rendered HTML. Example: `/content/[type]/[slug].md` |
+| 5 | **Structured API.** A JSON API returns typed, queryable content. Supports listing by type, fetching by ID, and includes metadata. |
+| 4 | **No barriers.** Public content does not require JavaScript rendering, CAPTCHAs, authentication, or aggressive rate limiting for agent access. |
+| 3 | **Predictable URL patterns.** An agent can construct a content URL from a type and slug without discovering it first. URL structure is documented. |
+| 3 | **Bulk access option.** Agents can fetch all content efficiently — a full export file, paginated API, or equivalent. Not one request per page. |
+
+**Your score: ___ / 20**
+
+---
+
+## 3. Discovery (20 points)
+
+How easily agents find what's available.
+
+| Points | Criteria |
+|--------|----------|
+| 6 | **llms.txt.** A machine-readable index at `/llms.txt` lists all content sections and items with descriptions and links. |
+| 4 | **XML sitemap.** Includes both human-readable page URLs and machine-readable content URLs (markdown, JSON). |
+| 4 | **robots.txt allows access.** Explicitly allows agent access to content directories and API endpoints. Does not block known AI user agents. |
+| 3 | **Content index page.** A structured index of all content types and counts, accessible as both HTML and JSON. |
+| 3 | **Well-known discovery.** A `/.well-known/ai.json` endpoint declares available agent protocols (llms.txt location, API base URL, raw content path, etc.). |
+
+**Your score: ___ / 20**
+
+---
+
+## 4. Trust & Provenance (20 points)
+
+Whether agents can assess content reliability.
+
+| Points | Criteria |
+|--------|----------|
+| 5 | **Last-updated timestamps.** Every content item has an accurate `last_updated` date in its metadata. |
+| 4 | **Authorship.** Content attributes an author or maintaining organization. |
+| 3 | **Created date.** Content includes its original publication date, distinct from last-updated. |
+| 3 | **Last-verified date.** For factual content, a `last_verified` field indicates when accuracy was confirmed — distinct from editorial changes. |
+| 3 | **Content integrity.** A hash or version identifier lets agents detect changes to cached content without re-fetching the full body. |
+| 2 | **Confidence signals.** Volatile fields (pricing, availability, scores) are marked with recency or confidence metadata. |
+
+**Your score: ___ / 20**
+
+---
+
+## 5. Relationships & Context (20 points)
+
+How well content is connected and contextualized.
+
+| Points | Criteria |
+|--------|----------|
+| 5 | **Taxonomy and tags.** Content is categorized with consistent tags that agents can use for filtering and grouping. |
+| 5 | **Cross-references.** Related content is linked in metadata (not just inline links) with typed relationships. |
+| 4 | **Search index.** A structured search index (JSON) is available with titles, descriptions, tags, and URLs for all content. |
+| 3 | **Change feed.** An RSS, Atom, or JSON feed provides timestamped updates so agents know what's new. |
+| 3 | **Schema declarations.** Each content type publishes its metadata schema so agents know what fields to expect. |
+
+**Your score: ___ / 20**
+
+---
+
+## Total Score
+
+| Range | Level | What It Means |
+|-------|-------|---------------|
+| **90-100** | Agent-Native | Your site is built for agents as a first-class audience. Full metadata, discovery, trust signals, and relationships. |
+| **70-89** | Structured | Agents can efficiently find, query, and verify your content. You're ahead of most of the web. |
+| **40-69** | Accessible | Agents can read your content, but discovery and trust are limited. Room to improve. |
+| **0-39** | Not Agent-Ready | Agents must scrape, guess, and hope. Your content is invisible or unreliable to AI. |
+
+---
+
+## This Site's Score
+
+AI Future Ready scores itself:
+
+| Category | Score |
+|----------|-------|
+| Content Structure | 18 / 20 |
+| Machine Access | 19 / 20 |
+| Discovery | 17 / 20 |
+| Trust & Provenance | 12 / 20 |
+| Relationships & Context | 14 / 20 |
+| **Total** | **80 / 100** |
+
+We're Level 2 (Structured), working toward Level 3. The gaps are in provenance metadata (no `last_verified`, limited confidence signals) and relationships (no typed cross-references or change feed yet). We're building those next.
+
+Honesty about your own score is part of the point.
+
+---
+
+## What Next
+
+**Score above 70?** You're ahead of most of the web. Focus on the categories where you lost points.
+
+**Score below 40?** Start with the basics: structured content, raw access, and llms.txt. Those three changes get you most of the way to Accessible.
+
+**Want a professional evaluation?** We offer agent-ready audits — a detailed scorecard with specific recommendations for your site. [Get in touch](mailto:brian@aifutureready.com).
+
+**Want to implement it yourself?** Read the [Agent-Ready Web Standard](/standard) for the full specification.
 
 ---
 

@@ -41,6 +41,8 @@ function getFilesInDir(dir: string): string[] {
 
 // Section ordering
 const SECTIONS = [
+  { dir: "standard", label: "Standard" },
+  { dir: "checklist", label: "Checklist" },
   { dir: "models", label: "Models" },
   { dir: "agents", label: "Agent Platforms" },
   { dir: "comparisons", label: "Comparisons" },
@@ -86,7 +88,7 @@ for (const section of SECTIONS) {
 
 const indexLines: string[] = [
   "# AI Future Ready",
-  "> Comprehensive AI reference — models, agents, glossary, timeline, guides, use cases, and more. Designed for AI agents and humans alike.",
+  "> The agent-ready web — a specification, checklist, and working demonstration of websites built for both humans and AI agents. Includes a structured AI reference library with models, agents, comparisons, and analysis.",
   "",
   "## Content Sections",
 ];
@@ -216,7 +218,7 @@ fs.writeFileSync(
   JSON.stringify({
     name: "AI Future Ready API",
     version: "v1",
-    description: "Structured JSON API for AI reference data.",
+    description: "Structured JSON API for the agent-ready web — standard, checklist, and AI reference data.",
     content_types: typeIndex,
   }),
   "utf-8"
