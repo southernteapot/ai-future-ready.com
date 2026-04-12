@@ -52,7 +52,7 @@ function linkify(raw: string, mdPath: string): ReactNode[] {
         <a
           key={key++}
           href={resolved}
-          className="text-green-400 hover:text-green-300 underline decoration-green-700 underline-offset-2 hover:decoration-green-400 transition-colors"
+          className="text-white underline decoration-neutral-600 underline-offset-2 hover:decoration-white transition-colors"
         >
           {fullMatch}
         </a>
@@ -64,7 +64,7 @@ function linkify(raw: string, mdPath: string): ReactNode[] {
         <a
           key={key++}
           href={url}
-          className="text-blue-400 hover:text-blue-300 underline decoration-blue-700 underline-offset-2 hover:decoration-blue-400 transition-colors"
+          className="text-white underline decoration-neutral-600 underline-offset-2 hover:decoration-white transition-colors"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -98,13 +98,13 @@ export default function ContentView({
   return (
     <div>
       {/* Toggle bar */}
-      <div className="flex items-center gap-3 mb-6 text-sm">
+      <div className="flex items-center gap-3 mb-6 text-sm font-mono">
         <button
           onClick={() => setView("raw")}
-          className={`px-3 py-1.5 rounded font-mono transition-colors ${
+          className={`px-3 py-1.5 rounded transition-colors ${
             view === "raw"
-              ? "bg-slate-800 text-green-400"
-              : "bg-slate-100 text-slate-500 hover:bg-slate-200"
+              ? "bg-neutral-900 text-white border border-neutral-700"
+              : "text-neutral-500 hover:text-white"
           }`}
         >
           .md
@@ -113,15 +113,15 @@ export default function ContentView({
           onClick={() => setView("rendered")}
           className={`px-3 py-1.5 rounded transition-colors ${
             view === "rendered"
-              ? "bg-indigo-600 text-white"
-              : "bg-slate-100 text-slate-500 hover:bg-slate-200"
+              ? "bg-neutral-900 text-white border border-neutral-700"
+              : "text-neutral-500 hover:text-white"
           }`}
         >
-          Rendered
+          rendered
         </button>
         <a
           href={mdPath}
-          className="ml-auto text-slate-400 hover:text-indigo-600 font-mono text-xs transition-colors"
+          className="ml-auto text-neutral-600 hover:text-white font-mono text-xs transition-colors"
         >
           {mdPath}
         </a>
@@ -129,11 +129,9 @@ export default function ContentView({
 
       {/* Raw markdown view */}
       {view === "raw" && (
-        <div className="bg-slate-900 rounded-lg overflow-auto">
-          <pre className="p-6 text-sm leading-relaxed font-mono text-slate-300 whitespace-pre-wrap break-words">
-            {linkify(raw, mdPath)}
-          </pre>
-        </div>
+        <pre className="p-6 text-sm leading-relaxed font-mono text-neutral-300 whitespace-pre-wrap break-words">
+          {linkify(raw, mdPath)}
+        </pre>
       )}
 
       {/* Rendered view */}

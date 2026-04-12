@@ -55,8 +55,8 @@ export default function SearchClient() {
     <div>
       {/* Search input */}
       <div className="relative mb-8">
-        <div className="flex items-center gap-3 bg-slate-900 rounded-lg px-4 py-3">
-          <span className="text-green-400 font-mono text-sm shrink-0">
+        <div className="flex items-center gap-3 border-b border-neutral-800 px-1 py-3">
+          <span className="text-white font-mono text-sm shrink-0">
             grep -i
           </span>
           <input
@@ -67,10 +67,10 @@ export default function SearchClient() {
               loaded ? `search ${entries.length} entries...` : "loading index..."
             }
             autoFocus
-            className="flex-1 bg-transparent text-slate-200 font-mono text-sm outline-none placeholder:text-slate-600"
+            className="flex-1 bg-transparent text-neutral-300 font-mono text-sm outline-none placeholder:text-neutral-700"
           />
           {query && (
-            <span className="text-slate-500 font-mono text-xs shrink-0">
+            <span className="text-neutral-500 font-mono text-xs shrink-0">
               {results.length} match{results.length !== 1 ? "es" : ""}
             </span>
           )}
@@ -79,18 +79,18 @@ export default function SearchClient() {
 
       {/* Results */}
       {query.trim() && results.length === 0 && (
-        <p className="text-slate-500 font-mono text-sm">No matches.</p>
+        <p className="text-neutral-500 font-mono text-sm">No matches.</p>
       )}
 
       {!query.trim() && loaded && (
-        <p className="text-slate-500 font-mono text-sm">
+        <p className="text-neutral-500 font-mono text-sm">
           Type to search across all models, agents, guides, blog posts, and more.
         </p>
       )}
 
       {Array.from(grouped.entries()).map(([section, items]) => (
         <div key={section} className="mb-6">
-          <h2 className="text-xs font-mono text-slate-400 uppercase tracking-wider mb-2">
+          <h2 className="text-xs font-mono text-neutral-500 uppercase tracking-wider mb-2">
             {section}
           </h2>
           <div className="space-y-1">
@@ -98,22 +98,22 @@ export default function SearchClient() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block bg-slate-900 rounded px-4 py-3 hover:bg-slate-800 transition-colors group"
+                className="block border-b border-neutral-900 px-1 py-3 hover:bg-neutral-900 transition-colors group"
               >
                 <div className="flex items-baseline gap-3">
-                  <span className="text-green-400 font-mono text-sm group-hover:text-green-300">
+                  <span className="text-white font-mono text-sm group-hover:text-neutral-300">
                     {item.title}
                   </span>
                   {item.provider && (
-                    <span className="text-slate-600 font-mono text-xs">
+                    <span className="text-neutral-600 font-mono text-xs">
                       {item.provider}
                     </span>
                   )}
                 </div>
-                <p className="text-slate-500 text-xs mt-1 line-clamp-1">
+                <p className="text-neutral-500 text-xs mt-1 line-clamp-1">
                   {item.description}
                 </p>
-                <span className="text-slate-700 font-mono text-xs">
+                <span className="text-neutral-700 font-mono text-xs">
                   {item.mdPath}
                 </span>
               </Link>

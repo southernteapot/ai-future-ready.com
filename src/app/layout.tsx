@@ -1,13 +1,8 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import MobileNav from "@/components/MobileNav";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -64,25 +59,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
-    >
-      <body className="min-h-full flex flex-col bg-white text-slate-900">
+    <html lang="en" className={`${geistMono.variable} h-full antialiased`}>
+      <body className="min-h-full flex flex-col">
         {/* Header */}
-        <header className="border-b border-slate-200 relative">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
-            <Link href="/" className="font-bold text-lg text-indigo-600">
-              AI Future Ready
+        <header className="border-b border-neutral-800">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+            <Link href="/" className="font-bold text-sm text-white font-mono">
+              ~/ai-future-ready
             </Link>
-            <nav className="hidden md:flex items-center gap-6 text-sm">
+            <nav className="hidden md:flex items-center gap-6 text-sm font-mono">
               {NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-slate-600 hover:text-indigo-600 transition-colors"
+                  className="text-neutral-400 hover:text-white transition-colors"
                 >
-                  {item.label}
+                  {item.label.toLowerCase()}
                 </Link>
               ))}
             </nav>
@@ -96,20 +88,20 @@ export default function RootLayout({
         </main>
 
         {/* Footer */}
-        <footer className="border-t border-slate-200 mt-12">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 text-sm text-slate-500">
+        <footer className="border-t border-neutral-800 mt-12">
+          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 text-sm text-neutral-500 font-mono">
             <p>
-              Designed for AI agents. Raw markdown available at{" "}
+              Designed for AI agents. Raw markdown at{" "}
               <Link
                 href="/content/"
-                className="text-indigo-600 hover:underline"
+                className="text-white hover:text-neutral-400 hover:underline"
               >
                 /content/
               </Link>{" "}
               &middot;{" "}
               <Link
                 href="/llms.txt"
-                className="text-indigo-600 hover:underline"
+                className="text-white hover:text-neutral-400 hover:underline"
               >
                 llms.txt
               </Link>
