@@ -283,4 +283,4 @@ Most of the agent-readiness benefit comes from reaching Level 2.
 
 ## Reference Implementation
 
-This site — [aifutureready.com](https://aifutureready.com) — implements this standard at Level 3. Every feature described above is live and inspectable. See the [checklist](/checklist) for our honest self-assessment and the specific gaps we're working on.
+This site — [ai-future-ready.com](https://ai-future-ready.com) — implements this standard at Level 3. Every feature described above is live and inspectable. See the [checklist](/checklist) for our honest self-assessment and the specific gaps we're working on.

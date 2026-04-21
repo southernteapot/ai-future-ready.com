@@ -515,8 +515,8 @@ This checklist is v0.1 — a starting point, not a finished standard.
 
 We're building tools and services around this spec.
 
-**Agent-readiness audit.** A professional evaluation of your site — detailed scorecard across all ten criteria, specific gaps identified, prioritized implementation roadmap. Not a generic report. A specific, technical assessment of your site's agent readiness. [brian@aifutureready.com](mailto:brian@aifutureready.com?subject=Agent-Ready%20Audit)
+**Implementation guidance.** Use this checklist with the [Agent-Ready Web Standard](/standard) to turn the rubric into an implementation plan. The checklist tells you what to fix; the standard defines the exact formats and protocols.
 
-**Coming soon.** Implementation templates, starter configs, and an automated scoring tool. If you want early access, get in touch.
+**Coming soon.** Implementation templates, starter configs, and an automated scoring tool. Watch this page for updates.
 
 **Built something with this?** We want to hear about it. What worked, what didn't, what's missing from the spec. This is v0.1 for a reason.

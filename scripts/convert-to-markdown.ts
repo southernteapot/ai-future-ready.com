@@ -521,7 +521,7 @@ function createMasterIndex() {
     '',
     '## Access',
     '',
-    '- **Humans:** Visit [aifutureready.com](https://aifutureready.com) for styled pages',
+    '- **Humans:** Visit [ai-future-ready.com](https://ai-future-ready.com) for styled pages',
     '- **Agents:** Fetch raw markdown at `/content/[path].md`',
     '- **Discovery:** See [llms.txt](/llms.txt) for a machine-readable index',
     '',

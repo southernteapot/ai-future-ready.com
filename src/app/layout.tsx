@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import MobileNav from "@/components/MobileNav";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const geistMono = Geist_Mono({
@@ -10,7 +11,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://aifutureready.com"),
+  metadataBase: new URL(SITE_URL),
   title: {
     default:
       "AI Future Ready — The Agent-Ready Web",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://aifutureready.com",
+    url: SITE_URL,
     siteName: "AI Future Ready",
     title: "AI Future Ready — The Agent-Ready Web",
     description:
@@ -105,12 +106,12 @@ export default function RootLayout({
                 llms.txt
               </Link>{" "}
               &middot;{" "}
-              <a
+              <Link
                 href="/api/v1/index.json"
                 className="text-white hover:text-neutral-400 hover:underline"
               >
                 api
-              </a>
+              </Link>
             </p>
             <p>
               <Link
@@ -121,18 +122,11 @@ export default function RootLayout({
               </Link>{" "}
               &middot;{" "}
               <Link
-                href="/checklist"
+                href="/search"
                 className="text-neutral-500 hover:text-white hover:underline"
               >
-                checklist
+                search
               </Link>{" "}
-              &middot;{" "}
-              <a
-                href="mailto:brian@aifutureready.com"
-                className="text-neutral-500 hover:text-white hover:underline"
-              >
-                contact
-              </a>
             </p>
           </div>
         </footer>

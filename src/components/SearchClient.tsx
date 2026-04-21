@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
+import { useSearchParams } from "next/navigation";
 
 interface SearchEntry {
   title: string;
@@ -14,16 +15,33 @@ interface SearchEntry {
 }
 
 export default function SearchClient() {
-  const [query, setQuery] = useState("");
+  const searchParams = useSearchParams();
+  const searchQuery = searchParams.get("q")?.trim() ?? "";
+  const [query, setQuery] = useState(searchQuery);
   const [entries, setEntries] = useState<SearchEntry[]>([]);
   const [loaded, setLoaded] = useState(false);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    setQuery(searchQuery);
+  }, [searchQuery]);
 
   useEffect(() => {
     fetch("/search-index.json")
-      .then((r) => r.json())
+      .then((r) => {
+        if (!r.ok) {
+          throw new Error(`Failed to load search index: ${r.status}`);
+        }
+        return r.json();
+      })
       .then((data: SearchEntry[]) => {
         setEntries(data);
         setLoaded(true);
+        setError(false);
+      })
+      .catch(() => {
+        setLoaded(true);
+        setError(true);
       });
   }, []);
 
@@ -55,11 +73,15 @@ export default function SearchClient() {
     <div>
       {/* Search input */}
       <div className="relative mb-8">
+        <label htmlFor="site-search" className="sr-only">
+          Search all content
+        </label>
         <div className="flex items-center gap-3 border-b border-neutral-800 px-1 py-3">
           <span className="text-white font-mono text-sm shrink-0">
             grep -i
           </span>
           <input
+            id="site-search"
             type="text"
             value={query}
             onChange={(e) => setQuery(e.target.value)}
@@ -70,7 +92,7 @@ export default function SearchClient() {
             className="flex-1 bg-transparent text-neutral-300 font-mono text-sm outline-none placeholder:text-neutral-700"
           />
           {query && (
-            <span className="text-neutral-500 font-mono text-xs shrink-0">
+            <span className="text-neutral-500 font-mono text-xs shrink-0" role="status" aria-live="polite">
               {results.length} match{results.length !== 1 ? "es" : ""}
             </span>
           )}
@@ -78,6 +100,12 @@ export default function SearchClient() {
       </div>
 
       {/* Results */}
+      {error && (
+        <p className="text-red-400 font-mono text-sm">
+          Search index unavailable.
+        </p>
+      )}
+
       {query.trim() && results.length === 0 && (
         <p className="text-neutral-500 font-mono text-sm">No matches.</p>
       )}

@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "tsx scripts/generate-llms-txt.ts && cp -r content public/content",
+    "prebuild": "tsx scripts/generate-llms-txt.ts",
     "build": "next build",
     "build:cf": "npm run build",
     "start": "next start",

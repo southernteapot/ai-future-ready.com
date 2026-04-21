@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 type View = "human" | "source" | "api";
 
@@ -69,11 +70,14 @@ export default function AgentLayerDemo() {
   return (
     <div className="border border-neutral-800 rounded-lg overflow-hidden">
       {/* Tab bar */}
-      <div className="flex border-b border-neutral-800 text-xs font-mono">
+      <div className="flex border-b border-neutral-800 text-xs font-mono" role="tablist" aria-label="Representation views">
         {TABS.map((tab) => (
           <button
             key={tab.key}
+            type="button"
             onClick={() => setView(tab.key)}
+            role="tab"
+            aria-selected={view === tab.key}
             className={`flex-1 px-4 py-3 text-center transition-colors ${
               view === tab.key
                 ? "bg-neutral-900 text-white border-b-2 border-white"
@@ -129,12 +133,12 @@ export default function AgentLayerDemo() {
       {/* Footer */}
       <div className="border-t border-neutral-800 px-6 py-3 text-xs text-neutral-600 font-mono">
         Same content. Three representations. All live →{" "}
-        <a
+        <Link
           href="/models/claude-opus-4.6"
           className="text-white hover:underline"
         >
           view this page
-        </a>
+        </Link>
       </div>
     </div>
   );

@@ -1,32 +1,18 @@
-'use client';
-
-import { useState } from 'react';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import Link from "next/link";
 
 export default function NotFound() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const router = useRouter();
-
-  function handleSearch(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    if (searchQuery.trim()) {
-      router.push(`/search?q=${encodeURIComponent(searchQuery.trim())}`);
-    }
-  }
-
   const quickLinks = [
-    { label: 'home', href: '/' },
-    { label: 'models', href: '/models' },
-    { label: 'guides', href: '/guides' },
-    { label: 'search', href: '/search' },
+    { label: "home", href: "/" },
+    { label: "models", href: "/models" },
+    { label: "guides", href: "/guides" },
+    { label: "search", href: "/search" },
   ];
 
   return (
     <section className="py-24 sm:py-36 px-6">
       <div className="mx-auto max-w-2xl font-mono">
         <pre className="text-white text-sm mb-8">
-{`$ curl -s https://aifutureready.com/...
+{`$ curl -s https://ai-future-ready.com/...
 HTTP/1.1 404 Not Found`}
         </pre>
 
@@ -39,20 +25,16 @@ HTTP/1.1 404 Not Found`}
         </p>
 
         {/* Search */}
-        <form
-          onSubmit={handleSearch}
-          className="mt-8 flex items-center gap-3 border-b border-neutral-800 px-1 py-3"
-        >
+        <form action="/search" className="mt-8 flex items-center gap-3 border-b border-neutral-800 px-1 py-3">
           <span className="text-white text-sm shrink-0">
             grep -i
           </span>
           <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
+            type="search"
+            name="q"
             placeholder="search..."
             className="flex-1 bg-transparent text-neutral-300 text-sm outline-none placeholder:text-neutral-700"
-            aria-label="Search"
+            aria-label="Search all content"
           />
           <button
             type="submit"

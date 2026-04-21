@@ -45,7 +45,6 @@ function linkify(raw: string, mdPath: string): ReactNode[] {
     if (match[1]) {
       // Markdown link: [text](url)
       const fullMatch = match[1];
-      const linkText = match[2];
       const href = match[3];
       const resolved = resolveHref(href, mdPath);
       nodes.push(
@@ -100,7 +99,9 @@ export default function ContentView({
       {/* Toggle bar */}
       <div className="flex items-center gap-3 mb-6 text-sm font-mono">
         <button
+          type="button"
           onClick={() => setView("raw")}
+          aria-pressed={view === "raw"}
           className={`px-3 py-1.5 rounded transition-colors ${
             view === "raw"
               ? "bg-neutral-900 text-white border border-neutral-700"
@@ -110,7 +111,9 @@ export default function ContentView({
           .md
         </button>
         <button
+          type="button"
           onClick={() => setView("rendered")}
+          aria-pressed={view === "rendered"}
           className={`px-3 py-1.5 rounded transition-colors ${
             view === "rendered"
               ? "bg-neutral-900 text-white border border-neutral-700"

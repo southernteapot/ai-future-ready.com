@@ -52,11 +52,17 @@ export function getMasterIndex(): ContentItem | null {
 }
 
 export function getContentTypes(): string[] {
-  return Object.keys(data).filter((k) => k !== "_root");
+  return Object.keys(data).filter((k) => k !== "_root" && k !== "_standalone");
 }
 
 export function getSlugs(type: string): string[] {
   const typeData = data[type];
   if (!typeData) return [];
   return Object.keys(typeData).filter((k) => k !== "_index");
+}
+
+export function getStandaloneContent(slug: string): ContentItem | null {
+  const entry = data["_standalone"]?.[slug];
+  if (!entry) return null;
+  return toItem(entry, slug);
 }

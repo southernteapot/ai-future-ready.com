@@ -3,4 +3,4 @@ Allow: /
 Allow: /content/
 
 Sitemap: https://ai-future-ready.com/sitemap.xml
-Host: https://ai-future-ready.com
+Host: ai-future-ready.com

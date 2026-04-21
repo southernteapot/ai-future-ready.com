@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { getAllContent } from "@/lib/content";
 import AgentLayerDemo from "@/components/AgentLayerDemo";
+import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -22,7 +23,7 @@ export default function HomePage() {
             "@context": "https://schema.org",
             "@type": "WebSite",
             name: "AI Future Ready",
-            url: "https://aifutureready.com",
+            url: SITE_URL,
             description:
               "A working demonstration of the agent-ready web. Every page is built for both humans and AI agents — structured, machine-readable, and trustworthy.",
           }),
@@ -247,17 +248,17 @@ export default function HomePage() {
               Formats &amp; protocols
             </span>
           </Link>
-          <a
-            href="mailto:brian@aifutureready.com?subject=Agent-Ready%20Audit"
+          <Link
+            href="/api/v1/index.json"
             className="block px-4 py-2.5 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors flex-1"
           >
             <span className="text-xs text-white font-semibold">
-              Get an audit
+              Browse the API
             </span>
             <span className="text-xs text-neutral-600 ml-2">
-              Professional evaluation
+              Structured JSON index
             </span>
-          </a>
+          </Link>
         </div>
       </section>
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import SelfAudit from "@/components/SelfAudit";
+import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
@@ -21,7 +22,7 @@ export default function ScorePage() {
             name: "Agent-Ready Self-Audit",
             description:
               "Evaluate your website's agent-readiness across 10 criteria.",
-            url: "https://aifutureready.com/score",
+            url: `${SITE_URL}/score`,
           }),
         }}
       />

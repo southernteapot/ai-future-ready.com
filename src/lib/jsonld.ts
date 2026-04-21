@@ -1,8 +1,9 @@
 import type { ContentMeta } from "./content";
+import { SITE_NAME, SITE_URL } from "./site";
 
 const SITE = {
-  name: "AI Future Ready",
-  url: "https://aifutureready.com",
+  name: SITE_NAME,
+  url: SITE_URL,
 };
 
 const PUBLISHER = {

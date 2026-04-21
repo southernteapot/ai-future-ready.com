@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useState } from "react";
 
 interface Criterion {
@@ -436,23 +437,24 @@ export default function SelfAudit() {
         {/* Actions */}
         <div className="flex flex-wrap gap-3">
           <button
+            type="button"
             onClick={reset}
             className="px-4 py-2 text-sm border border-neutral-700 rounded-lg hover:border-neutral-500 transition-colors text-neutral-400 hover:text-white"
           >
             Start over
           </button>
-          <a
+          <Link
             href="/checklist"
             className="px-4 py-2 text-sm border border-neutral-600 rounded-lg hover:border-neutral-400 transition-colors text-white"
           >
             Full checklist &rarr;
-          </a>
-          <a
-            href="mailto:brian@aifutureready.com?subject=Agent-Ready%20Audit"
+          </Link>
+          <Link
+            href="/standard"
             className="px-4 py-2 text-sm border border-neutral-700 rounded-lg hover:border-neutral-500 transition-colors text-neutral-400 hover:text-white"
           >
-            Get a professional audit
-          </a>
+            Read the standard
+          </Link>
         </div>
       </div>
     );
@@ -485,6 +487,7 @@ export default function SelfAudit() {
                   {(["yes", "partial", "no"] as const).map((value) => (
                     <button
                       key={value}
+                      type="button"
                       onClick={() => setAnswer(index, value)}
                       className={`px-3 py-1.5 text-xs rounded border transition-colors ${
                         answers[index] === value
@@ -537,6 +540,7 @@ export default function SelfAudit() {
           {answers.filter((a) => a !== null).length} / {CRITERIA.length}
         </span>
         <button
+          type="button"
           onClick={() => setSubmitted(true)}
           disabled={!allAnswered}
           className={`px-4 py-2 text-sm rounded-lg border transition-colors ${

@@ -169,4 +169,8 @@
   <url><loc>https://ai-future-ready.com/content/timeline/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ai-future-ready.com/pricing</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/pricing/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/changelog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/changelog.md</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/compatibility</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/compatibility.md</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
 </urlset>

@@ -8,9 +8,11 @@
 import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
+import { SITE_DOMAIN, SITE_URL } from "../src/lib/site";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const PUBLIC_DIR = path.join(process.cwd(), "public");
+const PUBLIC_CONTENT_DIR = path.join(PUBLIC_DIR, "content");
 
 interface Entry {
   title: string;
@@ -54,6 +56,15 @@ const SECTIONS = [
   { dir: "timeline", label: "Timeline" },
   { dir: "pricing", label: "Pricing" },
 ];
+
+const STANDALONE_FILES = [
+  { file: "changelog.md", label: "Changelog" },
+  { file: "compatibility.md", label: "Compatibility Matrix" },
+];
+
+fs.rmSync(PUBLIC_CONTENT_DIR, { recursive: true, force: true });
+fs.cpSync(CONTENT_DIR, PUBLIC_CONTENT_DIR, { recursive: true });
+console.log("synced public/content");
 
 // Collect all entries
 const allEntries: Entry[] = [];
@@ -115,12 +126,7 @@ for (const entry of allEntries) {
 }
 
 // Standalone files
-const standaloneFiles = [
-  { file: "changelog.md", label: "Changelog" },
-  { file: "compatibility.md", label: "Compatibility Matrix" },
-];
-
-for (const sf of standaloneFiles) {
+for (const sf of STANDALONE_FILES) {
   const entry = readMd(path.join(CONTENT_DIR, sf.file));
   if (entry) {
     indexLines.push("");
@@ -139,7 +145,7 @@ console.log(`wrote public/llms.txt (${indexLines.length} lines)`);
 
 const fullLines: string[] = [
   "# AI Future Ready — Full Content",
-  "> All content from aifutureready.com in a single file.",
+  `> All content from ${SITE_DOMAIN} in a single file.`,
   `> Generated: ${new Date().toISOString().split("T")[0]}`,
   `> Total files: ${allEntries.length}`,
   "",
@@ -283,8 +289,8 @@ fs.writeFileSync(
 Allow: /
 Allow: /content/
 
-Sitemap: https://ai-future-ready.com/sitemap.xml
-Host: https://ai-future-ready.com
+Sitemap: ${SITE_URL}/sitemap.xml
+Host: ${SITE_DOMAIN}
 `,
   "utf-8"
 );
@@ -300,6 +306,17 @@ if (fs.existsSync(masterIndexPath)) {
   const rawFile = fs.readFileSync(masterIndexPath, "utf-8");
   const { data: mData, content: mContent } = matter(rawFile);
   contentData["_root"] = { "_index": { meta: mData, content: mContent, raw: rawFile } };
+}
+
+contentData["_standalone"] = {};
+for (const sf of STANDALONE_FILES) {
+  const standalonePath = path.join(CONTENT_DIR, sf.file);
+  if (!fs.existsSync(standalonePath)) continue;
+
+  const rawFile = fs.readFileSync(standalonePath, "utf-8");
+  const { data, content } = matter(rawFile);
+  const slug = sf.file.replace(/\.md$/, "");
+  contentData["_standalone"][slug] = { meta: data, content, raw: rawFile };
 }
 
 // All content types
@@ -325,8 +342,7 @@ console.log(`wrote src/lib/content-data.json (${cdSize} KB)`);
 
 // ─── sitemap.xml ─────────────────────────────────────────
 
-const baseUrl = "https://ai-future-ready.com";
-const today = new Date().toISOString().split("T")[0];
+const baseUrl = SITE_URL;
 const sitemapEntries: string[] = [];
 
 sitemapEntries.push(`  <url><loc>${baseUrl}</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>`);
@@ -340,6 +356,12 @@ for (const section of SECTIONS) {
     sitemapEntries.push(`  <url><loc>${baseUrl}/${section.dir}/${slug}</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`);
     sitemapEntries.push(`  <url><loc>${baseUrl}/content/${section.dir}/${file}</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>`);
   }
+}
+
+for (const sf of STANDALONE_FILES) {
+  const slug = sf.file.replace(/\.md$/, "");
+  sitemapEntries.push(`  <url><loc>${baseUrl}/${slug}</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>`);
+  sitemapEntries.push(`  <url><loc>${baseUrl}/content/${sf.file}</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 }
 
 fs.writeFileSync(

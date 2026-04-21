@@ -19,9 +19,12 @@ export default function MobileNav() {
   return (
     <div className="md:hidden">
       <button
+        type="button"
         onClick={() => setOpen(!open)}
         className="p-1.5 text-neutral-400 hover:text-white transition-colors"
         aria-label="Toggle menu"
+        aria-expanded={open}
+        aria-controls="mobile-nav"
       >
         {open ? (
           <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -35,7 +38,10 @@ export default function MobileNav() {
       </button>
 
       {open && (
-        <nav className="absolute left-0 right-0 top-full bg-black border-b border-neutral-800 z-50">
+        <nav
+          id="mobile-nav"
+          className="absolute left-0 right-0 top-full bg-black border-b border-neutral-800 z-50"
+        >
           <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex flex-col gap-2">
             {NAV_ITEMS.map((item) => (
               <Link
