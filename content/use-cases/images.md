@@ -137,7 +137,7 @@ For more on crafting effective prompts (for both text and image AI), check out o
 3. **Understand the limitations.** AI image generators can struggle with hands, text in images, precise spatial relationships, and specific brand logos. Know where to expect imperfections.
 4. **Consider copyright and usage rights.** Different tools have different terms of service regarding commercial use. Adobe Firefly is specifically designed for commercial safety. Check the terms for your chosen tool before using generated images commercially.
 5. **Use AI as part of your workflow, not the entire workflow.** The best results often come from generating an AI image and then refining it in Photoshop, Canva, or another editing tool.
-6. **Save and organize your prompts.** Keep a library of prompts that produce results you like. Our [prompt library](/tools/prompts) includes image generation templates to get you started.
+6. **Save and organize your prompts.** Keep a library of prompts that produce results you like. Our [prompt patterns](/prompt-patterns) include reusable structures you can adapt for image generation workflows.
 
 ---
 

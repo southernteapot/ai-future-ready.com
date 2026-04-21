@@ -59,13 +59,13 @@ const EXAMPLE_API = `GET /api/v1/models.json → [
 ]`;
 
 const TABS: { key: View; label: string; sublabel: string }[] = [
-  { key: "human", label: "Human view", sublabel: "rendered page" },
-  { key: "source", label: "Source", sublabel: "markdown + YAML" },
+  { key: "source", label: "Canonical source", sublabel: "markdown + YAML" },
+  { key: "human", label: "Rendered view", sublabel: "human preview" },
   { key: "api", label: "Agent view", sublabel: "JSON API" },
 ];
 
 export default function AgentLayerDemo() {
-  const [view, setView] = useState<View>("human");
+  const [view, setView] = useState<View>("source");
 
   return (
     <div className="border border-neutral-800 rounded-lg overflow-hidden">
@@ -132,7 +132,8 @@ export default function AgentLayerDemo() {
 
       {/* Footer */}
       <div className="border-t border-neutral-800 px-6 py-3 text-xs text-neutral-600 font-mono">
-        Same content. Three representations. All live →{" "}
+        Canonical pages open in source view. Same content, three
+        representations →{" "}
         <Link
           href="/models/claude-opus-4.6"
           className="text-white hover:underline"

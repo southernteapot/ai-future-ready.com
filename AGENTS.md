@@ -17,7 +17,7 @@ This version has breaking changes — APIs, conventions, and file structure may 
 - `src/lib/markdown.ts` renders markdown to HTML via remark
 - `src/app/[type]/page.tsx` renders category indexes
 - `src/app/[type]/[slug]/page.tsx` renders individual content
-- No client-side JavaScript. No React components embedded in content.
+- Content pages should avoid client-side JavaScript. Interactive utilities (search, self-audit, homepage demos, mobile nav) may use client components. No React components are embedded in content.
 
 ## Agent Access
 - Raw `.md` files served from `/content/` (via `public/content/`)

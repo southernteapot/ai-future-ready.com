@@ -91,7 +91,7 @@ AI is like having a patient, always-available tutor. It can explain concepts at 
 3. **Use AI for boilerplate, think for yourself on architecture.** AI is great at generating repetitive code and standard patterns. Keep the high-level design decisions in your hands.
 4. **Learn from AI explanations.** Do not just copy and paste. Ask AI to explain its approach so you learn from the interaction.
 5. **Combine tools for different tasks.** Use an inline tool like Copilot for autocomplete, and a conversational tool like Claude or ChatGPT for complex problem-solving.
-6. **Master your [prompting skills](/guides/prompting).** Clear, specific prompts make a huge difference in code quality. Check our [prompt library](/tools/prompts) for developer-focused templates.
+6. **Master your [prompting skills](/guides/prompting).** Clear, specific prompts make a huge difference in code quality. Check our [prompt patterns](/prompt-patterns) for developer-focused structures you can adapt to your model.
 
 ---
 

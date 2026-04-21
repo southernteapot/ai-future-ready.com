@@ -1,7 +1,7 @@
 # AI Future Ready — Full Content
 > All content from ai-future-ready.com in a single file.
 > Generated: 2026-04-21
-> Total files: 86
+> Total files: 87
 
 ---
 
@@ -2681,7 +2681,7 @@ last_updated: "2026-04-10"
 
 # AI Agent Platforms
 
-Directory of AI agent platforms and frameworks for building autonomous AI systems. Each platform is structured with typed metadata — category, license, languages, pricing — available via the [JSON API](/api/v1/agents.json) and as [raw markdown](/content/agents/).
+Directory of AI agent platforms and frameworks for building autonomous AI systems. Each platform is structured with typed metadata — category, license, languages, pricing — available via the [JSON API](/api/v1/agents.json) and the [raw markdown index](/content/agents/_index.md).
 
 ## Personal Agent
 
@@ -3093,11 +3093,12 @@ id: "lindy"
 category: "no-code"
 category_label: "No-Code"
 description: "Build, deploy, and manage AI agents without writing code. Designed for business task automation with a visual interface for creating agent workflows that integrate with popular business tools."
-last_updated: "2026-04-10"
+last_updated: "2026-04-21"
 website: "https://lindy.ai"
 license: "Proprietary"
 pricing: "Free tier / Pro from $49/mo"
 languages:
+- "No-code / visual builder"
 
 tags:
 - "no-code"
@@ -4277,7 +4278,7 @@ last_updated: "2026-04-10"
 
 # Guides
 
-Practical guides to understanding and using AI. Each guide is structured with YAML metadata and available as [raw markdown](/content/guides/) for agent consumption.
+Practical guides to understanding and using AI. Each guide is structured with YAML metadata and available via the [raw markdown index](/content/guides/_index.md) for agent consumption.
 
 | Guide | Level | Description |
 |-------|-------|-------------|
@@ -5026,7 +5027,7 @@ Then give me your recommendation with a confidence level
 (high/medium/low) and explain your reasoning.
 ```
 
-For many more templates organized by category, visit our [Prompt Library](/tools/prompts).
+For more model-specific templates and reusable structures, visit our [Prompt Patterns](/prompt-patterns).
 
 ---
 
@@ -5034,7 +5035,7 @@ For many more templates organized by category, visit our [Prompt Library](/tools
 
 You now have a solid foundation in prompt engineering. Here are some next steps:
 
-- **[Prompt Library](/tools/prompts)** -- Browse and copy ready-made prompts for writing, coding, analysis, and more.
+- **[Prompt Patterns](/prompt-patterns)** -- Browse model-specific prompting patterns you can adapt for writing, coding, analysis, and more.
 - **[Compare AI Models](/models)** -- Find the right model for your tasks with our detailed comparison.
 - **[What Is AI?](getting-started.md)** -- Go back to basics with our complete beginner's guide.
 - **[AI Glossary](/glossary)** -- Look up any AI term you encounter in plain English.
@@ -5172,7 +5173,7 @@ AI can help project managers plan, track, and communicate more effectively.
 
 1. **Start with low-risk, high-frequency tasks.** Email drafting, meeting summaries, and status reports are great starting points because they are low-risk and happen often.
 2. **Protect sensitive data.** Be careful about pasting confidential business data into AI tools. Check your organization's data policies, and consider enterprise plans that offer data privacy guarantees.
-3. **Build templates for recurring tasks.** Once you find effective prompts, save them as templates. Visit our [prompt library](/tools/prompts) for business-focused templates.
+3. **Build templates for recurring tasks.** Once you find effective prompts, save them as templates. Visit our [prompt patterns](/prompt-patterns) for model-specific templates you can adapt to business tasks.
 4. **Always review AI output.** AI can make mistakes with numbers, misunderstand context, or generate plausible but incorrect analyses. Human review is essential, especially for data analysis and customer-facing content.
 5. **Train your team.** The value of AI in business multiplies when everyone knows how to use it effectively. Invest in [prompt engineering skills](/guides/prompting) across your organization.
 6. **Measure the impact.** Track time saved, output quality, and other metrics to understand where AI adds the most value for your team.
@@ -5288,7 +5289,7 @@ AI is like having a patient, always-available tutor. It can explain concepts at 
 3. **Use AI for boilerplate, think for yourself on architecture.** AI is great at generating repetitive code and standard patterns. Keep the high-level design decisions in your hands.
 4. **Learn from AI explanations.** Do not just copy and paste. Ask AI to explain its approach so you learn from the interaction.
 5. **Combine tools for different tasks.** Use an inline tool like Copilot for autocomplete, and a conversational tool like Claude or ChatGPT for complex problem-solving.
-6. **Master your [prompting skills](/guides/prompting).** Clear, specific prompts make a huge difference in code quality. Check our [prompt library](/tools/prompts) for developer-focused templates.
+6. **Master your [prompting skills](/guides/prompting).** Clear, specific prompts make a huge difference in code quality. Check our [prompt patterns](/prompt-patterns) for developer-focused structures you can adapt to your model.
 
 ---
 
@@ -5411,7 +5412,7 @@ Using AI to learn is different from using AI to do your work for you. Most educa
 3. **Request the Socratic method.** Ask AI to help you arrive at the answer yourself through guided questions. This builds much stronger understanding than reading answers.
 4. **Test yourself regularly.** Have AI generate practice questions and try to answer them before checking. Active recall is one of the most effective study techniques.
 5. **Combine AI with other resources.** Use AI alongside textbooks, videos, and human instruction. Each has strengths the others lack.
-6. **Master your prompts.** Better prompts lead to better learning. Our [prompt engineering guide](/guides/prompting) and [prompt library](/tools/prompts) can help you ask AI the right questions.
+6. **Master your prompts.** Better prompts lead to better learning. Our [prompt engineering guide](/guides/prompting) and [prompt patterns](/prompt-patterns) can help you ask AI the right questions.
 
 ---
 
@@ -5570,7 +5571,7 @@ For more on crafting effective prompts (for both text and image AI), check out o
 3. **Understand the limitations.** AI image generators can struggle with hands, text in images, precise spatial relationships, and specific brand logos. Know where to expect imperfections.
 4. **Consider copyright and usage rights.** Different tools have different terms of service regarding commercial use. Adobe Firefly is specifically designed for commercial safety. Check the terms for your chosen tool before using generated images commercially.
 5. **Use AI as part of your workflow, not the entire workflow.** The best results often come from generating an AI image and then refining it in Photoshop, Canva, or another editing tool.
-6. **Save and organize your prompts.** Keep a library of prompts that produce results you like. Our [prompt library](/tools/prompts) includes image generation templates to get you started.
+6. **Save and organize your prompts.** Keep a library of prompts that produce results you like. Our [prompt patterns](/prompt-patterns) include reusable structures you can adapt for image generation workflows.
 
 ---
 
@@ -5688,7 +5689,7 @@ AI can assist with fact-checking, but this is an area where you need to be espec
 | ChatGPT | General research questions, data analysis | Versatile with browsing and code interpreter capabilities |
 | Semantic Scholar | Finding academic papers | AI-powered paper recommendations and citation analysis |
 
-For more on how different AI models handle research tasks, visit our [model comparison page](/models). You can also browse our [prompt library](/tools/prompts) for research-focused prompt templates.
+For more on how different AI models handle research tasks, visit our [model comparison page](/models). You can also browse our [prompt patterns](/prompt-patterns) for research-friendly prompt structures.
 
 ---
 
@@ -5812,7 +5813,7 @@ No matter what kind of writing you are doing with AI, these principles will help
 2. **Be specific in your prompts.** The more context you provide (audience, tone, length, format, purpose), the better the output. See our [prompt engineering guide](/guides/prompting) for detailed techniques.
 3. **Iterate, do not regenerate.** Instead of starting over, ask AI to revise specific parts. "Make the introduction more engaging" is better than regenerating the whole piece.
 4. **Use AI for structure, add your substance.** AI is great at organizing ideas and creating frameworks. Fill in the details with your expertise and personal experience.
-5. **Save your best prompts.** When you find a prompt that produces great results, save it. Check out our [prompt library](/tools/prompts) for ready-to-use templates.
+5. **Save your best prompts.** When you find a prompt that produces great results, save it. Check out our [prompt patterns](/prompt-patterns) for reusable templates you can adapt to your model.
 6. **Disclose AI use when appropriate.** In professional and academic contexts, be transparent about AI assistance when it is expected or required.
 
 ---
@@ -8611,5 +8612,78 @@ Which models work with which tools. Updated April 2026.
 - **HuggingFace** hosts the original weights for all models. Use the Transformers library or download weights for use with other serving tools.
 - **Together AI** offers managed hosting with per-token pricing. No infrastructure to manage. Good middle ground between self-hosting and proprietary APIs.
 - **Qwen 3.5** and some Chinese-origin models may have delayed or partial support on Western-focused platforms. Check for the specific variant you need.
+
+---
+
+<!-- file: /content/mcp.md -->
+
+---
+title: "MCP Access"
+type: reference
+id: "mcp-access"
+description: "How to connect AI Future Ready through the Model Context Protocol (MCP), including startup commands, available tools, and example workflows."
+last_updated: "2026-04-21"
+---
+
+# MCP Access
+
+This site ships with a local MCP server so agents can query the dataset through tools instead of scraping pages or manually fetching markdown files.
+
+## Start the server
+
+Run it from the project root:
+
+```bash
+npx tsx scripts/mcp-server.ts
+```
+
+If you use Claude Code, add it as an MCP server:
+
+```bash
+claude mcp add ai-future-ready npx tsx scripts/mcp-server.ts
+```
+
+## What it exposes
+
+The MCP server wraps the content in `content/` and makes it available through focused tools:
+
+| Tool | What it does |
+|------|--------------|
+| `search_models` | Search models by name, provider, or keyword |
+| `get_model` | Return the full markdown for one model |
+| `recommend_model` | Rank models by task, budget, and type |
+| `get_agent_platform` | Return the full markdown for one agent platform |
+| `list_models` | List all model entries |
+| `list_agents` | List all agent platforms |
+| `get_glossary` | Look up a glossary term or return the full glossary |
+| `get_comparison` | Return a comparison page by slug |
+| `get_changelog` | Return the changelog for knowledge-cutoff refresh |
+
+## When to use MCP vs raw files
+
+Use MCP when you want:
+
+- structured tool calls instead of URL fetching
+- filtered recommendations such as "best cheap coding model"
+- a small answer without downloading every markdown file
+
+Use raw files and feeds when you want:
+
+- complete source documents with YAML frontmatter
+- bulk sync via `llms-full.txt`
+- change detection via [`/feed.json`](/feed.json)
+
+## Good agent workflows
+
+1. Read [`/llms.txt`](/llms.txt) or [`/feed.json`](/feed.json) to discover what exists or what changed.
+2. Use MCP for targeted queries such as model search, recommendations, or changelog refresh.
+3. Fetch the raw markdown source when you need the full document or exact frontmatter.
+
+## Related endpoints
+
+- [`/api/v1/index.json`](/api/v1/index.json) — structured API index
+- [`/content/_index.md`](/content/_index.md) — master markdown index
+- [`/feed.json`](/feed.json) — JSON change feed
+- [`/changelog`](/changelog) — human-readable updates page
 
 ---

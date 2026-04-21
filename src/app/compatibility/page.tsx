@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import ContentView from "@/components/ContentView";
 import { getStandaloneContent } from "@/lib/content";
+import { buildContentMetadata } from "@/lib/metadata";
 import { generateJsonLd } from "@/lib/jsonld";
 import { renderMarkdown } from "@/lib/markdown";
 
@@ -12,11 +13,7 @@ const SLUG = "compatibility";
 export async function generateMetadata(): Promise<Metadata> {
   const item = getStandaloneContent(SLUG);
   if (!item) return {};
-
-  return {
-    title: item.meta.title,
-    description: item.meta.description,
-  };
+  return buildContentMetadata(item.meta, `/${SLUG}`);
 }
 
 export default async function CompatibilityPage() {

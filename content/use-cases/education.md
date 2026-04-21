@@ -97,7 +97,7 @@ Using AI to learn is different from using AI to do your work for you. Most educa
 3. **Request the Socratic method.** Ask AI to help you arrive at the answer yourself through guided questions. This builds much stronger understanding than reading answers.
 4. **Test yourself regularly.** Have AI generate practice questions and try to answer them before checking. Active recall is one of the most effective study techniques.
 5. **Combine AI with other resources.** Use AI alongside textbooks, videos, and human instruction. Each has strengths the others lack.
-6. **Master your prompts.** Better prompts lead to better learning. Our [prompt engineering guide](/guides/prompting) and [prompt library](/tools/prompts) can help you ask AI the right questions.
+6. **Master your prompts.** Better prompts lead to better learning. Our [prompt engineering guide](/guides/prompting) and [prompt patterns](/prompt-patterns) can help you ask AI the right questions.
 
 ---
 

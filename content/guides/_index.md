@@ -8,7 +8,7 @@ last_updated: "2026-04-10"
 
 # Guides
 
-Practical guides to understanding and using AI. Each guide is structured with YAML metadata and available as [raw markdown](/content/guides/) for agent consumption.
+Practical guides to understanding and using AI. Each guide is structured with YAML metadata and available via the [raw markdown index](/content/guides/_index.md) for agent consumption.
 
 | Guide | Level | Description |
 |-------|-------|-------------|

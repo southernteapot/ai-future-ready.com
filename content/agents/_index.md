@@ -8,7 +8,7 @@ last_updated: "2026-04-10"
 
 # AI Agent Platforms
 
-Directory of AI agent platforms and frameworks for building autonomous AI systems. Each platform is structured with typed metadata — category, license, languages, pricing — available via the [JSON API](/api/v1/agents.json) and as [raw markdown](/content/agents/).
+Directory of AI agent platforms and frameworks for building autonomous AI systems. Each platform is structured with typed metadata — category, license, languages, pricing — available via the [JSON API](/api/v1/agents.json) and the [raw markdown index](/content/agents/_index.md).
 
 ## Personal Agent
 

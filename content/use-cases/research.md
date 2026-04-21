@@ -96,4 +96,4 @@ AI can assist with fact-checking, but this is an area where you need to be espec
 | ChatGPT | General research questions, data analysis | Versatile with browsing and code interpreter capabilities |
 | Semantic Scholar | Finding academic papers | AI-powered paper recommendations and citation analysis |
 
-For more on how different AI models handle research tasks, visit our [model comparison page](/models). You can also browse our [prompt library](/tools/prompts) for research-focused prompt templates.
+For more on how different AI models handle research tasks, visit our [model comparison page](/models). You can also browse our [prompt patterns](/prompt-patterns) for research-friendly prompt structures.

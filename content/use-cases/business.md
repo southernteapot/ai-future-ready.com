@@ -102,7 +102,7 @@ AI can help project managers plan, track, and communicate more effectively.
 
 1. **Start with low-risk, high-frequency tasks.** Email drafting, meeting summaries, and status reports are great starting points because they are low-risk and happen often.
 2. **Protect sensitive data.** Be careful about pasting confidential business data into AI tools. Check your organization's data policies, and consider enterprise plans that offer data privacy guarantees.
-3. **Build templates for recurring tasks.** Once you find effective prompts, save them as templates. Visit our [prompt library](/tools/prompts) for business-focused templates.
+3. **Build templates for recurring tasks.** Once you find effective prompts, save them as templates. Visit our [prompt patterns](/prompt-patterns) for model-specific templates you can adapt to business tasks.
 4. **Always review AI output.** AI can make mistakes with numbers, misunderstand context, or generate plausible but incorrect analyses. Human review is essential, especially for data analysis and customer-facing content.
 5. **Train your team.** The value of AI in business multiplies when everyone knows how to use it effectively. Invest in [prompt engineering skills](/guides/prompting) across your organization.
 6. **Measure the impact.** Track time saved, output quality, and other metrics to understand where AI adds the most value for your team.

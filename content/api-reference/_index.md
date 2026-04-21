@@ -3,7 +3,7 @@ title: "Agent API Reference"
 type: index
 id: "api-reference"
 description: "Documentation for this site's agent-facing APIs — JSON endpoints, raw content access, discovery files, and search index."
-last_updated: "2026-04-12"
+last_updated: "2026-04-21"
 ---
 
 # Agent API Reference
@@ -17,6 +17,8 @@ This site exposes structured content through multiple machine-readable access pa
 | [`/llms.txt`](/llms.txt) | Text | Machine-readable index of all content — the front door for agents |
 | [`/llms-full.txt`](/llms-full.txt) | Text | All content concatenated into one file for bulk access |
 | [`/search-index.json`](/search-index.json) | JSON | Structured index with titles, descriptions, tags, and URLs |
+| [`/feed.json`](/feed.json) | JSON Feed | Timestamped update feed for change detection |
+| [`/feed.xml`](/feed.xml) | RSS | RSS mirror of the change feed |
 | [`/sitemap.xml`](/sitemap.xml) | XML | Sitemap with both HTML and raw content URLs |
 | [`/robots.txt`](/robots.txt) | Text | Agent access permissions |
 
@@ -34,6 +36,14 @@ Base URL: `/api/v1/`
 | [`/api/v1/recommend.json`](/api/v1/recommend.json) | Pre-scored model rankings by task (coding, writing, math, reasoning) |
 
 All endpoints return JSON with consistent field naming. No authentication required.
+
+## MCP Access
+
+This project also includes a local MCP server for agents that prefer tool calls over raw document fetches.
+
+- Docs: [`/mcp`](/mcp)
+- Server command: `npx tsx scripts/mcp-server.ts`
+- Claude Code example: `claude mcp add ai-future-ready npx tsx scripts/mcp-server.ts`
 
 ## Raw Content
 

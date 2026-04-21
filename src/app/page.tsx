@@ -49,8 +49,11 @@ export default function HomePage() {
           <strong className="text-white">
             structured, machine-readable, and built for two audiences
           </strong>
-          . Humans get a clean reading experience. Agents get raw markdown,
-          YAML metadata, JSON APIs, and an MCP server — no scraping required.
+          . Canonical pages open in source view by design, exposing the raw
+          markdown humans usually never get to see. One toggle reveals a
+          rendered preview of the exact same content. Agents can fetch that
+          source directly as markdown with YAML metadata, structured JSON, or
+          through the MCP server — no scraping required.
         </p>
         <p className="text-base text-white leading-relaxed max-w-3xl">
           This is what the agent-ready web looks like. Browse it, query it,
@@ -64,8 +67,9 @@ export default function HomePage() {
           See it, don&rsquo;t just read about it
         </h2>
         <p className="text-sm text-neutral-400 max-w-3xl">
-          Every page on this site has multiple representations. Here&rsquo;s
-          what a single piece of content looks like from three perspectives:
+          Canonical pages are raw-first. Here&rsquo;s what a single piece of
+          content looks like in source form, rendered form, and structured API
+          form:
         </p>
         <AgentLayerDemo />
       </section>
@@ -91,13 +95,23 @@ export default function HomePage() {
             },
             {
               href: "/content/_index.md",
-              label: "/content/",
-              desc: "Raw markdown with YAML frontmatter. Every page, directly fetchable.",
+              label: "/content/_index.md",
+              desc: "Master markdown index. From there, every source file is directly fetchable.",
             },
             {
               href: "/search-index.json",
               label: "search-index.json",
               desc: "Structured search index. Titles, descriptions, tags, providers — ready to query.",
+            },
+            {
+              href: "/feed.json",
+              label: "feed.json",
+              desc: "Change feed for agents that need to detect updates without re-crawling everything.",
+            },
+            {
+              href: "/mcp",
+              label: "/mcp",
+              desc: "Connection guide and tool list for the local MCP server.",
             },
           ].map((item) => (
             <a

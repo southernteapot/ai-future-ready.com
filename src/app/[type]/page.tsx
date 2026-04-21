@@ -1,4 +1,5 @@
 import { getIndex, getContentTypes } from "@/lib/content";
+import { buildContentMetadata } from "@/lib/metadata";
 import { renderMarkdown } from "@/lib/markdown";
 import { generateJsonLd } from "@/lib/jsonld";
 import ContentView from "@/components/ContentView";
@@ -21,10 +22,7 @@ export async function generateMetadata({
   const { type } = await params;
   const index = getIndex(type);
   if (!index) return {};
-  return {
-    title: index.meta.title,
-    description: index.meta.description,
-  };
+  return buildContentMetadata(index.meta, `/${type}`);
 }
 
 export default async function TypeIndexPage({

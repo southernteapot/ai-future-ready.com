@@ -471,7 +471,7 @@ Then give me your recommendation with a confidence level
 (high/medium/low) and explain your reasoning.
 ```
 
-For many more templates organized by category, visit our [Prompt Library](/tools/prompts).
+For more model-specific templates and reusable structures, visit our [Prompt Patterns](/prompt-patterns).
 
 ---
 
@@ -479,7 +479,7 @@ For many more templates organized by category, visit our [Prompt Library](/tools
 
 You now have a solid foundation in prompt engineering. Here are some next steps:
 
-- **[Prompt Library](/tools/prompts)** -- Browse and copy ready-made prompts for writing, coding, analysis, and more.
+- **[Prompt Patterns](/prompt-patterns)** -- Browse model-specific prompting patterns you can adapt for writing, coding, analysis, and more.
 - **[Compare AI Models](/models)** -- Find the right model for your tasks with our detailed comparison.
 - **[What Is AI?](getting-started.md)** -- Go back to basics with our complete beginner's guide.
 - **[AI Glossary](/glossary)** -- Look up any AI term you encounter in plain English.

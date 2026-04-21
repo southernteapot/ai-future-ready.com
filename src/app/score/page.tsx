@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import SelfAudit from "@/components/SelfAudit";
+import { buildPageMetadata } from "@/lib/metadata";
 import { SITE_URL } from "@/lib/site";
 
 export const dynamic = "force-static";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildPageMetadata({
   title: "Score Your Site — Agent-Ready Self-Audit",
   description:
     "Evaluate your website's agent-readiness in two minutes. Ten criteria, a maturity level, prioritized fixes, and a clear next step.",
-};
+  path: "/score",
+});
 
 export default function ScorePage() {
   return (

@@ -7,6 +7,7 @@
 
 import fs from "fs";
 import path from "path";
+import { createHash } from "crypto";
 import matter from "gray-matter";
 import { SITE_DOMAIN, SITE_URL } from "../src/lib/site";
 
@@ -18,19 +19,13 @@ interface Entry {
   title: string;
   description: string;
   mdPath: string;
+  htmlPath: string;
   raw: string;
   section: string;
-}
-
-function readMd(filePath: string): { title: string; description: string; raw: string } | null {
-  if (!fs.existsSync(filePath)) return null;
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const { data } = matter(raw);
-  return {
-    title: (data.title as string) || path.basename(filePath, ".md"),
-    description: (data.description as string) || "",
-    raw,
-  };
+  meta: Record<string, unknown>;
+  contentHash: string;
+  updatedAt: string;
+  publishedAt: string;
 }
 
 function getFilesInDir(dir: string): string[] {
@@ -39,6 +34,68 @@ function getFilesInDir(dir: string): string[] {
     .readdirSync(dir)
     .filter((f) => f.endsWith(".md") && f !== "_index.md")
     .sort();
+}
+
+function normalizeDate(value: unknown): string | null {
+  if (typeof value !== "string") return null;
+  const trimmed = value.trim();
+  if (/^\d{4}$/.test(trimmed)) return `${trimmed}-01-01`;
+  if (/^\d{4}-\d{2}$/.test(trimmed)) return `${trimmed}-01`;
+  if (/^\d{4}-\d{2}-\d{2}$/.test(trimmed)) return trimmed;
+  return null;
+}
+
+function toIsoDate(date: string): string {
+  return `${date}T00:00:00.000Z`;
+}
+
+function contentHash(raw: string): string {
+  return createHash("sha256").update(raw).digest("hex");
+}
+
+function toHtmlPath(mdPath: string): string {
+  if (mdPath === "/content/_index.md") return "/";
+  if (mdPath.startsWith("/content/")) {
+    const pathname = mdPath.replace(/^\/content/, "");
+    if (pathname.endsWith("/_index.md")) {
+      return pathname.replace(/\/_index\.md$/, "") || "/";
+    }
+    return pathname.replace(/\.md$/, "");
+  }
+  return mdPath;
+}
+
+function escapeXml(value: string): string {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+}
+
+function buildEntry(filePath: string, mdPath: string, section: string): Entry | null {
+  if (!fs.existsSync(filePath)) return null;
+  const raw = fs.readFileSync(filePath, "utf-8");
+  const { data } = matter(raw);
+  const updatedAt = normalizeDate(data.last_updated) ?? "1970-01-01";
+  const publishedAt =
+    normalizeDate(data.date) ??
+    normalizeDate(data.release_date) ??
+    updatedAt;
+
+  return {
+    title: (data.title as string) || path.basename(filePath, ".md"),
+    description: (data.description as string) || "",
+    mdPath,
+    htmlPath: toHtmlPath(mdPath),
+    raw,
+    section,
+    meta: data as Record<string, unknown>,
+    contentHash: contentHash(raw),
+    updatedAt,
+    publishedAt,
+  };
 }
 
 // Section ordering
@@ -60,6 +117,7 @@ const SECTIONS = [
 const STANDALONE_FILES = [
   { file: "changelog.md", label: "Changelog" },
   { file: "compatibility.md", label: "Compatibility Matrix" },
+  { file: "mcp.md", label: "MCP Access" },
 ];
 
 fs.rmSync(PUBLIC_CONTENT_DIR, { recursive: true, force: true });
@@ -73,24 +131,24 @@ for (const section of SECTIONS) {
   const dir = path.join(CONTENT_DIR, section.dir);
 
   // _index.md
-  const index = readMd(path.join(dir, "_index.md"));
+  const index = buildEntry(
+    path.join(dir, "_index.md"),
+    `/content/${section.dir}/_index.md`,
+    section.label
+  );
   if (index) {
-    allEntries.push({
-      ...index,
-      mdPath: `/content/${section.dir}/_index.md`,
-      section: section.label,
-    });
+    allEntries.push(index);
   }
 
   // Individual files
   for (const file of getFilesInDir(dir)) {
-    const entry = readMd(path.join(dir, file));
+    const entry = buildEntry(
+      path.join(dir, file),
+      `/content/${section.dir}/${file}`,
+      section.label
+    );
     if (entry) {
-      allEntries.push({
-        ...entry,
-        mdPath: `/content/${section.dir}/${file}`,
-        section: section.label,
-      });
+      allEntries.push(entry);
     }
   }
 }
@@ -127,13 +185,16 @@ for (const entry of allEntries) {
 
 // Standalone files
 for (const sf of STANDALONE_FILES) {
-  const entry = readMd(path.join(CONTENT_DIR, sf.file));
+  const entry = buildEntry(
+    path.join(CONTENT_DIR, sf.file),
+    `/content/${sf.file}`,
+    sf.label
+  );
   if (entry) {
     indexLines.push("");
     indexLines.push(`## ${sf.label}`);
     indexLines.push(`- [${entry.title}](/content/${sf.file}): ${entry.description}`);
-    // Also add to allEntries for llms-full.txt
-    allEntries.push({ ...entry, mdPath: `/content/${sf.file}`, section: sf.label });
+    allEntries.push(entry);
   }
 }
 
@@ -182,12 +243,13 @@ const searchIndex = allEntries
       description: entry.description,
       section: entry.section,
       id: (data.id as string) || undefined,
-      href: entry.mdPath
-        .replace(/^\/content/, "")
-        .replace(/\.md$/, ""),
+      href: entry.htmlPath,
       mdPath: entry.mdPath,
       provider: (data.provider as string) || undefined,
       tags: (data.tags as string[]) || [],
+      last_updated: (data.last_updated as string) || undefined,
+      published_at: (data.date as string) || (data.release_date as string) || undefined,
+      content_hash: entry.contentHash,
     };
   });
 
@@ -226,6 +288,15 @@ fs.writeFileSync(
     name: "AI Future Ready API",
     version: "v1",
     description: "Structured JSON API for the agent-ready web — standard, checklist, and AI reference data.",
+    discovery: {
+      llms_txt: "/llms.txt",
+      llms_full: "/llms-full.txt",
+      search_index: "/search-index.json",
+      feed_json: "/feed.json",
+      feed_xml: "/feed.xml",
+      raw_content: "/content/_index.md",
+      mcp_docs: "/mcp",
+    },
     content_types: typeIndex,
   }),
   "utf-8"
@@ -246,9 +317,14 @@ for (const t of contentTypes) {
       last_updated: (data.last_updated as string) || "",
       markdown_url: `/content/${t}/${f}`,
       html_url: `/${t}/${slug}`,
+      content_hash: contentHash(fs.readFileSync(path.join(dir, f), "utf-8")),
       ...(data.provider && { provider: data.provider }),
       ...(data.pricing && { pricing: data.pricing }),
       ...(data.benchmarks && { benchmarks: data.benchmarks }),
+      ...(data.tags && { tags: data.tags }),
+      ...(data.website && { website: data.website }),
+      ...(data.date && { date: data.date }),
+      ...(data.release_date && { release_date: data.release_date }),
     };
   });
   fs.writeFileSync(path.join(apiDir, `${t}.json`), JSON.stringify({ type: t, count: items.length, items }), "utf-8");
@@ -280,6 +356,74 @@ for (const task of tasks) {
 
 fs.writeFileSync(path.join(apiDir, "recommend.json"), JSON.stringify(recommendData), "utf-8");
 console.log(`wrote public/api/v1/ (${contentTypes.length} type files + index + recommend)`);
+
+// ─── change feeds ────────────────────────────────────────
+
+const feedEntries = [...allEntries]
+  .sort((a, b) => b.updatedAt.localeCompare(a.updatedAt))
+  .map((entry) => ({
+    id: `${SITE_URL}${entry.htmlPath}`,
+    url: `${SITE_URL}${entry.htmlPath}`,
+    title: entry.title,
+    summary: entry.description,
+    date_published: toIsoDate(entry.publishedAt),
+    date_modified: toIsoDate(entry.updatedAt),
+    authors: [{ name: "AI Future Ready" }],
+    tags: Array.isArray(entry.meta.tags)
+      ? (entry.meta.tags as string[])
+      : [entry.section.toLowerCase()],
+    content_text: entry.description,
+    _section: entry.section,
+    _markdown_url: `${SITE_URL}${entry.mdPath}`,
+    _content_hash: entry.contentHash,
+  }));
+
+fs.writeFileSync(
+  path.join(PUBLIC_DIR, "feed.json"),
+  JSON.stringify(
+    {
+      version: "https://jsonfeed.org/version/1.1",
+      title: "AI Future Ready Updates",
+      home_page_url: SITE_URL,
+      feed_url: `${SITE_URL}/feed.json`,
+      description:
+        "Machine-readable change feed for AI Future Ready. Track content updates without re-crawling the full site.",
+      items: feedEntries,
+    },
+    null,
+    2
+  ),
+  "utf-8"
+);
+
+const rssItems = feedEntries
+  .map(
+    (entry) => `  <item>
+    <title>${escapeXml(entry.title)}</title>
+    <link>${escapeXml(entry.url)}</link>
+    <guid isPermaLink="true">${escapeXml(entry.id)}</guid>
+    <pubDate>${new Date(entry.date_modified).toUTCString()}</pubDate>
+    <description>${escapeXml(entry.summary)}</description>
+  </item>`
+  )
+  .join("\n");
+
+fs.writeFileSync(
+  path.join(PUBLIC_DIR, "feed.xml"),
+  `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>AI Future Ready Updates</title>
+  <link>${SITE_URL}</link>
+  <description>Machine-readable change feed for AI Future Ready.</description>
+  <lastBuildDate>${new Date(feedEntries[0]?.date_modified ?? toIsoDate("1970-01-01")).toUTCString()}</lastBuildDate>
+${rssItems}
+</channel>
+</rss>
+`,
+  "utf-8"
+);
+console.log(`wrote public/feed.json and public/feed.xml (${feedEntries.length} items)`);
 
 // ─── robots.txt ──────────────────────────────────────────
 
@@ -346,6 +490,8 @@ const baseUrl = SITE_URL;
 const sitemapEntries: string[] = [];
 
 sitemapEntries.push(`  <url><loc>${baseUrl}</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>`);
+sitemapEntries.push(`  <url><loc>${baseUrl}/feed.json</loc><changefreq>daily</changefreq><priority>0.4</priority></url>`);
+sitemapEntries.push(`  <url><loc>${baseUrl}/feed.xml</loc><changefreq>daily</changefreq><priority>0.4</priority></url>`);
 
 for (const section of SECTIONS) {
   sitemapEntries.push(`  <url><loc>${baseUrl}/${section.dir}</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>`);

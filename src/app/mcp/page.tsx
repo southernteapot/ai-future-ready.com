@@ -8,7 +8,7 @@ import { renderMarkdown } from "@/lib/markdown";
 
 export const dynamic = "force-static";
 
-const SLUG = "changelog";
+const SLUG = "mcp";
 
 export async function generateMetadata(): Promise<Metadata> {
   const item = getStandaloneContent(SLUG);
@@ -16,7 +16,7 @@ export async function generateMetadata(): Promise<Metadata> {
   return buildContentMetadata(item.meta, `/${SLUG}`);
 }
 
-export default async function ChangelogPage() {
+export default async function McpPage() {
   const item = getStandaloneContent(SLUG);
   if (!item) notFound();
 
@@ -31,7 +31,7 @@ export default async function ChangelogPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <ContentView raw={item.raw} html={html} mdPath="/content/changelog.md" />
+      <ContentView raw={item.raw} html={html} mdPath="/content/mcp.md" />
     </>
   );
 }

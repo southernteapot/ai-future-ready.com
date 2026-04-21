@@ -3,6 +3,11 @@ import { Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import MobileNav from "@/components/MobileNav";
 import { SITE_URL } from "@/lib/site";
+import {
+  FEED_ALTERNATE_TYPES,
+  OPEN_GRAPH_IMAGE,
+  TWITTER_IMAGE,
+} from "@/lib/metadata";
 import "./globals.css";
 
 const geistMono = Geist_Mono({
@@ -21,6 +26,9 @@ export const metadata: Metadata = {
     "A working demonstration of the agent-ready web. Structured AI reference built for both humans and AI agents — raw markdown, YAML metadata, JSON APIs, and machine-readable discovery.",
   authors: [{ name: "AI Future Ready" }],
   creator: "AI Future Ready",
+  alternates: {
+    types: FEED_ALTERNATE_TYPES,
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -29,6 +37,14 @@ export const metadata: Metadata = {
     title: "AI Future Ready — The Agent-Ready Web",
     description:
       "The web wasn't built for AI agents. This site was. Structured content, machine-readable metadata, and dual-audience design.",
+    images: [OPEN_GRAPH_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI Future Ready — The Agent-Ready Web",
+    description:
+      "The web wasn't built for AI agents. This site was. Structured content, machine-readable metadata, and dual-audience design.",
+    images: [TWITTER_IMAGE],
   },
   robots: {
     index: true,
@@ -93,10 +109,10 @@ export default function RootLayout({
             <p>
               Agent access:{" "}
               <Link
-                href="/content/"
+                href="/content/_index.md"
                 className="text-white hover:text-neutral-400 hover:underline"
               >
-                /content/
+                /content/_index.md
               </Link>{" "}
               &middot;{" "}
               <Link
@@ -111,6 +127,13 @@ export default function RootLayout({
                 className="text-white hover:text-neutral-400 hover:underline"
               >
                 api
+              </Link>{" "}
+              &middot;{" "}
+              <Link
+                href="/feed.json"
+                className="text-white hover:text-neutral-400 hover:underline"
+              >
+                feed
               </Link>
             </p>
             <p>
@@ -126,6 +149,13 @@ export default function RootLayout({
                 className="text-neutral-500 hover:text-white hover:underline"
               >
                 search
+              </Link>{" "}
+              &middot;{" "}
+              <Link
+                href="/mcp"
+                className="text-neutral-500 hover:text-white hover:underline"
+              >
+                mcp
               </Link>{" "}
             </p>
           </div>

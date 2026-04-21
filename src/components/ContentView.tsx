@@ -1,6 +1,4 @@
-"use client";
-
-import { useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 
 /**
  * Resolve a markdown link href relative to the current mdPath.
@@ -9,6 +7,7 @@ import { useState, type ReactNode } from "react";
 function resolveHref(href: string, mdPath: string): string {
   // Absolute URLs — leave as-is
   if (href.startsWith("http://") || href.startsWith("https://")) return href;
+  if (href.startsWith("/")) return href;
 
   // Strip /content prefix and filename from mdPath to get the base dir
   const dir = mdPath
@@ -20,7 +19,6 @@ function resolveHref(href: string, mdPath: string): string {
     .replace(/\/_index\.md$/, "")
     .replace(/\.md$/, "");
 
-  if (resolved.startsWith("/")) return resolved;
   return `${dir}/${resolved}`;
 }
 
@@ -92,57 +90,68 @@ export default function ContentView({
   html: string;
   mdPath: string;
 }) {
-  const [view, setView] = useState<"raw" | "rendered">("raw");
+  const viewId =
+    mdPath.replace(/[^a-z0-9]+/gi, "-").replace(/^-+|-+$/g, "").toLowerCase() ||
+    "content";
+  const rawId = `${viewId}-source`;
+  const renderedId = `${viewId}-rendered`;
 
   return (
     <div>
+      <p className="mb-4 max-w-3xl text-xs leading-relaxed text-neutral-500">
+        Canonical pages on AI Future Ready open in source view by design. The
+        raw markdown is the primary representation for agents; the rendered tab
+        shows the same content as a human reading view.
+      </p>
+
       {/* Toggle bar */}
-      <div className="flex items-center gap-3 mb-6 text-sm font-mono">
-        <button
-          type="button"
-          onClick={() => setView("raw")}
-          aria-pressed={view === "raw"}
-          className={`px-3 py-1.5 rounded transition-colors ${
-            view === "raw"
-              ? "bg-neutral-900 text-white border border-neutral-700"
-              : "text-neutral-500 hover:text-white"
-          }`}
+      <div className="mb-6 flex flex-wrap items-center gap-3 text-sm font-mono">
+        <input
+          id={rawId}
+          type="radio"
+          name={viewId}
+          defaultChecked
+          className="peer/source sr-only"
+        />
+        <label
+          htmlFor={rawId}
+          className="cursor-pointer rounded px-3 py-1.5 text-neutral-500 transition-colors peer-checked/source:border peer-checked/source:border-neutral-700 peer-checked/source:bg-neutral-900 peer-checked/source:text-white hover:text-white"
         >
-          .md
-        </button>
-        <button
-          type="button"
-          onClick={() => setView("rendered")}
-          aria-pressed={view === "rendered"}
-          className={`px-3 py-1.5 rounded transition-colors ${
-            view === "rendered"
-              ? "bg-neutral-900 text-white border border-neutral-700"
-              : "text-neutral-500 hover:text-white"
-          }`}
+          source (.md)
+        </label>
+
+        <input
+          id={renderedId}
+          type="radio"
+          name={viewId}
+          className="peer/rendered sr-only"
+        />
+        <label
+          htmlFor={renderedId}
+          className="cursor-pointer rounded px-3 py-1.5 text-neutral-500 transition-colors peer-checked/rendered:border peer-checked/rendered:border-neutral-700 peer-checked/rendered:bg-neutral-900 peer-checked/rendered:text-white hover:text-white"
         >
           rendered
-        </button>
+        </label>
+
         <a
           href={mdPath}
           className="ml-auto text-neutral-600 hover:text-white font-mono text-xs transition-colors"
         >
-          {mdPath}
+          canonical source file
         </a>
       </div>
 
       {/* Raw markdown view */}
-      {view === "raw" && (
-        <pre className="p-6 text-sm leading-relaxed font-mono text-neutral-300 whitespace-pre-wrap break-words">
-          {linkify(raw, mdPath)}
-        </pre>
-      )}
+      <pre className="peer-checked/rendered:hidden whitespace-pre-wrap break-words p-6 text-sm leading-relaxed text-neutral-300 font-mono">
+        {linkify(raw, mdPath)}
+      </pre>
 
       {/* Rendered view */}
-      {view === "rendered" && (
+      <div className="hidden peer-checked/rendered:block">
         <div className="prose max-w-none">
           <div dangerouslySetInnerHTML={{ __html: html }} />
         </div>
-      )}
+      </div>
     </div>
   );
 }

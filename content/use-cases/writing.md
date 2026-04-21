@@ -116,7 +116,7 @@ No matter what kind of writing you are doing with AI, these principles will help
 2. **Be specific in your prompts.** The more context you provide (audience, tone, length, format, purpose), the better the output. See our [prompt engineering guide](/guides/prompting) for detailed techniques.
 3. **Iterate, do not regenerate.** Instead of starting over, ask AI to revise specific parts. "Make the introduction more engaging" is better than regenerating the whole piece.
 4. **Use AI for structure, add your substance.** AI is great at organizing ideas and creating frameworks. Fill in the details with your expertise and personal experience.
-5. **Save your best prompts.** When you find a prompt that produces great results, save it. Check out our [prompt library](/tools/prompts) for ready-to-use templates.
+5. **Save your best prompts.** When you find a prompt that produces great results, save it. Check out our [prompt patterns](/prompt-patterns) for reusable templates you can adapt to your model.
 6. **Disclose AI use when appropriate.** In professional and academic contexts, be transparent about AI assistance when it is expected or required.
 
 ---

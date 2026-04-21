@@ -1,4 +1,5 @@
 import { getContent, getContentTypes, getSlugs } from "@/lib/content";
+import { buildContentMetadata } from "@/lib/metadata";
 import { renderMarkdown } from "@/lib/markdown";
 import { generateJsonLd } from "@/lib/jsonld";
 import ContentView from "@/components/ContentView";
@@ -28,10 +29,7 @@ export async function generateMetadata({
   const { type, slug } = await params;
   const item = getContent(type, slug);
   if (!item) return {};
-  return {
-    title: item.meta.title,
-    description: item.meta.description,
-  };
+  return buildContentMetadata(item.meta, `/${type}/${slug}`);
 }
 
 export default async function ContentPage({

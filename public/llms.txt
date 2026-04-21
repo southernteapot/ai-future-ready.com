@@ -106,3 +106,6 @@
 
 ## Compatibility Matrix
 - [AI Model Compatibility Matrix](/content/compatibility.md): Which AI models work with which agent frameworks, coding tools, and platforms. Structured for agent consumption.
+
+## MCP Access
+- [MCP Access](/content/mcp.md): How to connect AI Future Ready through the Model Context Protocol (MCP), including startup commands, available tools, and example workflows.

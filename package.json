@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "tsx scripts/generate-llms-txt.ts",
+    "validate:content": "tsx scripts/validate-content.ts",
+    "prebuild": "npm run validate:content && tsx scripts/generate-llms-txt.ts",
+    "test:smoke": "tsx scripts/smoke-site.ts",
+    "verify": "npm run lint && npm run build && npm run test:smoke",
     "build": "next build",
     "build:cf": "npm run build",
     "start": "next start",

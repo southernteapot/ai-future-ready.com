@@ -5,11 +5,12 @@ id: "lindy"
 category: "no-code"
 category_label: "No-Code"
 description: "Build, deploy, and manage AI agents without writing code. Designed for business task automation with a visual interface for creating agent workflows that integrate with popular business tools."
-last_updated: "2026-04-10"
+last_updated: "2026-04-21"
 website: "https://lindy.ai"
 license: "Proprietary"
 pricing: "Free tier / Pro from $49/mo"
 languages:
+- "No-code / visual builder"
 
 tags:
 - "no-code"

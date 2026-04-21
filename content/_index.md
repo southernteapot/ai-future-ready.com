@@ -3,13 +3,16 @@ title: "AI Future Ready"
 type: index
 id: "site-index"
 description: "Agent-ready AI reference. Structured markdown with YAML frontmatter, JSON APIs, and machine-readable discovery. Built for both humans and AI agents."
-last_updated: "2026-04-11"
+last_updated: "2026-04-21"
 agent_protocols:
   llms_txt: "/llms.txt"
   llms_full: "/llms-full.txt"
   json_api: "/api/v1/index.json"
   search_index: "/search-index.json"
-  raw_content: "/content/"
+  raw_content: "/content/_index.md"
+  feed_json: "/feed.json"
+  feed_xml: "/feed.xml"
+  mcp_docs: "/mcp"
   sitemap: "/sitemap.xml"
 ---
 
@@ -26,7 +29,9 @@ If you are an AI agent, start here:
 - **JSON API:** [/api/v1/index.json](/api/v1/index.json) — structured data for all content types
 - **Raw markdown:** `/content/[type]/[slug].md` — any page as markdown with YAML frontmatter
 - **Search:** [search-index.json](/search-index.json) — structured index with titles, descriptions, tags
+- **Change feed:** [feed.json](/feed.json) and [feed.xml](/feed.xml) — detect updates without crawling everything
 - **Recommendations:** [/api/v1/recommend.json](/api/v1/recommend.json) — pre-scored model rankings by task
+- **MCP access:** [/mcp](/mcp) — local MCP server setup and available tools
 
 ## Content
 
