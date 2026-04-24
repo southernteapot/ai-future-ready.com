@@ -71,83 +71,69 @@ export default function SearchClient() {
 
   return (
     <div>
-      {/* Search input */}
-      <div className="relative mb-8">
-        <label htmlFor="site-search" className="sr-only">
+      <form
+        className="search-form"
+        role="search"
+        onSubmit={(event) => event.preventDefault()}
+      >
+        <label htmlFor="site-search" className="visually-hidden">
           Search all content
         </label>
-        <div className="flex items-center gap-3 border-b border-neutral-800 px-1 py-3">
-          <span className="text-white font-mono text-sm shrink-0">
-            grep -i
+        <span className="agent-label">grep -i</span>
+        <span className="human-label">Search</span>
+        <input
+          id="site-search"
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder={
+            loaded ? `search ${entries.length} entries...` : "loading index..."
+          }
+          autoFocus
+          className="search-input"
+        />
+        {query && (
+          <span role="status" aria-live="polite">
+            {results.length} match{results.length !== 1 ? "es" : ""}
           </span>
-          <input
-            id="site-search"
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder={
-              loaded ? `search ${entries.length} entries...` : "loading index..."
-            }
-            autoFocus
-            className="flex-1 bg-transparent text-neutral-300 font-mono text-sm outline-none placeholder:text-neutral-700"
-          />
-          {query && (
-            <span className="text-neutral-500 font-mono text-xs shrink-0" role="status" aria-live="polite">
-              {results.length} match{results.length !== 1 ? "es" : ""}
-            </span>
-          )}
-        </div>
-      </div>
+        )}
+      </form>
 
-      {/* Results */}
-      {error && (
-        <p className="text-red-400 font-mono text-sm">
-          Search index unavailable.
-        </p>
-      )}
+      {error && <p>search index unavailable.</p>}
 
-      {query.trim() && results.length === 0 && (
-        <p className="text-neutral-500 font-mono text-sm">No matches.</p>
-      )}
+      {query.trim() && results.length === 0 && <p>no matches.</p>}
 
       {!query.trim() && loaded && (
-        <p className="text-neutral-500 font-mono text-sm">
-          Type to search across all models, agents, guides, blog posts, and more.
+        <p>
+          type to search across all models, agents, guides, blog posts, and
+          more.
         </p>
       )}
 
       {Array.from(grouped.entries()).map(([section, items]) => (
-        <div key={section} className="mb-6">
-          <h2 className="text-xs font-mono text-neutral-500 uppercase tracking-wider mb-2">
+        <section key={section}>
+          <p className="search-section-heading">
+            <span className="agent-marker">## </span>
             {section}
-          </h2>
-          <div className="space-y-1">
-            {items.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block border-b border-neutral-900 px-1 py-3 hover:bg-neutral-900 transition-colors group"
-              >
-                <div className="flex items-baseline gap-3">
-                  <span className="text-white font-mono text-sm group-hover:text-neutral-300">
-                    {item.title}
-                  </span>
-                  {item.provider && (
-                    <span className="text-neutral-600 font-mono text-xs">
-                      {item.provider}
-                    </span>
-                  )}
-                </div>
-                <p className="text-neutral-500 text-xs mt-1 line-clamp-1">
-                  {item.description}
-                </p>
-                <span className="text-neutral-700 font-mono text-xs">
-                  {item.mdPath}
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
+          </p>
+          {items.map((item) => (
+            <Link key={item.href} href={item.href} className="search-result">
+              <span className="search-result-title">
+                <span className="agent-marker">- </span>
+                {item.title}
+                {item.provider ? ` (${item.provider})` : ""}
+              </span>
+              <br className="agent-only" />
+              <span className="agent-only">{"  "}</span>
+              <span className="search-result-description">
+                {item.description}
+              </span>
+              <br className="agent-only" />
+              <span className="agent-only">{"  "}</span>
+              <span className="search-result-path">{item.mdPath}</span>
+            </Link>
+          ))}
+        </section>
       ))}
     </div>
   );

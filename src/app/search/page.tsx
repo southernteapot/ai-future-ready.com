@@ -12,14 +12,10 @@ export const metadata: Metadata = buildPageMetadata({
 export default function SearchPage() {
   return (
     <div>
-      <h1 className="text-xl font-bold mb-2">Search</h1>
-      <Suspense
-        fallback={
-          <p className="text-neutral-500 font-mono text-sm">
-            Loading search...
-          </p>
-        }
-      >
+      <h1>
+        <span className="agent-marker"># </span>Search
+      </h1>
+      <Suspense fallback={<p>loading search...</p>}>
         <SearchClient />
       </Suspense>
     </div>

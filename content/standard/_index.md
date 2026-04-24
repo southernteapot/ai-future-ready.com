@@ -3,8 +3,8 @@ title: "The Agent-Ready Web Standard"
 type: standard
 id: "agent-ready-web-standard"
 version: "0.1"
-description: "Technical specification for agent-ready web architecture. Defines content formats, metadata schemas, access protocols, discovery mechanisms, and trust signals."
-last_updated: "2026-04-12"
+description: "Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds."
+last_updated: "2026-04-24"
 status: "draft"
 tags:
   - standard

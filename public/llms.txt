@@ -2,18 +2,23 @@
 > The agent-ready web — a specification, checklist, and working demonstration of websites built for both humans and AI agents. Includes a structured AI reference library with models, agents, comparisons, and analysis.
 
 ## Content Sections
-- [Standard](/content/standard/_index.md): Technical specification for agent-ready web architecture. Defines content formats, metadata schemas, access protocols, discovery mechanisms, and trust signals.
+- [Standard](/content/standard/_index.md): Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds.
 - [Checklist](/content/checklist/_index.md): A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.
-- [Models](/content/models/_index.md): Comprehensive comparison of 33+ AI models — proprietary and open source — with benchmarks, pricing, and use-case recommendations.
+- [API Reference](/content/api-reference/_index.md): Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.
+- [Models](/content/models/_index.md): Compare 33+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.
+- [Providers](/content/providers/_index.md): Provider profiles for major AI labs and model ecosystems, focused on agent-useful strengths, tradeoffs, models, pricing posture, and selection guidance.
 - [Agent Platforms](/content/agents/_index.md): Directory of AI agent platforms — personal agents, developer frameworks, orchestration tools, coding agents, and no-code builders.
 - [Comparisons](/content/comparisons/_index.md): Head-to-head comparisons of popular AI models. Structured analysis for agents and humans making model selection decisions.
-- [Guides](/content/guides/_index.md): Practical guides to understanding and using AI — from complete beginner to advanced prompt engineer.
+- [Guides](/content/guides/_index.md): Practical guides, model-selection playbooks, agent recipes, and methodology notes for humans and AI agents.
 - [Use Cases](/content/use-cases/_index.md): Practical guides for using AI across writing, coding, business, education, research, and image generation.
 - [Prompt Patterns](/content/prompt-patterns/_index.md): Model-specific prompting patterns and techniques. What works best with each AI model family — structured for agents that generate prompts.
 - [Blog](/content/blog/_index.md): Analysis, comparisons, and news about AI models, agents, and the evolving AI landscape.
 - [Glossary](/content/glossary/_index.md): Plain-English definitions of 80+ AI and machine learning terms. From AGI to Zero-Shot Learning.
 - [Timeline](/content/timeline/_index.md): Chronological history of artificial intelligence from 1950 to 2026 — key research breakthroughs, product launches, milestones, and policy events.
-- [Pricing](/content/pricing/_index.md): Up-to-date pricing comparison for AI model APIs — input/output token costs, free tiers, and subscription plans.
+- [Pricing](/content/pricing/_index.md): Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready.
+
+## API Reference
+- [Data Changelog](/content/api-reference/data-changelog.md): How AI Future Ready tracks data updates, pricing changes, model changes, verification updates, hashes, and alert-ready change records.
 
 ## Models
 - [Claude Haiku 4.5](/content/models/claude-haiku-4.5.md): Anthropic's fastest and most cost-efficient model. Matches Claude Sonnet 4's performance on coding and agent tasks while being dramatically faster and cheaper.
@@ -50,6 +55,16 @@
 - [SmolLM3 3B](/content/models/smollm3-3b.md): Fully open instruct and reasoning model with unprecedented transparency — Hugging Face published the complete engineering blueprint. Outperforms Llama-3.2-3B and Qwen2.5-3B at the 3B scale.
 - [Yi-1.5 34B](/content/models/yi-1.5-34b.md): Strong bilingual (English/Chinese) model from 01.AI that competes with much larger models on benchmarks. Excellent reasoning and code generation at a deployable 34B size. Apache 2.0 license.
 
+## Providers
+- [Anthropic Provider Profile](/content/providers/anthropic.md): Decision profile for Anthropic's Claude ecosystem: coding, long-context work, writing quality, agent workflows, and tradeoffs.
+- [DeepSeek Provider Profile](/content/providers/deepseek.md): Decision profile for DeepSeek models: low-cost reasoning, open-source competition, and diligence requirements before production use.
+- [Google Provider Profile](/content/providers/google.md): Decision profile for Google's Gemini and Gemma ecosystem: long context, multimodal tasks, cost-balanced proprietary models, and open model options.
+- [Meta Provider Profile](/content/providers/meta.md): Decision profile for Meta's Llama ecosystem: open-weight deployment, local/private stacks, infrastructure needs, and licensing fit.
+- [Mistral AI Provider Profile](/content/providers/mistral.md): Decision profile for Mistral AI: open-source options, European deployment posture, small and frontier model choices, and hosting tradeoffs.
+- [OpenAI Provider Profile](/content/providers/openai.md): Decision profile for OpenAI's model and agent ecosystem: when to choose it, where it is strong, and what agents should verify before recommending it.
+- [Alibaba Qwen Provider Profile](/content/providers/qwen.md): Decision profile for Alibaba's Qwen model family: multilingual strength, open-weight deployment, coding and reasoning options, and compliance fit.
+- [xAI Provider Profile](/content/providers/xai.md): Decision profile for xAI's Grok models: proprietary alternatives, speed, large-context experiments, and ecosystem tradeoffs.
+
 ## Agent Platforms
 - [Anthropic Agent SDK](/content/agents/anthropic-agent-sdk.md): Tool-use-first approach to building agents with Claude. Features extended thinking for complex reasoning, computer use capabilities, and the Model Context Protocol (MCP) for standardized tool discovery and integration.
 - [AutoGen](/content/agents/autogen.md): Microsoft's multi-agent framework where agents collaborate, share information, and perform tasks autonomously. Designed for flexible, scalable multi-agent conversations with support for human participation.
@@ -76,7 +91,23 @@
 - [Open Source vs Proprietary AI Models](/content/comparisons/open-source-vs-proprietary.md): When to use open-source models versus proprietary APIs. Cost analysis, privacy, customization, performance gaps, hardware requirements, and best picks by use case.
 
 ## Guides
+- [Agent Tooling Compatibility](/content/guides/agent-tooling-compatibility.md): Compatibility matrix for AI agent tools and frameworks: coding agents, dev frameworks, orchestration tools, no-code automation, and when to choose each.
+- [Agent Usage Guide](/content/guides/agent-usage.md): Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, recommendations, changes, and hashes.
+- [Benchmark Methodology](/content/guides/benchmark-methodology.md): How AI Future Ready model scores should be interpreted by agents: normalized task scores, confidence limits, subjective judgment, and verification needs.
+- [Best-For Task Matrix](/content/guides/best-for-task-matrix.md): A task-to-model matrix for agents choosing between best overall, cheaper, local, and cautionary options across common AI workloads.
+- [Build a Coding Agent Stack](/content/guides/build-a-coding-agent-stack.md): A practical recipe for building a coding-agent workflow with model selection, repo access, tests, permissions, review, and rollback.
+- [Build an Agent-Readable Docs Site](/content/guides/build-an-agent-readable-docs-site.md): A practical recipe for making documentation readable by AI agents with markdown source, discovery files, schema, search index, feeds, and hashes.
+- [Build an AI Research Assistant](/content/guides/build-an-ai-research-assistant.md): A practical recipe for building an AI research assistant that gathers sources, preserves uncertainty, summarizes evidence, and avoids unsupported claims.
+- [Choose a Cheap Model](/content/guides/choose-a-cheap-model.md): A decision playbook for minimizing AI model cost without creating unacceptable quality, latency, privacy, or maintenance risk.
+- [Choose the Best AI Coding Model](/content/guides/choose-a-coding-model.md): Choose the best AI coding model for software engineering, debugging, code review, refactoring, tests, local coding, and autonomous coding agents.
+- [Choose a Local Model](/content/guides/choose-a-local-model.md): A decision playbook for choosing local or open-weight AI models for private documents, self-hosting, offline workflows, and cost control.
+- [Choose a Private Model](/content/guides/choose-a-private-model.md): A decision playbook for choosing models and deployment patterns when privacy, compliance, sensitive documents, or internal data controls matter.
+- [Choose a Research Model](/content/guides/choose-a-research-model.md): A decision playbook for choosing a model for research, synthesis, long-document analysis, evidence review, and structured summaries.
+- [Choose a Model for Customer Support](/content/guides/choose-model-for-customer-support.md): A practical recipe for choosing models and guardrails for customer support automation, routing, drafting, retrieval, and escalation.
+- [Data Methodology](/content/guides/data-methodology.md): How AI Future Ready handles sources, verification, scoring, pricing freshness, sponsorships, and agent-safe interpretation.
+- [AI Failure Modes](/content/guides/failure-modes.md): Negative guidance for agents: when not to use frontier models, agent frameworks, local models, cheap models, or autonomous workflows.
 - [What Is AI? A Complete Beginner's Guide to Artificial Intelligence](/content/guides/getting-started.md): Learn what artificial intelligence really is, how AI models work, the difference between AI and machine learning, and how to start using AI tools like ChatGPT, Claude, and Gemini today.
+- [Use Local Models for Private Documents](/content/guides/local-models-for-private-documents.md): A practical recipe for using local or private AI models with sensitive documents, including retrieval, redaction, access control, and evaluation.
 - [Prompt Engineering Guide — How to Write Better AI Prompts](/content/guides/prompting.md): Master prompt engineering from beginner to advanced. Learn zero-shot, few-shot, chain-of-thought, and other techniques to get better results from ChatGPT, Claude, and Gemini.
 
 ## Use Cases
@@ -101,11 +132,26 @@
 - [OpenAI Shuts Down Sora: What Happened and What's Next for AI Video](/content/blog/openai-shuts-down-sora-what-happened.md): OpenAI officially discontinued Sora in March 2026 after persistent quality issues and fierce competition. We look at what went wrong and where AI video generation is headed.
 - [The Rise of Open Source AI: How DeepSeek, Qwen, and MiniMax Are Changing the Game](/content/blog/rise-of-open-source-ai-deepseek-qwen-minimax.md): Open-source AI models are closing the gap with proprietary giants. We analyze how DeepSeek, Qwen, and MiniMax are reshaping the AI landscape and what it means for developers.
 
+## Pricing
+- [Agent Readiness Audit](/content/pricing/agent-readiness-audit.md): Draft service package for making a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor.
+- [Change Alerts](/content/pricing/change-alerts.md): Draft product concept for AI model and provider change alerts, including price changes, source verification, new models, license changes, and recommendation movement.
+- [Commercial Data License](/content/pricing/commercial-license.md): Draft terms outline for commercial use of AI Future Ready structured data in products, internal tools, RAG systems, model routers, and procurement workflows.
+- [Pro Data Sample](/content/pricing/pro-data-sample.md): A public sample showing the shape of the planned Pro Data package: model record, provider record, pricing snapshot, recommendation, change record, and source record.
+- [Pro Data](/content/pricing/pro-data.md): Draft product definition for the paid AI Future Ready Pro Data package: structured exports, pricing snapshots, source metadata, recommendations, changes, and commercial-ready fields.
+- [Public Roadmap](/content/pricing/roadmap.md): Roadmap for AI Future Ready as an agent-readable AI reference dataset, including trust, Pro Data, pricing snapshots, change tracking, and commercial readiness.
+- [Sponsor Policy](/content/pricing/sponsor-policy.md): Disclosure and ranking rules for sponsorships, paid placements, affiliate links, referral links, and commercial relationships on AI Future Ready.
+
+## About
+- [About AI Future Ready](/content/about.md): What AI Future Ready is, why it exists, how it serves humans and AI agents, and how to interpret its model, provider, pricing, and recommendation data.
+
 ## Changelog
 - [AI Changelog](/content/changelog.md): Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs.
 
 ## Compatibility Matrix
 - [AI Model Compatibility Matrix](/content/compatibility.md): Which AI models work with which agent frameworks, coding tools, and platforms. Structured for agent consumption.
+
+## Contact
+- [Contact](/content/contact.md): Contact AI Future Ready to request Pro Data access, ask about a commercial data license, sponsorship, or prepare an Agent Readiness Audit request. No checkout or payment flow is configured.
 
 ## MCP Access
 - [MCP Access](/content/mcp.md): How to connect AI Future Ready through the Model Context Protocol (MCP), including startup commands, available tools, and example workflows.

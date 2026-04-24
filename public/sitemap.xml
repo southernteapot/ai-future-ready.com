@@ -1,180 +1,393 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://ai-future-ready.com</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://ai-future-ready.com/.well-known/ai.json</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/llms.txt</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/llms-full.txt</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/search-index.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/index.json</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/schema.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/changes.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/pricing-snapshots.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/model-verification.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/samples/pro-data.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/coding.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/writing.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/math.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/reasoning.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/multilingual.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/speed.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/research.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/cheap.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/local.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/agentic.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/images.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/recommend/education.json</loc><changefreq>weekly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/feed.json</loc><changefreq>daily</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/feed.xml</loc><changefreq>daily</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/standard</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/standard/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/standard.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/checklist</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/checklist/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/checklist.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api-reference</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-future-ready.com/content/api-reference/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/api-reference.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api-reference/data-changelog</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/api-reference/data-changelog.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/api-reference/data-changelog.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/models/claude-haiku-4.5</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/claude-haiku-4.5.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/claude-haiku-4.5.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/claude-opus-4.6</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/claude-opus-4.6.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/claude-opus-4.6.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/claude-sonnet-4.6</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/claude-sonnet-4.6.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/claude-sonnet-4.6.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/cohere-tiny-aya</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/cohere-tiny-aya.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/cohere-tiny-aya.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/command-r-plus</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/command-r-plus.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/command-r-plus.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/deepseek-r1</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/deepseek-r1.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/deepseek-r1.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/deepseek-v3.2</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/deepseek-v3.2.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/deepseek-v3.2.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/falcon-3</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/falcon-3.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/falcon-3.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/gemini-3-flash</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/gemini-3-flash.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/gemini-3-flash.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/gemini-3.1-pro</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/gemini-3.1-pro.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/gemini-3.1-pro.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/gemma-3</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/gemma-3.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/gemma-3.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/gemma-4</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/gemma-4.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/gemma-4.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/glm-5</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/glm-5.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/glm-5.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/gpt-5.4-thinking</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/gpt-5.4-thinking.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/gpt-5.4-thinking.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/gpt-5.4</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/gpt-5.4.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/gpt-5.4.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/gpt-oss-120b</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/gpt-oss-120b.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/gpt-oss-120b.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/grok-4.1</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/grok-4.1.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/grok-4.1.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/grok-4.20</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/grok-4.20.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/grok-4.20.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/hermes-4-405b</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/hermes-4-405b.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/hermes-4-405b.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/kimi-k2.5</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/kimi-k2.5.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/kimi-k2.5.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/llama-4-maverick</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/llama-4-maverick.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/llama-4-maverick.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/llama-4-scout</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/llama-4-scout.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/llama-4-scout.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/minimax-m2.7</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/minimax-m2.7.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/minimax-m2.7.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/mistral-3</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/mistral-3.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/mistral-3.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/mistral-small-3</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/mistral-small-3.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/mistral-small-3.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/mistral-small-4</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/mistral-small-4.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/mistral-small-4.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/nemotron-3-super</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/nemotron-3-super.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/nemotron-3-super.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/nemotron-cascade-2</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/nemotron-cascade-2.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/nemotron-cascade-2.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/phi-4</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/phi-4.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/phi-4.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/qwen-3.5</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/qwen-3.5.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/qwen-3.5.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/qwen-3</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/qwen-3.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/qwen-3.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/smollm3-3b</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/smollm3-3b.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/smollm3-3b.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/yi-1.5-34b</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/yi-1.5-34b.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/yi-1.5-34b.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/providers</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-future-ready.com/content/providers/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/providers.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/providers/anthropic</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/providers/anthropic.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/providers/anthropic.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/providers/deepseek</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/providers/deepseek.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/providers/deepseek.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/providers/google</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/providers/google.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/providers/google.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/providers/meta</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/providers/meta.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/providers/meta.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/providers/mistral</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/providers/mistral.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/providers/mistral.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/providers/openai</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/providers/openai.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/providers/openai.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/providers/qwen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/providers/qwen.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/providers/qwen.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/providers/xai</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/providers/xai.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/providers/xai.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/agents/anthropic-agent-sdk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/anthropic-agent-sdk.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/anthropic-agent-sdk.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/autogen</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/autogen.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/autogen.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/claude-code</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/claude-code.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/claude-code.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/crewai</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/crewai.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/crewai.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/devin</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/devin.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/devin.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/github-copilot-agent</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/github-copilot-agent.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/github-copilot-agent.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/google-adk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/google-adk.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/google-adk.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/hermes-agent</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/hermes-agent.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/hermes-agent.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/langgraph</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/langgraph.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/langgraph.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/lindy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/lindy.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/lindy.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/mastra</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/mastra.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/mastra.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/n8n</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/n8n.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/n8n.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/openai-agents-sdk</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/openai-agents-sdk.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/openai-agents-sdk.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/openclaw</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/openclaw.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/openclaw.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/agents/paperclip</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/agents/paperclip.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/agents/paperclip.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/comparisons</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/comparisons/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/comparisons.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/comparisons/best-coding-models</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/comparisons/best-coding-models.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/comparisons/best-coding-models.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/comparisons/cheapest-models</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/comparisons/cheapest-models.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/comparisons/cheapest-models.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/comparisons/claude-vs-gemini</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/comparisons/claude-vs-gemini.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/comparisons/claude-vs-gemini.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/comparisons/claude-vs-gpt</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/comparisons/claude-vs-gpt.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/comparisons/claude-vs-gpt.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/comparisons/gpt-vs-gemini</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/comparisons/gpt-vs-gemini.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/comparisons/gpt-vs-gemini.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/comparisons/open-source-vs-proprietary</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/comparisons/open-source-vs-proprietary.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/comparisons/open-source-vs-proprietary.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/guides</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/guides/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/agent-tooling-compatibility</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/agent-tooling-compatibility.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/agent-tooling-compatibility.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/agent-usage</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/agent-usage.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/agent-usage.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/benchmark-methodology</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/benchmark-methodology.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/benchmark-methodology.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/best-for-task-matrix</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/best-for-task-matrix.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/best-for-task-matrix.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/build-a-coding-agent-stack</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/build-a-coding-agent-stack.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/build-a-coding-agent-stack.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/build-an-agent-readable-docs-site</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/build-an-agent-readable-docs-site.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/build-an-agent-readable-docs-site.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/build-an-ai-research-assistant</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/build-an-ai-research-assistant.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/build-an-ai-research-assistant.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/choose-a-cheap-model</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/choose-a-cheap-model.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/choose-a-cheap-model.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/choose-a-coding-model</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/choose-a-coding-model.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/choose-a-coding-model.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/choose-a-local-model</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/choose-a-local-model.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/choose-a-local-model.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/choose-a-private-model</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/choose-a-private-model.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/choose-a-private-model.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/choose-a-research-model</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/choose-a-research-model.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/choose-a-research-model.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/choose-model-for-customer-support</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/choose-model-for-customer-support.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/choose-model-for-customer-support.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/data-methodology</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/data-methodology.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/data-methodology.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/failure-modes</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/failure-modes.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/failure-modes.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/guides/getting-started</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/guides/getting-started.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/getting-started.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/guides/local-models-for-private-documents</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/guides/local-models-for-private-documents.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/local-models-for-private-documents.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/guides/prompting</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/guides/prompting.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/guides/prompting.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/use-cases</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/use-cases/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/use-cases.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/use-cases/business</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/use-cases/business.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/use-cases/business.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/use-cases/coding</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/use-cases/coding.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/use-cases/coding.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/use-cases/education</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/use-cases/education.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/use-cases/education.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/use-cases/images</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/use-cases/images.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/use-cases/images.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/use-cases/research</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/use-cases/research.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/use-cases/research.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/use-cases/writing</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/use-cases/writing.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/use-cases/writing.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/prompt-patterns</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/prompt-patterns/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/prompt-patterns.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/prompt-patterns/anthropic</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/prompt-patterns/anthropic.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/prompt-patterns/anthropic.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/prompt-patterns/google</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/prompt-patterns/google.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/prompt-patterns/google.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/prompt-patterns/open-source</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/prompt-patterns/open-source.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/prompt-patterns/open-source.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/prompt-patterns/openai</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/prompt-patterns/openai.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/prompt-patterns/openai.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/prompt-patterns/xai</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/prompt-patterns/xai.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/prompt-patterns/xai.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/blog</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/blog/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/blog.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/blog/ai-agent-revolution-2026</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/blog/ai-agent-revolution-2026.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/blog/ai-agent-revolution-2026.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/blog/april-2026-the-month-ai-labs-got-scared</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/blog/april-2026-the-month-ai-labs-got-scared.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/blog/april-2026-the-month-ai-labs-got-scared.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/blog/gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/blog/gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/blog/gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/blog/openai-shuts-down-sora-what-happened</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/blog/openai-shuts-down-sora-what-happened.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/blog/openai-shuts-down-sora-what-happened.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/blog/rise-of-open-source-ai-deepseek-qwen-minimax</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/blog/rise-of-open-source-ai-deepseek-qwen-minimax.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/blog/rise-of-open-source-ai-deepseek-qwen-minimax.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/glossary</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/glossary/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/glossary.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/timeline</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/timeline/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/timeline.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/pricing</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/pricing/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/pricing.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/pricing/agent-readiness-audit</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/pricing/agent-readiness-audit.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/pricing/agent-readiness-audit.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/pricing/change-alerts</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/pricing/change-alerts.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/pricing/change-alerts.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/pricing/commercial-license</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/pricing/commercial-license.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/pricing/commercial-license.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/pricing/pro-data-sample</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/pricing/pro-data-sample.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/pricing/pro-data-sample.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/pricing/pro-data</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/pricing/pro-data.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/pricing/pro-data.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/pricing/roadmap</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/pricing/roadmap.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/pricing/roadmap.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/pricing/sponsor-policy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/pricing/sponsor-policy.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/pricing/sponsor-policy.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/about</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/about.md</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/changelog</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/changelog.md</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/compatibility</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/compatibility.md</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/contact</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/contact.md</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/mcp</loc><changefreq>weekly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/mcp.md</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
 </urlset>

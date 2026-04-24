@@ -225,11 +225,13 @@ export default function SelfAudit() {
   };
 
   const allAnswered = answers.every((a) => a !== null);
+  const answeredCount = answers.filter((a) => a !== null).length;
   const score = getScore(answers);
-  const { level, name, color, border } = getLevel(score);
+  const { level, name } = getLevel(score);
   const strengths = CRITERIA.filter((_, i) => answers[i] === "yes");
   const partials = CRITERIA.filter((_, i) => answers[i] === "partial");
   const missing = CRITERIA.filter((_, i) => answers[i] === "no");
+  const gaps = [...missing, ...partials].sort((a, b) => a.priority - b.priority);
   const topFixes = getTopFixes(answers);
   const guidance = getLevelGuidance(level);
 
@@ -238,320 +240,148 @@ export default function SelfAudit() {
     setSubmitted(false);
   };
 
-  // ─── Results ────────────────────────────────────────────
-
   if (submitted) {
     return (
-      <div className="space-y-10">
-        {/* Score header */}
-        <div className={`${border} border rounded-lg p-6 space-y-4`}>
-          <div className="flex items-baseline gap-4">
-            <span className={`text-5xl font-bold ${color}`}>{score}</span>
-            <span className="text-neutral-600 text-lg">/ 20</span>
-          </div>
-          <div className="space-y-2">
-            <span className={`text-xl font-bold ${color}`}>
-              Level {level}: {name}
-            </span>
-            <p className="text-sm text-neutral-400 leading-relaxed">
-              {guidance.summary}
-            </p>
-          </div>
-        </div>
+      <div className="self-audit">
+        <p>## Result</p>
+        <p>score: {score} / 20</p>
+        <p>
+          level: {level} - {name}
+        </p>
+        <p>{guidance.summary}</p>
 
-        {/* Criterion-by-criterion breakdown */}
-        <div className="space-y-4">
-          <h2 className="text-base font-bold text-white">Your scorecard</h2>
-          <div className="space-y-1.5">
-            {CRITERIA.map((criterion) => {
-              const idx = CRITERIA.indexOf(criterion);
-              const answer = answers[idx];
-              return (
-                <div
-                  key={criterion.id}
-                  className="flex items-center gap-3 px-4 py-2.5 border border-neutral-800 rounded-lg"
-                >
-                  <span
-                    className={`w-2 h-2 rounded-full shrink-0 ${
-                      answer === "yes"
-                        ? "bg-green-500"
-                        : answer === "partial"
-                        ? "bg-yellow-500"
-                        : "bg-red-500"
-                    }`}
-                  />
-                  <span className="text-sm text-white flex-1">
-                    {criterion.name}
-                  </span>
-                  <span
-                    className={`text-xs font-mono ${
-                      answer === "yes"
-                        ? "text-green-500"
-                        : answer === "partial"
-                        ? "text-yellow-500"
-                        : "text-red-500"
-                    }`}
-                  >
-                    {answer === "yes" ? "2" : answer === "partial" ? "1" : "0"}{" "}
-                    / 2
-                  </span>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+        <p>## Scorecard</p>
+        <ol>
+          {CRITERIA.map((criterion, index) => {
+            const answer = answers[index];
+            const points =
+              answer === "yes" ? 2 : answer === "partial" ? 1 : 0;
+            return (
+              <li key={criterion.id}>
+                {criterion.name}: {answer} ({points} / 2)
+              </li>
+            );
+          })}
+        </ol>
 
-        {/* Strengths */}
         {strengths.length > 0 && (
-          <div className="space-y-3">
-            <h2 className="text-base font-bold text-white">
-              What you&rsquo;re doing well
-            </h2>
-            <div className="grid gap-2 sm:grid-cols-2">
-              {strengths.map((c) => (
-                <div
-                  key={c.id}
-                  className="px-4 py-3 border border-neutral-800 rounded-lg"
-                >
-                  <span className="text-sm text-green-400 font-semibold">
-                    {c.name}
-                  </span>
-                  <p className="text-xs text-neutral-500 mt-1">{c.yes}</p>
-                </div>
+          <>
+            <p>## Strengths</p>
+            <ul>
+              {strengths.map((criterion) => (
+                <li key={criterion.id}>
+                  {criterion.name}: {criterion.yes}
+                </li>
               ))}
-            </div>
-          </div>
+            </ul>
+          </>
         )}
 
-        {/* Top 3 recommended fixes */}
         {topFixes.length > 0 && (
-          <div className="space-y-4">
-            <div className="space-y-1">
-              <h2 className="text-base font-bold text-white">
-                {topFixes.length === 1
-                  ? "Your highest-priority fix"
-                  : `Your top ${topFixes.length} fixes`}
-              </h2>
-              <p className="text-xs text-neutral-500">
-                Prioritized by impact. Start with #1.
-              </p>
-            </div>
-            <div className="space-y-3">
-              {topFixes.map((criterion, i) => {
-                const idx = CRITERIA.indexOf(criterion);
-                const answer = answers[idx];
+          <>
+            <p>## Top fixes</p>
+            <ol>
+              {topFixes.map((criterion) => (
+                <li key={criterion.id}>
+                  <Link href={`/checklist#${criterion.checklistAnchor}`}>
+                    {criterion.name}
+                  </Link>
+                  : {criterion.fix}
+                </li>
+              ))}
+            </ol>
+          </>
+        )}
+
+        {gaps.length > 0 && (
+          <>
+            <p>## All gaps</p>
+            <ul>
+              {gaps.map((criterion) => {
+                const answer = answers[CRITERIA.indexOf(criterion)];
                 return (
-                  <div
-                    key={criterion.id}
-                    className="border border-neutral-800 rounded-lg p-4 space-y-2"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-xs font-mono text-neutral-600 w-4">
-                        {i + 1}
-                      </span>
-                      <span className="text-sm text-white font-semibold">
-                        {criterion.name}
-                      </span>
-                      <span
-                        className={`text-xs font-mono ${
-                          answer === "partial"
-                            ? "text-yellow-500"
-                            : "text-red-500"
-                        }`}
-                      >
-                        {answer}
-                      </span>
-                    </div>
-                    <p className="text-sm text-neutral-400 leading-relaxed pl-7">
-                      {criterion.fix}
-                    </p>
-                    <a
-                      href={`/checklist#${criterion.checklistAnchor}`}
-                      className="text-xs text-neutral-500 hover:text-neutral-300 pl-7 inline-block"
-                    >
-                      Full criteria &rarr;
-                    </a>
-                  </div>
+                  <li key={criterion.id}>
+                    <Link href={`/checklist#${criterion.checklistAnchor}`}>
+                      {criterion.name}
+                    </Link>
+                    : {answer}
+                  </li>
                 );
               })}
-            </div>
-          </div>
+            </ul>
+          </>
         )}
 
-        {/* All gaps */}
-        {(partials.length > 0 || missing.length > 0) && (
-          <div className="space-y-3">
-            <h2 className="text-base font-bold text-white">
-              All gaps
-            </h2>
-            <div className="space-y-1.5">
-              {[...missing, ...partials]
-                .sort((a, b) => a.priority - b.priority)
-                .map((criterion) => {
-                  const idx = CRITERIA.indexOf(criterion);
-                  const answer = answers[idx];
-                  return (
-                    <a
-                      key={criterion.id}
-                      href={`/checklist#${criterion.checklistAnchor}`}
-                      className="flex items-center gap-3 px-4 py-2.5 border border-neutral-800 rounded-lg hover:border-neutral-600 transition-colors"
-                    >
-                      <span
-                        className={`text-xs font-mono w-14 shrink-0 ${
-                          answer === "partial"
-                            ? "text-yellow-500"
-                            : "text-red-500"
-                        }`}
-                      >
-                        {answer}
-                      </span>
-                      <span className="text-sm text-white flex-1">
-                        {criterion.name}
-                      </span>
-                      <span className="text-xs text-neutral-600">
-                        &rarr;
-                      </span>
-                    </a>
-                  );
-                })}
-            </div>
-          </div>
+        <p>## Next</p>
+        {level < 4 && (
+          <p>
+            target: {guidance.nextTarget}. {guidance.focus}
+          </p>
         )}
+        {level >= 4 && <p>{guidance.focus}</p>}
 
-        {/* What to do next */}
-        <div className="border border-neutral-800 rounded-lg p-5 space-y-3">
-          <h2 className="text-base font-bold text-white">What to do next</h2>
-          <div className="space-y-2 text-sm text-neutral-400">
-            {level < 4 && (
-              <p>
-                <span className="text-white font-semibold">
-                  Target: {guidance.nextTarget}.
-                </span>{" "}
-                {guidance.focus}
-              </p>
-            )}
-            {level >= 4 && <p>{guidance.focus}</p>}
-          </div>
-        </div>
-
-        {/* Actions */}
-        <div className="flex flex-wrap gap-3">
+        <p className="audit-actions">
           <button
             type="button"
             onClick={reset}
-            className="px-4 py-2 text-sm border border-neutral-700 rounded-lg hover:border-neutral-500 transition-colors text-neutral-400 hover:text-white"
           >
-            Start over
-          </button>
-          <Link
-            href="/checklist"
-            className="px-4 py-2 text-sm border border-neutral-600 rounded-lg hover:border-neutral-400 transition-colors text-white"
-          >
-            Full checklist &rarr;
-          </Link>
-          <Link
-            href="/standard"
-            className="px-4 py-2 text-sm border border-neutral-700 rounded-lg hover:border-neutral-500 transition-colors text-neutral-400 hover:text-white"
-          >
-            Read the standard
-          </Link>
-        </div>
+            [start over]
+          </button>{" "}
+          <Link href="/checklist">[full checklist]</Link>{" "}
+          <Link href="/standard">[read the standard]</Link>
+        </p>
       </div>
     );
   }
 
-  // ─── Questionnaire ──────────────────────────────────────
-
   return (
-    <div className="space-y-6">
-      <div className="space-y-2">
-        {CRITERIA.map((criterion, index) => (
-          <div
-            key={criterion.id}
-            className="border border-neutral-800 rounded-lg p-4 space-y-3"
-          >
-            <div className="flex items-start gap-3">
-              <span className="text-xs text-neutral-600 font-mono mt-0.5 w-5 shrink-0 text-right">
-                {criterion.id}
-              </span>
-              <div className="space-y-3 flex-1">
-                <div>
-                  <p className="text-sm text-white leading-relaxed">
-                    {criterion.question}
-                  </p>
-                  <p className="text-xs text-neutral-600 mt-0.5">
-                    {criterion.name}
-                  </p>
-                </div>
-                <div className="flex gap-2">
-                  {(["yes", "partial", "no"] as const).map((value) => (
-                    <button
-                      key={value}
-                      type="button"
-                      onClick={() => setAnswer(index, value)}
-                      className={`px-3 py-1.5 text-xs rounded border transition-colors ${
-                        answers[index] === value
-                          ? value === "yes"
-                            ? "border-green-600 text-green-400 bg-green-950/30"
-                            : value === "partial"
-                            ? "border-yellow-600 text-yellow-400 bg-yellow-950/30"
-                            : "border-red-600 text-red-400 bg-red-950/30"
-                          : "border-neutral-700 text-neutral-500 hover:border-neutral-500 hover:text-neutral-300"
-                      }`}
-                    >
-                      {value}
-                    </button>
-                  ))}
-                </div>
-                {answers[index] && (
-                  <p className="text-xs text-neutral-500 leading-relaxed">
-                    {answers[index] === "yes"
-                      ? criterion.yes
-                      : answers[index] === "partial"
-                      ? criterion.partial
-                      : criterion.no}
-                  </p>
-                )}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+    <div className="self-audit">
+      <p>## Questions</p>
+      <ol>
+        {CRITERIA.map((criterion, index) => {
+          const selected = answers[index];
+          return (
+            <li key={criterion.id}>
+              <p>{criterion.question}</p>
+              <p>criterion: {criterion.name}</p>
+              <p>
+                {(["yes", "partial", "no"] as const).map((value) => (
+                  <button
+                    key={value}
+                    type="button"
+                    onClick={() => setAnswer(index, value)}
+                    aria-pressed={selected === value}
+                    className="answer-button"
+                  >
+                    {selected === value ? `[x] ${value}` : `[ ] ${value}`}
+                  </button>
+                ))}
+              </p>
+              {selected && (
+                <p>
+                  answer:{" "}
+                  {selected === "yes"
+                    ? criterion.yes
+                    : selected === "partial"
+                    ? criterion.partial
+                    : criterion.no}
+                </p>
+              )}
+            </li>
+          );
+        })}
+      </ol>
 
-      {/* Progress + Submit */}
-      <div className="flex items-center gap-4">
-        <div className="flex gap-1">
-          {answers.map((a, i) => (
-            <div
-              key={i}
-              className={`w-2 h-2 rounded-full ${
-                a === "yes"
-                  ? "bg-green-500"
-                  : a === "partial"
-                  ? "bg-yellow-500"
-                  : a === "no"
-                  ? "bg-red-500"
-                  : "bg-neutral-800"
-              }`}
-            />
-          ))}
-        </div>
-        <span className="text-xs text-neutral-600">
-          {answers.filter((a) => a !== null).length} / {CRITERIA.length}
-        </span>
+      <p className="audit-progress">
+        {answeredCount} / {CRITERIA.length} answered{" "}
         <button
           type="button"
           onClick={() => setSubmitted(true)}
           disabled={!allAnswered}
-          className={`px-4 py-2 text-sm rounded-lg border transition-colors ${
-            allAnswered
-              ? "border-neutral-500 text-white hover:border-neutral-300"
-              : "border-neutral-800 text-neutral-600 cursor-not-allowed"
-          }`}
         >
-          See your results
+          [see your results]
         </button>
-      </div>
+      </p>
     </div>
   );
 }

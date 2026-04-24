@@ -4,7 +4,287 @@
   <title>AI Future Ready Updates</title>
   <link>https://ai-future-ready.com</link>
   <description>Machine-readable change feed for AI Future Ready.</description>
-  <lastBuildDate>Tue, 21 Apr 2026 00:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 24 Apr 2026 00:00:00 GMT</lastBuildDate>
+  <item>
+    <title>The Agent-Ready Web Standard</title>
+    <link>https://ai-future-ready.com/standard</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/standard</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds.</description>
+  </item>
+  <item>
+    <title>Agent API Reference</title>
+    <link>https://ai-future-ready.com/api-reference</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/api-reference</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.</description>
+  </item>
+  <item>
+    <title>Data Changelog</title>
+    <link>https://ai-future-ready.com/api-reference/data-changelog</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/api-reference/data-changelog</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>How AI Future Ready tracks data updates, pricing changes, model changes, verification updates, hashes, and alert-ready change records.</description>
+  </item>
+  <item>
+    <title>AI Model Comparison</title>
+    <link>https://ai-future-ready.com/models</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/models</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Compare 33+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.</description>
+  </item>
+  <item>
+    <title>AI Providers</title>
+    <link>https://ai-future-ready.com/providers</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/providers</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Provider profiles for major AI labs and model ecosystems, focused on agent-useful strengths, tradeoffs, models, pricing posture, and selection guidance.</description>
+  </item>
+  <item>
+    <title>Anthropic Provider Profile</title>
+    <link>https://ai-future-ready.com/providers/anthropic</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/providers/anthropic</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Decision profile for Anthropic&apos;s Claude ecosystem: coding, long-context work, writing quality, agent workflows, and tradeoffs.</description>
+  </item>
+  <item>
+    <title>DeepSeek Provider Profile</title>
+    <link>https://ai-future-ready.com/providers/deepseek</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/providers/deepseek</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Decision profile for DeepSeek models: low-cost reasoning, open-source competition, and diligence requirements before production use.</description>
+  </item>
+  <item>
+    <title>Google Provider Profile</title>
+    <link>https://ai-future-ready.com/providers/google</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/providers/google</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Decision profile for Google&apos;s Gemini and Gemma ecosystem: long context, multimodal tasks, cost-balanced proprietary models, and open model options.</description>
+  </item>
+  <item>
+    <title>Meta Provider Profile</title>
+    <link>https://ai-future-ready.com/providers/meta</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/providers/meta</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Decision profile for Meta&apos;s Llama ecosystem: open-weight deployment, local/private stacks, infrastructure needs, and licensing fit.</description>
+  </item>
+  <item>
+    <title>Mistral AI Provider Profile</title>
+    <link>https://ai-future-ready.com/providers/mistral</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/providers/mistral</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Decision profile for Mistral AI: open-source options, European deployment posture, small and frontier model choices, and hosting tradeoffs.</description>
+  </item>
+  <item>
+    <title>OpenAI Provider Profile</title>
+    <link>https://ai-future-ready.com/providers/openai</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/providers/openai</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Decision profile for OpenAI&apos;s model and agent ecosystem: when to choose it, where it is strong, and what agents should verify before recommending it.</description>
+  </item>
+  <item>
+    <title>Alibaba Qwen Provider Profile</title>
+    <link>https://ai-future-ready.com/providers/qwen</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/providers/qwen</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Decision profile for Alibaba&apos;s Qwen model family: multilingual strength, open-weight deployment, coding and reasoning options, and compliance fit.</description>
+  </item>
+  <item>
+    <title>xAI Provider Profile</title>
+    <link>https://ai-future-ready.com/providers/xai</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/providers/xai</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Decision profile for xAI&apos;s Grok models: proprietary alternatives, speed, large-context experiments, and ecosystem tradeoffs.</description>
+  </item>
+  <item>
+    <title>Guides</title>
+    <link>https://ai-future-ready.com/guides</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Practical guides, model-selection playbooks, agent recipes, and methodology notes for humans and AI agents.</description>
+  </item>
+  <item>
+    <title>Agent Tooling Compatibility</title>
+    <link>https://ai-future-ready.com/guides/agent-tooling-compatibility</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/agent-tooling-compatibility</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Compatibility matrix for AI agent tools and frameworks: coding agents, dev frameworks, orchestration tools, no-code automation, and when to choose each.</description>
+  </item>
+  <item>
+    <title>Agent Usage Guide</title>
+    <link>https://ai-future-ready.com/guides/agent-usage</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/agent-usage</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, recommendations, changes, and hashes.</description>
+  </item>
+  <item>
+    <title>Benchmark Methodology</title>
+    <link>https://ai-future-ready.com/guides/benchmark-methodology</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/benchmark-methodology</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>How AI Future Ready model scores should be interpreted by agents: normalized task scores, confidence limits, subjective judgment, and verification needs.</description>
+  </item>
+  <item>
+    <title>Best-For Task Matrix</title>
+    <link>https://ai-future-ready.com/guides/best-for-task-matrix</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/best-for-task-matrix</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>A task-to-model matrix for agents choosing between best overall, cheaper, local, and cautionary options across common AI workloads.</description>
+  </item>
+  <item>
+    <title>Build a Coding Agent Stack</title>
+    <link>https://ai-future-ready.com/guides/build-a-coding-agent-stack</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/build-a-coding-agent-stack</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>A practical recipe for building a coding-agent workflow with model selection, repo access, tests, permissions, review, and rollback.</description>
+  </item>
+  <item>
+    <title>Build an Agent-Readable Docs Site</title>
+    <link>https://ai-future-ready.com/guides/build-an-agent-readable-docs-site</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/build-an-agent-readable-docs-site</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>A practical recipe for making documentation readable by AI agents with markdown source, discovery files, schema, search index, feeds, and hashes.</description>
+  </item>
+  <item>
+    <title>Build an AI Research Assistant</title>
+    <link>https://ai-future-ready.com/guides/build-an-ai-research-assistant</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/build-an-ai-research-assistant</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>A practical recipe for building an AI research assistant that gathers sources, preserves uncertainty, summarizes evidence, and avoids unsupported claims.</description>
+  </item>
+  <item>
+    <title>Choose a Cheap Model</title>
+    <link>https://ai-future-ready.com/guides/choose-a-cheap-model</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/choose-a-cheap-model</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>A decision playbook for minimizing AI model cost without creating unacceptable quality, latency, privacy, or maintenance risk.</description>
+  </item>
+  <item>
+    <title>Choose the Best AI Coding Model</title>
+    <link>https://ai-future-ready.com/guides/choose-a-coding-model</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/choose-a-coding-model</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Choose the best AI coding model for software engineering, debugging, code review, refactoring, tests, local coding, and autonomous coding agents.</description>
+  </item>
+  <item>
+    <title>Choose a Local Model</title>
+    <link>https://ai-future-ready.com/guides/choose-a-local-model</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/choose-a-local-model</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>A decision playbook for choosing local or open-weight AI models for private documents, self-hosting, offline workflows, and cost control.</description>
+  </item>
+  <item>
+    <title>Choose a Private Model</title>
+    <link>https://ai-future-ready.com/guides/choose-a-private-model</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/choose-a-private-model</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>A decision playbook for choosing models and deployment patterns when privacy, compliance, sensitive documents, or internal data controls matter.</description>
+  </item>
+  <item>
+    <title>Choose a Research Model</title>
+    <link>https://ai-future-ready.com/guides/choose-a-research-model</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/choose-a-research-model</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>A decision playbook for choosing a model for research, synthesis, long-document analysis, evidence review, and structured summaries.</description>
+  </item>
+  <item>
+    <title>Choose a Model for Customer Support</title>
+    <link>https://ai-future-ready.com/guides/choose-model-for-customer-support</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/choose-model-for-customer-support</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>A practical recipe for choosing models and guardrails for customer support automation, routing, drafting, retrieval, and escalation.</description>
+  </item>
+  <item>
+    <title>Data Methodology</title>
+    <link>https://ai-future-ready.com/guides/data-methodology</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/data-methodology</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>How AI Future Ready handles sources, verification, scoring, pricing freshness, sponsorships, and agent-safe interpretation.</description>
+  </item>
+  <item>
+    <title>AI Failure Modes</title>
+    <link>https://ai-future-ready.com/guides/failure-modes</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/failure-modes</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Negative guidance for agents: when not to use frontier models, agent frameworks, local models, cheap models, or autonomous workflows.</description>
+  </item>
+  <item>
+    <title>Use Local Models for Private Documents</title>
+    <link>https://ai-future-ready.com/guides/local-models-for-private-documents</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/local-models-for-private-documents</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>A practical recipe for using local or private AI models with sensitive documents, including retrieval, redaction, access control, and evaluation.</description>
+  </item>
+  <item>
+    <title>Pricing and Pro Data</title>
+    <link>https://ai-future-ready.com/pricing</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/pricing</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready.</description>
+  </item>
+  <item>
+    <title>Agent Readiness Audit</title>
+    <link>https://ai-future-ready.com/pricing/agent-readiness-audit</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/pricing/agent-readiness-audit</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Draft service package for making a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor.</description>
+  </item>
+  <item>
+    <title>Change Alerts</title>
+    <link>https://ai-future-ready.com/pricing/change-alerts</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/pricing/change-alerts</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Draft product concept for AI model and provider change alerts, including price changes, source verification, new models, license changes, and recommendation movement.</description>
+  </item>
+  <item>
+    <title>Commercial Data License</title>
+    <link>https://ai-future-ready.com/pricing/commercial-license</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/pricing/commercial-license</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Draft terms outline for commercial use of AI Future Ready structured data in products, internal tools, RAG systems, model routers, and procurement workflows.</description>
+  </item>
+  <item>
+    <title>Pro Data Sample</title>
+    <link>https://ai-future-ready.com/pricing/pro-data-sample</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/pricing/pro-data-sample</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>A public sample showing the shape of the planned Pro Data package: model record, provider record, pricing snapshot, recommendation, change record, and source record.</description>
+  </item>
+  <item>
+    <title>Pro Data</title>
+    <link>https://ai-future-ready.com/pricing/pro-data</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/pricing/pro-data</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Draft product definition for the paid AI Future Ready Pro Data package: structured exports, pricing snapshots, source metadata, recommendations, changes, and commercial-ready fields.</description>
+  </item>
+  <item>
+    <title>Public Roadmap</title>
+    <link>https://ai-future-ready.com/pricing/roadmap</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/pricing/roadmap</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Roadmap for AI Future Ready as an agent-readable AI reference dataset, including trust, Pro Data, pricing snapshots, change tracking, and commercial readiness.</description>
+  </item>
+  <item>
+    <title>Sponsor Policy</title>
+    <link>https://ai-future-ready.com/pricing/sponsor-policy</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/pricing/sponsor-policy</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Disclosure and ranking rules for sponsorships, paid placements, affiliate links, referral links, and commercial relationships on AI Future Ready.</description>
+  </item>
+  <item>
+    <title>About AI Future Ready</title>
+    <link>https://ai-future-ready.com/about</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/about</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>What AI Future Ready is, why it exists, how it serves humans and AI agents, and how to interpret its model, provider, pricing, and recommendation data.</description>
+  </item>
+  <item>
+    <title>Contact</title>
+    <link>https://ai-future-ready.com/contact</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/contact</guid>
+    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
+    <description>Contact AI Future Ready to request Pro Data access, ask about a commercial data license, sponsorship, or prepare an Agent Readiness Audit request. No checkout or payment flow is configured.</description>
+  </item>
   <item>
     <title>Lindy</title>
     <link>https://ai-future-ready.com/agents/lindy</link>
@@ -20,25 +300,11 @@
     <description>How to connect AI Future Ready through the Model Context Protocol (MCP), including startup commands, available tools, and example workflows.</description>
   </item>
   <item>
-    <title>The Agent-Ready Web Standard</title>
-    <link>https://ai-future-ready.com/standard</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/standard</guid>
-    <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Technical specification for agent-ready web architecture. Defines content formats, metadata schemas, access protocols, discovery mechanisms, and trust signals.</description>
-  </item>
-  <item>
     <title>The Agent-Ready Website Checklist</title>
     <link>https://ai-future-ready.com/checklist</link>
     <guid isPermaLink="true">https://ai-future-ready.com/checklist</guid>
     <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
     <description>A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.</description>
-  </item>
-  <item>
-    <title>AI Models</title>
-    <link>https://ai-future-ready.com/models</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/models</guid>
-    <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Comprehensive comparison of 33+ AI models — proprietary and open source — with benchmarks, pricing, and use-case recommendations.</description>
   </item>
   <item>
     <title>Claude Haiku 4.5</title>
@@ -426,13 +692,6 @@
     <description>When to use open-source models versus proprietary APIs. Cost analysis, privacy, customization, performance gaps, hardware requirements, and best picks by use case.</description>
   </item>
   <item>
-    <title>Guides</title>
-    <link>https://ai-future-ready.com/guides</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/guides</guid>
-    <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Practical guides to understanding and using AI — from complete beginner to advanced prompt engineer.</description>
-  </item>
-  <item>
     <title>What Is AI? A Complete Beginner&apos;s Guide to Artificial Intelligence</title>
     <link>https://ai-future-ready.com/guides/getting-started</link>
     <guid isPermaLink="true">https://ai-future-ready.com/guides/getting-started</guid>
@@ -564,13 +823,6 @@
     <guid isPermaLink="true">https://ai-future-ready.com/timeline</guid>
     <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
     <description>Chronological history of artificial intelligence from 1950 to 2026 — key research breakthroughs, product launches, milestones, and policy events.</description>
-  </item>
-  <item>
-    <title>AI Model Pricing</title>
-    <link>https://ai-future-ready.com/pricing</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/pricing</guid>
-    <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Up-to-date pricing comparison for AI model APIs — input/output token costs, free tiers, and subscription plans.</description>
   </item>
   <item>
     <title>AI Changelog</title>

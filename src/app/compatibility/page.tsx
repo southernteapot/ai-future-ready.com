@@ -4,7 +4,6 @@ import ContentView from "@/components/ContentView";
 import { getStandaloneContent } from "@/lib/content";
 import { buildContentMetadata } from "@/lib/metadata";
 import { generateJsonLd } from "@/lib/jsonld";
-import { renderMarkdown } from "@/lib/markdown";
 
 export const dynamic = "force-static";
 
@@ -20,7 +19,6 @@ export default async function CompatibilityPage() {
   const item = getStandaloneContent(SLUG);
   if (!item) notFound();
 
-  const html = await renderMarkdown(item.content);
   const jsonLd = generateJsonLd(item.meta, `/${SLUG}`);
 
   return (
@@ -31,7 +29,7 @@ export default async function CompatibilityPage() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       )}
-      <ContentView raw={item.raw} html={html} mdPath="/content/compatibility.md" />
+      <ContentView raw={item.raw} mdPath="/content/compatibility.md" />
     </>
   );
 }

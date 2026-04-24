@@ -12,13 +12,35 @@ const STATIC_ROUTES = [
   "/score",
   "/mcp",
   "/content/_index.md",
+  "/.well-known/ai.json",
   "/llms.txt",
   "/llms-full.txt",
   "/search-index.json",
+  "/api/v1/index.json",
+  "/api/v1/schema.json",
+  "/api/v1/changes.json",
+  "/api/v1/model-verification.json",
+  "/api/v1/pricing-snapshots.json",
+  "/api/v1/recommend.json",
+  "/api/v1/samples/pro-data.json",
   "/feed.json",
   "/feed.xml",
   "/robots.txt",
   "/sitemap.xml",
+];
+const RECOMMENDATION_TASKS = [
+  "coding",
+  "writing",
+  "math",
+  "reasoning",
+  "multilingual",
+  "speed",
+  "research",
+  "cheap",
+  "local",
+  "agentic",
+  "images",
+  "education",
 ];
 const REQUIRED_FIELDS = ["title", "type", "id", "description", "last_updated"];
 const DATE_PATTERN = /^\d{4}(?:-\d{2}(?:-\d{2})?)?$/;
@@ -104,7 +126,9 @@ function buildValidRoutes(): Set<string> {
       for (const file of files) {
         routes.add(`/content/${type}/${file}`);
         if (file !== "_index.md") {
-          routes.add(`/${type}/${file.replace(/\.md$/, "")}`);
+          const slug = file.replace(/\.md$/, "");
+          routes.add(`/${type}/${slug}`);
+          routes.add(`/api/v1/${type}/${slug}.json`);
         }
       }
     } else if (entry.isFile() && entry.name.endsWith(".md")) {
@@ -114,7 +138,12 @@ function buildValidRoutes(): Set<string> {
   }
 
   routes.add("/api/v1/index.json");
+  routes.add("/api/v1/schema.json");
+  routes.add("/api/v1/changes.json");
   routes.add("/api/v1/recommend.json");
+  for (const task of RECOMMENDATION_TASKS) {
+    routes.add(`/api/v1/recommend/${task}.json`);
+  }
 
   for (const file of walk(PUBLIC_DIR)) {
     routes.add(

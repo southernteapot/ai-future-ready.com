@@ -1,19 +1,13 @@
 import type { Metadata } from "next";
-import { Geist_Mono } from "next/font/google";
 import Link from "next/link";
-import MobileNav from "@/components/MobileNav";
 import { SITE_URL } from "@/lib/site";
 import {
   FEED_ALTERNATE_TYPES,
   OPEN_GRAPH_IMAGE,
   TWITTER_IMAGE,
 } from "@/lib/metadata";
+import ModeToggle from "@/components/ModeToggle";
 import "./globals.css";
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -63,11 +57,28 @@ const NAV_ITEMS = [
   { href: "/standard", label: "Standard" },
   { href: "/checklist", label: "Checklist" },
   { href: "/models", label: "Models" },
+  { href: "/providers", label: "Providers" },
   { href: "/agents", label: "Agents" },
+  { href: "/guides", label: "Guides" },
   { href: "/comparisons", label: "Comparisons" },
+  { href: "/pricing", label: "Pricing" },
   { href: "/blog", label: "Blog" },
   { href: "/search", label: "Search" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
+
+const VIEW_MODE_INIT_SCRIPT = `(() => {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const queryMode = params.get("mode");
+    const storedMode = window.localStorage.getItem("ai-future-ready:view-mode");
+    const mode = queryMode === "human" || queryMode === "agent" ? queryMode : storedMode === "human" ? "human" : "agent";
+    document.documentElement.dataset.viewMode = mode;
+  } catch {
+    document.documentElement.dataset.viewMode = "agent";
+  }
+})();`;
 
 export default function RootLayout({
   children,
@@ -75,91 +86,41 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistMono.variable} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
-        {/* Header */}
-        <header className="border-b border-neutral-800">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
-            <Link href="/" className="font-bold text-sm text-white font-mono">
-              ~/ai-future-ready
-            </Link>
-            <nav className="hidden md:flex items-center gap-6 text-sm font-mono">
-              {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-neutral-400 hover:text-white transition-colors"
-                >
-                  {item.label.toLowerCase()}
-                </Link>
-              ))}
-            </nav>
-            <MobileNav />
-          </div>
-        </header>
-
-        {/* Main */}
-        <main className="flex-1 max-w-5xl mx-auto px-4 sm:px-6 py-8 w-full">
-          {children}
-        </main>
-
-        {/* Footer */}
-        <footer className="border-t border-neutral-800 mt-12">
-          <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6 text-sm text-neutral-500 font-mono space-y-2">
-            <p>
-              Agent access:{" "}
-              <Link
-                href="/content/_index.md"
-                className="text-white hover:text-neutral-400 hover:underline"
-              >
-                /content/_index.md
-              </Link>{" "}
-              &middot;{" "}
-              <Link
-                href="/llms.txt"
-                className="text-white hover:text-neutral-400 hover:underline"
-              >
-                llms.txt
-              </Link>{" "}
-              &middot;{" "}
-              <Link
-                href="/api/v1/index.json"
-                className="text-white hover:text-neutral-400 hover:underline"
-              >
-                api
-              </Link>{" "}
-              &middot;{" "}
-              <Link
-                href="/feed.json"
-                className="text-white hover:text-neutral-400 hover:underline"
-              >
-                feed
-              </Link>
+    <html lang="en" data-view-mode="agent" suppressHydrationWarning>
+      <body>
+        <script dangerouslySetInnerHTML={{ __html: VIEW_MODE_INIT_SCRIPT }} />
+        <div className="site-shell">
+          <header className="site-header">
+            <p className="site-brand">
+              <span className="agent-marker"># </span>
+              <Link href="/">AI Future Ready</Link>
+              <span className="human-brand-note">Agent-readable AI reference</span>
             </p>
+            <div className="site-controls">
+              <ModeToggle />
+              <nav className="site-nav" aria-label="Main navigation">
+                {NAV_ITEMS.map((item) => (
+                  <span key={item.href}>
+                    [<Link href={item.href}>{item.label.toLowerCase()}</Link>]
+                  </span>
+                ))}
+              </nav>
+            </div>
+          </header>
+
+          <main className="markdown-page">{children}</main>
+
+          <footer className="site-footer">
+            <p>---</p>
             <p>
-              <Link
-                href="/standard"
-                className="text-neutral-500 hover:text-white hover:underline"
-              >
-                standard
-              </Link>{" "}
-              &middot;{" "}
-              <Link
-                href="/search"
-                className="text-neutral-500 hover:text-white hover:underline"
-              >
-                search
-              </Link>{" "}
-              &middot;{" "}
-              <Link
-                href="/mcp"
-                className="text-neutral-500 hover:text-white hover:underline"
-              >
-                mcp
-              </Link>{" "}
+              agent access: <Link href="/content/_index.md">/content/_index.md</Link>{" "}
+              <Link href="/llms.txt">llms.txt</Link>{" "}
+              <Link href="/api/v1/index.json">api</Link>{" "}
+              <Link href="/feed.json">feed</Link>{" "}
+              <Link href="/mcp">mcp</Link>
             </p>
-          </div>
-        </footer>
+          </footer>
+        </div>
       </body>
     </html>
   );

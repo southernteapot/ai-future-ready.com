@@ -1,6 +1,5 @@
 import { getIndex, getContentTypes } from "@/lib/content";
 import { buildContentMetadata } from "@/lib/metadata";
-import { renderMarkdown } from "@/lib/markdown";
 import { generateJsonLd } from "@/lib/jsonld";
 import ContentView from "@/components/ContentView";
 import { notFound } from "next/navigation";
@@ -34,7 +33,6 @@ export default async function TypeIndexPage({
   const index = getIndex(type);
   if (!index) notFound();
 
-  const html = await renderMarkdown(index.content);
   const jsonLd = generateJsonLd(index.meta, `/${type}`);
 
   return (
@@ -47,7 +45,6 @@ export default async function TypeIndexPage({
       )}
       <ContentView
         raw={index.raw}
-        html={html}
         mdPath={`/content/${type}/_index.md`}
       />
     </>

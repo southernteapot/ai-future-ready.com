@@ -1,14 +1,96 @@
 ---
-title: "AI Model Pricing"
+title: "Pricing and Pro Data"
 type: index
 id: "pricing"
-description: "Up-to-date pricing comparison for AI model APIs — input/output token costs, free tiers, and subscription plans."
-last_updated: "2026-04-10"
+description: "Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready."
+last_updated: "2026-04-24"
 ---
 
-# AI Model Pricing
+# Pricing and Pro Data
 
-All pricing data below is also available as structured fields in the [JSON API](/api/v1/models.json) — agents can compare costs programmatically without parsing this table.
+This site stays plain, readable, and useful without an account. The paid products are for teams that need structured data, commercial reuse, change tracking, or help making their own sites agent-readable.
+
+## Plans
+
+| Plan | Intended user | Includes | Status |
+|------|---------------|----------|--------|
+| Free | Humans and AI agents browsing the public reference | HTML pages, raw markdown, `llms.txt`, public JSON API, search index, change feed, and sitemap | Available |
+| Pro Data | Builders, researchers, and internal tools that need structured AI market data | Full JSON exports, richer pricing snapshots, source metadata, change history, recommendation slices, hashes, and commercial-ready metadata | Draft |
+| Commercial Data License | Companies using the dataset inside products, workflows, RAG systems, or model routers | Commercial reuse rights, attribution terms, snapshot delivery, support window, and integration notes | Draft |
+| Agent Readiness Audit | Teams that want their own docs or website to work well for AI agents | `llms.txt`, markdown export review, structured API plan, metadata audit, robots/sitemap review, and agent access score | Draft |
+
+## Paid Products
+
+- [Pro Data](pro-data.md) - detailed dataset, API, and export plan.
+- [Pro Data Sample](pro-data-sample.md) - public sample export shape with no checkout or account.
+- [Commercial Data License](commercial-license.md) - draft licensing shape for product and internal use.
+- [Agent Readiness Audit](agent-readiness-audit.md) - service package for making a site readable by agents.
+- [Change Alerts](change-alerts.md) - draft alert and digest product for model, price, source, and recommendation changes.
+- [Sponsor Policy](sponsor-policy.md) - disclosure and ranking rules for commercial relationships.
+- [Public Roadmap](roadmap.md) - current, next, later, and not-planned items.
+- [Contact](../contact.md) - request checklist. No checkout or payment flow is configured.
+
+## Free Access
+
+Free access includes:
+
+- Human-readable HTML pages.
+- Raw markdown at `/content/[type]/[slug].md`.
+- `llms.txt` and `llms-full.txt`.
+- Public JSON at `/api/v1/`.
+- Per-item JSON pages.
+- Search index.
+- Sitemap and robots files.
+- Basic change feed.
+- MCP docs and local MCP server instructions.
+
+Free access does not include a service-level agreement, custom exports, private support, commercial reuse rights beyond ordinary public reading, or guaranteed pricing freshness.
+
+## Public Data Samples
+
+The public sample endpoint shows the planned Pro Data shape without requiring an account:
+
+```text
+/api/v1/samples/pro-data.json
+```
+
+The generated pricing snapshot endpoint is public:
+
+```text
+/api/v1/pricing-snapshots.json
+```
+
+## Pro Data Summary
+
+Pro Data is for agents and software systems that need reliable structured data rather than pages.
+
+The first paid version should include:
+
+- Full content export as JSON and markdown.
+- Model pricing snapshots with `last_verified`, provider source URLs, and confidence fields.
+- Provider profiles with source-backed verification metadata.
+- Task recommendation files for coding, research, cheap, local, private, support, education, and agentic workflows.
+- Change history with hashes so agents can detect meaningful updates.
+- Bulk download files suitable for RAG, internal docs, and model-routing systems.
+- Commercial-friendly metadata fields such as license notes, attribution, update cadence, and source status.
+
+See [Pro Data](pro-data.md) for the fuller draft.
+
+## Disclosure Policy
+
+Paid placements, sponsorships, referral links, and affiliate links should be labeled clearly in both markdown and JSON. Sponsored content must not silently influence recommendation scores.
+
+Recommended fields:
+
+```yaml
+sponsored: true
+sponsor: "Example Company"
+disclosure: "Paid sponsorship. Recommendation scores are not changed by sponsorship."
+```
+
+## Model Pricing Reference
+
+All model pricing data below is also available as structured fields in the [JSON API](/api/v1/models.json). Agents can compare costs programmatically without parsing this table.
 
 Up-to-date pricing comparison for AI model APIs.
 

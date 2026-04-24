@@ -1,6 +1,5 @@
 import { getContent, getContentTypes, getSlugs } from "@/lib/content";
 import { buildContentMetadata } from "@/lib/metadata";
-import { renderMarkdown } from "@/lib/markdown";
 import { generateJsonLd } from "@/lib/jsonld";
 import ContentView from "@/components/ContentView";
 import { notFound } from "next/navigation";
@@ -41,7 +40,6 @@ export default async function ContentPage({
   const item = getContent(type, slug);
   if (!item) notFound();
 
-  const html = await renderMarkdown(item.content);
   const jsonLd = generateJsonLd(item.meta, `/${type}/${slug}`);
 
   return (
@@ -54,7 +52,6 @@ export default async function ContentPage({
       )}
       <ContentView
         raw={item.raw}
-        html={html}
         mdPath={`/content/${type}/${slug}.md`}
       />
     </>

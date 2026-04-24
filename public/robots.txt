@@ -1,6 +1,11 @@
 User-agent: *
 Allow: /
 Allow: /content/
+Allow: /api/
+Allow: /.well-known/ai.json
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /search-index.json
 
 Sitemap: https://ai-future-ready.com/sitemap.xml
 Host: ai-future-ready.com

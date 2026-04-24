@@ -14,7 +14,7 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function ScorePage() {
   return (
-    <div className="space-y-8 max-w-2xl">
+    <div>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -29,23 +29,13 @@ export default function ScorePage() {
         }}
       />
 
-      <section className="space-y-3 pt-4">
-        <h1 className="text-2xl font-bold text-white">
-          Agent-readiness self-audit
-        </h1>
-        <p className="text-sm text-neutral-400 leading-relaxed">
-          Ten questions. Two minutes. For each criterion, choose
-          <strong className="text-white"> yes</strong>,
-          <strong className="text-white"> partial</strong>, or
-          <strong className="text-white"> no</strong> based on your
-          site&rsquo;s current state. Be honest — partial credit counts.
-        </p>
-        <p className="text-sm text-neutral-400 leading-relaxed">
-          Your results: an overall score, your maturity level, what
-          you&rsquo;re doing well, your top prioritized fixes, and
-          what to do next.
-        </p>
-      </section>
+      <h1>
+        <span className="agent-marker"># </span>Agent-readiness self-audit
+      </h1>
+      <p>
+        Ten questions. For each criterion, choose yes, partial, or no based on
+        your site&apos;s current state. Partial credit counts.
+      </p>
 
       <SelfAudit />
     </div>

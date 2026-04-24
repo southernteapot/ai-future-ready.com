@@ -6,6 +6,1007 @@
   "description": "Machine-readable change feed for AI Future Ready. Track content updates without re-crawling the full site.",
   "items": [
     {
+      "id": "https://ai-future-ready.com/standard",
+      "url": "https://ai-future-ready.com/standard",
+      "title": "The Agent-Ready Web Standard",
+      "summary": "Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "standard",
+        "specification",
+        "agent-ready",
+        "architecture"
+      ],
+      "content_text": "Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds.",
+      "_section": "Standard",
+      "_markdown_url": "https://ai-future-ready.com/content/standard/_index.md",
+      "_content_hash": "44723a95217bc49b580c30333a070dbf772ebae1fa8b75baefd490e01d064b5e",
+      "_sha256": "44723a95217bc49b580c30333a070dbf772ebae1fa8b75baefd490e01d064b5e"
+    },
+    {
+      "id": "https://ai-future-ready.com/api-reference",
+      "url": "https://ai-future-ready.com/api-reference",
+      "title": "Agent API Reference",
+      "summary": "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "api reference"
+      ],
+      "content_text": "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.",
+      "_section": "API Reference",
+      "_markdown_url": "https://ai-future-ready.com/content/api-reference/_index.md",
+      "_content_hash": "cd8c8f0822ac294c63a21682d22dd069e1431b80be99fbb130f246938a5c8bcf",
+      "_sha256": "cd8c8f0822ac294c63a21682d22dd069e1431b80be99fbb130f246938a5c8bcf"
+    },
+    {
+      "id": "https://ai-future-ready.com/api-reference/data-changelog",
+      "url": "https://ai-future-ready.com/api-reference/data-changelog",
+      "title": "Data Changelog",
+      "summary": "How AI Future Ready tracks data updates, pricing changes, model changes, verification updates, hashes, and alert-ready change records.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "api",
+        "changelog",
+        "changes",
+        "pricing",
+        "agents"
+      ],
+      "content_text": "How AI Future Ready tracks data updates, pricing changes, model changes, verification updates, hashes, and alert-ready change records.",
+      "_section": "API Reference",
+      "_markdown_url": "https://ai-future-ready.com/content/api-reference/data-changelog.md",
+      "_content_hash": "3ffb6463fe2a2359f822ee2d746dc5ab9e7673ab513d8f7a18c2476b3421b355",
+      "_sha256": "3ffb6463fe2a2359f822ee2d746dc5ab9e7673ab513d8f7a18c2476b3421b355",
+      "_api_url": "https://ai-future-ready.com/api/v1/api-reference/data-changelog.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/models",
+      "url": "https://ai-future-ready.com/models",
+      "title": "AI Model Comparison",
+      "summary": "Compare 33+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "models"
+      ],
+      "content_text": "Compare 33+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.",
+      "_section": "Models",
+      "_markdown_url": "https://ai-future-ready.com/content/models/_index.md",
+      "_content_hash": "3843ac5d6c3de09fc6338537d3bfbc0921bbc514acbabc2c1ebbbef3cf4ad310",
+      "_sha256": "3843ac5d6c3de09fc6338537d3bfbc0921bbc514acbabc2c1ebbbef3cf4ad310"
+    },
+    {
+      "id": "https://ai-future-ready.com/providers",
+      "url": "https://ai-future-ready.com/providers",
+      "title": "AI Providers",
+      "summary": "Provider profiles for major AI labs and model ecosystems, focused on agent-useful strengths, tradeoffs, models, pricing posture, and selection guidance.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "providers"
+      ],
+      "content_text": "Provider profiles for major AI labs and model ecosystems, focused on agent-useful strengths, tradeoffs, models, pricing posture, and selection guidance.",
+      "_section": "Providers",
+      "_markdown_url": "https://ai-future-ready.com/content/providers/_index.md",
+      "_content_hash": "6f414738e508dd535e81880ba4104acff12b4fe2ee4868353fc1d5d1bcc25971",
+      "_sha256": "6f414738e508dd535e81880ba4104acff12b4fe2ee4868353fc1d5d1bcc25971"
+    },
+    {
+      "id": "https://ai-future-ready.com/providers/anthropic",
+      "url": "https://ai-future-ready.com/providers/anthropic",
+      "title": "Anthropic Provider Profile",
+      "summary": "Decision profile for Anthropic's Claude ecosystem: coding, long-context work, writing quality, agent workflows, and tradeoffs.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "anthropic",
+        "provider",
+        "proprietary",
+        "coding",
+        "agents"
+      ],
+      "content_text": "Decision profile for Anthropic's Claude ecosystem: coding, long-context work, writing quality, agent workflows, and tradeoffs.",
+      "_section": "Providers",
+      "_markdown_url": "https://ai-future-ready.com/content/providers/anthropic.md",
+      "_content_hash": "9dbd88a8a95676d5b58367740503b6c146006b2ef71eb396250d8aba1aef4b90",
+      "_sha256": "9dbd88a8a95676d5b58367740503b6c146006b2ef71eb396250d8aba1aef4b90",
+      "_api_url": "https://ai-future-ready.com/api/v1/providers/anthropic.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/providers/deepseek",
+      "url": "https://ai-future-ready.com/providers/deepseek",
+      "title": "DeepSeek Provider Profile",
+      "summary": "Decision profile for DeepSeek models: low-cost reasoning, open-source competition, and diligence requirements before production use.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "deepseek",
+        "provider",
+        "open-source",
+        "reasoning",
+        "low-cost"
+      ],
+      "content_text": "Decision profile for DeepSeek models: low-cost reasoning, open-source competition, and diligence requirements before production use.",
+      "_section": "Providers",
+      "_markdown_url": "https://ai-future-ready.com/content/providers/deepseek.md",
+      "_content_hash": "5f9b0f4becb15b6644fceb14c2a86826ce22a0276151a14d43c76cb2b4803955",
+      "_sha256": "5f9b0f4becb15b6644fceb14c2a86826ce22a0276151a14d43c76cb2b4803955",
+      "_api_url": "https://ai-future-ready.com/api/v1/providers/deepseek.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/providers/google",
+      "url": "https://ai-future-ready.com/providers/google",
+      "title": "Google Provider Profile",
+      "summary": "Decision profile for Google's Gemini and Gemma ecosystem: long context, multimodal tasks, cost-balanced proprietary models, and open model options.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "google",
+        "provider",
+        "gemini",
+        "gemma",
+        "multimodal"
+      ],
+      "content_text": "Decision profile for Google's Gemini and Gemma ecosystem: long context, multimodal tasks, cost-balanced proprietary models, and open model options.",
+      "_section": "Providers",
+      "_markdown_url": "https://ai-future-ready.com/content/providers/google.md",
+      "_content_hash": "df688f986dce21e611f72649dd0ae89f91d55fb24e93ed2e76f76ae53804d9da",
+      "_sha256": "df688f986dce21e611f72649dd0ae89f91d55fb24e93ed2e76f76ae53804d9da",
+      "_api_url": "https://ai-future-ready.com/api/v1/providers/google.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/providers/meta",
+      "url": "https://ai-future-ready.com/providers/meta",
+      "title": "Meta Provider Profile",
+      "summary": "Decision profile for Meta's Llama ecosystem: open-weight deployment, local/private stacks, infrastructure needs, and licensing fit.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "meta",
+        "provider",
+        "llama",
+        "open-source",
+        "local"
+      ],
+      "content_text": "Decision profile for Meta's Llama ecosystem: open-weight deployment, local/private stacks, infrastructure needs, and licensing fit.",
+      "_section": "Providers",
+      "_markdown_url": "https://ai-future-ready.com/content/providers/meta.md",
+      "_content_hash": "e5d46f8e0578d20ea929db3532c10e787be63e3a3d1ccbee9699943a3b56a633",
+      "_sha256": "e5d46f8e0578d20ea929db3532c10e787be63e3a3d1ccbee9699943a3b56a633",
+      "_api_url": "https://ai-future-ready.com/api/v1/providers/meta.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/providers/mistral",
+      "url": "https://ai-future-ready.com/providers/mistral",
+      "title": "Mistral AI Provider Profile",
+      "summary": "Decision profile for Mistral AI: open-source options, European deployment posture, small and frontier model choices, and hosting tradeoffs.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "mistral",
+        "provider",
+        "open-source",
+        "europe"
+      ],
+      "content_text": "Decision profile for Mistral AI: open-source options, European deployment posture, small and frontier model choices, and hosting tradeoffs.",
+      "_section": "Providers",
+      "_markdown_url": "https://ai-future-ready.com/content/providers/mistral.md",
+      "_content_hash": "2eb05e6669ac735f8486c7bf00050e5f98c77196d29aad1196fd647e7a43a3c1",
+      "_sha256": "2eb05e6669ac735f8486c7bf00050e5f98c77196d29aad1196fd647e7a43a3c1",
+      "_api_url": "https://ai-future-ready.com/api/v1/providers/mistral.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/providers/openai",
+      "url": "https://ai-future-ready.com/providers/openai",
+      "title": "OpenAI Provider Profile",
+      "summary": "Decision profile for OpenAI's model and agent ecosystem: when to choose it, where it is strong, and what agents should verify before recommending it.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "openai",
+        "provider",
+        "proprietary",
+        "models",
+        "agents"
+      ],
+      "content_text": "Decision profile for OpenAI's model and agent ecosystem: when to choose it, where it is strong, and what agents should verify before recommending it.",
+      "_section": "Providers",
+      "_markdown_url": "https://ai-future-ready.com/content/providers/openai.md",
+      "_content_hash": "4e14ee45290239b20ec73cace15532fc74888b4e2714897ecc7dcea35b38b5df",
+      "_sha256": "4e14ee45290239b20ec73cace15532fc74888b4e2714897ecc7dcea35b38b5df",
+      "_api_url": "https://ai-future-ready.com/api/v1/providers/openai.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/providers/qwen",
+      "url": "https://ai-future-ready.com/providers/qwen",
+      "title": "Alibaba Qwen Provider Profile",
+      "summary": "Decision profile for Alibaba's Qwen model family: multilingual strength, open-weight deployment, coding and reasoning options, and compliance fit.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "alibaba",
+        "qwen",
+        "provider",
+        "open-source",
+        "multilingual"
+      ],
+      "content_text": "Decision profile for Alibaba's Qwen model family: multilingual strength, open-weight deployment, coding and reasoning options, and compliance fit.",
+      "_section": "Providers",
+      "_markdown_url": "https://ai-future-ready.com/content/providers/qwen.md",
+      "_content_hash": "3830cec35c890bba10355da20f4ac30c29c7b686c89d29f231c6fb91a34ba7c1",
+      "_sha256": "3830cec35c890bba10355da20f4ac30c29c7b686c89d29f231c6fb91a34ba7c1",
+      "_api_url": "https://ai-future-ready.com/api/v1/providers/qwen.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/providers/xai",
+      "url": "https://ai-future-ready.com/providers/xai",
+      "title": "xAI Provider Profile",
+      "summary": "Decision profile for xAI's Grok models: proprietary alternatives, speed, large-context experiments, and ecosystem tradeoffs.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "xai",
+        "provider",
+        "grok",
+        "proprietary"
+      ],
+      "content_text": "Decision profile for xAI's Grok models: proprietary alternatives, speed, large-context experiments, and ecosystem tradeoffs.",
+      "_section": "Providers",
+      "_markdown_url": "https://ai-future-ready.com/content/providers/xai.md",
+      "_content_hash": "a1dfc91fb6923c5507fa4796f11f9571372cf67ac81a33cb7dacbf10d4d03ed4",
+      "_sha256": "a1dfc91fb6923c5507fa4796f11f9571372cf67ac81a33cb7dacbf10d4d03ed4",
+      "_api_url": "https://ai-future-ready.com/api/v1/providers/xai.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides",
+      "url": "https://ai-future-ready.com/guides",
+      "title": "Guides",
+      "summary": "Practical guides, model-selection playbooks, agent recipes, and methodology notes for humans and AI agents.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "guides"
+      ],
+      "content_text": "Practical guides, model-selection playbooks, agent recipes, and methodology notes for humans and AI agents.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/_index.md",
+      "_content_hash": "878aeffdd67921d578ea58b7ca7f7da1635dc9d4627ed5345c4f1e190343511e",
+      "_sha256": "878aeffdd67921d578ea58b7ca7f7da1635dc9d4627ed5345c4f1e190343511e"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/agent-tooling-compatibility",
+      "url": "https://ai-future-ready.com/guides/agent-tooling-compatibility",
+      "title": "Agent Tooling Compatibility",
+      "summary": "Compatibility matrix for AI agent tools and frameworks: coding agents, dev frameworks, orchestration tools, no-code automation, and when to choose each.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "agents",
+        "compatibility",
+        "tooling",
+        "frameworks",
+        "matrix"
+      ],
+      "content_text": "Compatibility matrix for AI agent tools and frameworks: coding agents, dev frameworks, orchestration tools, no-code automation, and when to choose each.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/agent-tooling-compatibility.md",
+      "_content_hash": "ccc402b28cad212f87a0675889cafcb28d60307958a90d76a04eb83666c960e9",
+      "_sha256": "ccc402b28cad212f87a0675889cafcb28d60307958a90d76a04eb83666c960e9",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/agent-tooling-compatibility.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/agent-usage",
+      "url": "https://ai-future-ready.com/guides/agent-usage",
+      "title": "Agent Usage Guide",
+      "summary": "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, recommendations, changes, and hashes.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "agents",
+        "api",
+        "discovery",
+        "markdown",
+        "schema"
+      ],
+      "content_text": "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, recommendations, changes, and hashes.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/agent-usage.md",
+      "_content_hash": "6932d8e13a4a453730bf07cf44d56efa3a9138b66157b1b1c4744653ff6778f9",
+      "_sha256": "6932d8e13a4a453730bf07cf44d56efa3a9138b66157b1b1c4744653ff6778f9",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/agent-usage.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/benchmark-methodology",
+      "url": "https://ai-future-ready.com/guides/benchmark-methodology",
+      "title": "Benchmark Methodology",
+      "summary": "How AI Future Ready model scores should be interpreted by agents: normalized task scores, confidence limits, subjective judgment, and verification needs.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "benchmarks",
+        "methodology",
+        "scores",
+        "verification",
+        "models"
+      ],
+      "content_text": "How AI Future Ready model scores should be interpreted by agents: normalized task scores, confidence limits, subjective judgment, and verification needs.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/benchmark-methodology.md",
+      "_content_hash": "8409dea92d808c7d2c8e44bbeaba04d7e98772c5ad12c76008342286e481a6a7",
+      "_sha256": "8409dea92d808c7d2c8e44bbeaba04d7e98772c5ad12c76008342286e481a6a7",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/benchmark-methodology.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/best-for-task-matrix",
+      "url": "https://ai-future-ready.com/guides/best-for-task-matrix",
+      "title": "Best-For Task Matrix",
+      "summary": "A task-to-model matrix for agents choosing between best overall, cheaper, local, and cautionary options across common AI workloads.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "models",
+        "matrix",
+        "recommendations",
+        "tasks",
+        "playbook"
+      ],
+      "content_text": "A task-to-model matrix for agents choosing between best overall, cheaper, local, and cautionary options across common AI workloads.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/best-for-task-matrix.md",
+      "_content_hash": "06e1bda1ce164a21a2e1fd7288efd5d04f63333cbe88017bf1f8a67a5937d9e9",
+      "_sha256": "06e1bda1ce164a21a2e1fd7288efd5d04f63333cbe88017bf1f8a67a5937d9e9",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/best-for-task-matrix.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/build-a-coding-agent-stack",
+      "url": "https://ai-future-ready.com/guides/build-a-coding-agent-stack",
+      "title": "Build a Coding Agent Stack",
+      "summary": "A practical recipe for building a coding-agent workflow with model selection, repo access, tests, permissions, review, and rollback.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "recipe",
+        "coding-agent",
+        "software-engineering",
+        "agents",
+        "workflow"
+      ],
+      "content_text": "A practical recipe for building a coding-agent workflow with model selection, repo access, tests, permissions, review, and rollback.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/build-a-coding-agent-stack.md",
+      "_content_hash": "10135c57326cd05a79bfce606d6bca5b1a2ae1d9c5fc11de3f920f6cc5b11984",
+      "_sha256": "10135c57326cd05a79bfce606d6bca5b1a2ae1d9c5fc11de3f920f6cc5b11984",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/build-a-coding-agent-stack.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/build-an-agent-readable-docs-site",
+      "url": "https://ai-future-ready.com/guides/build-an-agent-readable-docs-site",
+      "title": "Build an Agent-Readable Docs Site",
+      "summary": "A practical recipe for making documentation readable by AI agents with markdown source, discovery files, schema, search index, feeds, and hashes.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "recipe",
+        "agent-ready",
+        "docs",
+        "markdown",
+        "discovery"
+      ],
+      "content_text": "A practical recipe for making documentation readable by AI agents with markdown source, discovery files, schema, search index, feeds, and hashes.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/build-an-agent-readable-docs-site.md",
+      "_content_hash": "a2a6bb4e9ed9d48e1e15e25f3fd59805081ee0c3913e7fb390f708657c7bc04a",
+      "_sha256": "a2a6bb4e9ed9d48e1e15e25f3fd59805081ee0c3913e7fb390f708657c7bc04a",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/build-an-agent-readable-docs-site.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/build-an-ai-research-assistant",
+      "url": "https://ai-future-ready.com/guides/build-an-ai-research-assistant",
+      "title": "Build an AI Research Assistant",
+      "summary": "A practical recipe for building an AI research assistant that gathers sources, preserves uncertainty, summarizes evidence, and avoids unsupported claims.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "recipe",
+        "research",
+        "agents",
+        "sources",
+        "verification"
+      ],
+      "content_text": "A practical recipe for building an AI research assistant that gathers sources, preserves uncertainty, summarizes evidence, and avoids unsupported claims.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/build-an-ai-research-assistant.md",
+      "_content_hash": "db2865e20e4316404155a76830f833c87471b4098773a029e77dc1acba385b37",
+      "_sha256": "db2865e20e4316404155a76830f833c87471b4098773a029e77dc1acba385b37",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/build-an-ai-research-assistant.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/choose-a-cheap-model",
+      "url": "https://ai-future-ready.com/guides/choose-a-cheap-model",
+      "title": "Choose a Cheap Model",
+      "summary": "A decision playbook for minimizing AI model cost without creating unacceptable quality, latency, privacy, or maintenance risk.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "cheap",
+        "pricing",
+        "models",
+        "playbook",
+        "cost"
+      ],
+      "content_text": "A decision playbook for minimizing AI model cost without creating unacceptable quality, latency, privacy, or maintenance risk.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/choose-a-cheap-model.md",
+      "_content_hash": "85df0403a05c4d8f6b334534aa2e8af50dc45ca108b64d1e62d2877fb1ec83fe",
+      "_sha256": "85df0403a05c4d8f6b334534aa2e8af50dc45ca108b64d1e62d2877fb1ec83fe",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/choose-a-cheap-model.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/choose-a-coding-model",
+      "url": "https://ai-future-ready.com/guides/choose-a-coding-model",
+      "title": "Choose the Best AI Coding Model",
+      "summary": "Choose the best AI coding model for software engineering, debugging, code review, refactoring, tests, local coding, and autonomous coding agents.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "coding",
+        "models",
+        "playbook",
+        "software-engineering",
+        "agents"
+      ],
+      "content_text": "Choose the best AI coding model for software engineering, debugging, code review, refactoring, tests, local coding, and autonomous coding agents.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/choose-a-coding-model.md",
+      "_content_hash": "23a4ea52d6b52f8e1ae244332de64202d2763365f3e24b1828bafb90b69c8774",
+      "_sha256": "23a4ea52d6b52f8e1ae244332de64202d2763365f3e24b1828bafb90b69c8774",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/choose-a-coding-model.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/choose-a-local-model",
+      "url": "https://ai-future-ready.com/guides/choose-a-local-model",
+      "title": "Choose a Local Model",
+      "summary": "A decision playbook for choosing local or open-weight AI models for private documents, self-hosting, offline workflows, and cost control.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "local",
+        "open-source",
+        "models",
+        "privacy",
+        "playbook"
+      ],
+      "content_text": "A decision playbook for choosing local or open-weight AI models for private documents, self-hosting, offline workflows, and cost control.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/choose-a-local-model.md",
+      "_content_hash": "64ea5c412f9b4c16006eeaa8d82563298924d70559e3f6137c8f4c620021aeb7",
+      "_sha256": "64ea5c412f9b4c16006eeaa8d82563298924d70559e3f6137c8f4c620021aeb7",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/choose-a-local-model.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/choose-a-private-model",
+      "url": "https://ai-future-ready.com/guides/choose-a-private-model",
+      "title": "Choose a Private Model",
+      "summary": "A decision playbook for choosing models and deployment patterns when privacy, compliance, sensitive documents, or internal data controls matter.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "privacy",
+        "models",
+        "compliance",
+        "local",
+        "playbook"
+      ],
+      "content_text": "A decision playbook for choosing models and deployment patterns when privacy, compliance, sensitive documents, or internal data controls matter.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/choose-a-private-model.md",
+      "_content_hash": "703bcb7f9a64d20ef79e1a185176b4b1cae366528ceb82ee6de1b6c98e378810",
+      "_sha256": "703bcb7f9a64d20ef79e1a185176b4b1cae366528ceb82ee6de1b6c98e378810",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/choose-a-private-model.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/choose-a-research-model",
+      "url": "https://ai-future-ready.com/guides/choose-a-research-model",
+      "title": "Choose a Research Model",
+      "summary": "A decision playbook for choosing a model for research, synthesis, long-document analysis, evidence review, and structured summaries.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "research",
+        "models",
+        "playbook",
+        "analysis",
+        "long-context"
+      ],
+      "content_text": "A decision playbook for choosing a model for research, synthesis, long-document analysis, evidence review, and structured summaries.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/choose-a-research-model.md",
+      "_content_hash": "658cde1b52c06a4ed416222f3112afaf0471e53e6a0960b051ca85f8f8c6a867",
+      "_sha256": "658cde1b52c06a4ed416222f3112afaf0471e53e6a0960b051ca85f8f8c6a867",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/choose-a-research-model.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/choose-model-for-customer-support",
+      "url": "https://ai-future-ready.com/guides/choose-model-for-customer-support",
+      "title": "Choose a Model for Customer Support",
+      "summary": "A practical recipe for choosing models and guardrails for customer support automation, routing, drafting, retrieval, and escalation.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "recipe",
+        "customer-support",
+        "models",
+        "retrieval",
+        "risk"
+      ],
+      "content_text": "A practical recipe for choosing models and guardrails for customer support automation, routing, drafting, retrieval, and escalation.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/choose-model-for-customer-support.md",
+      "_content_hash": "65c5869056006de94dfea7aab9b1ff3e721911c37ba54e9ef5da838c4a1d59bc",
+      "_sha256": "65c5869056006de94dfea7aab9b1ff3e721911c37ba54e9ef5da838c4a1d59bc",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/choose-model-for-customer-support.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/data-methodology",
+      "url": "https://ai-future-ready.com/guides/data-methodology",
+      "title": "Data Methodology",
+      "summary": "How AI Future Ready handles sources, verification, scoring, pricing freshness, sponsorships, and agent-safe interpretation.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "methodology",
+        "trust",
+        "verification",
+        "sources",
+        "agents"
+      ],
+      "content_text": "How AI Future Ready handles sources, verification, scoring, pricing freshness, sponsorships, and agent-safe interpretation.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/data-methodology.md",
+      "_content_hash": "3eaff9852e9f157d6a0f53f8075ae374336ad3033cd6d5b2e72702c245bbb79e",
+      "_sha256": "3eaff9852e9f157d6a0f53f8075ae374336ad3033cd6d5b2e72702c245bbb79e",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/data-methodology.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/failure-modes",
+      "url": "https://ai-future-ready.com/guides/failure-modes",
+      "title": "AI Failure Modes",
+      "summary": "Negative guidance for agents: when not to use frontier models, agent frameworks, local models, cheap models, or autonomous workflows.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "failure-modes",
+        "risk",
+        "agents",
+        "models",
+        "guidance"
+      ],
+      "content_text": "Negative guidance for agents: when not to use frontier models, agent frameworks, local models, cheap models, or autonomous workflows.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/failure-modes.md",
+      "_content_hash": "9cef977eed869453b4fbf55b35d1a7be9bd52190a121bec079fc2a22fb53349a",
+      "_sha256": "9cef977eed869453b4fbf55b35d1a7be9bd52190a121bec079fc2a22fb53349a",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/failure-modes.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/local-models-for-private-documents",
+      "url": "https://ai-future-ready.com/guides/local-models-for-private-documents",
+      "title": "Use Local Models for Private Documents",
+      "summary": "A practical recipe for using local or private AI models with sensitive documents, including retrieval, redaction, access control, and evaluation.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "recipe",
+        "local",
+        "privacy",
+        "documents",
+        "retrieval"
+      ],
+      "content_text": "A practical recipe for using local or private AI models with sensitive documents, including retrieval, redaction, access control, and evaluation.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/local-models-for-private-documents.md",
+      "_content_hash": "b1c7d4960470756b809c247a281e52e4193aeba96d3f9a27e142e0bdb15359e1",
+      "_sha256": "b1c7d4960470756b809c247a281e52e4193aeba96d3f9a27e142e0bdb15359e1",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/local-models-for-private-documents.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/pricing",
+      "url": "https://ai-future-ready.com/pricing",
+      "title": "Pricing and Pro Data",
+      "summary": "Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "pricing"
+      ],
+      "content_text": "Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready.",
+      "_section": "Pricing",
+      "_markdown_url": "https://ai-future-ready.com/content/pricing/_index.md",
+      "_content_hash": "7e3e1728d8209aaf7373d320c077022596216246c2078bc8a4a42f39e54f99b7",
+      "_sha256": "7e3e1728d8209aaf7373d320c077022596216246c2078bc8a4a42f39e54f99b7"
+    },
+    {
+      "id": "https://ai-future-ready.com/pricing/agent-readiness-audit",
+      "url": "https://ai-future-ready.com/pricing/agent-readiness-audit",
+      "title": "Agent Readiness Audit",
+      "summary": "Draft service package for making a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "pricing",
+        "audit",
+        "agent-ready",
+        "llms.txt",
+        "service"
+      ],
+      "content_text": "Draft service package for making a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor.",
+      "_section": "Pricing",
+      "_markdown_url": "https://ai-future-ready.com/content/pricing/agent-readiness-audit.md",
+      "_content_hash": "d4049087dd1ed8d859d0a6e6fce6a43396ae19991cbe7c51354852c75a44fa1c",
+      "_sha256": "d4049087dd1ed8d859d0a6e6fce6a43396ae19991cbe7c51354852c75a44fa1c",
+      "_api_url": "https://ai-future-ready.com/api/v1/pricing/agent-readiness-audit.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/pricing/change-alerts",
+      "url": "https://ai-future-ready.com/pricing/change-alerts",
+      "title": "Change Alerts",
+      "summary": "Draft product concept for AI model and provider change alerts, including price changes, source verification, new models, license changes, and recommendation movement.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "alerts",
+        "newsletter",
+        "changes",
+        "pricing",
+        "pro-data"
+      ],
+      "content_text": "Draft product concept for AI model and provider change alerts, including price changes, source verification, new models, license changes, and recommendation movement.",
+      "_section": "Pricing",
+      "_markdown_url": "https://ai-future-ready.com/content/pricing/change-alerts.md",
+      "_content_hash": "b9c1e6ecf6b6a3c349f973d02e73af9fdae68ea812ecfc5ce933471090095efa",
+      "_sha256": "b9c1e6ecf6b6a3c349f973d02e73af9fdae68ea812ecfc5ce933471090095efa",
+      "_api_url": "https://ai-future-ready.com/api/v1/pricing/change-alerts.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/pricing/commercial-license",
+      "url": "https://ai-future-ready.com/pricing/commercial-license",
+      "title": "Commercial Data License",
+      "summary": "Draft terms outline for commercial use of AI Future Ready structured data in products, internal tools, RAG systems, model routers, and procurement workflows.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "pricing",
+        "license",
+        "commercial",
+        "data",
+        "agents"
+      ],
+      "content_text": "Draft terms outline for commercial use of AI Future Ready structured data in products, internal tools, RAG systems, model routers, and procurement workflows.",
+      "_section": "Pricing",
+      "_markdown_url": "https://ai-future-ready.com/content/pricing/commercial-license.md",
+      "_content_hash": "8cd107f6c9926122fe096c71e78b11525c38473bfe33bb00e1ec4b4d6c1a7503",
+      "_sha256": "8cd107f6c9926122fe096c71e78b11525c38473bfe33bb00e1ec4b4d6c1a7503",
+      "_api_url": "https://ai-future-ready.com/api/v1/pricing/commercial-license.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/pricing/pro-data-sample",
+      "url": "https://ai-future-ready.com/pricing/pro-data-sample",
+      "title": "Pro Data Sample",
+      "summary": "A public sample showing the shape of the planned Pro Data package: model record, provider record, pricing snapshot, recommendation, change record, and source record.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "pricing",
+        "pro-data",
+        "sample",
+        "api",
+        "agents"
+      ],
+      "content_text": "A public sample showing the shape of the planned Pro Data package: model record, provider record, pricing snapshot, recommendation, change record, and source record.",
+      "_section": "Pricing",
+      "_markdown_url": "https://ai-future-ready.com/content/pricing/pro-data-sample.md",
+      "_content_hash": "510e01289e995839d76bb8c45b3e160ad1f4bf31f577cce2fde15277ecde90ae",
+      "_sha256": "510e01289e995839d76bb8c45b3e160ad1f4bf31f577cce2fde15277ecde90ae",
+      "_api_url": "https://ai-future-ready.com/api/v1/pricing/pro-data-sample.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/pricing/pro-data",
+      "url": "https://ai-future-ready.com/pricing/pro-data",
+      "title": "Pro Data",
+      "summary": "Draft product definition for the paid AI Future Ready Pro Data package: structured exports, pricing snapshots, source metadata, recommendations, changes, and commercial-ready fields.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "pricing",
+        "pro-data",
+        "api",
+        "commercial",
+        "agents"
+      ],
+      "content_text": "Draft product definition for the paid AI Future Ready Pro Data package: structured exports, pricing snapshots, source metadata, recommendations, changes, and commercial-ready fields.",
+      "_section": "Pricing",
+      "_markdown_url": "https://ai-future-ready.com/content/pricing/pro-data.md",
+      "_content_hash": "560332ea18140b258548b151ebedfc2e16825713025a7b70d3f673c33e7471f7",
+      "_sha256": "560332ea18140b258548b151ebedfc2e16825713025a7b70d3f673c33e7471f7",
+      "_api_url": "https://ai-future-ready.com/api/v1/pricing/pro-data.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/pricing/roadmap",
+      "url": "https://ai-future-ready.com/pricing/roadmap",
+      "title": "Public Roadmap",
+      "summary": "Roadmap for AI Future Ready as an agent-readable AI reference dataset, including trust, Pro Data, pricing snapshots, change tracking, and commercial readiness.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "roadmap",
+        "pricing",
+        "pro-data",
+        "agents",
+        "trust"
+      ],
+      "content_text": "Roadmap for AI Future Ready as an agent-readable AI reference dataset, including trust, Pro Data, pricing snapshots, change tracking, and commercial readiness.",
+      "_section": "Pricing",
+      "_markdown_url": "https://ai-future-ready.com/content/pricing/roadmap.md",
+      "_content_hash": "944f391e5ef36bcdeab57d580793932504e8b32b0b25ed7a479b31861bbdc12b",
+      "_sha256": "944f391e5ef36bcdeab57d580793932504e8b32b0b25ed7a479b31861bbdc12b",
+      "_api_url": "https://ai-future-ready.com/api/v1/pricing/roadmap.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/pricing/sponsor-policy",
+      "url": "https://ai-future-ready.com/pricing/sponsor-policy",
+      "title": "Sponsor Policy",
+      "summary": "Disclosure and ranking rules for sponsorships, paid placements, affiliate links, referral links, and commercial relationships on AI Future Ready.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "sponsorship",
+        "disclosure",
+        "pricing",
+        "trust",
+        "commercial"
+      ],
+      "content_text": "Disclosure and ranking rules for sponsorships, paid placements, affiliate links, referral links, and commercial relationships on AI Future Ready.",
+      "_section": "Pricing",
+      "_markdown_url": "https://ai-future-ready.com/content/pricing/sponsor-policy.md",
+      "_content_hash": "23d6586bf1ac5c5011b310d1e1c372f41e6ec99724f546496f6432554e77c6f7",
+      "_sha256": "23d6586bf1ac5c5011b310d1e1c372f41e6ec99724f546496f6432554e77c6f7",
+      "_api_url": "https://ai-future-ready.com/api/v1/pricing/sponsor-policy.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/about",
+      "url": "https://ai-future-ready.com/about",
+      "title": "About AI Future Ready",
+      "summary": "What AI Future Ready is, why it exists, how it serves humans and AI agents, and how to interpret its model, provider, pricing, and recommendation data.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "about"
+      ],
+      "content_text": "What AI Future Ready is, why it exists, how it serves humans and AI agents, and how to interpret its model, provider, pricing, and recommendation data.",
+      "_section": "About",
+      "_markdown_url": "https://ai-future-ready.com/content/about.md",
+      "_content_hash": "a710d2456600b4ae00d8e5d7b1996274ccfc6e7081720b9c207dbd23be89a77e",
+      "_sha256": "a710d2456600b4ae00d8e5d7b1996274ccfc6e7081720b9c207dbd23be89a77e"
+    },
+    {
+      "id": "https://ai-future-ready.com/contact",
+      "url": "https://ai-future-ready.com/contact",
+      "title": "Contact",
+      "summary": "Contact AI Future Ready to request Pro Data access, ask about a commercial data license, sponsorship, or prepare an Agent Readiness Audit request. No checkout or payment flow is configured.",
+      "date_published": "2026-04-24T00:00:00.000Z",
+      "date_modified": "2026-04-24T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "contact"
+      ],
+      "content_text": "Contact AI Future Ready to request Pro Data access, ask about a commercial data license, sponsorship, or prepare an Agent Readiness Audit request. No checkout or payment flow is configured.",
+      "_section": "Contact",
+      "_markdown_url": "https://ai-future-ready.com/content/contact.md",
+      "_content_hash": "021f419c6a4b07cadef7e0cb8fb9e4eefcfd13741658900067b0285afd3f00e1",
+      "_sha256": "021f419c6a4b07cadef7e0cb8fb9e4eefcfd13741658900067b0285afd3f00e1"
+    },
+    {
       "id": "https://ai-future-ready.com/agents/lindy",
       "url": "https://ai-future-ready.com/agents/lindy",
       "title": "Lindy",
@@ -23,7 +1024,9 @@
       "content_text": "Build, deploy, and manage AI agents without writing code. Designed for business task automation with a visual interface for creating agent workflows that integrate with popular business tools.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/lindy.md",
-      "_content_hash": "629a47f4923392263023ad5c99581edcc93725bf69422c5418da6c938edcc58f"
+      "_content_hash": "629a47f4923392263023ad5c99581edcc93725bf69422c5418da6c938edcc58f",
+      "_sha256": "629a47f4923392263023ad5c99581edcc93725bf69422c5418da6c938edcc58f",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/lindy.json"
     },
     {
       "id": "https://ai-future-ready.com/mcp",
@@ -43,30 +1046,8 @@
       "content_text": "How to connect AI Future Ready through the Model Context Protocol (MCP), including startup commands, available tools, and example workflows.",
       "_section": "MCP Access",
       "_markdown_url": "https://ai-future-ready.com/content/mcp.md",
-      "_content_hash": "e16ba87fc4529925b024f9c7b4be8f954c9411935ee73c217c026b03b05792e0"
-    },
-    {
-      "id": "https://ai-future-ready.com/standard",
-      "url": "https://ai-future-ready.com/standard",
-      "title": "The Agent-Ready Web Standard",
-      "summary": "Technical specification for agent-ready web architecture. Defines content formats, metadata schemas, access protocols, discovery mechanisms, and trust signals.",
-      "date_published": "2026-04-12T00:00:00.000Z",
-      "date_modified": "2026-04-12T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "standard",
-        "specification",
-        "agent-ready",
-        "architecture"
-      ],
-      "content_text": "Technical specification for agent-ready web architecture. Defines content formats, metadata schemas, access protocols, discovery mechanisms, and trust signals.",
-      "_section": "Standard",
-      "_markdown_url": "https://ai-future-ready.com/content/standard/_index.md",
-      "_content_hash": "65ad475447530742d075cfedcfb6cb57ab448dad3b9a6fc7f1028b397573dc7b"
+      "_content_hash": "e16ba87fc4529925b024f9c7b4be8f954c9411935ee73c217c026b03b05792e0",
+      "_sha256": "e16ba87fc4529925b024f9c7b4be8f954c9411935ee73c217c026b03b05792e0"
     },
     {
       "id": "https://ai-future-ready.com/checklist",
@@ -89,27 +1070,8 @@
       "content_text": "A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.",
       "_section": "Checklist",
       "_markdown_url": "https://ai-future-ready.com/content/checklist/_index.md",
-      "_content_hash": "0de44dc9204f2d985c2b4fb0226e1d0d076cfa3580714a4402e6344066d70a63"
-    },
-    {
-      "id": "https://ai-future-ready.com/models",
-      "url": "https://ai-future-ready.com/models",
-      "title": "AI Models",
-      "summary": "Comprehensive comparison of 33+ AI models — proprietary and open source — with benchmarks, pricing, and use-case recommendations.",
-      "date_published": "2026-04-10T00:00:00.000Z",
-      "date_modified": "2026-04-10T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "models"
-      ],
-      "content_text": "Comprehensive comparison of 33+ AI models — proprietary and open source — with benchmarks, pricing, and use-case recommendations.",
-      "_section": "Models",
-      "_markdown_url": "https://ai-future-ready.com/content/models/_index.md",
-      "_content_hash": "aa58e15d8a20a50e634b38c7df0515947692bacf517f57f8af0d9b6550bee5dd"
+      "_content_hash": "0de44dc9204f2d985c2b4fb0226e1d0d076cfa3580714a4402e6344066d70a63",
+      "_sha256": "0de44dc9204f2d985c2b4fb0226e1d0d076cfa3580714a4402e6344066d70a63"
     },
     {
       "id": "https://ai-future-ready.com/models/claude-haiku-4.5",
@@ -132,7 +1094,9 @@
       "content_text": "Anthropic's fastest and most cost-efficient model. Matches Claude Sonnet 4's performance on coding and agent tasks while being dramatically faster and cheaper.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/claude-haiku-4.5.md",
-      "_content_hash": "d3cca87c491bc7fd29b2c8a90ab87448891b116b24de29dee3b54580fc78885c"
+      "_content_hash": "d3cca87c491bc7fd29b2c8a90ab87448891b116b24de29dee3b54580fc78885c",
+      "_sha256": "d3cca87c491bc7fd29b2c8a90ab87448891b116b24de29dee3b54580fc78885c",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-haiku-4.5.json"
     },
     {
       "id": "https://ai-future-ready.com/models/claude-opus-4.6",
@@ -155,7 +1119,9 @@
       "content_text": "Anthropic's most capable model and the first Opus-class model with a 1M token context window. Leads on coding benchmarks with 80.8% SWE-bench. Internal codename \"Fennec.\"",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/claude-opus-4.6.md",
-      "_content_hash": "51a0a4c31212a32a86a8e6d0d5a3a7844bb7bcf4454e0237f9693476e284df48"
+      "_content_hash": "51a0a4c31212a32a86a8e6d0d5a3a7844bb7bcf4454e0237f9693476e284df48",
+      "_sha256": "51a0a4c31212a32a86a8e6d0d5a3a7844bb7bcf4454e0237f9693476e284df48",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-opus-4.6.json"
     },
     {
       "id": "https://ai-future-ready.com/models/claude-sonnet-4.6",
@@ -178,7 +1144,9 @@
       "content_text": "The first Sonnet model preferred over a previous Opus in coding evaluations. Excellent balance of speed, quality, and cost with a full 1M token context window.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/claude-sonnet-4.6.md",
-      "_content_hash": "6561095974ae8db00e5211cd16382bd27503cc9420dc9bb29e05f157c643ab14"
+      "_content_hash": "6561095974ae8db00e5211cd16382bd27503cc9420dc9bb29e05f157c643ab14",
+      "_sha256": "6561095974ae8db00e5211cd16382bd27503cc9420dc9bb29e05f157c643ab14",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-sonnet-4.6.json"
     },
     {
       "id": "https://ai-future-ready.com/models/cohere-tiny-aya",
@@ -200,7 +1168,9 @@
       "content_text": "Multilingual specialist supporting 70+ languages at only 3.35B parameters. Designed for laptop and edge deployment. CC-BY-NC license.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/cohere-tiny-aya.md",
-      "_content_hash": "087f1f51b6a22266b8f31fa4633500a13965ab77d919f8f314724e9fe2b177e3"
+      "_content_hash": "087f1f51b6a22266b8f31fa4633500a13965ab77d919f8f314724e9fe2b177e3",
+      "_sha256": "087f1f51b6a22266b8f31fa4633500a13965ab77d919f8f314724e9fe2b177e3",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/cohere-tiny-aya.json"
     },
     {
       "id": "https://ai-future-ready.com/models/command-r-plus",
@@ -222,7 +1192,9 @@
       "content_text": "Cohere's flagship model purpose-built for enterprise RAG (Retrieval-Augmented Generation). Excels at grounded generation with citations, multi-step tool use, and structured outputs. Strong bilingual English/French support.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/command-r-plus.md",
-      "_content_hash": "faa41ff7cbfc7b98daf2b8d3c80294e1042295580e41b2387502559ef2e258c1"
+      "_content_hash": "faa41ff7cbfc7b98daf2b8d3c80294e1042295580e41b2387502559ef2e258c1",
+      "_sha256": "faa41ff7cbfc7b98daf2b8d3c80294e1042295580e41b2387502559ef2e258c1",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/command-r-plus.json"
     },
     {
       "id": "https://ai-future-ready.com/models/deepseek-r1",
@@ -244,7 +1216,9 @@
       "content_text": "Powerful open-source reasoning model that exceeds OpenAI o1 on AIME and MATH benchmarks. Transparent chain-of-thought reasoning at extremely low cost. MIT license. Updated with R1-0528 in May 2025.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/deepseek-r1.md",
-      "_content_hash": "82337e0cad76f5697b684824360eb063620b86b838f2550c40857a2257cc90f2"
+      "_content_hash": "82337e0cad76f5697b684824360eb063620b86b838f2550c40857a2257cc90f2",
+      "_sha256": "82337e0cad76f5697b684824360eb063620b86b838f2550c40857a2257cc90f2",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/deepseek-r1.json"
     },
     {
       "id": "https://ai-future-ready.com/models/deepseek-v3.2",
@@ -266,7 +1240,9 @@
       "content_text": "On par with GPT-5.1 and Gemini 3.0 Pro on benchmarks. Uses sparse attention for efficiency. MIT license. Dramatically cheaper than Western alternatives.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/deepseek-v3.2.md",
-      "_content_hash": "0c21502ecf4fd597605f77df8b6087ee795fa28cd4042faeaf81191400a3f0b8"
+      "_content_hash": "0c21502ecf4fd597605f77df8b6087ee795fa28cd4042faeaf81191400a3f0b8",
+      "_sha256": "0c21502ecf4fd597605f77df8b6087ee795fa28cd4042faeaf81191400a3f0b8",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/deepseek-v3.2.json"
     },
     {
       "id": "https://ai-future-ready.com/models/falcon-3",
@@ -288,7 +1264,9 @@
       "content_text": "Runs on regular (non-gaming) laptops. Designed for accessibility and low-resource deployment. From UAE-based Technology Innovation Institute.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/falcon-3.md",
-      "_content_hash": "8e07fbaca612cc5122f0ba87d422f70dd56becb5b7b63789399f5cd63749b2f6"
+      "_content_hash": "8e07fbaca612cc5122f0ba87d422f70dd56becb5b7b63789399f5cd63749b2f6",
+      "_sha256": "8e07fbaca612cc5122f0ba87d422f70dd56becb5b7b63789399f5cd63749b2f6",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/falcon-3.json"
     },
     {
       "id": "https://ai-future-ready.com/models/gemini-3-flash",
@@ -313,7 +1291,9 @@
       "content_text": "Google's fast, cost-efficient model replacing Gemini 2.5 Flash. Designed for high-throughput applications with up to 1M token context at an extremely low price.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/gemini-3-flash.md",
-      "_content_hash": "fcac5c432f135a29ea7f4fe0a637295106eb4caffd1cf3c8753a1964900b7f12"
+      "_content_hash": "fcac5c432f135a29ea7f4fe0a637295106eb4caffd1cf3c8753a1964900b7f12",
+      "_sha256": "fcac5c432f135a29ea7f4fe0a637295106eb4caffd1cf3c8753a1964900b7f12",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/gemini-3-flash.json"
     },
     {
       "id": "https://ai-future-ready.com/models/gemini-3.1-pro",
@@ -338,7 +1318,9 @@
       "content_text": "Google's most capable model, building on the Gemini 3 series with improved reasoning, multimodal, and agentic capabilities. Native multimodal across text, images, video, and audio.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/gemini-3.1-pro.md",
-      "_content_hash": "95504fb958957b344c2ed8ffcf4e5545aafb3eb285acf694668ec13cd38b7bfe"
+      "_content_hash": "95504fb958957b344c2ed8ffcf4e5545aafb3eb285acf694668ec13cd38b7bfe",
+      "_sha256": "95504fb958957b344c2ed8ffcf4e5545aafb3eb285acf694668ec13cd38b7bfe",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/gemini-3.1-pro.json"
     },
     {
       "id": "https://ai-future-ready.com/models/gemma-3",
@@ -361,7 +1343,9 @@
       "content_text": "Google's open model family optimized for on-device and edge deployment. Multimodal from 4B parameters. Sizes from 1B to 27B.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/gemma-3.md",
-      "_content_hash": "9b8c41f767f8ab3f20fb6a19336914199798ee25d1904f377f75061cfd00fb3f"
+      "_content_hash": "9b8c41f767f8ab3f20fb6a19336914199798ee25d1904f377f75061cfd00fb3f",
+      "_sha256": "9b8c41f767f8ab3f20fb6a19336914199798ee25d1904f377f75061cfd00fb3f",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/gemma-3.json"
     },
     {
       "id": "https://ai-future-ready.com/models/gemma-4",
@@ -386,7 +1370,9 @@
       "content_text": "Google's most capable open model, built from the same research as Gemini 3. The 31B dense variant ranks #3 on Arena AI (1,452 Elo). First Gemma release under Apache 2.0. Four variants from edge (E2B) to workstation (31B). Natively multimodal with 140+ language support.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/gemma-4.md",
-      "_content_hash": "b9666dc638f0f664c0183da1974bdc48349c21c055d683e7b43ccb8652db7f83"
+      "_content_hash": "b9666dc638f0f664c0183da1974bdc48349c21c055d683e7b43ccb8652db7f83",
+      "_sha256": "b9666dc638f0f664c0183da1974bdc48349c21c055d683e7b43ccb8652db7f83",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/gemma-4.json"
     },
     {
       "id": "https://ai-future-ready.com/models/glm-5",
@@ -408,7 +1394,9 @@
       "content_text": "Large MoE model with strongest coding benchmark among open models (77.8% SWE-bench). 50.4% on Humanity's Last Exam. MIT license with no usage restrictions.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/glm-5.md",
-      "_content_hash": "a76745362d5dfd180eaf3a17bf8ca609a5de1b9e08f6c03d6f60d79b7c16184a"
+      "_content_hash": "a76745362d5dfd180eaf3a17bf8ca609a5de1b9e08f6c03d6f60d79b7c16184a",
+      "_sha256": "a76745362d5dfd180eaf3a17bf8ca609a5de1b9e08f6c03d6f60d79b7c16184a",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/glm-5.json"
     },
     {
       "id": "https://ai-future-ready.com/models/gpt-5.4-thinking",
@@ -432,7 +1420,9 @@
       "content_text": "Extended thinking mode of GPT-5.4 for the hardest problems. Uses chain-of-thought reasoning for math, science, and complex analysis. Successor to the o1/o3 reasoning line.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/gpt-5.4-thinking.md",
-      "_content_hash": "40bd1ae425c863f5a20a5c11e5419f0f4f6d6f915e22a707e194f6b018c1f2cf"
+      "_content_hash": "40bd1ae425c863f5a20a5c11e5419f0f4f6d6f915e22a707e194f6b018c1f2cf",
+      "_sha256": "40bd1ae425c863f5a20a5c11e5419f0f4f6d6f915e22a707e194f6b018c1f2cf",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/gpt-5.4-thinking.json"
     },
     {
       "id": "https://ai-future-ready.com/models/gpt-5.4",
@@ -456,7 +1446,9 @@
       "content_text": "OpenAI's flagship model combining frontier reasoning, coding, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with 45% fewer hallucinations than GPT-4o.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/gpt-5.4.md",
-      "_content_hash": "dae20b16e893dcd5b0f2baeb4f785195b83ba98a1b799126bceab3845e9d7d7e"
+      "_content_hash": "dae20b16e893dcd5b0f2baeb4f785195b83ba98a1b799126bceab3845e9d7d7e",
+      "_sha256": "dae20b16e893dcd5b0f2baeb4f785195b83ba98a1b799126bceab3845e9d7d7e",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/gpt-5.4.json"
     },
     {
       "id": "https://ai-future-ready.com/models/gpt-oss-120b",
@@ -478,7 +1470,9 @@
       "content_text": "OpenAI's first fully open-weight LLMs since GPT-2. Matches or surpasses o4-mini on core benchmarks. Can run on a single 80GB GPU. Optimized for vLLM, llama.cpp, and Ollama.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/gpt-oss-120b.md",
-      "_content_hash": "392ce26b17261a4f104b5aaff63173cd5bb4a68d71efe808331632dfbc3b7cc6"
+      "_content_hash": "392ce26b17261a4f104b5aaff63173cd5bb4a68d71efe808331632dfbc3b7cc6",
+      "_sha256": "392ce26b17261a4f104b5aaff63173cd5bb4a68d71efe808331632dfbc3b7cc6",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/gpt-oss-120b.json"
     },
     {
       "id": "https://ai-future-ready.com/models/grok-4.1",
@@ -501,7 +1495,9 @@
       "content_text": "xAI's flagship model with 65% fewer hallucinations than its predecessor (down to 4.22%). Available in both Thinking and Non-thinking configurations.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/grok-4.1.md",
-      "_content_hash": "efb07266f1333573c72d3df8eb5e5155bb143f0a9a1b14428f8264de48e9394c"
+      "_content_hash": "efb07266f1333573c72d3df8eb5e5155bb143f0a9a1b14428f8264de48e9394c",
+      "_sha256": "efb07266f1333573c72d3df8eb5e5155bb143f0a9a1b14428f8264de48e9394c",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/grok-4.1.json"
     },
     {
       "id": "https://ai-future-ready.com/models/grok-4.20",
@@ -524,7 +1520,9 @@
       "content_text": "xAI's latest flagship with the lowest hallucination rate of any model (78% Omniscience) and #1 instruction following (83% IFBench). Features a novel multi-agent architecture and 2M token context window. 248 tokens/second output speed.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/grok-4.20.md",
-      "_content_hash": "8ec7488ed7e26660d72a71da074ea8f705627f699f9945487d0830489501458e"
+      "_content_hash": "8ec7488ed7e26660d72a71da074ea8f705627f699f9945487d0830489501458e",
+      "_sha256": "8ec7488ed7e26660d72a71da074ea8f705627f699f9945487d0830489501458e",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/grok-4.20.json"
     },
     {
       "id": "https://ai-future-ready.com/models/hermes-4-405b",
@@ -546,7 +1544,9 @@
       "content_text": "Nous Research's flagship open-weight model with hybrid reasoning (toggle between standard and explicit chain-of-thought with think tags). Based on Llama 3.1, trained with rejection sampling via 1,000+ task verifiers. Known for minimal content restrictions and user-directed behavior.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/hermes-4-405b.md",
-      "_content_hash": "faba518cd7a696af5fb5455cefb68fe5c879d8df7eeb18cf4777d03b1088f819"
+      "_content_hash": "faba518cd7a696af5fb5455cefb68fe5c879d8df7eeb18cf4777d03b1088f819",
+      "_sha256": "faba518cd7a696af5fb5455cefb68fe5c879d8df7eeb18cf4777d03b1088f819",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/hermes-4-405b.json"
     },
     {
       "id": "https://ai-future-ready.com/models/kimi-k2.5",
@@ -568,7 +1568,9 @@
       "content_text": "Chinese AI model achieving 96% on AIME 2025, outperforming most proprietary models on math. Strong reasoning and mathematical capabilities.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/kimi-k2.5.md",
-      "_content_hash": "ab881ce9ca6e96be96c32c086c7b32453d9d521fa73913418d93fa7acd5e1520"
+      "_content_hash": "ab881ce9ca6e96be96c32c086c7b32453d9d521fa73913418d93fa7acd5e1520",
+      "_sha256": "ab881ce9ca6e96be96c32c086c7b32453d9d521fa73913418d93fa7acd5e1520",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/kimi-k2.5.json"
     },
     {
       "id": "https://ai-future-ready.com/models/llama-4-maverick",
@@ -591,7 +1593,9 @@
       "content_text": "Meta's flagship open-source MoE model with 400B total parameters (17B active). Scored #2 on LMArena leaderboard (ELO 1,417). Native multimodal capabilities.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/llama-4-maverick.md",
-      "_content_hash": "676662087b7879291e437f5765c1cb309db3bb0227f69c8e23f32f3e584a5ba1"
+      "_content_hash": "676662087b7879291e437f5765c1cb309db3bb0227f69c8e23f32f3e584a5ba1",
+      "_sha256": "676662087b7879291e437f5765c1cb309db3bb0227f69c8e23f32f3e584a5ba1",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/llama-4-maverick.json"
     },
     {
       "id": "https://ai-future-ready.com/models/llama-4-scout",
@@ -614,7 +1618,9 @@
       "content_text": "Meta's efficient open-source MoE model with 109B total parameters (17B active). Features the largest context window of any model at 10M tokens.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/llama-4-scout.md",
-      "_content_hash": "bd39ae1c5f0d58eac4f04ca023b65a63d4b1957f7f373f2f2c49d159eec1b42c"
+      "_content_hash": "bd39ae1c5f0d58eac4f04ca023b65a63d4b1957f7f373f2f2c49d159eec1b42c",
+      "_sha256": "bd39ae1c5f0d58eac4f04ca023b65a63d4b1957f7f373f2f2c49d159eec1b42c",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/llama-4-scout.json"
     },
     {
       "id": "https://ai-future-ready.com/models/minimax-m2.7",
@@ -636,7 +1642,9 @@
       "content_text": "Third iteration of MiniMax's M2 line with tighter factual accuracy and lower cost. Intelligence index of 49.62 places it near frontier models at a fraction of the price. Open weights.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/minimax-m2.7.md",
-      "_content_hash": "25266587c54fa84bcbbee4e33f0d7e84175ba9ddc84f54ed0c3dc102e8e9fdb7"
+      "_content_hash": "25266587c54fa84bcbbee4e33f0d7e84175ba9ddc84f54ed0c3dc102e8e9fdb7",
+      "_sha256": "25266587c54fa84bcbbee4e33f0d7e84175ba9ddc84f54ed0c3dc102e8e9fdb7",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/minimax-m2.7.json"
     },
     {
       "id": "https://ai-future-ready.com/models/mistral-3",
@@ -658,7 +1666,9 @@
       "content_text": "Mistral's flagship model suite with Apache 2.0 license. A European alternative focused on enterprise compliance, adopting a DeepSeek-style MoE architecture for efficiency.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/mistral-3.md",
-      "_content_hash": "ff6095b4ec1c7eb3786e0468c5e41035ecad16e788a1f82dae1a3aca488ec94b"
+      "_content_hash": "ff6095b4ec1c7eb3786e0468c5e41035ecad16e788a1f82dae1a3aca488ec94b",
+      "_sha256": "ff6095b4ec1c7eb3786e0468c5e41035ecad16e788a1f82dae1a3aca488ec94b",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/mistral-3.json"
     },
     {
       "id": "https://ai-future-ready.com/models/mistral-small-3",
@@ -680,7 +1690,9 @@
       "content_text": "Efficient 24B model that competes with models 2-3x its size. Apache 2.0 license. Strong for real-time applications.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/mistral-small-3.md",
-      "_content_hash": "403f149992bfa3f3b9099a284593215e35db4500620e3d2963b5fd1ea14ee462"
+      "_content_hash": "403f149992bfa3f3b9099a284593215e35db4500620e3d2963b5fd1ea14ee462",
+      "_sha256": "403f149992bfa3f3b9099a284593215e35db4500620e3d2963b5fd1ea14ee462",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/mistral-small-3.json"
     },
     {
       "id": "https://ai-future-ready.com/models/mistral-small-4",
@@ -703,7 +1715,9 @@
       "content_text": "Efficient MoE model with 119B total parameters but only 6.5B active — the knowledge capacity of a large model at the inference cost of a small one. Multimodal with hybrid reasoning. Apache 2.0 license.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/mistral-small-4.md",
-      "_content_hash": "3ec89fad7278bcd586405b60839c515f76204baab026f59598cb67ff34a8939f"
+      "_content_hash": "3ec89fad7278bcd586405b60839c515f76204baab026f59598cb67ff34a8939f",
+      "_sha256": "3ec89fad7278bcd586405b60839c515f76204baab026f59598cb67ff34a8939f",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/mistral-small-4.json"
     },
     {
       "id": "https://ai-future-ready.com/models/nemotron-3-super",
@@ -725,7 +1739,9 @@
       "content_text": "NVIDIA's open-weight MoE model with 120B total parameters and 12B active. Designed to fit on hardware most companies already own. Serves as the anchor for NVIDIA's agent toolkit strategy, optimized for TensorRT-LLM and NIM.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/nemotron-3-super.md",
-      "_content_hash": "3eda34659011749da47fc3f1d62569591d4bc5bfc540d53f717ecdfcdacc795b"
+      "_content_hash": "3eda34659011749da47fc3f1d62569591d4bc5bfc540d53f717ecdfcdacc795b",
+      "_sha256": "3eda34659011749da47fc3f1d62569591d4bc5bfc540d53f717ecdfcdacc795b",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/nemotron-3-super.json"
     },
     {
       "id": "https://ai-future-ready.com/models/nemotron-cascade-2",
@@ -747,7 +1763,9 @@
       "content_text": "NVIDIA's 30B MoE with only 3B active parameters that achieves gold-medal performance on IMO, IOI, and ICPC. Beats the larger Nemotron 3 Super 120B on coding and instruction following. Fits on a single RTX 4090 (24GB VRAM with Q4). Hybrid Mamba-2 + Transformer architecture enables a 1M token context window.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/nemotron-cascade-2.md",
-      "_content_hash": "e2169ac59e26102777a47d9984fd843bd6a7a7d460ac6de4c9cc8b3e67661f94"
+      "_content_hash": "e2169ac59e26102777a47d9984fd843bd6a7a7d460ac6de4c9cc8b3e67661f94",
+      "_sha256": "e2169ac59e26102777a47d9984fd843bd6a7a7d460ac6de4c9cc8b3e67661f94",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/nemotron-cascade-2.json"
     },
     {
       "id": "https://ai-future-ready.com/models/phi-4",
@@ -769,7 +1787,9 @@
       "content_text": "Microsoft's small-but-capable model using state-of-the-art training techniques and high-quality data. Punches well above its weight class despite small parameter count.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/phi-4.md",
-      "_content_hash": "61b985ed0b24781209146be778fbb08bdbbf287cf1bfe01c24d0cb7e81d8123c"
+      "_content_hash": "61b985ed0b24781209146be778fbb08bdbbf287cf1bfe01c24d0cb7e81d8123c",
+      "_sha256": "61b985ed0b24781209146be778fbb08bdbbf287cf1bfe01c24d0cb7e81d8123c",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/phi-4.json"
     },
     {
       "id": "https://ai-future-ready.com/models/qwen-3.5",
@@ -792,7 +1812,9 @@
       "content_text": "Alibaba's generational leap. Natively multimodal, 256K context, 201 languages. The flagship 397B-A17B MoE model activates only 17B parameters per token. Apache 2.0. Most downloaded model family on HuggingFace.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/qwen-3.5.md",
-      "_content_hash": "e6f1fe3693f685475bfb8c819995c27a29bee4321a03ed12249578b68fb6198f"
+      "_content_hash": "e6f1fe3693f685475bfb8c819995c27a29bee4321a03ed12249578b68fb6198f",
+      "_sha256": "e6f1fe3693f685475bfb8c819995c27a29bee4321a03ed12249578b68fb6198f",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/qwen-3.5.json"
     },
     {
       "id": "https://ai-future-ready.com/models/qwen-3",
@@ -814,7 +1836,9 @@
       "content_text": "Alibaba's flagship open model family. Overtook Llama as the most-downloaded model family on HuggingFace in late 2025. Hybrid reasoning with think/non-think modes. 119 languages supported.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/qwen-3.md",
-      "_content_hash": "101bb63231ffecd8f44c24f0e7373fcab02cf3fb0e7c30b74225e3f3e106509b"
+      "_content_hash": "101bb63231ffecd8f44c24f0e7373fcab02cf3fb0e7c30b74225e3f3e106509b",
+      "_sha256": "101bb63231ffecd8f44c24f0e7373fcab02cf3fb0e7c30b74225e3f3e106509b",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/qwen-3.json"
     },
     {
       "id": "https://ai-future-ready.com/models/smollm3-3b",
@@ -836,7 +1860,9 @@
       "content_text": "Fully open instruct and reasoning model with unprecedented transparency — Hugging Face published the complete engineering blueprint. Outperforms Llama-3.2-3B and Qwen2.5-3B at the 3B scale.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/smollm3-3b.md",
-      "_content_hash": "6872d71c66e72321804ed4e3d60798a018517d03fa5ddebb51679042be9a6b12"
+      "_content_hash": "6872d71c66e72321804ed4e3d60798a018517d03fa5ddebb51679042be9a6b12",
+      "_sha256": "6872d71c66e72321804ed4e3d60798a018517d03fa5ddebb51679042be9a6b12",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/smollm3-3b.json"
     },
     {
       "id": "https://ai-future-ready.com/models/yi-1.5-34b",
@@ -858,7 +1884,9 @@
       "content_text": "Strong bilingual (English/Chinese) model from 01.AI that competes with much larger models on benchmarks. Excellent reasoning and code generation at a deployable 34B size. Apache 2.0 license.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/yi-1.5-34b.md",
-      "_content_hash": "f36c16df029a54e4c586ea6a91a93956de84f9eefcacf6db13e6fed78881c3f8"
+      "_content_hash": "f36c16df029a54e4c586ea6a91a93956de84f9eefcacf6db13e6fed78881c3f8",
+      "_sha256": "f36c16df029a54e4c586ea6a91a93956de84f9eefcacf6db13e6fed78881c3f8",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/yi-1.5-34b.json"
     },
     {
       "id": "https://ai-future-ready.com/agents",
@@ -878,7 +1906,8 @@
       "content_text": "Directory of AI agent platforms — personal agents, developer frameworks, orchestration tools, coding agents, and no-code builders.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/_index.md",
-      "_content_hash": "86035f1cc9cd6399b87324cea36aef4ccabcef484acb0703417456a148c2deba"
+      "_content_hash": "86035f1cc9cd6399b87324cea36aef4ccabcef484acb0703417456a148c2deba",
+      "_sha256": "86035f1cc9cd6399b87324cea36aef4ccabcef484acb0703417456a148c2deba"
     },
     {
       "id": "https://ai-future-ready.com/agents/anthropic-agent-sdk",
@@ -900,7 +1929,9 @@
       "content_text": "Tool-use-first approach to building agents with Claude. Features extended thinking for complex reasoning, computer use capabilities, and the Model Context Protocol (MCP) for standardized tool discovery and integration.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/anthropic-agent-sdk.md",
-      "_content_hash": "3100c6569979cec361fd81749c5b5af96f3b82265b42d892592ffd84f9d1cf96"
+      "_content_hash": "3100c6569979cec361fd81749c5b5af96f3b82265b42d892592ffd84f9d1cf96",
+      "_sha256": "3100c6569979cec361fd81749c5b5af96f3b82265b42d892592ffd84f9d1cf96",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/anthropic-agent-sdk.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/autogen",
@@ -921,7 +1952,9 @@
       "content_text": "Microsoft's multi-agent framework where agents collaborate, share information, and perform tasks autonomously. Designed for flexible, scalable multi-agent conversations with support for human participation.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/autogen.md",
-      "_content_hash": "c8907fc4edc3aed8aed8a841faea96bdb6425ee315b5598a895fc6fa352944f7"
+      "_content_hash": "c8907fc4edc3aed8aed8a841faea96bdb6425ee315b5598a895fc6fa352944f7",
+      "_sha256": "c8907fc4edc3aed8aed8a841faea96bdb6425ee315b5598a895fc6fa352944f7",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/autogen.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/claude-code",
@@ -942,7 +1975,9 @@
       "content_text": "Anthropic's terminal-based coding agent, ranked #1 on SWE-bench with 80.8% resolution rate. Operates with 1M token context window, enabling full-codebase understanding. Included in Claude Pro and Max subscription plans.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/claude-code.md",
-      "_content_hash": "4bb96d6d4cebfc61e1b988ca04c193aba3ffbcd8265ebb3ad426ddb247f0a858"
+      "_content_hash": "4bb96d6d4cebfc61e1b988ca04c193aba3ffbcd8265ebb3ad426ddb247f0a858",
+      "_sha256": "4bb96d6d4cebfc61e1b988ca04c193aba3ffbcd8265ebb3ad426ddb247f0a858",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/claude-code.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/crewai",
@@ -963,7 +1998,9 @@
       "content_text": "Multi-agent collaboration framework where you define agent roles, connect tools, and monitor performance. Offers both visual and API-driven interfaces with built-in orchestration, observability, and scaling capabilities.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/crewai.md",
-      "_content_hash": "0f9484abe543676895cd09d7f491e4ab20085fd6be194d89aa72fa0021dbac85"
+      "_content_hash": "0f9484abe543676895cd09d7f491e4ab20085fd6be194d89aa72fa0021dbac85",
+      "_sha256": "0f9484abe543676895cd09d7f491e4ab20085fd6be194d89aa72fa0021dbac85",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/crewai.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/devin",
@@ -984,7 +2021,9 @@
       "content_text": "Cognition AI's autonomous software engineer that can plan projects end-to-end, write code, debug issues, and deploy applications. Operates in its own development environment with browser, terminal, and editor access.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/devin.md",
-      "_content_hash": "e9a78cdb198dfaefee79b5f4bcfaba6b96eb3a08ff14c7bc63d94d8c6b1b83c5"
+      "_content_hash": "e9a78cdb198dfaefee79b5f4bcfaba6b96eb3a08ff14c7bc63d94d8c6b1b83c5",
+      "_sha256": "e9a78cdb198dfaefee79b5f4bcfaba6b96eb3a08ff14c7bc63d94d8c6b1b83c5",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/devin.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/github-copilot-agent",
@@ -1005,7 +2044,9 @@
       "content_text": "Autonomous multi-step coding mode within VS Code and JetBrains IDEs. Plans and executes complex coding tasks including multi-file edits, terminal commands, and iterative debugging within your existing development environment.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/github-copilot-agent.md",
-      "_content_hash": "5a349fb971af465a1de7c2c427b1cd0858c70188f40d151bcf78b9643eaee0dd"
+      "_content_hash": "5a349fb971af465a1de7c2c427b1cd0858c70188f40d151bcf78b9643eaee0dd",
+      "_sha256": "5a349fb971af465a1de7c2c427b1cd0858c70188f40d151bcf78b9643eaee0dd",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/github-copilot-agent.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/google-adk",
@@ -1026,7 +2067,9 @@
       "content_text": "Google's Agent Development Kit for building AI agents. Integrates tightly with Gemini models and Google Cloud services, offering a streamlined path from prototype to production within the Google ecosystem.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/google-adk.md",
-      "_content_hash": "c789e7e2edcfd29594174e9f8cfde58c8eb1df0db25558862f359217aeb4af2a"
+      "_content_hash": "c789e7e2edcfd29594174e9f8cfde58c8eb1df0db25558862f359217aeb4af2a",
+      "_sha256": "c789e7e2edcfd29594174e9f8cfde58c8eb1df0db25558862f359217aeb4af2a",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/google-adk.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/hermes-agent",
@@ -1047,7 +2090,9 @@
       "content_text": "Nous Research's open-source autonomous agent with persistent multi-level memory and auto-skill generation. Supports 5 execution backends (Local, Docker, SSH, Singularity, Modal) and multi-channel communication across Telegram, Discord, Slack, WhatsApp, and Signal.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/hermes-agent.md",
-      "_content_hash": "7f47f7408f6606d919762f0625d5f0911a28300d82c6711cb52c1a06fb236bf4"
+      "_content_hash": "7f47f7408f6606d919762f0625d5f0911a28300d82c6711cb52c1a06fb236bf4",
+      "_sha256": "7f47f7408f6606d919762f0625d5f0911a28300d82c6711cb52c1a06fb236bf4",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/hermes-agent.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/langgraph",
@@ -1069,7 +2114,9 @@
       "content_text": "Graph-based multi-agent orchestration framework by the LangChain team. Enables stateful workflows with cycles, persistence, and human-in-the-loop patterns. The most searched agent framework with 27,100 monthly searches.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/langgraph.md",
-      "_content_hash": "a5c5d8a5e017c090176b66952ed6b4c0423c915c569f4b788fe1e3056343d708"
+      "_content_hash": "a5c5d8a5e017c090176b66952ed6b4c0423c915c569f4b788fe1e3056343d708",
+      "_sha256": "a5c5d8a5e017c090176b66952ed6b4c0423c915c569f4b788fe1e3056343d708",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/langgraph.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/mastra",
@@ -1090,7 +2137,9 @@
       "content_text": "TypeScript-first agent framework built by the team behind Gatsby. Features built-in model routing, RAG pipelines, memory management, and MCP integration, designed for developers who prefer the TypeScript ecosystem.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/mastra.md",
-      "_content_hash": "8133223160a23939c3baaa3c97ffec3a6a83e25637fd21b4ff25a4f7631e00e2"
+      "_content_hash": "8133223160a23939c3baaa3c97ffec3a6a83e25637fd21b4ff25a4f7631e00e2",
+      "_sha256": "8133223160a23939c3baaa3c97ffec3a6a83e25637fd21b4ff25a4f7631e00e2",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/mastra.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/n8n",
@@ -1111,7 +2160,9 @@
       "content_text": "Open-source workflow automation platform with AI agent capabilities. Features LangChain integration, vector database support, and a visual workflow builder. Available as self-hosted or cloud deployment.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/n8n.md",
-      "_content_hash": "7afcec1d08a7637e796af800889b7872f3cc3997e85434a49135cb695339a939"
+      "_content_hash": "7afcec1d08a7637e796af800889b7872f3cc3997e85434a49135cb695339a939",
+      "_sha256": "7afcec1d08a7637e796af800889b7872f3cc3997e85434a49135cb695339a939",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/n8n.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/openai-agents-sdk",
@@ -1132,7 +2183,9 @@
       "content_text": "Production-grade agent toolkit from OpenAI, replacing the earlier Swarm project. Core abstractions include handoffs between agents with full conversation context, built-in guardrails, and tracing for debugging and monitoring.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/openai-agents-sdk.md",
-      "_content_hash": "ec35b3274ed5c6f776c71012d0a0a364010bb89ccee5a52ae3de75054998dcf1"
+      "_content_hash": "ec35b3274ed5c6f776c71012d0a0a364010bb89ccee5a52ae3de75054998dcf1",
+      "_sha256": "ec35b3274ed5c6f776c71012d0a0a364010bb89ccee5a52ae3de75054998dcf1",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/openai-agents-sdk.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/openclaw",
@@ -1153,7 +2206,9 @@
       "content_text": "Free, open-source personal AI agent and the fastest-growing OSS project in history. Multi-channel messaging across WhatsApp, Telegram, Slack, Discord, and more. Features a skills marketplace with 4,000+ community skills, local-first privacy, voice support, and multi-agent routing.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/openclaw.md",
-      "_content_hash": "c19e36a6e682fd1600c04c8286d41d8a62635e058b33c37e061ac124aa5d0b11"
+      "_content_hash": "c19e36a6e682fd1600c04c8286d41d8a62635e058b33c37e061ac124aa5d0b11",
+      "_sha256": "c19e36a6e682fd1600c04c8286d41d8a62635e058b33c37e061ac124aa5d0b11",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/openclaw.json"
     },
     {
       "id": "https://ai-future-ready.com/agents/paperclip",
@@ -1175,7 +2230,9 @@
       "content_text": "Open-source orchestration platform for \"zero-human companies.\" Agents are organized as a company hierarchy (CEO, Engineers, QA) with budget enforcement, persistent state, governance with rollback, multi-company isolation, and a full audit trail. Gained 30K stars in just 3 weeks.",
       "_section": "Agent Platforms",
       "_markdown_url": "https://ai-future-ready.com/content/agents/paperclip.md",
-      "_content_hash": "06892981898b7b9978e5902d45ae7fe47d54d2242f7bf38c5924f3964a538eb2"
+      "_content_hash": "06892981898b7b9978e5902d45ae7fe47d54d2242f7bf38c5924f3964a538eb2",
+      "_sha256": "06892981898b7b9978e5902d45ae7fe47d54d2242f7bf38c5924f3964a538eb2",
+      "_api_url": "https://ai-future-ready.com/api/v1/agents/paperclip.json"
     },
     {
       "id": "https://ai-future-ready.com/comparisons",
@@ -1195,7 +2252,8 @@
       "content_text": "Head-to-head comparisons of popular AI models. Structured analysis for agents and humans making model selection decisions.",
       "_section": "Comparisons",
       "_markdown_url": "https://ai-future-ready.com/content/comparisons/_index.md",
-      "_content_hash": "8fa9e7a88e4e0350e10638a8c340444feced1655ffef3d8a2923c06f9d085244"
+      "_content_hash": "8fa9e7a88e4e0350e10638a8c340444feced1655ffef3d8a2923c06f9d085244",
+      "_sha256": "8fa9e7a88e4e0350e10638a8c340444feced1655ffef3d8a2923c06f9d085244"
     },
     {
       "id": "https://ai-future-ready.com/comparisons/best-coding-models",
@@ -1219,7 +2277,9 @@
       "content_text": "Ranked list of the best AI models for software engineering. SWE-bench scores, coding benchmarks, pricing, and tool recommendations for each model.",
       "_section": "Comparisons",
       "_markdown_url": "https://ai-future-ready.com/content/comparisons/best-coding-models.md",
-      "_content_hash": "46ad981ca9b9559e7e8bf111c0ee2df95aa157dfae0802017f679b86c059bf01"
+      "_content_hash": "46ad981ca9b9559e7e8bf111c0ee2df95aa157dfae0802017f679b86c059bf01",
+      "_sha256": "46ad981ca9b9559e7e8bf111c0ee2df95aa157dfae0802017f679b86c059bf01",
+      "_api_url": "https://ai-future-ready.com/api/v1/comparisons/best-coding-models.json"
     },
     {
       "id": "https://ai-future-ready.com/comparisons/cheapest-models",
@@ -1243,7 +2303,9 @@
       "content_text": "Cost-effectiveness rankings for AI models. Pricing tables, quality-per-dollar analysis, and recommendations from free to frontier. Updated April 2026.",
       "_section": "Comparisons",
       "_markdown_url": "https://ai-future-ready.com/content/comparisons/cheapest-models.md",
-      "_content_hash": "7442523c8673868525c3049532729c9e11dc4110b8068cd7845b4c80dbffd2a9"
+      "_content_hash": "7442523c8673868525c3049532729c9e11dc4110b8068cd7845b4c80dbffd2a9",
+      "_sha256": "7442523c8673868525c3049532729c9e11dc4110b8068cd7845b4c80dbffd2a9",
+      "_api_url": "https://ai-future-ready.com/api/v1/comparisons/cheapest-models.json"
     },
     {
       "id": "https://ai-future-ready.com/comparisons/claude-vs-gemini",
@@ -1267,7 +2329,9 @@
       "content_text": "Head-to-head comparison of Claude Opus 4.6 and Gemini 3.1 Pro — premium intelligence versus best value in frontier AI. Benchmarks, pricing, multimodal, and ecosystem analysis.",
       "_section": "Comparisons",
       "_markdown_url": "https://ai-future-ready.com/content/comparisons/claude-vs-gemini.md",
-      "_content_hash": "1ee66069b5f85c5dd978e6048d27e2267965edaa6823a5c1bc3896ee442f126a"
+      "_content_hash": "1ee66069b5f85c5dd978e6048d27e2267965edaa6823a5c1bc3896ee442f126a",
+      "_sha256": "1ee66069b5f85c5dd978e6048d27e2267965edaa6823a5c1bc3896ee442f126a",
+      "_api_url": "https://ai-future-ready.com/api/v1/comparisons/claude-vs-gemini.json"
     },
     {
       "id": "https://ai-future-ready.com/comparisons/claude-vs-gpt",
@@ -1291,7 +2355,9 @@
       "content_text": "Head-to-head comparison of Claude Opus 4.6 and GPT-5.4 — the two most capable proprietary AI models as of April 2026. Benchmarks, pricing, coding, writing, and ecosystem analysis.",
       "_section": "Comparisons",
       "_markdown_url": "https://ai-future-ready.com/content/comparisons/claude-vs-gpt.md",
-      "_content_hash": "6911287bd1c48e7df73ad35aa527346599480bcbe4472e9750dd9c632703e78c"
+      "_content_hash": "6911287bd1c48e7df73ad35aa527346599480bcbe4472e9750dd9c632703e78c",
+      "_sha256": "6911287bd1c48e7df73ad35aa527346599480bcbe4472e9750dd9c632703e78c",
+      "_api_url": "https://ai-future-ready.com/api/v1/comparisons/claude-vs-gpt.json"
     },
     {
       "id": "https://ai-future-ready.com/comparisons/gpt-vs-gemini",
@@ -1315,7 +2381,9 @@
       "content_text": "Head-to-head comparison of GPT-5.4 and Gemini 3.1 Pro — the two most widely used frontier AI models. Ecosystem, pricing, multimodal, and benchmark analysis.",
       "_section": "Comparisons",
       "_markdown_url": "https://ai-future-ready.com/content/comparisons/gpt-vs-gemini.md",
-      "_content_hash": "1ff14d1a8b74087ae205d5e2ed5c68f01cafe52bb58e03f701269740e24345ca"
+      "_content_hash": "1ff14d1a8b74087ae205d5e2ed5c68f01cafe52bb58e03f701269740e24345ca",
+      "_sha256": "1ff14d1a8b74087ae205d5e2ed5c68f01cafe52bb58e03f701269740e24345ca",
+      "_api_url": "https://ai-future-ready.com/api/v1/comparisons/gpt-vs-gemini.json"
     },
     {
       "id": "https://ai-future-ready.com/comparisons/open-source-vs-proprietary",
@@ -1339,27 +2407,9 @@
       "content_text": "When to use open-source models versus proprietary APIs. Cost analysis, privacy, customization, performance gaps, hardware requirements, and best picks by use case.",
       "_section": "Comparisons",
       "_markdown_url": "https://ai-future-ready.com/content/comparisons/open-source-vs-proprietary.md",
-      "_content_hash": "f2095a60e51e87b710a01f0d56cbba1071328a10253e7d2340dc054250a4feef"
-    },
-    {
-      "id": "https://ai-future-ready.com/guides",
-      "url": "https://ai-future-ready.com/guides",
-      "title": "Guides",
-      "summary": "Practical guides to understanding and using AI — from complete beginner to advanced prompt engineer.",
-      "date_published": "2026-04-10T00:00:00.000Z",
-      "date_modified": "2026-04-10T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "guides"
-      ],
-      "content_text": "Practical guides to understanding and using AI — from complete beginner to advanced prompt engineer.",
-      "_section": "Guides",
-      "_markdown_url": "https://ai-future-ready.com/content/guides/_index.md",
-      "_content_hash": "b48a14602ea0cc833eab37f99d724178e0b40c43ceac72114c0b092d05435ec0"
+      "_content_hash": "f2095a60e51e87b710a01f0d56cbba1071328a10253e7d2340dc054250a4feef",
+      "_sha256": "f2095a60e51e87b710a01f0d56cbba1071328a10253e7d2340dc054250a4feef",
+      "_api_url": "https://ai-future-ready.com/api/v1/comparisons/open-source-vs-proprietary.json"
     },
     {
       "id": "https://ai-future-ready.com/guides/getting-started",
@@ -1381,7 +2431,9 @@
       "content_text": "Learn what artificial intelligence really is, how AI models work, the difference between AI and machine learning, and how to start using AI tools like ChatGPT, Claude, and Gemini today.",
       "_section": "Guides",
       "_markdown_url": "https://ai-future-ready.com/content/guides/getting-started.md",
-      "_content_hash": "3fa7eda139fe879a82b6e52aaa7eca6ae02398171613fe5b9cd2ec561c28f9a1"
+      "_content_hash": "3fa7eda139fe879a82b6e52aaa7eca6ae02398171613fe5b9cd2ec561c28f9a1",
+      "_sha256": "3fa7eda139fe879a82b6e52aaa7eca6ae02398171613fe5b9cd2ec561c28f9a1",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/getting-started.json"
     },
     {
       "id": "https://ai-future-ready.com/guides/prompting",
@@ -1403,7 +2455,9 @@
       "content_text": "Master prompt engineering from beginner to advanced. Learn zero-shot, few-shot, chain-of-thought, and other techniques to get better results from ChatGPT, Claude, and Gemini.",
       "_section": "Guides",
       "_markdown_url": "https://ai-future-ready.com/content/guides/prompting.md",
-      "_content_hash": "02d1076a6bda05c2a68105ef860799364edcbad14e56aae3feec74800a503395"
+      "_content_hash": "02d1076a6bda05c2a68105ef860799364edcbad14e56aae3feec74800a503395",
+      "_sha256": "02d1076a6bda05c2a68105ef860799364edcbad14e56aae3feec74800a503395",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/prompting.json"
     },
     {
       "id": "https://ai-future-ready.com/use-cases",
@@ -1423,7 +2477,8 @@
       "content_text": "Practical guides for using AI across writing, coding, business, education, research, and image generation.",
       "_section": "Use Cases",
       "_markdown_url": "https://ai-future-ready.com/content/use-cases/_index.md",
-      "_content_hash": "0b186d27a45d9ba2ec425dfa0b26e9e673d2cfa56af0ae20ab9cb30938bbb06d"
+      "_content_hash": "0b186d27a45d9ba2ec425dfa0b26e9e673d2cfa56af0ae20ab9cb30938bbb06d",
+      "_sha256": "0b186d27a45d9ba2ec425dfa0b26e9e673d2cfa56af0ae20ab9cb30938bbb06d"
     },
     {
       "id": "https://ai-future-ready.com/use-cases/business",
@@ -1450,7 +2505,9 @@
       "content_text": "Learn how to use AI for email management, meeting notes, data analysis, customer service, marketing, and project management. Practical tips and tool recommendations for business professionals.",
       "_section": "Use Cases",
       "_markdown_url": "https://ai-future-ready.com/content/use-cases/business.md",
-      "_content_hash": "12774e0ada838d791d65e578d783457209eec5a61ebab5d9f60594a4e5f5e3fd"
+      "_content_hash": "12774e0ada838d791d65e578d783457209eec5a61ebab5d9f60594a4e5f5e3fd",
+      "_sha256": "12774e0ada838d791d65e578d783457209eec5a61ebab5d9f60594a4e5f5e3fd",
+      "_api_url": "https://ai-future-ready.com/api/v1/use-cases/business.json"
     },
     {
       "id": "https://ai-future-ready.com/use-cases/coding",
@@ -1475,7 +2532,9 @@
       "content_text": "Learn how to use AI for code generation, debugging, code review, documentation, and learning to code. Includes best tools like GitHub Copilot, Claude Code, Cursor, and more.",
       "_section": "Use Cases",
       "_markdown_url": "https://ai-future-ready.com/content/use-cases/coding.md",
-      "_content_hash": "bbf408792fc151d938818a3e86844d5e4b745ef7cc4dfd5d66d685cf8df9b075"
+      "_content_hash": "bbf408792fc151d938818a3e86844d5e4b745ef7cc4dfd5d66d685cf8df9b075",
+      "_sha256": "bbf408792fc151d938818a3e86844d5e4b745ef7cc4dfd5d66d685cf8df9b075",
+      "_api_url": "https://ai-future-ready.com/api/v1/use-cases/coding.json"
     },
     {
       "id": "https://ai-future-ready.com/use-cases/education",
@@ -1500,7 +2559,9 @@
       "content_text": "Discover how to use AI for tutoring, study aids, language learning, and creating educational content. Practical tips for students, teachers, and lifelong learners.",
       "_section": "Use Cases",
       "_markdown_url": "https://ai-future-ready.com/content/use-cases/education.md",
-      "_content_hash": "6390e44fd311062a1c7cb6b3610a70f4da0aed31eba3cb73c6bec1301723cea6"
+      "_content_hash": "6390e44fd311062a1c7cb6b3610a70f4da0aed31eba3cb73c6bec1301723cea6",
+      "_sha256": "6390e44fd311062a1c7cb6b3610a70f4da0aed31eba3cb73c6bec1301723cea6",
+      "_api_url": "https://ai-future-ready.com/api/v1/use-cases/education.json"
     },
     {
       "id": "https://ai-future-ready.com/use-cases/images",
@@ -1526,7 +2587,9 @@
       "content_text": "Learn how to use AI image generators like DALL-E, Midjourney, Stable Diffusion, and Adobe Firefly. Includes prompt-writing tips and use cases for marketing, social media, and product design.",
       "_section": "Use Cases",
       "_markdown_url": "https://ai-future-ready.com/content/use-cases/images.md",
-      "_content_hash": "167c81072175c7c27b1b6031d2c447a9c6e71ea9f6e1be90306ed3225923526d"
+      "_content_hash": "167c81072175c7c27b1b6031d2c447a9c6e71ea9f6e1be90306ed3225923526d",
+      "_sha256": "167c81072175c7c27b1b6031d2c447a9c6e71ea9f6e1be90306ed3225923526d",
+      "_api_url": "https://ai-future-ready.com/api/v1/use-cases/images.json"
     },
     {
       "id": "https://ai-future-ready.com/use-cases/research",
@@ -1551,7 +2614,9 @@
       "content_text": "Learn how to use AI for literature review, data analysis, summarization, and fact-checking. Discover the best AI tools and techniques for academic and professional research.",
       "_section": "Use Cases",
       "_markdown_url": "https://ai-future-ready.com/content/use-cases/research.md",
-      "_content_hash": "ab5dd6c87417a59729e75c83082d031d6e716c1a05eef0c53e2c5eda1242e704"
+      "_content_hash": "ab5dd6c87417a59729e75c83082d031d6e716c1a05eef0c53e2c5eda1242e704",
+      "_sha256": "ab5dd6c87417a59729e75c83082d031d6e716c1a05eef0c53e2c5eda1242e704",
+      "_api_url": "https://ai-future-ready.com/api/v1/use-cases/research.json"
     },
     {
       "id": "https://ai-future-ready.com/use-cases/writing",
@@ -1577,7 +2642,9 @@
       "content_text": "Learn how to use AI for writing blog posts, copywriting, editing, social media, email drafting, and creative writing. Includes best tools, tips, and example prompts.",
       "_section": "Use Cases",
       "_markdown_url": "https://ai-future-ready.com/content/use-cases/writing.md",
-      "_content_hash": "0c7b4f5a286c5b2dcdbcaa2612e1ff4b618fd5b1378403cd8cecb8db61b5ed4b"
+      "_content_hash": "0c7b4f5a286c5b2dcdbcaa2612e1ff4b618fd5b1378403cd8cecb8db61b5ed4b",
+      "_sha256": "0c7b4f5a286c5b2dcdbcaa2612e1ff4b618fd5b1378403cd8cecb8db61b5ed4b",
+      "_api_url": "https://ai-future-ready.com/api/v1/use-cases/writing.json"
     },
     {
       "id": "https://ai-future-ready.com/prompt-patterns",
@@ -1597,7 +2664,8 @@
       "content_text": "Model-specific prompting patterns and techniques. What works best with each AI model family — structured for agents that generate prompts.",
       "_section": "Prompt Patterns",
       "_markdown_url": "https://ai-future-ready.com/content/prompt-patterns/_index.md",
-      "_content_hash": "8be808ae57cf0954481c3c05c0355efbe60cc93e55f51bb8547a2efcd91b1ae6"
+      "_content_hash": "8be808ae57cf0954481c3c05c0355efbe60cc93e55f51bb8547a2efcd91b1ae6",
+      "_sha256": "8be808ae57cf0954481c3c05c0355efbe60cc93e55f51bb8547a2efcd91b1ae6"
     },
     {
       "id": "https://ai-future-ready.com/prompt-patterns/anthropic",
@@ -1622,7 +2690,9 @@
       "content_text": "What works specifically with Claude Opus 4.6, Sonnet 4.6, and Haiku 4.5 — XML tags, long context, constraint following, extended thinking, and tiered instructions.",
       "_section": "Prompt Patterns",
       "_markdown_url": "https://ai-future-ready.com/content/prompt-patterns/anthropic.md",
-      "_content_hash": "99e32f1a153918999c7aba0dedc3f9b0721c0bc479c1f791d3c033a7e7609e9c"
+      "_content_hash": "99e32f1a153918999c7aba0dedc3f9b0721c0bc479c1f791d3c033a7e7609e9c",
+      "_sha256": "99e32f1a153918999c7aba0dedc3f9b0721c0bc479c1f791d3c033a7e7609e9c",
+      "_api_url": "https://ai-future-ready.com/api/v1/prompt-patterns/anthropic.json"
     },
     {
       "id": "https://ai-future-ready.com/prompt-patterns/google",
@@ -1645,7 +2715,9 @@
       "content_text": "What works specifically with Gemini 3.1 Pro and Gemini 3 Flash — multimodal prompts, web grounding, Google Workspace integration, multilingual output, and code execution.",
       "_section": "Prompt Patterns",
       "_markdown_url": "https://ai-future-ready.com/content/prompt-patterns/google.md",
-      "_content_hash": "4cce2b459bab781b25d71ba8ea6b18a8922aa8f5aae1802690cdb2e3d750ad1a"
+      "_content_hash": "4cce2b459bab781b25d71ba8ea6b18a8922aa8f5aae1802690cdb2e3d750ad1a",
+      "_sha256": "4cce2b459bab781b25d71ba8ea6b18a8922aa8f5aae1802690cdb2e3d750ad1a",
+      "_api_url": "https://ai-future-ready.com/api/v1/prompt-patterns/google.json"
     },
     {
       "id": "https://ai-future-ready.com/prompt-patterns/open-source",
@@ -1671,7 +2743,9 @@
       "content_text": "What works with self-hosted and API-accessed open models — Llama 4, DeepSeek R1, Qwen 3/3.5, Hermes 4, and others. Covers system prompt formats, quantization-aware prompting, reasoning toggles, and temperature tuning.",
       "_section": "Prompt Patterns",
       "_markdown_url": "https://ai-future-ready.com/content/prompt-patterns/open-source.md",
-      "_content_hash": "30d8b547b330c525c6f26d83cd1a0c77089e58e3abf604eaeaca94186564e987"
+      "_content_hash": "30d8b547b330c525c6f26d83cd1a0c77089e58e3abf604eaeaca94186564e987",
+      "_sha256": "30d8b547b330c525c6f26d83cd1a0c77089e58e3abf604eaeaca94186564e987",
+      "_api_url": "https://ai-future-ready.com/api/v1/prompt-patterns/open-source.json"
     },
     {
       "id": "https://ai-future-ready.com/prompt-patterns/openai",
@@ -1694,7 +2768,9 @@
       "content_text": "What works specifically with GPT-5.4 and ChatGPT — system prompts, structured output, verbosity control, Thinking mode, and multi-turn strategies.",
       "_section": "Prompt Patterns",
       "_markdown_url": "https://ai-future-ready.com/content/prompt-patterns/openai.md",
-      "_content_hash": "17190ab3b5d49d779fc7701f8cd87972b18072ff37a59f6c7ff5c0d7528a1e5a"
+      "_content_hash": "17190ab3b5d49d779fc7701f8cd87972b18072ff37a59f6c7ff5c0d7528a1e5a",
+      "_sha256": "17190ab3b5d49d779fc7701f8cd87972b18072ff37a59f6c7ff5c0d7528a1e5a",
+      "_api_url": "https://ai-future-ready.com/api/v1/prompt-patterns/openai.json"
     },
     {
       "id": "https://ai-future-ready.com/prompt-patterns/xai",
@@ -1717,7 +2793,9 @@
       "content_text": "What works specifically with Grok 4.1 and Grok 4.20 — factual accuracy, instruction following, real-time X/Twitter data, and multi-agent mode.",
       "_section": "Prompt Patterns",
       "_markdown_url": "https://ai-future-ready.com/content/prompt-patterns/xai.md",
-      "_content_hash": "a157fdb96de98522245f64516a98e4ac232d51f2e7d962d900234ffc56f1befa"
+      "_content_hash": "a157fdb96de98522245f64516a98e4ac232d51f2e7d962d900234ffc56f1befa",
+      "_sha256": "a157fdb96de98522245f64516a98e4ac232d51f2e7d962d900234ffc56f1befa",
+      "_api_url": "https://ai-future-ready.com/api/v1/prompt-patterns/xai.json"
     },
     {
       "id": "https://ai-future-ready.com/blog",
@@ -1737,7 +2815,8 @@
       "content_text": "Analysis, comparisons, and news about AI models, agents, and the evolving AI landscape.",
       "_section": "Blog",
       "_markdown_url": "https://ai-future-ready.com/content/blog/_index.md",
-      "_content_hash": "54fcf904c9dff135a3a35fac6b686b905124cc79478f7df6096cf23070f310cb"
+      "_content_hash": "54fcf904c9dff135a3a35fac6b686b905124cc79478f7df6096cf23070f310cb",
+      "_sha256": "54fcf904c9dff135a3a35fac6b686b905124cc79478f7df6096cf23070f310cb"
     },
     {
       "id": "https://ai-future-ready.com/blog/april-2026-the-month-ai-labs-got-scared",
@@ -1762,7 +2841,9 @@
       "content_text": "Anthropic built the most powerful AI model ever and refused to release it. Meta abandoned open source. OpenAI proposed robot taxes. April 2026 is when the AI industry stopped pretending everything is fine.",
       "_section": "Blog",
       "_markdown_url": "https://ai-future-ready.com/content/blog/april-2026-the-month-ai-labs-got-scared.md",
-      "_content_hash": "40af63253267661d8197d6a67919dea9e1fa4bedd1a0ee8270a30fad4ab28601"
+      "_content_hash": "40af63253267661d8197d6a67919dea9e1fa4bedd1a0ee8270a30fad4ab28601",
+      "_sha256": "40af63253267661d8197d6a67919dea9e1fa4bedd1a0ee8270a30fad4ab28601",
+      "_api_url": "https://ai-future-ready.com/api/v1/blog/april-2026-the-month-ai-labs-got-scared.json"
     },
     {
       "id": "https://ai-future-ready.com/glossary",
@@ -1782,7 +2863,8 @@
       "content_text": "Plain-English definitions of 80+ AI and machine learning terms. From AGI to Zero-Shot Learning.",
       "_section": "Glossary",
       "_markdown_url": "https://ai-future-ready.com/content/glossary/_index.md",
-      "_content_hash": "7dfe4d5d2e95cd552c3f18bf8914cff0d12a11908b2ddc650476d146b7549224"
+      "_content_hash": "7dfe4d5d2e95cd552c3f18bf8914cff0d12a11908b2ddc650476d146b7549224",
+      "_sha256": "7dfe4d5d2e95cd552c3f18bf8914cff0d12a11908b2ddc650476d146b7549224"
     },
     {
       "id": "https://ai-future-ready.com/timeline",
@@ -1802,27 +2884,8 @@
       "content_text": "Chronological history of artificial intelligence from 1950 to 2026 — key research breakthroughs, product launches, milestones, and policy events.",
       "_section": "Timeline",
       "_markdown_url": "https://ai-future-ready.com/content/timeline/_index.md",
-      "_content_hash": "3ee39d2fffb4d4beac683a5c7fc89b88fc1412e55c23e5684478a1edffd11df3"
-    },
-    {
-      "id": "https://ai-future-ready.com/pricing",
-      "url": "https://ai-future-ready.com/pricing",
-      "title": "AI Model Pricing",
-      "summary": "Up-to-date pricing comparison for AI model APIs — input/output token costs, free tiers, and subscription plans.",
-      "date_published": "2026-04-10T00:00:00.000Z",
-      "date_modified": "2026-04-10T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "pricing"
-      ],
-      "content_text": "Up-to-date pricing comparison for AI model APIs — input/output token costs, free tiers, and subscription plans.",
-      "_section": "Pricing",
-      "_markdown_url": "https://ai-future-ready.com/content/pricing/_index.md",
-      "_content_hash": "eb7940dad34c9e489883d3499c686160beadf2013e8fff1361b2e0f784053e24"
+      "_content_hash": "3ee39d2fffb4d4beac683a5c7fc89b88fc1412e55c23e5684478a1edffd11df3",
+      "_sha256": "3ee39d2fffb4d4beac683a5c7fc89b88fc1412e55c23e5684478a1edffd11df3"
     },
     {
       "id": "https://ai-future-ready.com/changelog",
@@ -1842,7 +2905,8 @@
       "content_text": "Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs.",
       "_section": "Changelog",
       "_markdown_url": "https://ai-future-ready.com/content/changelog.md",
-      "_content_hash": "48954b732942c4d2ad8f15d0ab009c3aafb300e9c4fab586ac7310017b7943b0"
+      "_content_hash": "48954b732942c4d2ad8f15d0ab009c3aafb300e9c4fab586ac7310017b7943b0",
+      "_sha256": "48954b732942c4d2ad8f15d0ab009c3aafb300e9c4fab586ac7310017b7943b0"
     },
     {
       "id": "https://ai-future-ready.com/compatibility",
@@ -1862,7 +2926,8 @@
       "content_text": "Which AI models work with which agent frameworks, coding tools, and platforms. Structured for agent consumption.",
       "_section": "Compatibility Matrix",
       "_markdown_url": "https://ai-future-ready.com/content/compatibility.md",
-      "_content_hash": "b9060fef16f4633019a1fd9b48de6ab2b57af772456669999c39457e0e1d16f0"
+      "_content_hash": "b9060fef16f4633019a1fd9b48de6ab2b57af772456669999c39457e0e1d16f0",
+      "_sha256": "b9060fef16f4633019a1fd9b48de6ab2b57af772456669999c39457e0e1d16f0"
     },
     {
       "id": "https://ai-future-ready.com/blog/ai-agent-revolution-2026",
@@ -1884,7 +2949,9 @@
       "content_text": "How AI agents evolved from simple chatbots to autonomous systems in 2025-2026, the key players driving adoption, and what comes next for multi-agent orchestration.",
       "_section": "Blog",
       "_markdown_url": "https://ai-future-ready.com/content/blog/ai-agent-revolution-2026.md",
-      "_content_hash": "bf6738b495a1659a3a4d3e80c8dd5057b78c433bfe9785e0f58f191ea0736ca0"
+      "_content_hash": "bf6738b495a1659a3a4d3e80c8dd5057b78c433bfe9785e0f58f191ea0736ca0",
+      "_sha256": "bf6738b495a1659a3a4d3e80c8dd5057b78c433bfe9785e0f58f191ea0736ca0",
+      "_api_url": "https://ai-future-ready.com/api/v1/blog/ai-agent-revolution-2026.json"
     },
     {
       "id": "https://ai-future-ready.com/blog/gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro",
@@ -1906,7 +2973,9 @@
       "content_text": "A head-to-head comparison of the three leading proprietary AI models in 2026. We break down benchmarks, pricing, context windows, and real-world performance to help you choose.",
       "_section": "Blog",
       "_markdown_url": "https://ai-future-ready.com/content/blog/gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro.md",
-      "_content_hash": "769ab53f2a67e7803dfb43e78e9de548cfc56ae73f4dd0453fa3bdc85fbe72b2"
+      "_content_hash": "769ab53f2a67e7803dfb43e78e9de548cfc56ae73f4dd0453fa3bdc85fbe72b2",
+      "_sha256": "769ab53f2a67e7803dfb43e78e9de548cfc56ae73f4dd0453fa3bdc85fbe72b2",
+      "_api_url": "https://ai-future-ready.com/api/v1/blog/gpt-5-4-vs-claude-opus-4-6-vs-gemini-3-1-pro.json"
     },
     {
       "id": "https://ai-future-ready.com/blog/openai-shuts-down-sora-what-happened",
@@ -1928,7 +2997,9 @@
       "content_text": "OpenAI officially discontinued Sora in March 2026 after persistent quality issues and fierce competition. We look at what went wrong and where AI video generation is headed.",
       "_section": "Blog",
       "_markdown_url": "https://ai-future-ready.com/content/blog/openai-shuts-down-sora-what-happened.md",
-      "_content_hash": "53d3b6663fd85d575d17c094ece536b7c88e799bb2371ad9338654f6b162a7d8"
+      "_content_hash": "53d3b6663fd85d575d17c094ece536b7c88e799bb2371ad9338654f6b162a7d8",
+      "_sha256": "53d3b6663fd85d575d17c094ece536b7c88e799bb2371ad9338654f6b162a7d8",
+      "_api_url": "https://ai-future-ready.com/api/v1/blog/openai-shuts-down-sora-what-happened.json"
     },
     {
       "id": "https://ai-future-ready.com/blog/rise-of-open-source-ai-deepseek-qwen-minimax",
@@ -1950,7 +3021,9 @@
       "content_text": "Open-source AI models are closing the gap with proprietary giants. We analyze how DeepSeek, Qwen, and MiniMax are reshaping the AI landscape and what it means for developers.",
       "_section": "Blog",
       "_markdown_url": "https://ai-future-ready.com/content/blog/rise-of-open-source-ai-deepseek-qwen-minimax.md",
-      "_content_hash": "d912523aeef763d99bf578b1e6f91a0a5d1987eedf332b30a02e3c20c7a5236d"
+      "_content_hash": "d912523aeef763d99bf578b1e6f91a0a5d1987eedf332b30a02e3c20c7a5236d",
+      "_sha256": "d912523aeef763d99bf578b1e6f91a0a5d1987eedf332b30a02e3c20c7a5236d",
+      "_api_url": "https://ai-future-ready.com/api/v1/blog/rise-of-open-source-ai-deepseek-qwen-minimax.json"
     }
   ]
 }

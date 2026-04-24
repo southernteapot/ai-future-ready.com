@@ -87,6 +87,112 @@ async function main() {
     assert(feedXml.ok, "feed.xml did not return 200");
     assert(feedXmlText.includes("<rss"), "feed.xml is not valid RSS output");
 
+    const aiManifest = await fetch(`${BASE_URL}/.well-known/ai.json`);
+    const aiManifestBody = (await aiManifest.json()) as {
+      content_schema?: string;
+      changes?: string;
+    };
+    assert(aiManifest.ok, ".well-known/ai.json did not return 200");
+    assert(
+      aiManifestBody.content_schema === "/api/v1/schema.json",
+      ".well-known/ai.json is missing schema discovery"
+    );
+    assert(
+      aiManifestBody.changes === "/api/v1/changes.json",
+      ".well-known/ai.json is missing changes discovery"
+    );
+
+    const schema = await fetch(`${BASE_URL}/api/v1/schema.json`);
+    const schemaBody = (await schema.json()) as {
+      content_types?: Record<string, unknown>;
+    };
+    assert(schema.ok, "schema endpoint did not return 200");
+    assert(
+      Boolean(schemaBody.content_types?.models),
+      "schema endpoint is missing model schema"
+    );
+
+    const itemJson = await fetch(`${BASE_URL}/api/v1/models/claude-opus-4.6.json`);
+    const itemJsonBody = (await itemJson.json()) as {
+      sha256?: string;
+      relationships?: unknown;
+      content_text?: string;
+    };
+    assert(itemJson.ok, "Per-item model JSON did not return 200");
+    assert(
+      typeof itemJsonBody.sha256 === "string" && itemJsonBody.sha256.length === 64,
+      "Per-item model JSON is missing sha256"
+    );
+    assert(Boolean(itemJsonBody.relationships), "Per-item model JSON is missing relationships");
+    assert(
+      itemJsonBody.content_text?.includes("# Claude Opus 4.6"),
+      "Per-item model JSON is missing markdown body text"
+    );
+
+    const recommendCoding = await fetch(`${BASE_URL}/api/v1/recommend/coding.json`);
+    const recommendCodingBody = (await recommendCoding.json()) as { items?: unknown[] };
+    assert(recommendCoding.ok, "Task recommendation endpoint did not return 200");
+    assert(
+      Array.isArray(recommendCodingBody.items) && recommendCodingBody.items.length > 0,
+      "Task recommendation endpoint has no items"
+    );
+
+    const pricingSnapshots = await fetch(`${BASE_URL}/api/v1/pricing-snapshots.json`);
+    const pricingSnapshotsBody = (await pricingSnapshots.json()) as { items?: unknown[] };
+    assert(pricingSnapshots.ok, "Pricing snapshots endpoint did not return 200");
+    assert(
+      Array.isArray(pricingSnapshotsBody.items) && pricingSnapshotsBody.items.length > 0,
+      "Pricing snapshots endpoint has no items"
+    );
+
+    const modelVerification = await fetch(`${BASE_URL}/api/v1/model-verification.json`);
+    const modelVerificationBody = (await modelVerification.json()) as {
+      items?: unknown[];
+      needs_model_verification?: number;
+    };
+    assert(modelVerification.ok, "Model verification endpoint did not return 200");
+    assert(
+      Array.isArray(modelVerificationBody.items) && modelVerificationBody.items.length > 0,
+      "Model verification endpoint has no items"
+    );
+    assert(
+      typeof modelVerificationBody.needs_model_verification === "number",
+      "Model verification endpoint is missing verification counts"
+    );
+
+    const proDataSample = await fetch(`${BASE_URL}/api/v1/samples/pro-data.json`);
+    const proDataSampleBody = (await proDataSample.json()) as {
+      model?: unknown;
+      pricing_snapshot?: unknown;
+      checkout_configured?: boolean;
+    };
+    assert(proDataSample.ok, "Pro Data sample endpoint did not return 200");
+    assert(Boolean(proDataSampleBody.model), "Pro Data sample is missing a model record");
+    assert(
+      Boolean(proDataSampleBody.pricing_snapshot),
+      "Pro Data sample is missing a pricing snapshot"
+    );
+    assert(
+      proDataSampleBody.checkout_configured === false,
+      "Pro Data sample should not configure checkout"
+    );
+
+    const changes = await fetch(`${BASE_URL}/api/v1/changes.json?since=2026-04-01&type=model`);
+    const changesBody = (await changes.json()) as {
+      query?: { since?: string; type?: string };
+      items?: Array<{ type?: string; changed_at?: string }>;
+    };
+    assert(changes.ok, "Changes endpoint did not return 200");
+    assert(changesBody.query?.since === "2026-04-01", "Changes endpoint ignored since query");
+    assert(changesBody.query?.type === "model", "Changes endpoint ignored type query");
+    assert(
+      Array.isArray(changesBody.items) &&
+        changesBody.items.every(
+          (item) => item.type === "model" && String(item.changed_at).slice(0, 10) >= "2026-04-01"
+        ),
+      "Changes endpoint returned items outside the requested filters"
+    );
+
     const contentRedirect = await fetch(`${BASE_URL}/content`, { redirect: "manual" });
     assert(
       contentRedirect.status >= 300 && contentRedirect.status < 400,
