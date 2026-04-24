@@ -4,8 +4,8 @@ type: contact
 id: "contact"
 description: "Contact AI Future Ready to request Pro Data access, ask about a commercial data license, sponsorship, or prepare an Agent Readiness Audit request. No checkout or payment flow is configured."
 last_updated: "2026-04-24"
-contact_status: "email"
-contact_email: "hello@ai-future-ready.com"
+contact_status: "coming_soon"
+contact_channel: "coming soon"
 payment_status: "not_configured"
 ---
 
@@ -15,7 +15,7 @@ Use this page as the request checklist for Pro Data, commercial licensing, spons
 
 No checkout, payment collection, or account system is configured yet.
 
-Email: [hello@ai-future-ready.com](mailto:hello@ai-future-ready.com)
+Contact channel: coming soon.
 
 ## Request Pro Data
 
@@ -58,4 +58,4 @@ Sponsorship cannot silently affect recommendation scores.
 
 ## Contact Channel
 
-Use [hello@ai-future-ready.com](mailto:hello@ai-future-ready.com). Before launch, confirm this mailbox exists and can receive external mail.
+A public contact channel is coming soon. Before launch, set up a role inbox on the site domain instead of using a personal mailbox.
