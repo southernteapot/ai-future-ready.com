@@ -17,3 +17,10 @@ Project/system: Public JSON API discovery.
 Decision: Emit OpenAPI 3.1 at `/openapi.json` and `/api/v1/openapi.json` from `scripts/generate-llms-txt.ts`.
 Reason: The API shape is generated from content artifacts, so a manually maintained OpenAPI file would drift.
 Consequences: `/.well-known/ai.json`, `/api/v1/index.json`, API reference docs, sitemap, and smoke tests now include OpenAPI discovery.
+
+## 2026-05-01 - Model filtering is a dynamic API route backed by generated data
+
+Project/system: Public model selection API.
+Decision: Implement model filtering at `/api/v1/models-filter.json` as a Next.js route handler that imports generated `src/lib/models-data.json`.
+Reason: Agents need queryable model routing without downloading and filtering the full model index, while keeping route runtime compatible with generated build artifacts.
+Consequences: The generator must keep `src/lib/models-data.json`, OpenAPI, discovery manifests, and docs in sync with the model summary shape.

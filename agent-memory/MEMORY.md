@@ -17,6 +17,7 @@ The site is being hardened as machine-readable AI infrastructure: structured mar
 - Content validation is in `scripts/validate-content.ts`.
 - Public API artifacts live under `public/api/v1/`; raw copied markdown lives under `public/content/`.
 - OpenAPI is generated at both `public/openapi.json` and `public/api/v1/openapi.json`.
+- Model filter runtime data is generated at `src/lib/models-data.json` and served by `/api/v1/models-filter.json`.
 - Build pipeline runs `validate:content` and the generator through `prebuild`.
 - Main validation commands used successfully: `npm run validate:content`, `npm run build`, `npm run lint`, `npm run test:smoke`.
 

@@ -483,6 +483,7 @@ function summarizeEntry(entry: Entry) {
     content_hash: entry.contentHash,
     sha256: entry.contentHash,
     ...(entry.meta.provider && { provider: entry.meta.provider }),
+    ...(entry.meta.model_type && { model_type: entry.meta.model_type }),
     ...(entry.meta.api_model_id && { api_model_id: entry.meta.api_model_id }),
     ...(entry.meta.knowledge_cutoff && { knowledge_cutoff: entry.meta.knowledge_cutoff }),
     ...(entry.meta.capabilities && { capabilities: entry.meta.capabilities }),
@@ -498,6 +499,9 @@ function summarizeEntry(entry: Entry) {
     ...(entry.meta.benchmark_sources && { benchmark_sources: entry.meta.benchmark_sources }),
     ...(entry.meta.pricing && { pricing: entry.meta.pricing }),
     ...(entry.meta.benchmarks && { benchmarks: entry.meta.benchmarks }),
+    ...(entry.meta.context_window && { context_window: entry.meta.context_window }),
+    ...(entry.meta.modality && { modality: entry.meta.modality }),
+    ...(entry.meta.license && { license: entry.meta.license }),
     ...(entry.meta.tags && { tags: entry.meta.tags }),
     ...(entry.meta.website && { website: entry.meta.website }),
     ...(entry.meta.date && { date: entry.meta.date }),
@@ -684,6 +688,7 @@ function buildOpenApiSpec() {
       content_hash: { type: "string", minLength: 64, maxLength: 64 },
       sha256: { type: "string", minLength: 64, maxLength: 64 },
       provider: { type: "string" },
+      model_type: { type: "string" },
       api_model_id: { type: "string" },
       knowledge_cutoff: { type: "string" },
       capabilities: { type: "array", items: { type: "string" } },
@@ -699,6 +704,9 @@ function buildOpenApiSpec() {
       benchmark_sources: { type: "array", items: refSchema("Source") },
       pricing: { type: "object", additionalProperties: true },
       benchmarks: { type: "object", additionalProperties: { type: "number" } },
+      context_window: { type: "string" },
+      modality: { type: "array", items: { type: "string" } },
+      license: { type: "string" },
       tags: { type: "array", items: { type: "string" } },
       website: { type: "string" },
       date: { type: "string" },
@@ -755,6 +763,101 @@ function buildOpenApiSpec() {
           summary: "Get observed content-frontmatter schema coverage",
           responses: {
             "200": jsonResponse(refSchema("ContentSchema")),
+          },
+        },
+      },
+      "/api/v1/models-filter.json": {
+        get: {
+          operationId: "filterModels",
+          summary: "Filter model summaries by routing-relevant fields",
+          parameters: [
+            {
+              name: "capability",
+              in: "query",
+              required: false,
+              schema: {
+                type: "array",
+                items: { type: "string" },
+              },
+              style: "form",
+              explode: true,
+              description:
+                "Require every requested capability. Accepts repeated parameters or comma-separated values.",
+            },
+            {
+              name: "provider",
+              in: "query",
+              required: false,
+              schema: { type: "array", items: { type: "string" } },
+              style: "form",
+              explode: true,
+              description: "Match any provider, case-insensitive.",
+            },
+            {
+              name: "availability_status",
+              in: "query",
+              required: false,
+              schema: { type: "array", items: { type: "string" } },
+              style: "form",
+              explode: true,
+              description: "Match any model availability status.",
+            },
+            {
+              name: "deprecated",
+              in: "query",
+              required: false,
+              schema: { type: "boolean" },
+              description: "When true, return only deprecated models. When false, exclude them.",
+            },
+            {
+              name: "model_type",
+              in: "query",
+              required: false,
+              schema: { type: "array", items: { type: "string" } },
+              style: "form",
+              explode: true,
+              description: "Match any model type, such as proprietary or open-source.",
+            },
+            {
+              name: "tool_schema_format",
+              in: "query",
+              required: false,
+              schema: { type: "array", items: { type: "string" } },
+              style: "form",
+              explode: true,
+              description: "Match any tool schema format.",
+            },
+            {
+              name: "context_min",
+              in: "query",
+              required: false,
+              schema: { type: "integer", minimum: 0 },
+              description: "Minimum context window in tokens.",
+            },
+            {
+              name: "max_input_price",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+              description: "Maximum input price in USD per 1M tokens.",
+            },
+            {
+              name: "max_output_price",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+              description: "Maximum output price in USD per 1M tokens.",
+            },
+            {
+              name: "free",
+              in: "query",
+              required: false,
+              schema: { type: "boolean" },
+              description: "When true, return only free/open-weight records. When false, exclude them.",
+            },
+          ],
+          responses: {
+            "200": jsonResponse(refSchema("ModelFilterResponse")),
           },
         },
       },
@@ -1012,6 +1115,37 @@ function buildOpenApiSpec() {
             required_fields: { type: "array", items: { type: "string" } },
             recommended_fields: { type: "array", items: { type: "string" } },
             content_types: { type: "object", additionalProperties: true },
+          },
+          additionalProperties: true,
+        },
+        ModelFilterQuery: {
+          type: "object",
+          properties: {
+            capability: { type: "array", items: { type: "string" } },
+            provider: { type: "array", items: { type: "string" } },
+            availability_status: { type: "array", items: { type: "string" } },
+            deprecated: { type: ["boolean", "null"] },
+            model_type: { type: "array", items: { type: "string" } },
+            tool_schema_format: { type: "array", items: { type: "string" } },
+            context_min: { type: ["integer", "null"], minimum: 0 },
+            max_input_price: { type: ["number", "null"], minimum: 0 },
+            max_output_price: { type: ["number", "null"], minimum: 0 },
+            free: { type: ["boolean", "null"] },
+          },
+          additionalProperties: false,
+        },
+        ModelFilterResponse: {
+          type: "object",
+          required: ["type", "generated_at", "source", "total", "count", "query", "items"],
+          properties: {
+            type: { type: "string", const: "models-filter" },
+            generated_at: { type: "string", format: "date" },
+            source: { type: "string" },
+            total: { type: "integer", minimum: 0 },
+            count: { type: "integer", minimum: 0 },
+            query: refSchema("ModelFilterQuery"),
+            available_filters: { type: "array", items: { type: "string" } },
+            items: { type: "array", items: refSchema("ContentSummary") },
           },
           additionalProperties: true,
         },
@@ -1288,6 +1422,7 @@ fs.writeFileSync(
     api_base: "/api/v1/",
     openapi: "/openapi.json",
     openapi_v1: "/api/v1/openapi.json",
+    model_filter: "/api/v1/models-filter.json",
     content_schema: "/api/v1/schema.json",
     raw_content: "/content/",
     search: "/search-index.json",
@@ -1325,6 +1460,7 @@ fs.writeFileSync(
       relationship_metadata: true,
       changed_since_queries: true,
       task_recommendations: true,
+      model_filtering: true,
       presentation_modes: ["agent", "human"],
     },
   }),
@@ -1345,6 +1481,7 @@ fs.writeFileSync(
       llms_full: "/llms-full.txt",
       openapi: "/openapi.json",
       openapi_v1: "/api/v1/openapi.json",
+      model_filter: "/api/v1/models-filter.json",
       schema: "/api/v1/schema.json",
       search_index: "/search-index.json",
       changes: "/api/v1/changes.json",
@@ -1373,6 +1510,7 @@ fs.writeFileSync(
       type_index: "/api/v1/{type}.json",
       item: "/api/v1/{type}/{slug}.json",
       recommendations: "/api/v1/recommend/{task}.json",
+      model_filter: "/api/v1/models-filter.json?capability=vision&availability_status=available",
       changes_since: "/api/v1/changes.json?since=YYYY-MM-DD",
     },
     content_types: typeIndex,
@@ -1408,6 +1546,23 @@ for (const t of contentTypes) {
     "utf-8"
   );
 }
+
+const modelFilterData = {
+  type: "models",
+  generated_at: GENERATED_DATE,
+  count: publicEntriesForType("models").length,
+  schema_url: "/api/v1/schema.json",
+  item_api_pattern: "/api/v1/models/{slug}.json",
+  items: publicEntriesForType("models")
+    .sort((a, b) => a.title.localeCompare(b.title))
+    .map(summarizeEntry),
+};
+
+fs.writeFileSync(
+  path.join(process.cwd(), "src", "lib", "models-data.json"),
+  JSON.stringify(modelFilterData),
+  "utf-8"
+);
 
 // Recommend JSON — pre-scored for each task
 const recommendationTasks = RECOMMENDATION_TASKS;
@@ -1902,6 +2057,7 @@ sitemapEntries.push(`  <url><loc>${baseUrl}/openapi.json</loc><changefreq>weekly
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/index.json</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/openapi.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/schema.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
+sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/models-filter.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/changes.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/recommend.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/pricing-snapshots.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>`);

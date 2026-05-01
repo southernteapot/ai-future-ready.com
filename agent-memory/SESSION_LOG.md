@@ -17,3 +17,10 @@ Do not paste raw terminal logs here.
   - `7ea930e Add structured model metadata`
   - `38f1abf Add OpenAPI spec for public API`
 - Validation passed: `npm run build`, `npm run lint`, `npm run test:smoke`.
+
+## 2026-05-01 - Model filter endpoint
+
+- Added `/api/v1/models-filter.json` for queryable model filtering by capability, provider, availability status, deprecated flag, model type, tool schema format, context minimum, input/output price ceiling, and free/open-weight status.
+- Added generated `src/lib/models-data.json` so the dynamic route can use the generated model summaries without reading from `public/` at runtime.
+- Updated OpenAPI, `/.well-known/ai.json`, `/api/v1/index.json`, API reference docs, sitemap, and smoke tests for the filter endpoint.
+- Validation passed: `npm run build`, `npm run lint`, `npm run test:smoke`.

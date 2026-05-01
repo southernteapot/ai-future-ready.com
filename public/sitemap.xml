@@ -9,6 +9,7 @@
   <url><loc>https://ai-future-ready.com/api/v1/index.json</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/openapi.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/schema.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models-filter.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/changes.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/recommend.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/pricing-snapshots.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>

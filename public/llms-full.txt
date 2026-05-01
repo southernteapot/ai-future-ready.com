@@ -878,6 +878,7 @@ Base URL: `/api/v1/`
 | [`/api/v1/openapi.json`](/api/v1/openapi.json) | OpenAPI 3.1 contract for API clients and agent tool generation |
 | [`/api/v1/schema.json`](/api/v1/schema.json) | Observed fields, value types, coverage, examples, and generated fields |
 | [`/api/v1/models.json`](/api/v1/models.json) | All models with pricing, benchmarks, context windows, and metadata |
+| [`/api/v1/models-filter.json?capability=vision&availability_status=available`](/api/v1/models-filter.json?capability=vision&availability_status=available) | Queryable model filter for agent routing |
 | [`/api/v1/models/claude-opus-4.6.json`](/api/v1/models/claude-opus-4.6.json) | Per-item JSON with metadata, body text, relationships, and hashes |
 | [`/api/v1/providers.json`](/api/v1/providers.json) | Provider profiles and ecosystem guidance |
 | [`/api/v1/agents.json`](/api/v1/agents.json) | All agent platforms with categories, licensing, and languages |
@@ -905,6 +906,14 @@ Recommendation slices use this pattern:
 ```
 
 Supported recommendation tasks include `coding`, `writing`, `math`, `reasoning`, `multilingual`, `speed`, `research`, `cheap`, `local`, `agentic`, `images`, and `education`.
+
+Model filtering supports repeated parameters or comma-separated values:
+
+```
+/api/v1/models-filter.json?capability=vision&capability=function_calling&availability_status=available&context_min=1000000&max_input_price=3
+```
+
+Supported filters: `capability`, `provider`, `availability_status`, `deprecated`, `model_type`, `tool_schema_format`, `context_min`, `max_input_price`, `max_output_price`, and `free`.
 
 ## MCP Access
 

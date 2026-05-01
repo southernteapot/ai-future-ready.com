@@ -4,9 +4,8 @@ Track current project tasks here.
 
 ## Current
 
-- Add query filtering to `/api/v1/models` or a generated equivalent endpoint for common agent queries: `capability`, `provider`, `availability_status`, `deprecated`, `model_type`, `context_min`, and pricing ceilings.
 - Add structured compare/diff support for model-to-model questions after filtering is in place.
-- Decide whether `agent-memory/` should be tracked in git for this repo.
+- Consider a generated or dynamic cost calculator endpoint for `{input_tokens, output_tokens}` across models.
 
 ## Later
 

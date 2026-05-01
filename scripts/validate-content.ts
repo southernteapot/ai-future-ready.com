@@ -20,6 +20,7 @@ const STATIC_ROUTES = [
   "/api/v1/index.json",
   "/api/v1/openapi.json",
   "/api/v1/schema.json",
+  "/api/v1/models-filter.json",
   "/api/v1/changes.json",
   "/api/v1/model-verification.json",
   "/api/v1/pricing-snapshots.json",
@@ -328,6 +329,7 @@ function buildValidRoutes(): Set<string> {
   routes.add("/api/v1/index.json");
   routes.add("/api/v1/openapi.json");
   routes.add("/api/v1/schema.json");
+  routes.add("/api/v1/models-filter.json");
   routes.add("/api/v1/changes.json");
   routes.add("/api/v1/recommend.json");
   for (const task of RECOMMENDATION_TASKS) {

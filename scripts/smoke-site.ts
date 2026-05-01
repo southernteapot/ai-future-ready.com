@@ -122,6 +122,10 @@ async function main() {
       Boolean(openApiBody.paths?.["/api/v1/changes.json"]),
       "OpenAPI endpoint is missing changes path"
     );
+    assert(
+      Boolean(openApiBody.paths?.["/api/v1/models-filter.json"]),
+      "OpenAPI endpoint is missing model filter path"
+    );
 
     const schema = await fetch(`${BASE_URL}/api/v1/schema.json`);
     const schemaBody = (await schema.json()) as {
@@ -164,6 +168,38 @@ async function main() {
     assert(
       Array.isArray(pricingSnapshotsBody.items) && pricingSnapshotsBody.items.length > 0,
       "Pricing snapshots endpoint has no items"
+    );
+
+    const modelFilter = await fetch(
+      `${BASE_URL}/api/v1/models-filter.json?provider=OpenAI&capability=vision&availability_status=available&context_min=1000000&max_input_price=3`
+    );
+    const modelFilterBody = (await modelFilter.json()) as {
+      query?: { capability?: string[]; context_min?: number | null };
+      items?: Array<{
+        capabilities?: string[];
+        availability_status?: string;
+        context_window?: string;
+        pricing?: { input_per_1m?: number };
+      }>;
+    };
+    assert(modelFilter.ok, "Model filter endpoint did not return 200");
+    assert(
+      modelFilterBody.query?.capability?.includes("vision") &&
+        modelFilterBody.query?.context_min === 1000000,
+      "Model filter endpoint did not echo parsed query"
+    );
+    assert(
+      Array.isArray(modelFilterBody.items) &&
+        modelFilterBody.items.length > 0 &&
+        modelFilterBody.items.every(
+          (item) =>
+            item.capabilities?.includes("vision") &&
+            item.availability_status === "available" &&
+            typeof item.context_window === "string" &&
+            typeof item.pricing?.input_per_1m === "number" &&
+            item.pricing.input_per_1m <= 3
+        ),
+      "Model filter endpoint returned items outside the requested filters"
     );
 
     const modelVerification = await fetch(`${BASE_URL}/api/v1/model-verification.json`);

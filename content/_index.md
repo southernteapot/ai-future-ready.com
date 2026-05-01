@@ -11,6 +11,7 @@ agent_protocols:
   json_api: "/api/v1/index.json"
   openapi: "/openapi.json"
   schema: "/api/v1/schema.json"
+  model_filter: "/api/v1/models-filter.json"
   changes: "/api/v1/changes.json"
   search_index: "/search-index.json"
   raw_content: "/content/_index.md"
@@ -54,6 +55,7 @@ If you are an AI agent, start here:
 - **JSON API:** [/api/v1/index.json](/api/v1/index.json) — structured data for all content types
 - **OpenAPI:** [/openapi.json](/openapi.json) — OpenAPI 3.1 contract for the public JSON API
 - **Schema:** [/api/v1/schema.json](/api/v1/schema.json) — field types, required fields, examples, and generated fields
+- **Model filtering:** [/api/v1/models-filter.json](/api/v1/models-filter.json) — queryable model routing filters
 - **Raw markdown:** `/content/[type]/[slug].md` — any page as markdown with YAML frontmatter
 - **Search:** [search-index.json](/search-index.json) — structured index with titles, descriptions, tags
 - **Changes:** [/api/v1/changes.json](/api/v1/changes.json) — queryable changes with `?since=YYYY-MM-DD`
