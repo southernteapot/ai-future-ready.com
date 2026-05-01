@@ -1,6 +1,6 @@
 # AI Future Ready — Full Content
 > All content from ai-future-ready.com in a single file.
-> Generated: 2026-04-30
+> Generated: 2026-05-01
 > Total files: 123
 
 ---
@@ -860,6 +860,8 @@ Draft paid API targets use `/api/pro/v1/`. They are not implemented yet.
 | [`/.well-known/ai.json`](/.well-known/ai.json) | JSON | Agent discovery manifest for protocols and capabilities |
 | [`/llms.txt`](/llms.txt) | Text | Machine-readable index of all content — the front door for agents |
 | [`/llms-full.txt`](/llms-full.txt) | Text | All content concatenated into one file for bulk access |
+| [`/openapi.json`](/openapi.json) | OpenAPI 3.1 | Client-generation contract for the public JSON API |
+| [`/api/v1/openapi.json`](/api/v1/openapi.json) | OpenAPI 3.1 | Versioned copy of the OpenAPI contract |
 | [`/search-index.json`](/search-index.json) | JSON | Structured index with titles, descriptions, tags, and URLs |
 | [`/feed.json`](/feed.json) | JSON Feed | Timestamped update feed for change detection |
 | [`/feed.xml`](/feed.xml) | RSS | RSS mirror of the change feed |
@@ -873,6 +875,7 @@ Base URL: `/api/v1/`
 | Endpoint | Description |
 |----------|-------------|
 | [`/api/v1/index.json`](/api/v1/index.json) | All content types with descriptions and counts |
+| [`/api/v1/openapi.json`](/api/v1/openapi.json) | OpenAPI 3.1 contract for API clients and agent tool generation |
 | [`/api/v1/schema.json`](/api/v1/schema.json) | Observed fields, value types, coverage, examples, and generated fields |
 | [`/api/v1/models.json`](/api/v1/models.json) | All models with pricing, benchmarks, context windows, and metadata |
 | [`/api/v1/models/claude-opus-4.6.json`](/api/v1/models/claude-opus-4.6.json) | Per-item JSON with metadata, body text, relationships, and hashes |

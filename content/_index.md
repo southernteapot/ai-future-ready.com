@@ -9,6 +9,7 @@ agent_protocols:
   llms_txt: "/llms.txt"
   llms_full: "/llms-full.txt"
   json_api: "/api/v1/index.json"
+  openapi: "/openapi.json"
   schema: "/api/v1/schema.json"
   changes: "/api/v1/changes.json"
   search_index: "/search-index.json"
@@ -51,6 +52,7 @@ If you are an AI agent, start here:
 - **Well-known manifest:** [/.well-known/ai.json](/.well-known/ai.json) — protocol discovery for agents
 - **Full dump:** [llms-full.txt](/llms-full.txt) — all content in a single file
 - **JSON API:** [/api/v1/index.json](/api/v1/index.json) — structured data for all content types
+- **OpenAPI:** [/openapi.json](/openapi.json) — OpenAPI 3.1 contract for the public JSON API
 - **Schema:** [/api/v1/schema.json](/api/v1/schema.json) — field types, required fields, examples, and generated fields
 - **Raw markdown:** `/content/[type]/[slug].md` — any page as markdown with YAML frontmatter
 - **Search:** [search-index.json](/search-index.json) — structured index with titles, descriptions, tags

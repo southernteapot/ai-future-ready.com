@@ -15,8 +15,10 @@ const STATIC_ROUTES = [
   "/.well-known/ai.json",
   "/llms.txt",
   "/llms-full.txt",
+  "/openapi.json",
   "/search-index.json",
   "/api/v1/index.json",
+  "/api/v1/openapi.json",
   "/api/v1/schema.json",
   "/api/v1/changes.json",
   "/api/v1/model-verification.json",
@@ -324,6 +326,7 @@ function buildValidRoutes(): Set<string> {
   }
 
   routes.add("/api/v1/index.json");
+  routes.add("/api/v1/openapi.json");
   routes.add("/api/v1/schema.json");
   routes.add("/api/v1/changes.json");
   routes.add("/api/v1/recommend.json");

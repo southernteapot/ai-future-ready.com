@@ -280,6 +280,21 @@ const SECTIONS = [
   { dir: "pricing", label: "Pricing" },
 ];
 
+const RECOMMENDATION_TASKS = [
+  "coding",
+  "writing",
+  "math",
+  "reasoning",
+  "multilingual",
+  "speed",
+  "research",
+  "cheap",
+  "local",
+  "agentic",
+  "images",
+  "education",
+];
+
 const STANDALONE_FILES = [
   { file: "about.md", label: "About" },
   { file: "changelog.md", label: "Changelog" },
@@ -612,6 +627,556 @@ const typeIndex = contentTypes.map((t) => {
   };
 });
 
+function refSchema(name: string) {
+  return { $ref: `#/components/schemas/${name}` };
+}
+
+function jsonResponse(schema: Record<string, unknown>, description = "Successful response") {
+  return {
+    description,
+    content: {
+      "application/json": {
+        schema,
+      },
+    },
+  };
+}
+
+function buildOpenApiSpec() {
+  const contentTypeEnum = [...contentTypes].sort();
+
+  const sourceSchema = {
+    type: "object",
+    required: ["title", "url"],
+    properties: {
+      title: { type: "string" },
+      url: { type: "string", format: "uri" },
+    },
+    additionalProperties: true,
+  };
+
+  const contentSummarySchema = {
+    type: "object",
+    required: [
+      "slug",
+      "id",
+      "type",
+      "title",
+      "description",
+      "last_updated",
+      "markdown_url",
+      "html_url",
+      "content_hash",
+      "sha256",
+    ],
+    properties: {
+      slug: { type: "string" },
+      id: { type: "string" },
+      type: { type: "string" },
+      title: { type: "string" },
+      description: { type: "string" },
+      last_updated: { type: "string" },
+      last_verified: { type: ["string", "null"] },
+      verification_status: { type: "string", enum: ["verified", "unverified"] },
+      markdown_url: { type: "string" },
+      html_url: { type: "string" },
+      api_url: { type: "string" },
+      content_hash: { type: "string", minLength: 64, maxLength: 64 },
+      sha256: { type: "string", minLength: 64, maxLength: 64 },
+      provider: { type: "string" },
+      api_model_id: { type: "string" },
+      knowledge_cutoff: { type: "string" },
+      capabilities: { type: "array", items: { type: "string" } },
+      availability_status: { type: "string" },
+      deprecated: { type: "boolean" },
+      superseded_by: { type: "string" },
+      variant_of: { type: "string" },
+      tool_schema_format: { type: "string" },
+      pricing_confidence: { type: "string" },
+      model_listing_confidence: { type: "string" },
+      benchmark_confidence: { type: "string" },
+      sources: { type: "array", items: refSchema("Source") },
+      benchmark_sources: { type: "array", items: refSchema("Source") },
+      pricing: { type: "object", additionalProperties: true },
+      benchmarks: { type: "object", additionalProperties: { type: "number" } },
+      tags: { type: "array", items: { type: "string" } },
+      website: { type: "string" },
+      date: { type: "string" },
+      release_date: { type: "string" },
+      relationships: refSchema("RelationshipMetadata"),
+    },
+    additionalProperties: true,
+  };
+
+  return {
+    openapi: "3.1.0",
+    jsonSchemaDialect: "https://json-schema.org/draft/2020-12/schema",
+    info: {
+      title: "AI Future Ready API",
+      version: "v1",
+      description:
+        "Public JSON API for AI Future Ready content, model metadata, recommendations, pricing snapshots, and change feeds.",
+    },
+    servers: [
+      { url: SITE_URL, description: "Production" },
+      { url: "", description: "Same-origin" },
+    ],
+    paths: {
+      "/openapi.json": {
+        get: {
+          operationId: "getOpenApiSpec",
+          summary: "Get the OpenAPI 3.1 specification",
+          responses: {
+            "200": jsonResponse(refSchema("OpenApiDocument")),
+          },
+        },
+      },
+      "/api/v1/openapi.json": {
+        get: {
+          operationId: "getVersionedOpenApiSpec",
+          summary: "Get the versioned OpenAPI 3.1 specification",
+          responses: {
+            "200": jsonResponse(refSchema("OpenApiDocument")),
+          },
+        },
+      },
+      "/api/v1/index.json": {
+        get: {
+          operationId: "getApiIndex",
+          summary: "List API discovery links and content types",
+          responses: {
+            "200": jsonResponse(refSchema("ApiIndex")),
+          },
+        },
+      },
+      "/api/v1/schema.json": {
+        get: {
+          operationId: "getContentSchema",
+          summary: "Get observed content-frontmatter schema coverage",
+          responses: {
+            "200": jsonResponse(refSchema("ContentSchema")),
+          },
+        },
+      },
+      "/api/v1/{type}.json": {
+        get: {
+          operationId: "listContentByType",
+          summary: "List content summaries for a content type",
+          parameters: [
+            {
+              name: "type",
+              in: "path",
+              required: true,
+              schema: { type: "string", enum: contentTypeEnum },
+            },
+          ],
+          responses: {
+            "200": jsonResponse(refSchema("TypeList")),
+            "404": { description: "Content type not found" },
+          },
+        },
+      },
+      "/api/v1/{type}/{slug}.json": {
+        get: {
+          operationId: "getContentItem",
+          summary: "Get a full content item with metadata, body text, relationships, and hashes",
+          parameters: [
+            {
+              name: "type",
+              in: "path",
+              required: true,
+              schema: { type: "string", enum: contentTypeEnum },
+            },
+            {
+              name: "slug",
+              in: "path",
+              required: true,
+              schema: { type: "string" },
+            },
+          ],
+          responses: {
+            "200": jsonResponse(refSchema("ContentItem")),
+            "404": { description: "Content item not found" },
+          },
+        },
+      },
+      "/api/v1/recommend.json": {
+        get: {
+          operationId: "listRecommendations",
+          summary: "Get all pre-scored recommendation slices",
+          responses: {
+            "200": jsonResponse(refSchema("RecommendationMap")),
+          },
+        },
+      },
+      "/api/v1/recommend/{task}.json": {
+        get: {
+          operationId: "getRecommendationTask",
+          summary: "Get a pre-scored recommendation slice for one task",
+          parameters: [
+            {
+              name: "task",
+              in: "path",
+              required: true,
+              schema: { type: "string", enum: RECOMMENDATION_TASKS },
+            },
+          ],
+          responses: {
+            "200": jsonResponse(refSchema("RecommendationSlice")),
+            "404": { description: "Recommendation task not found" },
+          },
+        },
+      },
+      "/api/v1/pricing-snapshots.json": {
+        get: {
+          operationId: "getPricingSnapshots",
+          summary: "Get generated model pricing snapshots",
+          responses: {
+            "200": jsonResponse(refSchema("PricingSnapshots")),
+          },
+        },
+      },
+      "/api/v1/model-verification.json": {
+        get: {
+          operationId: "getModelVerification",
+          summary: "Get model verification and source-coverage inventory",
+          responses: {
+            "200": jsonResponse(refSchema("ModelVerification")),
+          },
+        },
+      },
+      "/api/v1/samples/pro-data.json": {
+        get: {
+          operationId: "getProDataSample",
+          summary: "Get a representative Pro Data sample record",
+          responses: {
+            "200": jsonResponse(refSchema("ProDataSample")),
+          },
+        },
+      },
+      "/api/v1/changes.json": {
+        get: {
+          operationId: "getChanges",
+          summary: "Get changed content, optionally filtered by date and type",
+          parameters: [
+            {
+              name: "since",
+              in: "query",
+              required: false,
+              schema: { type: "string", format: "date" },
+              description: "Return items changed on or after this YYYY-MM-DD date.",
+            },
+            {
+              name: "type",
+              in: "query",
+              required: false,
+              schema: { type: "string", enum: contentTypeEnum },
+              description: "Return only changed items whose type matches this content type.",
+            },
+          ],
+          responses: {
+            "200": jsonResponse(refSchema("ChangesResponse")),
+          },
+        },
+      },
+      "/search-index.json": {
+        get: {
+          operationId: "getSearchIndex",
+          summary: "Get the lightweight search index",
+          responses: {
+            "200": jsonResponse({
+              type: "array",
+              items: refSchema("SearchIndexEntry"),
+            }),
+          },
+        },
+      },
+      "/feed.json": {
+        get: {
+          operationId: "getJsonFeed",
+          summary: "Get the JSON Feed change feed",
+          responses: {
+            "200": jsonResponse(refSchema("JsonFeed")),
+          },
+        },
+      },
+    },
+    components: {
+      schemas: {
+        OpenApiDocument: {
+          type: "object",
+          required: ["openapi", "info", "paths"],
+          additionalProperties: true,
+        },
+        Source: sourceSchema,
+        RelationshipLink: {
+          type: "object",
+          properties: {
+            text: { type: "string" },
+            href: { type: "string" },
+            html_path: { type: "string" },
+            markdown_url: { type: "string" },
+            target_id: { type: "string" },
+            target_type: { type: "string" },
+            target_title: { type: "string" },
+          },
+          additionalProperties: true,
+        },
+        RelatedEntry: {
+          type: "object",
+          properties: {
+            id: { type: "string" },
+            title: { type: "string" },
+            type: { type: "string" },
+            html_url: { type: "string" },
+            markdown_url: { type: "string" },
+            shared_tags: { type: "array", items: { type: "string" } },
+            score: { type: "number" },
+          },
+          additionalProperties: true,
+        },
+        RelationshipMetadata: {
+          type: "object",
+          properties: {
+            links: { type: "array", items: refSchema("RelationshipLink") },
+            related: { type: "array", items: refSchema("RelatedEntry") },
+            explicit: { type: "object", additionalProperties: true },
+          },
+          additionalProperties: true,
+        },
+        ContentSummary: contentSummarySchema,
+        ContentItem: {
+          allOf: [
+            refSchema("ContentSummary"),
+            {
+              type: "object",
+              required: ["metadata", "content_text", "content_length", "generated_at"],
+              properties: {
+                metadata: { type: "object", additionalProperties: true },
+                content_text: { type: "string" },
+                content_length: { type: "integer", minimum: 0 },
+                generated_at: { type: "string", format: "date" },
+              },
+            },
+          ],
+        },
+        TypeIndexEntry: {
+          type: "object",
+          required: ["type", "title", "description", "count", "api_url"],
+          properties: {
+            type: { type: "string", enum: contentTypeEnum },
+            title: { type: "string" },
+            description: { type: "string" },
+            count: { type: "integer", minimum: 0 },
+            index_markdown_url: { type: "string" },
+            index_html_url: { type: "string" },
+            api_url: { type: "string" },
+            item_api_pattern: { type: "string" },
+          },
+          additionalProperties: true,
+        },
+        ApiIndex: {
+          type: "object",
+          required: ["name", "version", "generated_at", "discovery", "content_types"],
+          properties: {
+            name: { type: "string" },
+            version: { type: "string" },
+            description: { type: "string" },
+            generated_at: { type: "string", format: "date" },
+            discovery: { type: "object", additionalProperties: true },
+            commercial: { type: "object", additionalProperties: true },
+            endpoint_patterns: { type: "object", additionalProperties: true },
+            content_types: { type: "array", items: refSchema("TypeIndexEntry") },
+          },
+          additionalProperties: true,
+        },
+        TypeList: {
+          type: "object",
+          required: ["type", "count", "schema_url", "item_api_pattern", "items"],
+          properties: {
+            type: { type: "string", enum: contentTypeEnum },
+            count: { type: "integer", minimum: 0 },
+            schema_url: { type: "string" },
+            item_api_pattern: { type: "string" },
+            items: { type: "array", items: refSchema("ContentSummary") },
+          },
+          additionalProperties: true,
+        },
+        ContentSchema: {
+          type: "object",
+          required: ["name", "version", "generated_at", "content_types"],
+          properties: {
+            name: { type: "string" },
+            version: { type: "string" },
+            generated_at: { type: "string", format: "date" },
+            required_fields: { type: "array", items: { type: "string" } },
+            recommended_fields: { type: "array", items: { type: "string" } },
+            content_types: { type: "object", additionalProperties: true },
+          },
+          additionalProperties: true,
+        },
+        RecommendationItem: {
+          type: "object",
+          required: ["slug", "title", "id", "provider", "score", "score_basis"],
+          properties: {
+            slug: { type: "string" },
+            title: { type: "string" },
+            id: { type: "string" },
+            provider: { type: "string" },
+            score: { type: "number" },
+            score_basis: { type: "string" },
+            pricing: { type: "object", additionalProperties: true },
+            free: { type: "boolean" },
+            estimated_input_output_cost_per_1m: { type: ["number", "null"] },
+            model_type: { type: "string" },
+            markdown_url: { type: "string" },
+            html_url: { type: "string" },
+            api_url: { type: ["string", "null"] },
+            sha256: { type: "string" },
+          },
+          additionalProperties: true,
+        },
+        RecommendationSlice: {
+          type: "object",
+          required: ["task", "generated_at", "count", "items"],
+          properties: {
+            task: { type: "string", enum: RECOMMENDATION_TASKS },
+            generated_at: { type: "string", format: "date" },
+            count: { type: "integer", minimum: 0 },
+            items: { type: "array", items: refSchema("RecommendationItem") },
+          },
+          additionalProperties: true,
+        },
+        RecommendationMap: {
+          type: "object",
+          additionalProperties: {
+            type: "array",
+            items: refSchema("RecommendationItem"),
+          },
+        },
+        PricingSnapshotItem: {
+          type: "object",
+          required: ["slug", "id", "title", "provider", "pricing", "parsed_usd_per_1m_tokens"],
+          properties: {
+            slug: { type: "string" },
+            id: { type: "string" },
+            title: { type: "string" },
+            api_model_id: { type: "string" },
+            provider: { type: "string" },
+            model_type: { type: "string" },
+            context_window: { type: "string" },
+            knowledge_cutoff: { type: "string" },
+            availability_status: { type: "string" },
+            deprecated: { type: "boolean" },
+            superseded_by: { type: "string" },
+            pricing: { type: "object", additionalProperties: true },
+            parsed_usd_per_1m_tokens: { type: "object", additionalProperties: true },
+            last_updated: { type: "string" },
+            last_verified: { type: ["string", "null"] },
+            pricing_confidence: { type: "string" },
+            sources: { type: "array", items: refSchema("Source") },
+            markdown_url: { type: "string" },
+            html_url: { type: "string" },
+            api_url: { type: ["string", "null"] },
+            sha256: { type: "string" },
+          },
+          additionalProperties: true,
+        },
+        PricingSnapshots: {
+          type: "object",
+          required: ["generated_at", "status", "count", "items"],
+          properties: {
+            generated_at: { type: "string", format: "date" },
+            status: { type: "string" },
+            warning: { type: "string" },
+            count: { type: "integer", minimum: 0 },
+            items: { type: "array", items: refSchema("PricingSnapshotItem") },
+          },
+          additionalProperties: true,
+        },
+        ModelVerification: {
+          type: "object",
+          required: ["generated_at", "count", "items"],
+          properties: {
+            generated_at: { type: "string", format: "date" },
+            count: { type: "integer", minimum: 0 },
+            needs_model_verification: { type: "integer", minimum: 0 },
+            needs_source_links: { type: "integer", minimum: 0 },
+            items: { type: "array", items: { type: "object", additionalProperties: true } },
+          },
+          additionalProperties: true,
+        },
+        ProDataSample: {
+          type: "object",
+          properties: {
+            generated_at: { type: "string", format: "date" },
+            checkout_configured: { type: "boolean" },
+            model: { type: "object", additionalProperties: true },
+            pricing_snapshot: { type: "object", additionalProperties: true },
+            verification: { type: "object", additionalProperties: true },
+          },
+          additionalProperties: true,
+        },
+        ChangesResponse: {
+          type: "object",
+          required: ["query", "count", "items"],
+          properties: {
+            generated_at: { type: "string", format: "date" },
+            query: {
+              type: "object",
+              properties: {
+                since: { type: ["string", "null"], format: "date" },
+                type: { type: ["string", "null"] },
+              },
+              additionalProperties: true,
+            },
+            count: { type: "integer", minimum: 0 },
+            items: { type: "array", items: { type: "object", additionalProperties: true } },
+          },
+          additionalProperties: true,
+        },
+        SearchIndexEntry: {
+          type: "object",
+          required: ["title", "description", "section", "type", "href", "mdPath"],
+          properties: {
+            title: { type: "string" },
+            description: { type: "string" },
+            section: { type: "string" },
+            id: { type: "string" },
+            type: { type: "string" },
+            href: { type: "string" },
+            mdPath: { type: "string" },
+            apiPath: { type: "string" },
+            provider: { type: "string" },
+            tags: { type: "array", items: { type: "string" } },
+            last_updated: { type: "string" },
+            last_verified: { type: "string" },
+            verification_status: { type: "string" },
+            published_at: { type: "string" },
+            content_hash: { type: "string" },
+            sha256: { type: "string" },
+            relationships: refSchema("RelationshipMetadata"),
+          },
+          additionalProperties: true,
+        },
+        JsonFeed: {
+          type: "object",
+          required: ["version", "title", "items"],
+          properties: {
+            version: { type: "string" },
+            title: { type: "string" },
+            home_page_url: { type: "string" },
+            feed_url: { type: "string" },
+            description: { type: "string" },
+            items: { type: "array", items: { type: "object", additionalProperties: true } },
+          },
+          additionalProperties: true,
+        },
+      },
+    },
+  };
+}
+
 const schema: Record<string, unknown> = {
   name: "AI Future Ready content schema",
   version: "v1",
@@ -697,6 +1262,18 @@ fs.writeFileSync(
   "utf-8"
 );
 
+const openApiSpec = buildOpenApiSpec();
+fs.writeFileSync(
+  path.join(PUBLIC_DIR, "openapi.json"),
+  JSON.stringify(openApiSpec),
+  "utf-8"
+);
+fs.writeFileSync(
+  path.join(apiDir, "openapi.json"),
+  JSON.stringify(openApiSpec),
+  "utf-8"
+);
+
 fs.mkdirSync(path.join(PUBLIC_DIR, ".well-known"), { recursive: true });
 fs.writeFileSync(
   path.join(PUBLIC_DIR, ".well-known", "ai.json"),
@@ -709,6 +1286,8 @@ fs.writeFileSync(
     llms_full: "/llms-full.txt",
     api: "/api/v1/index.json",
     api_base: "/api/v1/",
+    openapi: "/openapi.json",
+    openapi_v1: "/api/v1/openapi.json",
     content_schema: "/api/v1/schema.json",
     raw_content: "/content/",
     search: "/search-index.json",
@@ -740,6 +1319,7 @@ fs.writeFileSync(
       raw_markdown: true,
       yaml_frontmatter: true,
       json_api: true,
+      openapi: true,
       per_item_json: true,
       content_hashes: true,
       relationship_metadata: true,
@@ -763,6 +1343,8 @@ fs.writeFileSync(
       well_known_ai: "/.well-known/ai.json",
       llms_txt: "/llms.txt",
       llms_full: "/llms-full.txt",
+      openapi: "/openapi.json",
+      openapi_v1: "/api/v1/openapi.json",
       schema: "/api/v1/schema.json",
       search_index: "/search-index.json",
       changes: "/api/v1/changes.json",
@@ -828,20 +1410,7 @@ for (const t of contentTypes) {
 }
 
 // Recommend JSON — pre-scored for each task
-const recommendationTasks = [
-  "coding",
-  "writing",
-  "math",
-  "reasoning",
-  "multilingual",
-  "speed",
-  "research",
-  "cheap",
-  "local",
-  "agentic",
-  "images",
-  "education",
-];
+const recommendationTasks = RECOMMENDATION_TASKS;
 const modelEntries = allEntries.filter((e) => e.section === "Models" && !e.mdPath.endsWith("/_index.md"));
 const recommendData: Record<string, unknown[]> = {};
 const recommendationDir = path.join(apiDir, "recommend");
@@ -1329,7 +1898,9 @@ sitemapEntries.push(`  <url><loc>${baseUrl}/.well-known/ai.json</loc><changefreq
 sitemapEntries.push(`  <url><loc>${baseUrl}/llms.txt</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/llms-full.txt</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/search-index.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
+sitemapEntries.push(`  <url><loc>${baseUrl}/openapi.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/index.json</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`);
+sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/openapi.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/schema.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/changes.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/recommend.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);

@@ -5,7 +5,9 @@
   <url><loc>https://ai-future-ready.com/llms.txt</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ai-future-ready.com/llms-full.txt</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/search-index.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/openapi.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/index.json</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/openapi.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/schema.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/changes.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/recommend.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>

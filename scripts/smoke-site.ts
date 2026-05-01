@@ -91,6 +91,7 @@ async function main() {
     const aiManifestBody = (await aiManifest.json()) as {
       content_schema?: string;
       changes?: string;
+      openapi?: string;
     };
     assert(aiManifest.ok, ".well-known/ai.json did not return 200");
     assert(
@@ -100,6 +101,26 @@ async function main() {
     assert(
       aiManifestBody.changes === "/api/v1/changes.json",
       ".well-known/ai.json is missing changes discovery"
+    );
+    assert(
+      aiManifestBody.openapi === "/openapi.json",
+      ".well-known/ai.json is missing OpenAPI discovery"
+    );
+
+    const openApi = await fetch(`${BASE_URL}/openapi.json`);
+    const openApiBody = (await openApi.json()) as {
+      openapi?: string;
+      paths?: Record<string, unknown>;
+    };
+    assert(openApi.ok, "OpenAPI endpoint did not return 200");
+    assert(openApiBody.openapi === "3.1.0", "OpenAPI endpoint is not 3.1.0");
+    assert(
+      Boolean(openApiBody.paths?.["/api/v1/{type}.json"]),
+      "OpenAPI endpoint is missing typed index path"
+    );
+    assert(
+      Boolean(openApiBody.paths?.["/api/v1/changes.json"]),
+      "OpenAPI endpoint is missing changes path"
     );
 
     const schema = await fetch(`${BASE_URL}/api/v1/schema.json`);
