@@ -24,3 +24,9 @@ Do not paste raw terminal logs here.
 - Added generated `src/lib/models-data.json` so the dynamic route can use the generated model summaries without reading from `public/` at runtime.
 - Updated OpenAPI, `/.well-known/ai.json`, `/api/v1/index.json`, API reference docs, sitemap, and smoke tests for the filter endpoint.
 - Validation passed: `npm run build`, `npm run lint`, `npm run test:smoke`.
+
+## 2026-05-01 - Model diff endpoint
+
+- Added `/api/v1/diff.json?a=...&b=...` for structured model-to-model comparison by metadata, context window, numeric pricing, benchmarks, capabilities, modality, confidence, and sources.
+- Updated OpenAPI, `/.well-known/ai.json`, `/api/v1/index.json`, sitemap, API reference docs, agent usage docs, and smoke tests for the diff endpoint.
+- Validation passed: `npm run validate:content`, `npm run build`, `npm run lint`, `npm run test:smoke`.

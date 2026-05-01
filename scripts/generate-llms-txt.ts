@@ -861,6 +861,33 @@ function buildOpenApiSpec() {
           },
         },
       },
+      "/api/v1/diff.json": {
+        get: {
+          operationId: "diffModels",
+          summary: "Compare two model summaries by pricing, benchmarks, capabilities, and metadata",
+          parameters: [
+            {
+              name: "a",
+              in: "query",
+              required: true,
+              schema: { type: "string" },
+              description: "First model slug, id, API model id, or title.",
+            },
+            {
+              name: "b",
+              in: "query",
+              required: true,
+              schema: { type: "string" },
+              description: "Second model slug, id, API model id, or title.",
+            },
+          ],
+          responses: {
+            "200": jsonResponse(refSchema("ModelDiffResponse")),
+            "400": { description: "Missing required model query parameters" },
+            "404": { description: "One or both requested models were not found" },
+          },
+        },
+      },
       "/api/v1/{type}.json": {
         get: {
           operationId: "listContentByType",
@@ -1149,6 +1176,90 @@ function buildOpenApiSpec() {
           },
           additionalProperties: true,
         },
+        ModelDiffValue: {
+          type: "object",
+          required: ["a", "b", "same"],
+          properties: {
+            a: {},
+            b: {},
+            same: { type: "boolean" },
+          },
+          additionalProperties: true,
+        },
+        ModelDiffNumberValue: {
+          type: "object",
+          required: ["a", "b", "difference", "winner"],
+          properties: {
+            a: { type: ["number", "null"] },
+            b: { type: ["number", "null"] },
+            difference: { type: ["number", "null"] },
+            winner: {
+              type: ["string", "null"],
+              enum: ["a", "b", "tie", null],
+            },
+          },
+          additionalProperties: true,
+        },
+        ModelDiffResponse: {
+          type: "object",
+          required: [
+            "type",
+            "generated_at",
+            "source",
+            "query",
+            "models",
+            "metadata",
+            "pricing",
+            "benchmarks",
+            "capabilities",
+          ],
+          properties: {
+            type: { type: "string", const: "model-diff" },
+            generated_at: { type: ["string", "null"], format: "date" },
+            source: { type: "string" },
+            query: {
+              type: "object",
+              properties: {
+                a: { type: "string" },
+                b: { type: "string" },
+              },
+              additionalProperties: false,
+            },
+            models: {
+              type: "object",
+              required: ["a", "b"],
+              properties: {
+                a: refSchema("ContentSummary"),
+                b: refSchema("ContentSummary"),
+              },
+              additionalProperties: false,
+            },
+            metadata: {
+              type: "object",
+              additionalProperties: refSchema("ModelDiffValue"),
+            },
+            context_window: { type: "object", additionalProperties: true },
+            pricing: { type: "object", additionalProperties: true },
+            benchmarks: {
+              type: "object",
+              additionalProperties: refSchema("ModelDiffNumberValue"),
+            },
+            capabilities: {
+              type: "object",
+              required: ["shared", "only_a", "only_b"],
+              properties: {
+                shared: { type: "array", items: { type: "string" } },
+                only_a: { type: "array", items: { type: "string" } },
+                only_b: { type: "array", items: { type: "string" } },
+              },
+              additionalProperties: false,
+            },
+            modality: { type: "object", additionalProperties: true },
+            confidence: { type: "object", additionalProperties: refSchema("ModelDiffValue") },
+            sources: { type: "object", additionalProperties: true },
+          },
+          additionalProperties: true,
+        },
         RecommendationItem: {
           type: "object",
           required: ["slug", "title", "id", "provider", "score", "score_basis"],
@@ -1423,6 +1534,7 @@ fs.writeFileSync(
     openapi: "/openapi.json",
     openapi_v1: "/api/v1/openapi.json",
     model_filter: "/api/v1/models-filter.json",
+    model_diff: "/api/v1/diff.json",
     content_schema: "/api/v1/schema.json",
     raw_content: "/content/",
     search: "/search-index.json",
@@ -1461,6 +1573,7 @@ fs.writeFileSync(
       changed_since_queries: true,
       task_recommendations: true,
       model_filtering: true,
+      model_diffing: true,
       presentation_modes: ["agent", "human"],
     },
   }),
@@ -1482,6 +1595,7 @@ fs.writeFileSync(
       openapi: "/openapi.json",
       openapi_v1: "/api/v1/openapi.json",
       model_filter: "/api/v1/models-filter.json",
+      model_diff: "/api/v1/diff.json",
       schema: "/api/v1/schema.json",
       search_index: "/search-index.json",
       changes: "/api/v1/changes.json",
@@ -1511,6 +1625,7 @@ fs.writeFileSync(
       item: "/api/v1/{type}/{slug}.json",
       recommendations: "/api/v1/recommend/{task}.json",
       model_filter: "/api/v1/models-filter.json?capability=vision&availability_status=available",
+      model_diff: "/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6",
       changes_since: "/api/v1/changes.json?since=YYYY-MM-DD",
     },
     content_types: typeIndex,
@@ -2058,6 +2173,7 @@ sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/index.json</loc><changefreq>w
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/openapi.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/schema.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/models-filter.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
+sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/diff.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/changes.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/recommend.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/pricing-snapshots.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>`);

@@ -10,8 +10,8 @@
       "url": "https://ai-future-ready.com/api-reference",
       "title": "Agent API Reference",
       "summary": "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.",
-      "date_published": "2026-04-30T00:00:00.000Z",
-      "date_modified": "2026-04-30T00:00:00.000Z",
+      "date_published": "2026-05-01T00:00:00.000Z",
+      "date_modified": "2026-05-01T00:00:00.000Z",
       "authors": [
         {
           "name": "AI Future Ready"
@@ -23,8 +23,34 @@
       "content_text": "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.",
       "_section": "API Reference",
       "_markdown_url": "https://ai-future-ready.com/content/api-reference/_index.md",
-      "_content_hash": "f4db58749c75332f0b2e607a00e69e6c4c5b33f80d3cc1d0020380a792aa160d",
-      "_sha256": "f4db58749c75332f0b2e607a00e69e6c4c5b33f80d3cc1d0020380a792aa160d"
+      "_content_hash": "c8410ef16682639a71e0aceb944a5c8a1aea675eb24cba68350a9e18df028711",
+      "_sha256": "c8410ef16682639a71e0aceb944a5c8a1aea675eb24cba68350a9e18df028711"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/agent-usage",
+      "url": "https://ai-future-ready.com/guides/agent-usage",
+      "title": "Agent Usage Guide",
+      "summary": "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes.",
+      "date_published": "2026-05-01T00:00:00.000Z",
+      "date_modified": "2026-05-01T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "agents",
+        "api",
+        "discovery",
+        "markdown",
+        "schema"
+      ],
+      "content_text": "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/agent-usage.md",
+      "_content_hash": "d6d7b3e14fb9adf33d659a967b0f3fc9471d5a85ebccf160ea008492d9b87666",
+      "_sha256": "d6d7b3e14fb9adf33d659a967b0f3fc9471d5a85ebccf160ea008492d9b87666",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/agent-usage.json"
     },
     {
       "id": "https://ai-future-ready.com/models/claude-haiku-4.5",
@@ -1213,32 +1239,6 @@
       "_content_hash": "ccc402b28cad212f87a0675889cafcb28d60307958a90d76a04eb83666c960e9",
       "_sha256": "ccc402b28cad212f87a0675889cafcb28d60307958a90d76a04eb83666c960e9",
       "_api_url": "https://ai-future-ready.com/api/v1/guides/agent-tooling-compatibility.json"
-    },
-    {
-      "id": "https://ai-future-ready.com/guides/agent-usage",
-      "url": "https://ai-future-ready.com/guides/agent-usage",
-      "title": "Agent Usage Guide",
-      "summary": "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, recommendations, changes, and hashes.",
-      "date_published": "2026-04-24T00:00:00.000Z",
-      "date_modified": "2026-04-24T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "agents",
-        "api",
-        "discovery",
-        "markdown",
-        "schema"
-      ],
-      "content_text": "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, recommendations, changes, and hashes.",
-      "_section": "Guides",
-      "_markdown_url": "https://ai-future-ready.com/content/guides/agent-usage.md",
-      "_content_hash": "6932d8e13a4a453730bf07cf44d56efa3a9138b66157b1b1c4744653ff6778f9",
-      "_sha256": "6932d8e13a4a453730bf07cf44d56efa3a9138b66157b1b1c4744653ff6778f9",
-      "_api_url": "https://ai-future-ready.com/api/v1/guides/agent-usage.json"
     },
     {
       "id": "https://ai-future-ready.com/guides/benchmark-methodology",

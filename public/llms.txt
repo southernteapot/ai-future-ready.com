@@ -92,7 +92,7 @@
 
 ## Guides
 - [Agent Tooling Compatibility](/content/guides/agent-tooling-compatibility.md): Compatibility matrix for AI agent tools and frameworks: coding agents, dev frameworks, orchestration tools, no-code automation, and when to choose each.
-- [Agent Usage Guide](/content/guides/agent-usage.md): Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, recommendations, changes, and hashes.
+- [Agent Usage Guide](/content/guides/agent-usage.md): Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes.
 - [Benchmark Methodology](/content/guides/benchmark-methodology.md): How AI Future Ready model scores should be interpreted by agents: normalized task scores, confidence limits, subjective judgment, and verification needs.
 - [Best-For Task Matrix](/content/guides/best-for-task-matrix.md): A task-to-model matrix for agents choosing between best overall, cheaper, local, and cautionary options across common AI workloads.
 - [Build a Coding Agent Stack](/content/guides/build-a-coding-agent-stack.md): A practical recipe for building a coding-agent workflow with model selection, repo access, tests, permissions, review, and rollback.

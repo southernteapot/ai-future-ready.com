@@ -24,3 +24,10 @@ Project/system: Public model selection API.
 Decision: Implement model filtering at `/api/v1/models-filter.json` as a Next.js route handler that imports generated `src/lib/models-data.json`.
 Reason: Agents need queryable model routing without downloading and filtering the full model index, while keeping route runtime compatible with generated build artifacts.
 Consequences: The generator must keep `src/lib/models-data.json`, OpenAPI, discovery manifests, and docs in sync with the model summary shape.
+
+## 2026-05-01 - Model diffing is a dynamic API route backed by generated data
+
+Project/system: Public model comparison API.
+Decision: Implement model-to-model diffing at `/api/v1/diff.json` as a Next.js route handler that imports generated `src/lib/models-data.json`.
+Reason: Agents frequently answer "X vs Y" questions and should not have to reimplement comparison logic for pricing, benchmarks, capabilities, provenance, and routing metadata.
+Consequences: The generated OpenAPI, discovery manifests, sitemap, API docs, and smoke tests include the diff endpoint; future model-summary field changes should consider whether the diff response should expose them.

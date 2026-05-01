@@ -4,13 +4,20 @@
   <title>AI Future Ready Updates</title>
   <link>https://ai-future-ready.com</link>
   <description>Machine-readable change feed for AI Future Ready.</description>
-  <lastBuildDate>Thu, 30 Apr 2026 00:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 01 May 2026 00:00:00 GMT</lastBuildDate>
   <item>
     <title>Agent API Reference</title>
     <link>https://ai-future-ready.com/api-reference</link>
     <guid isPermaLink="true">https://ai-future-ready.com/api-reference</guid>
-    <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
+    <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
     <description>Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.</description>
+  </item>
+  <item>
+    <title>Agent Usage Guide</title>
+    <link>https://ai-future-ready.com/guides/agent-usage</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/agent-usage</guid>
+    <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
+    <description>Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes.</description>
   </item>
   <item>
     <title>Claude Haiku 4.5</title>
@@ -347,13 +354,6 @@
     <guid isPermaLink="true">https://ai-future-ready.com/guides/agent-tooling-compatibility</guid>
     <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
     <description>Compatibility matrix for AI agent tools and frameworks: coding agents, dev frameworks, orchestration tools, no-code automation, and when to choose each.</description>
-  </item>
-  <item>
-    <title>Agent Usage Guide</title>
-    <link>https://ai-future-ready.com/guides/agent-usage</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/guides/agent-usage</guid>
-    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, recommendations, changes, and hashes.</description>
   </item>
   <item>
     <title>Benchmark Methodology</title>

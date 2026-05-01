@@ -4,7 +4,6 @@ Track current project tasks here.
 
 ## Current
 
-- Add structured compare/diff support for model-to-model questions after filtering is in place.
 - Consider a generated or dynamic cost calculator endpoint for `{input_tokens, output_tokens}` across models.
 
 ## Later

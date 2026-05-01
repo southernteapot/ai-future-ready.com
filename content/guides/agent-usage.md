@@ -2,8 +2,8 @@
 title: "Agent Usage Guide"
 type: guide
 id: "agent-usage-guide"
-description: "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, recommendations, changes, and hashes."
-last_updated: "2026-04-24"
+description: "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes."
+last_updated: "2026-05-01"
 tags:
 - "agents"
 - "api"
@@ -77,7 +77,16 @@ curl https://ai-future-ready.com/api/v1/recommend/agentic.json
 
 Use recommendation endpoints when your task is "choose the best model for X" rather than "read every model page."
 
-## 8. Track changes
+## 8. Filter and compare models
+
+```bash
+curl "https://ai-future-ready.com/api/v1/models-filter.json?capability=vision&availability_status=available&context_min=1000000"
+curl "https://ai-future-ready.com/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6"
+```
+
+Use model filtering for routing constraints. Use model diffing when you need a structured side-by-side comparison of two known models.
+
+## 9. Track changes
 
 ```bash
 curl "https://ai-future-ready.com/api/v1/changes.json?since=2026-04-01"
@@ -87,7 +96,7 @@ curl https://ai-future-ready.com/feed.json
 
 Use `changes.json` for queryable deltas. Use `feed.json` or `feed.xml` for feed readers and polling workflows.
 
-## 9. Verify cached content
+## 10. Verify cached content
 
 Every generated JSON item includes:
 
@@ -100,7 +109,7 @@ Every generated JSON item includes:
 
 Compare this value against your cached copy before re-reading large content.
 
-## 10. Common workflows
+## 11. Common workflows
 
 Find the best model for coding:
 

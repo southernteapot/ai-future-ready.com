@@ -3,7 +3,7 @@ title: "Agent API Reference"
 type: index
 id: "api-reference"
 description: "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search."
-last_updated: "2026-04-30"
+last_updated: "2026-05-01"
 ---
 
 # Agent API Reference
@@ -52,6 +52,7 @@ Base URL: `/api/v1/`
 | [`/api/v1/schema.json`](/api/v1/schema.json) | Observed fields, value types, coverage, examples, and generated fields |
 | [`/api/v1/models.json`](/api/v1/models.json) | All models with pricing, benchmarks, context windows, and metadata |
 | [`/api/v1/models-filter.json?capability=vision&availability_status=available`](/api/v1/models-filter.json?capability=vision&availability_status=available) | Queryable model filter for agent routing |
+| [`/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6`](/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6) | Structured model-to-model diff for pricing, benchmarks, metadata, capabilities, and sources |
 | [`/api/v1/models/claude-opus-4.6.json`](/api/v1/models/claude-opus-4.6.json) | Per-item JSON with metadata, body text, relationships, and hashes |
 | [`/api/v1/providers.json`](/api/v1/providers.json) | Provider profiles and ecosystem guidance |
 | [`/api/v1/agents.json`](/api/v1/agents.json) | All agent platforms with categories, licensing, and languages |
@@ -87,6 +88,14 @@ Model filtering supports repeated parameters or comma-separated values:
 ```
 
 Supported filters: `capability`, `provider`, `availability_status`, `deprecated`, `model_type`, `tool_schema_format`, `context_min`, `max_input_price`, `max_output_price`, and `free`.
+
+Model diffing accepts a model slug, permanent id, API model id, or title for each side:
+
+```
+/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6
+```
+
+The response includes both model summaries plus structured comparisons for metadata, context window, numeric pricing, benchmarks, capabilities, modality, confidence, and sources.
 
 ## MCP Access
 

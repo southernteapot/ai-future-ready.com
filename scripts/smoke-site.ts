@@ -92,6 +92,7 @@ async function main() {
       content_schema?: string;
       changes?: string;
       openapi?: string;
+      model_diff?: string;
     };
     assert(aiManifest.ok, ".well-known/ai.json did not return 200");
     assert(
@@ -105,6 +106,10 @@ async function main() {
     assert(
       aiManifestBody.openapi === "/openapi.json",
       ".well-known/ai.json is missing OpenAPI discovery"
+    );
+    assert(
+      aiManifestBody.model_diff === "/api/v1/diff.json",
+      ".well-known/ai.json is missing model diff discovery"
     );
 
     const openApi = await fetch(`${BASE_URL}/openapi.json`);
@@ -125,6 +130,10 @@ async function main() {
     assert(
       Boolean(openApiBody.paths?.["/api/v1/models-filter.json"]),
       "OpenAPI endpoint is missing model filter path"
+    );
+    assert(
+      Boolean(openApiBody.paths?.["/api/v1/diff.json"]),
+      "OpenAPI endpoint is missing model diff path"
     );
 
     const schema = await fetch(`${BASE_URL}/api/v1/schema.json`);
@@ -200,6 +209,41 @@ async function main() {
             item.pricing.input_per_1m <= 3
         ),
       "Model filter endpoint returned items outside the requested filters"
+    );
+
+    const modelDiff = await fetch(`${BASE_URL}/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6`);
+    const modelDiffBody = (await modelDiff.json()) as {
+      type?: string;
+      models?: { a?: { slug?: string }; b?: { slug?: string } };
+      pricing?: {
+        numeric_usd_per_1m?: {
+          input_per_1m?: { a?: number | null; b?: number | null; winner?: string | null };
+        };
+      };
+      benchmarks?: Record<string, unknown>;
+      capabilities?: { shared?: string[]; only_a?: string[]; only_b?: string[] };
+    };
+    assert(modelDiff.ok, "Model diff endpoint did not return 200");
+    assert(modelDiffBody.type === "model-diff", "Model diff endpoint returned the wrong type");
+    assert(
+      modelDiffBody.models?.a?.slug === "gpt-5.4" &&
+        modelDiffBody.models?.b?.slug === "claude-opus-4.6",
+      "Model diff endpoint did not resolve requested models"
+    );
+    assert(
+      typeof modelDiffBody.pricing?.numeric_usd_per_1m?.input_per_1m?.a === "number" &&
+        typeof modelDiffBody.pricing?.numeric_usd_per_1m?.input_per_1m?.b === "number",
+      "Model diff endpoint is missing numeric input pricing comparison"
+    );
+    assert(
+      Boolean(modelDiffBody.benchmarks && Object.keys(modelDiffBody.benchmarks).length > 0),
+      "Model diff endpoint is missing benchmark comparisons"
+    );
+    assert(
+      Array.isArray(modelDiffBody.capabilities?.shared) &&
+        Array.isArray(modelDiffBody.capabilities?.only_a) &&
+        Array.isArray(modelDiffBody.capabilities?.only_b),
+      "Model diff endpoint is missing capability arrays"
     );
 
     const modelVerification = await fetch(`${BASE_URL}/api/v1/model-verification.json`);
