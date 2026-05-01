@@ -888,6 +888,106 @@ function buildOpenApiSpec() {
           },
         },
       },
+      "/api/v1/cost.json": {
+        get: {
+          operationId: "calculateModelCostsGet",
+          summary: "Estimate and rank model costs from token counts",
+          parameters: [
+            {
+              name: "input_tokens",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+            },
+            {
+              name: "output_tokens",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+            },
+            {
+              name: "cache_read_tokens",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+            },
+            {
+              name: "cache_write_tokens",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+            },
+            {
+              name: "cache_write_5m_tokens",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+            },
+            {
+              name: "cache_write_1h_tokens",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+            },
+            {
+              name: "batch_input_tokens",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+            },
+            {
+              name: "batch_output_tokens",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+            },
+            {
+              name: "long_context_input_tokens",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+            },
+            {
+              name: "long_context_output_tokens",
+              in: "query",
+              required: false,
+              schema: { type: "number", minimum: 0 },
+            },
+            {
+              name: "limit",
+              in: "query",
+              required: false,
+              schema: { type: "integer", minimum: 1, maximum: 500 },
+            },
+            {
+              name: "include_unpriced",
+              in: "query",
+              required: false,
+              schema: { type: "boolean" },
+            },
+          ],
+          responses: {
+            "200": jsonResponse(refSchema("ModelCostResponse")),
+            "400": { description: "Invalid or missing token counts" },
+          },
+        },
+        post: {
+          operationId: "calculateModelCostsPost",
+          summary: "Estimate and rank model costs from a JSON token-count request",
+          requestBody: {
+            required: true,
+            content: {
+              "application/json": {
+                schema: refSchema("ModelCostRequest"),
+              },
+            },
+          },
+          responses: {
+            "200": jsonResponse(refSchema("ModelCostResponse")),
+            "400": { description: "Invalid request body or token counts" },
+          },
+        },
+      },
       "/api/v1/{type}.json": {
         get: {
           operationId: "listContentByType",
@@ -1260,6 +1360,98 @@ function buildOpenApiSpec() {
           },
           additionalProperties: true,
         },
+        ModelCostRequest: {
+          type: "object",
+          properties: {
+            input_tokens: { type: "number", minimum: 0 },
+            output_tokens: { type: "number", minimum: 0 },
+            cache_read_tokens: { type: "number", minimum: 0 },
+            cache_write_tokens: { type: "number", minimum: 0 },
+            cache_write_5m_tokens: { type: "number", minimum: 0 },
+            cache_write_1h_tokens: { type: "number", minimum: 0 },
+            batch_input_tokens: { type: "number", minimum: 0 },
+            batch_output_tokens: { type: "number", minimum: 0 },
+            long_context_input_tokens: { type: "number", minimum: 0 },
+            long_context_output_tokens: { type: "number", minimum: 0 },
+            include_unpriced: { type: "boolean", default: false },
+            limit: { type: ["integer", "null"], minimum: 1, maximum: 500 },
+          },
+          additionalProperties: false,
+        },
+        ModelCostComponent: {
+          type: "object",
+          required: ["tokens", "usd_per_1m", "estimated_cost_usd", "price_source"],
+          properties: {
+            tokens: { type: "number", minimum: 0 },
+            usd_per_1m: { type: ["number", "null"], minimum: 0 },
+            estimated_cost_usd: { type: ["number", "null"], minimum: 0 },
+            price_source: { type: ["string", "null"] },
+          },
+          additionalProperties: false,
+        },
+        ModelCostItem: {
+          type: "object",
+          required: [
+            "rank",
+            "slug",
+            "id",
+            "title",
+            "estimated_cost_usd",
+            "missing_price_components",
+            "components",
+          ],
+          properties: {
+            rank: { type: "integer", minimum: 1 },
+            slug: { type: "string" },
+            id: { type: "string" },
+            title: { type: "string" },
+            provider: { type: ["string", "null"] },
+            model_type: { type: ["string", "null"] },
+            api_model_id: { type: ["string", "null"] },
+            availability_status: { type: ["string", "null"] },
+            deprecated: { type: "boolean" },
+            pricing_confidence: { type: ["string", "null"] },
+            currency: { type: "string" },
+            estimated_cost_usd: { type: ["number", "null"], minimum: 0 },
+            missing_price_components: { type: "array", items: { type: "string" } },
+            components: {
+              type: "object",
+              additionalProperties: refSchema("ModelCostComponent"),
+            },
+            html_url: { type: ["string", "null"] },
+            api_url: { type: ["string", "null"] },
+            markdown_url: { type: ["string", "null"] },
+          },
+          additionalProperties: true,
+        },
+        ModelCostResponse: {
+          type: "object",
+          required: [
+            "type",
+            "generated_at",
+            "source",
+            "total_models",
+            "priced_models",
+            "count",
+            "ranked_by",
+            "query",
+            "items",
+          ],
+          properties: {
+            type: { type: "string", const: "model-cost" },
+            generated_at: { type: ["string", "null"], format: "date" },
+            source: { type: "string" },
+            total_models: { type: "integer", minimum: 0 },
+            priced_models: { type: "integer", minimum: 0 },
+            excluded_unpriced_models: { type: "integer", minimum: 0 },
+            count: { type: "integer", minimum: 0 },
+            ranked_by: { type: "string" },
+            note: { type: "string" },
+            query: refSchema("ModelCostRequest"),
+            items: { type: "array", items: refSchema("ModelCostItem") },
+          },
+          additionalProperties: true,
+        },
         RecommendationItem: {
           type: "object",
           required: ["slug", "title", "id", "provider", "score", "score_basis"],
@@ -1535,6 +1727,7 @@ fs.writeFileSync(
     openapi_v1: "/api/v1/openapi.json",
     model_filter: "/api/v1/models-filter.json",
     model_diff: "/api/v1/diff.json",
+    model_cost: "/api/v1/cost.json",
     content_schema: "/api/v1/schema.json",
     raw_content: "/content/",
     search: "/search-index.json",
@@ -1574,6 +1767,7 @@ fs.writeFileSync(
       task_recommendations: true,
       model_filtering: true,
       model_diffing: true,
+      cost_calculation: true,
       presentation_modes: ["agent", "human"],
     },
   }),
@@ -1596,6 +1790,7 @@ fs.writeFileSync(
       openapi_v1: "/api/v1/openapi.json",
       model_filter: "/api/v1/models-filter.json",
       model_diff: "/api/v1/diff.json",
+      model_cost: "/api/v1/cost.json",
       schema: "/api/v1/schema.json",
       search_index: "/search-index.json",
       changes: "/api/v1/changes.json",
@@ -1626,6 +1821,7 @@ fs.writeFileSync(
       recommendations: "/api/v1/recommend/{task}.json",
       model_filter: "/api/v1/models-filter.json?capability=vision&availability_status=available",
       model_diff: "/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6",
+      model_cost: "/api/v1/cost.json?input_tokens=1000000&output_tokens=1000000",
       changes_since: "/api/v1/changes.json?since=YYYY-MM-DD",
     },
     content_types: typeIndex,
@@ -2174,6 +2370,7 @@ sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/openapi.json</loc><changefreq
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/schema.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/models-filter.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/diff.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
+sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/cost.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/changes.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/recommend.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/pricing-snapshots.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>`);

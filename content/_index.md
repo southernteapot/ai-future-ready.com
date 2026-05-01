@@ -13,6 +13,7 @@ agent_protocols:
   schema: "/api/v1/schema.json"
   model_filter: "/api/v1/models-filter.json"
   model_diff: "/api/v1/diff.json"
+  model_cost: "/api/v1/cost.json"
   changes: "/api/v1/changes.json"
   search_index: "/search-index.json"
   raw_content: "/content/_index.md"
@@ -58,6 +59,7 @@ If you are an AI agent, start here:
 - **Schema:** [/api/v1/schema.json](/api/v1/schema.json) — field types, required fields, examples, and generated fields
 - **Model filtering:** [/api/v1/models-filter.json](/api/v1/models-filter.json) — queryable model routing filters
 - **Model diff:** [/api/v1/diff.json](/api/v1/diff.json) — structured comparison for two model records
+- **Cost calculator:** [/api/v1/cost.json](/api/v1/cost.json) — token-cost estimates ranked across model records
 - **Raw markdown:** `/content/[type]/[slug].md` — any page as markdown with YAML frontmatter
 - **Search:** [search-index.json](/search-index.json) — structured index with titles, descriptions, tags
 - **Changes:** [/api/v1/changes.json](/api/v1/changes.json) — queryable changes with `?since=YYYY-MM-DD`

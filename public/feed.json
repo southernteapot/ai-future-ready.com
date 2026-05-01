@@ -23,8 +23,8 @@
       "content_text": "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.",
       "_section": "API Reference",
       "_markdown_url": "https://ai-future-ready.com/content/api-reference/_index.md",
-      "_content_hash": "c8410ef16682639a71e0aceb944a5c8a1aea675eb24cba68350a9e18df028711",
-      "_sha256": "c8410ef16682639a71e0aceb944a5c8a1aea675eb24cba68350a9e18df028711"
+      "_content_hash": "2e11b230a6aead3078248866bc84c08b45f46615d6a13d3fe988d65329136e84",
+      "_sha256": "2e11b230a6aead3078248866bc84c08b45f46615d6a13d3fe988d65329136e84"
     },
     {
       "id": "https://ai-future-ready.com/guides/agent-usage",
@@ -48,8 +48,8 @@
       "content_text": "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes.",
       "_section": "Guides",
       "_markdown_url": "https://ai-future-ready.com/content/guides/agent-usage.md",
-      "_content_hash": "d6d7b3e14fb9adf33d659a967b0f3fc9471d5a85ebccf160ea008492d9b87666",
-      "_sha256": "d6d7b3e14fb9adf33d659a967b0f3fc9471d5a85ebccf160ea008492d9b87666",
+      "_content_hash": "01a97e9aee21e8a52b274650fbc00047a2217b08a7e24a94893fa4596bb32758",
+      "_sha256": "01a97e9aee21e8a52b274650fbc00047a2217b08a7e24a94893fa4596bb32758",
       "_api_url": "https://ai-future-ready.com/api/v1/guides/agent-usage.json"
     },
     {

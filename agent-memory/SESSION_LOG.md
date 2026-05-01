@@ -30,3 +30,10 @@ Do not paste raw terminal logs here.
 - Added `/api/v1/diff.json?a=...&b=...` for structured model-to-model comparison by metadata, context window, numeric pricing, benchmarks, capabilities, modality, confidence, and sources.
 - Updated OpenAPI, `/.well-known/ai.json`, `/api/v1/index.json`, sitemap, API reference docs, agent usage docs, and smoke tests for the diff endpoint.
 - Validation passed: `npm run validate:content`, `npm run build`, `npm run lint`, `npm run test:smoke`.
+
+## 2026-05-01 - Model cost endpoint
+
+- Added `/api/v1/cost.json` for ranked token-cost estimates across model records, with both GET query parameters and POST JSON bodies.
+- Cost responses include per-component token counts, USD-per-1M price sources, estimated cost, missing price components, pricing confidence, and availability metadata.
+- Updated OpenAPI, `/.well-known/ai.json`, `/api/v1/index.json`, sitemap, API reference docs, agent usage docs, and smoke tests for the cost endpoint.
+- Validation passed: `npm run validate:content`, `npm run build`, `npm run lint`, `npm run test:smoke`.

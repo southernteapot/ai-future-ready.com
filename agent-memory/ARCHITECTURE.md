@@ -29,7 +29,7 @@ Next.js 16 app with file-based Markdown content and generated static machine-rea
 
 - `npm run build` runs `prebuild`, which runs content validation and `scripts/generate-llms-txt.ts`.
 - `scripts/generate-llms-txt.ts` generates `llms.txt`, `llms-full.txt`, `search-index.json`, `feed.json`, `feed.xml`, `sitemap.xml`, `robots.txt`, `public/.well-known/ai.json`, `src/lib/content-data.json`, `src/lib/changes-data.json`, and `public/api/v1/*`.
-- `scripts/generate-llms-txt.ts` also generates `src/lib/models-data.json` for runtime model filter and diff routes.
+- `scripts/generate-llms-txt.ts` also generates `src/lib/models-data.json` for runtime model filter, diff, and cost routes.
 - API docs and OpenAPI are generated from content/frontmatter shape rather than manually maintained.
 
 ## API Surface
@@ -42,6 +42,7 @@ Next.js 16 app with file-based Markdown content and generated static machine-rea
 - Per-item JSON: `/api/v1/{type}/{slug}.json`.
 - Model filter: `/api/v1/models-filter.json?capability=vision&availability_status=available`.
 - Model diff: `/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6`.
+- Model cost: `/api/v1/cost.json?input_tokens=1000000&output_tokens=1000000` or `POST /api/v1/cost.json`.
 - Recommendations: `/api/v1/recommend.json` and `/api/v1/recommend/{task}.json`.
 - Pricing snapshots: `/api/v1/pricing-snapshots.json`.
 - Model verification: `/api/v1/model-verification.json`.

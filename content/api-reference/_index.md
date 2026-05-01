@@ -53,6 +53,7 @@ Base URL: `/api/v1/`
 | [`/api/v1/models.json`](/api/v1/models.json) | All models with pricing, benchmarks, context windows, and metadata |
 | [`/api/v1/models-filter.json?capability=vision&availability_status=available`](/api/v1/models-filter.json?capability=vision&availability_status=available) | Queryable model filter for agent routing |
 | [`/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6`](/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6) | Structured model-to-model diff for pricing, benchmarks, metadata, capabilities, and sources |
+| [`/api/v1/cost.json?input_tokens=1000000&output_tokens=1000000`](/api/v1/cost.json?input_tokens=1000000&output_tokens=1000000) | Ranked token-cost estimates across model records |
 | [`/api/v1/models/claude-opus-4.6.json`](/api/v1/models/claude-opus-4.6.json) | Per-item JSON with metadata, body text, relationships, and hashes |
 | [`/api/v1/providers.json`](/api/v1/providers.json) | Provider profiles and ecosystem guidance |
 | [`/api/v1/agents.json`](/api/v1/agents.json) | All agent platforms with categories, licensing, and languages |
@@ -96,6 +97,26 @@ Model diffing accepts a model slug, permanent id, API model id, or title for eac
 ```
 
 The response includes both model summaries plus structured comparisons for metadata, context window, numeric pricing, benchmarks, capabilities, modality, confidence, and sources.
+
+Model cost calculation accepts either query parameters or a POST JSON body:
+
+```
+GET /api/v1/cost.json?input_tokens=1000000&output_tokens=1000000
+POST /api/v1/cost.json
+```
+
+POST body:
+
+```json
+{
+  "input_tokens": 1000000,
+  "output_tokens": 1000000,
+  "include_unpriced": false,
+  "limit": 25
+}
+```
+
+The response ranks priced models by `estimated_cost_usd` and includes per-component price sources, missing price components, availability status, and pricing confidence.
 
 ## MCP Access
 

@@ -93,6 +93,7 @@ async function main() {
       changes?: string;
       openapi?: string;
       model_diff?: string;
+      model_cost?: string;
     };
     assert(aiManifest.ok, ".well-known/ai.json did not return 200");
     assert(
@@ -110,6 +111,10 @@ async function main() {
     assert(
       aiManifestBody.model_diff === "/api/v1/diff.json",
       ".well-known/ai.json is missing model diff discovery"
+    );
+    assert(
+      aiManifestBody.model_cost === "/api/v1/cost.json",
+      ".well-known/ai.json is missing model cost discovery"
     );
 
     const openApi = await fetch(`${BASE_URL}/openapi.json`);
@@ -134,6 +139,10 @@ async function main() {
     assert(
       Boolean(openApiBody.paths?.["/api/v1/diff.json"]),
       "OpenAPI endpoint is missing model diff path"
+    );
+    assert(
+      Boolean(openApiBody.paths?.["/api/v1/cost.json"]),
+      "OpenAPI endpoint is missing model cost path"
     );
 
     const schema = await fetch(`${BASE_URL}/api/v1/schema.json`);
@@ -244,6 +253,54 @@ async function main() {
         Array.isArray(modelDiffBody.capabilities?.only_a) &&
         Array.isArray(modelDiffBody.capabilities?.only_b),
       "Model diff endpoint is missing capability arrays"
+    );
+
+    const modelCost = await fetch(`${BASE_URL}/api/v1/cost.json`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({
+        input_tokens: 1_000_000,
+        output_tokens: 1_000_000,
+        limit: 10,
+      }),
+    });
+    const modelCostBody = (await modelCost.json()) as {
+      type?: string;
+      query?: { input_tokens?: number; output_tokens?: number; limit?: number | null };
+      items?: Array<{
+        estimated_cost_usd?: number | null;
+        components?: {
+          input?: { tokens?: number; usd_per_1m?: number | null };
+          output?: { tokens?: number; usd_per_1m?: number | null };
+        };
+      }>;
+    };
+    assert(modelCost.ok, "Model cost endpoint did not return 200");
+    assert(modelCostBody.type === "model-cost", "Model cost endpoint returned the wrong type");
+    assert(
+      modelCostBody.query?.input_tokens === 1_000_000 &&
+        modelCostBody.query?.output_tokens === 1_000_000,
+      "Model cost endpoint did not echo parsed token counts"
+    );
+    assert(
+      Array.isArray(modelCostBody.items) &&
+        modelCostBody.items.length > 0 &&
+        modelCostBody.items.every(
+          (item) =>
+            typeof item.estimated_cost_usd === "number" &&
+            item.components?.input?.tokens === 1_000_000 &&
+            item.components?.output?.tokens === 1_000_000 &&
+            typeof item.components?.input?.usd_per_1m === "number" &&
+            typeof item.components?.output?.usd_per_1m === "number"
+        ),
+      "Model cost endpoint returned incomplete priced items"
+    );
+    assert(
+      modelCostBody.items.every((item, index, items) => {
+        if (index === 0) return true;
+        return Number(items[index - 1].estimated_cost_usd) <= Number(item.estimated_cost_usd);
+      }),
+      "Model cost endpoint did not rank items by estimated cost"
     );
 
     const modelVerification = await fetch(`${BASE_URL}/api/v1/model-verification.json`);

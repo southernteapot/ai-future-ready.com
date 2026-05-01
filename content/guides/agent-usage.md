@@ -82,9 +82,10 @@ Use recommendation endpoints when your task is "choose the best model for X" rat
 ```bash
 curl "https://ai-future-ready.com/api/v1/models-filter.json?capability=vision&availability_status=available&context_min=1000000"
 curl "https://ai-future-ready.com/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6"
+curl "https://ai-future-ready.com/api/v1/cost.json?input_tokens=1000000&output_tokens=1000000"
 ```
 
-Use model filtering for routing constraints. Use model diffing when you need a structured side-by-side comparison of two known models.
+Use model filtering for routing constraints. Use model diffing when you need a structured side-by-side comparison of two known models. Use model cost calculation when you need a ranked budget estimate for a token workload.
 
 ## 9. Track changes
 

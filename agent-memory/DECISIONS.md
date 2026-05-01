@@ -31,3 +31,10 @@ Project/system: Public model comparison API.
 Decision: Implement model-to-model diffing at `/api/v1/diff.json` as a Next.js route handler that imports generated `src/lib/models-data.json`.
 Reason: Agents frequently answer "X vs Y" questions and should not have to reimplement comparison logic for pricing, benchmarks, capabilities, provenance, and routing metadata.
 Consequences: The generated OpenAPI, discovery manifests, sitemap, API docs, and smoke tests include the diff endpoint; future model-summary field changes should consider whether the diff response should expose them.
+
+## 2026-05-01 - Model cost calculation is a dynamic API route backed by generated data
+
+Project/system: Public model planning API.
+Decision: Implement token-cost estimation at `/api/v1/cost.json` as a Next.js route handler that imports generated `src/lib/models-data.json` and supports both GET query parameters and POST JSON bodies.
+Reason: Agents need ranked budget estimates for concrete token workloads without reimplementing per-1M pricing math client-side.
+Consequences: The generated OpenAPI, discovery manifests, sitemap, API docs, and smoke tests include the cost endpoint; pricing fields should remain numeric where possible so cost estimates do not rely on string parsing.
