@@ -8,7 +8,7 @@ AI Future Ready is an agent-first Markdown/Next.js site for AI model, provider, 
 
 ## Current Known Direction
 
-The site is being hardened as machine-readable AI infrastructure: structured markdown frontmatter, generated JSON APIs, `llms.txt`, raw content URLs, content hashes, feeds, recommendation slices, pricing snapshots, model verification metadata, model filtering/diffing/costing, and OpenAPI discovery.
+The site is being hardened as machine-readable AI infrastructure: structured markdown frontmatter, generated JSON APIs, `llms.txt`, raw content URLs, content hashes, feeds, recommendation slices, pricing snapshots, model verification metadata, model filtering/diffing/costing, generated status reporting, and OpenAPI discovery.
 
 ## Durable Facts
 
@@ -17,6 +17,7 @@ The site is being hardened as machine-readable AI infrastructure: structured mar
 - Content validation is in `scripts/validate-content.ts`.
 - Public API artifacts live under `public/api/v1/`; raw copied markdown lives under `public/content/`.
 - OpenAPI is generated at both `public/openapi.json` and `public/api/v1/openapi.json`.
+- Status data is generated at `public/api/v1/status.json` and `src/lib/status-data.json`; `/status` renders the same payload for humans and agents.
 - Model runtime data is generated at `src/lib/models-data.json` and served by `/api/v1/models-filter.json`, `/api/v1/diff.json`, and `/api/v1/cost.json`.
 - Build pipeline runs `validate:content` and the generator through `prebuild`.
 - Main validation commands used successfully: `npm run validate:content`, `npm run build`, `npm run lint`, `npm run test:smoke`.

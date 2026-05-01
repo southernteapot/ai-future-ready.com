@@ -94,6 +94,7 @@ async function main() {
       openapi?: string;
       model_diff?: string;
       model_cost?: string;
+      status?: string;
     };
     assert(aiManifest.ok, ".well-known/ai.json did not return 200");
     assert(
@@ -115,6 +116,10 @@ async function main() {
     assert(
       aiManifestBody.model_cost === "/api/v1/cost.json",
       ".well-known/ai.json is missing model cost discovery"
+    );
+    assert(
+      aiManifestBody.status === "/api/v1/status.json",
+      ".well-known/ai.json is missing status discovery"
     );
 
     const openApi = await fetch(`${BASE_URL}/openapi.json`);
@@ -143,6 +148,10 @@ async function main() {
     assert(
       Boolean(openApiBody.paths?.["/api/v1/cost.json"]),
       "OpenAPI endpoint is missing model cost path"
+    );
+    assert(
+      Boolean(openApiBody.paths?.["/api/v1/status.json"]),
+      "OpenAPI endpoint is missing status path"
     );
 
     const schema = await fetch(`${BASE_URL}/api/v1/schema.json`);
@@ -301,6 +310,48 @@ async function main() {
         return Number(items[index - 1].estimated_cost_usd) <= Number(item.estimated_cost_usd);
       }),
       "Model cost endpoint did not rank items by estimated cost"
+    );
+
+    const statusJson = await fetch(`${BASE_URL}/api/v1/status.json`);
+    const statusJsonBody = (await statusJson.json()) as {
+      type?: string;
+      status?: string;
+      build_timestamp?: string;
+      content?: { content_types?: unknown[] };
+      links?: {
+        internal?: { checked?: number; broken_count?: number };
+        sources?: { source_url_count?: number; external_http_checked?: boolean };
+      };
+    };
+    assert(statusJson.ok, "Status JSON endpoint did not return 200");
+    assert(statusJsonBody.type === "site-status", "Status JSON endpoint returned the wrong type");
+    assert(
+      typeof statusJsonBody.build_timestamp === "string" &&
+        statusJsonBody.build_timestamp.length > 0,
+      "Status JSON endpoint is missing build timestamp"
+    );
+    assert(
+      Array.isArray(statusJsonBody.content?.content_types) &&
+        statusJsonBody.content.content_types.length > 0,
+      "Status JSON endpoint is missing content freshness by type"
+    );
+    assert(
+      typeof statusJsonBody.links?.internal?.checked === "number" &&
+        typeof statusJsonBody.links?.internal?.broken_count === "number",
+      "Status JSON endpoint is missing internal link health"
+    );
+    assert(
+      typeof statusJsonBody.links?.sources?.source_url_count === "number" &&
+        statusJsonBody.links.sources.external_http_checked === false,
+      "Status JSON endpoint is missing source health metadata"
+    );
+
+    const statusPage = await fetch(`${BASE_URL}/status`);
+    const statusPageHtml = await statusPage.text();
+    assert(statusPage.ok, "Status page did not return 200");
+    assert(
+      statusPageHtml.includes("Build freshness and data health"),
+      "Status page content is missing"
     );
 
     const modelVerification = await fetch(`${BASE_URL}/api/v1/model-verification.json`);

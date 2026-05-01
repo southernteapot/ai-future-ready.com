@@ -53,9 +53,10 @@ Use per-item JSON when you need typed metadata, generated relationship data, con
 
 ```bash
 curl https://ai-future-ready.com/api/v1/schema.json
+curl https://ai-future-ready.com/api/v1/status.json
 ```
 
-Use the schema endpoint before assuming field names. It lists observed fields, value types, coverage, examples, and generated fields.
+Use the schema endpoint before assuming field names. It lists observed fields, value types, coverage, examples, and generated fields. Use the status endpoint when you need build freshness, stale-content counts, internal-link health, and source metadata coverage.
 
 ## 6. Search by structured index
 

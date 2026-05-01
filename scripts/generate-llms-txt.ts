@@ -15,6 +15,10 @@ const CONTENT_DIR = path.join(process.cwd(), "content");
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 const PUBLIC_CONTENT_DIR = path.join(PUBLIC_DIR, "content");
 const GENERATED_DATE = new Date().toISOString().split("T")[0];
+const BUILD_TIMESTAMP =
+  process.env.BUILD_TIMESTAMP ?? `${GENERATED_DATE}T00:00:00.000Z`;
+const STALE_AFTER_DAYS = 30;
+const SOURCE_FIELDS = ["sources", "pricing_sources", "benchmark_sources"] as const;
 
 interface Entry {
   title: string;
@@ -172,6 +176,38 @@ function getSourceList(value: unknown): Array<{ title: string; url: string }> {
         }))
         .filter((item) => item.url)
     : [];
+}
+
+function daysSince(date: string | null): number | null {
+  if (!date) return null;
+  const reference = Date.parse(toIsoDate(GENERATED_DATE));
+  const parsed = Date.parse(toIsoDate(date));
+  if (!Number.isFinite(reference) || !Number.isFinite(parsed)) return null;
+  return Math.max(0, Math.floor((reference - parsed) / 86_400_000));
+}
+
+function isValidSourceUrl(url: string): boolean {
+  try {
+    const parsed = new URL(url);
+    return parsed.protocol === "http:" || parsed.protocol === "https:";
+  } catch {
+    return false;
+  }
+}
+
+function sourceRecordsForEntry(entry: Entry) {
+  return SOURCE_FIELDS.flatMap((field) =>
+    getSourceList(entry.meta[field]).map((source) => ({
+      field,
+      title: source.title,
+      url: source.url,
+      entry_id: String(entry.meta.id ?? slugFromMdPath(entry.mdPath)),
+      entry_title: entry.title,
+      entry_type: String(entry.meta.type ?? typeFromMdPath(entry.mdPath)),
+      markdown_url: entry.mdPath,
+      html_url: entry.htmlPath,
+    }))
+  );
 }
 
 function averageScores(benchmarks: Record<string, number>, fields: string[]): number {
@@ -631,6 +667,212 @@ const typeIndex = contentTypes.map((t) => {
   };
 });
 
+function buildKnownRoutes(): Set<string> {
+  const routes = new Set([
+    "/",
+    "/search",
+    "/score",
+    "/status",
+    "/mcp",
+    "/content/_index.md",
+    "/.well-known/ai.json",
+    "/llms.txt",
+    "/llms-full.txt",
+    "/openapi.json",
+    "/search-index.json",
+    "/api/v1/index.json",
+    "/api/v1/openapi.json",
+    "/api/v1/schema.json",
+    "/api/v1/models-filter.json",
+    "/api/v1/diff.json",
+    "/api/v1/cost.json",
+    "/api/v1/status.json",
+    "/api/v1/changes.json",
+    "/api/v1/model-verification.json",
+    "/api/v1/pricing-snapshots.json",
+    "/api/v1/recommend.json",
+    "/api/v1/samples/pro-data.json",
+    "/feed.json",
+    "/feed.xml",
+    "/robots.txt",
+    "/sitemap.xml",
+  ]);
+
+  for (const entry of allEntries) {
+    routes.add(entry.htmlPath);
+    routes.add(entry.mdPath);
+    const apiUrl = apiPathForEntry(entry);
+    if (apiUrl) routes.add(apiUrl);
+  }
+
+  for (const type of contentTypes) {
+    routes.add(`/${type}`);
+    routes.add(`/content/${type}/_index.md`);
+    routes.add(`/api/v1/${type}.json`);
+  }
+
+  for (const task of RECOMMENDATION_TASKS) {
+    routes.add(`/api/v1/recommend/${task}.json`);
+  }
+
+  return routes;
+}
+
+function buildInternalLinkHealth() {
+  const validRoutes = buildKnownRoutes();
+  const broken: Array<{
+    file: string;
+    href: string;
+    resolved_route: string;
+    text: string;
+  }> = [];
+  let checked = 0;
+
+  for (const entry of allEntries) {
+    const text = stripMarkdownCode(entry.raw);
+    const linkPattern = /\[([^\]]+)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g;
+    let match: RegExpExecArray | null;
+
+    while ((match = linkPattern.exec(text)) !== null) {
+      const resolved = resolveHref(match[2], entry.mdPath);
+      if (!resolved) continue;
+      checked += 1;
+
+      const route = normalizeRoute(resolved.mdPath ?? resolved.htmlPath);
+      if (validRoutes.has(route)) continue;
+
+      broken.push({
+        file: entry.mdPath,
+        href: match[2],
+        resolved_route: route,
+        text: match[1],
+      });
+    }
+  }
+
+  return {
+    checked,
+    broken_count: broken.length,
+    broken: broken.slice(0, 50),
+  };
+}
+
+function buildContentFreshness() {
+  return contentTypes
+    .map((type) => {
+      const items = publicEntriesForType(type);
+      const freshness = items.map((entry) => ({
+        slug: slugFromMdPath(entry.mdPath),
+        title: entry.title,
+        last_updated: entry.updatedAt,
+        age_days: daysSince(entry.updatedAt),
+        last_verified: normalizeDate(entry.meta.last_verified),
+      }));
+      const stale = freshness.filter(
+        (item) => item.age_days !== null && item.age_days > STALE_AFTER_DAYS
+      );
+      const verified = freshness.filter((item) => item.last_verified !== null);
+      const sortedDates = freshness.map((item) => item.last_updated).sort();
+
+      return {
+        type,
+        count: items.length,
+        latest_last_updated: sortedDates.at(-1) ?? null,
+        oldest_last_updated: sortedDates[0] ?? null,
+        stale_after_days: STALE_AFTER_DAYS,
+        stale_count: stale.length,
+        verified_count: verified.length,
+        verification_coverage:
+          items.length === 0 ? 0 : Number((verified.length / items.length).toFixed(3)),
+        oldest_items: freshness
+          .sort((a, b) => (b.age_days ?? 0) - (a.age_days ?? 0))
+          .slice(0, 5),
+      };
+    })
+    .sort((a, b) => a.type.localeCompare(b.type));
+}
+
+function buildSourceHealth() {
+  const sourceRecords = contentEntries.flatMap(sourceRecordsForEntry);
+  const invalidSources = sourceRecords.filter((source) => !isValidSourceUrl(source.url));
+  const modelsMissingSources = modelEntries.filter(
+    (entry) =>
+      sourceRecordsForEntry(entry).length === 0 &&
+      !providerByName.has(String(entry.meta.provider ?? "").toLowerCase())
+  );
+  const modelsMissingLastVerified = modelEntries.filter(
+    (entry) => !entry.meta.last_verified
+  );
+
+  return {
+    external_http_checked: false,
+    external_http_check_note:
+      "Build-time status validates source URL structure only; it does not perform network health checks.",
+    source_url_count: sourceRecords.length,
+    invalid_source_url_count: invalidSources.length,
+    invalid_source_urls: invalidSources.slice(0, 50),
+    model_count: modelEntries.length,
+    models_with_model_sources: modelEntries.filter(
+      (entry) => getSourceList(entry.meta.sources).length > 0
+    ).length,
+    models_with_last_verified: modelEntries.filter((entry) => entry.meta.last_verified).length,
+    models_missing_sources_count: modelsMissingSources.length,
+    models_missing_last_verified_count: modelsMissingLastVerified.length,
+    models_missing_sources: modelsMissingSources.map((entry) => ({
+      slug: slugFromMdPath(entry.mdPath),
+      title: entry.title,
+      provider: entry.meta.provider ?? null,
+      markdown_url: entry.mdPath,
+    })),
+    models_missing_last_verified: modelsMissingLastVerified.map((entry) => ({
+      slug: slugFromMdPath(entry.mdPath),
+      title: entry.title,
+      provider: entry.meta.provider ?? null,
+      markdown_url: entry.mdPath,
+    })),
+  };
+}
+
+function buildStatusData() {
+  const internalLinks = buildInternalLinkHealth();
+  const sourceHealth = buildSourceHealth();
+  const status =
+    internalLinks.broken_count === 0 && sourceHealth.invalid_source_url_count === 0
+      ? "ok"
+      : "attention";
+
+  return {
+    type: "site-status",
+    status,
+    generated_at: GENERATED_DATE,
+    build_timestamp: BUILD_TIMESTAMP,
+    site: SITE_URL,
+    api_version: "v1",
+    content: {
+      total_entries: allEntries.length,
+      public_items: contentEntries.length,
+      content_types: buildContentFreshness(),
+    },
+    links: {
+      internal: internalLinks,
+      sources: sourceHealth,
+    },
+    artifacts: {
+      well_known_ai: "/.well-known/ai.json",
+      llms_txt: "/llms.txt",
+      llms_full: "/llms-full.txt",
+      openapi: "/openapi.json",
+      api_index: "/api/v1/index.json",
+      schema: "/api/v1/schema.json",
+      search_index: "/search-index.json",
+      feed_json: "/feed.json",
+      feed_xml: "/feed.xml",
+      sitemap: "/sitemap.xml",
+      status_json: "/api/v1/status.json",
+    },
+  };
+}
+
 function refSchema(name: string) {
   return { $ref: `#/components/schemas/${name}` };
 }
@@ -763,6 +1005,15 @@ function buildOpenApiSpec() {
           summary: "Get observed content-frontmatter schema coverage",
           responses: {
             "200": jsonResponse(refSchema("ContentSchema")),
+          },
+        },
+      },
+      "/api/v1/status.json": {
+        get: {
+          operationId: "getSiteStatus",
+          summary: "Get build freshness, internal-link health, and source metadata coverage",
+          responses: {
+            "200": jsonResponse(refSchema("StatusResponse")),
           },
         },
       },
@@ -1242,6 +1493,22 @@ function buildOpenApiSpec() {
             required_fields: { type: "array", items: { type: "string" } },
             recommended_fields: { type: "array", items: { type: "string" } },
             content_types: { type: "object", additionalProperties: true },
+          },
+          additionalProperties: true,
+        },
+        StatusResponse: {
+          type: "object",
+          required: ["type", "status", "generated_at", "build_timestamp", "content", "links"],
+          properties: {
+            type: { type: "string", const: "site-status" },
+            status: { type: "string", enum: ["ok", "attention"] },
+            generated_at: { type: "string", format: "date" },
+            build_timestamp: { type: "string", format: "date-time" },
+            site: { type: "string", format: "uri" },
+            api_version: { type: "string" },
+            content: { type: "object", additionalProperties: true },
+            links: { type: "object", additionalProperties: true },
+            artifacts: { type: "object", additionalProperties: true },
           },
           additionalProperties: true,
         },
@@ -1728,6 +1995,7 @@ fs.writeFileSync(
     model_filter: "/api/v1/models-filter.json",
     model_diff: "/api/v1/diff.json",
     model_cost: "/api/v1/cost.json",
+    status: "/api/v1/status.json",
     content_schema: "/api/v1/schema.json",
     raw_content: "/content/",
     search: "/search-index.json",
@@ -1768,6 +2036,7 @@ fs.writeFileSync(
       model_filtering: true,
       model_diffing: true,
       cost_calculation: true,
+      status_reporting: true,
       presentation_modes: ["agent", "human"],
     },
   }),
@@ -1791,6 +2060,7 @@ fs.writeFileSync(
       model_filter: "/api/v1/models-filter.json",
       model_diff: "/api/v1/diff.json",
       model_cost: "/api/v1/cost.json",
+      status: "/api/v1/status.json",
       schema: "/api/v1/schema.json",
       search_index: "/search-index.json",
       changes: "/api/v1/changes.json",
@@ -1822,6 +2092,7 @@ fs.writeFileSync(
       model_filter: "/api/v1/models-filter.json?capability=vision&availability_status=available",
       model_diff: "/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6",
       model_cost: "/api/v1/cost.json?input_tokens=1000000&output_tokens=1000000",
+      status: "/api/v1/status.json",
       changes_since: "/api/v1/changes.json?since=YYYY-MM-DD",
     },
     content_types: typeIndex,
@@ -2128,6 +2399,18 @@ fs.writeFileSync(
   "utf-8"
 );
 
+const statusData = buildStatusData();
+fs.writeFileSync(
+  path.join(apiDir, "status.json"),
+  JSON.stringify(statusData),
+  "utf-8"
+);
+fs.writeFileSync(
+  path.join(process.cwd(), "src", "lib", "status-data.json"),
+  JSON.stringify(statusData),
+  "utf-8"
+);
+
 const samplesDir = path.join(apiDir, "samples");
 fs.mkdirSync(samplesDir, { recursive: true });
 
@@ -2360,6 +2643,7 @@ const baseUrl = SITE_URL;
 const sitemapEntries: string[] = [];
 
 sitemapEntries.push(`  <url><loc>${baseUrl}</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>`);
+sitemapEntries.push(`  <url><loc>${baseUrl}/status</loc><changefreq>daily</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/.well-known/ai.json</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/llms.txt</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/llms-full.txt</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
@@ -2368,6 +2652,7 @@ sitemapEntries.push(`  <url><loc>${baseUrl}/openapi.json</loc><changefreq>weekly
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/index.json</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/openapi.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/schema.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
+sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/status.json</loc><changefreq>daily</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/models-filter.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/diff.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/api/v1/cost.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);

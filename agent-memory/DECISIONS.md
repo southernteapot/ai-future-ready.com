@@ -38,3 +38,10 @@ Project/system: Public model planning API.
 Decision: Implement token-cost estimation at `/api/v1/cost.json` as a Next.js route handler that imports generated `src/lib/models-data.json` and supports both GET query parameters and POST JSON bodies.
 Reason: Agents need ranked budget estimates for concrete token workloads without reimplementing per-1M pricing math client-side.
 Consequences: The generated OpenAPI, discovery manifests, sitemap, API docs, and smoke tests include the cost endpoint; pricing fields should remain numeric where possible so cost estimates do not rely on string parsing.
+
+## 2026-05-01 - Status reporting is generated from the content inventory
+
+Project/system: Public operational status and trust reporting.
+Decision: Generate `/api/v1/status.json` and `src/lib/status-data.json` from `scripts/generate-llms-txt.ts`, then render `/status` from the generated data.
+Reason: Freshness, broken internal links, and source metadata coverage should come from the same content graph as the public API instead of a manually maintained status page.
+Consequences: Status reports build timestamp, content freshness by type, internal-link health, and source URL structural validity. It intentionally does not perform external HTTP health checks during build.

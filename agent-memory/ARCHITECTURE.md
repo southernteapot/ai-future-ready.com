@@ -29,6 +29,7 @@ Next.js 16 app with file-based Markdown content and generated static machine-rea
 
 - `npm run build` runs `prebuild`, which runs content validation and `scripts/generate-llms-txt.ts`.
 - `scripts/generate-llms-txt.ts` generates `llms.txt`, `llms-full.txt`, `search-index.json`, `feed.json`, `feed.xml`, `sitemap.xml`, `robots.txt`, `public/.well-known/ai.json`, `src/lib/content-data.json`, `src/lib/changes-data.json`, and `public/api/v1/*`.
+- `scripts/generate-llms-txt.ts` generates `public/api/v1/status.json` and `src/lib/status-data.json` for operational status, freshness, internal-link health, and source metadata coverage.
 - `scripts/generate-llms-txt.ts` also generates `src/lib/models-data.json` for runtime model filter, diff, and cost routes.
 - API docs and OpenAPI are generated from content/frontmatter shape rather than manually maintained.
 
@@ -37,6 +38,7 @@ Next.js 16 app with file-based Markdown content and generated static machine-rea
 - Discovery: `/.well-known/ai.json`, `/llms.txt`, `/llms-full.txt`, `/openapi.json`.
 - API index: `/api/v1/index.json`.
 - Versioned OpenAPI: `/api/v1/openapi.json`.
+- Status: `/status` and `/api/v1/status.json`.
 - Content schema: `/api/v1/schema.json`.
 - Type indexes: `/api/v1/{type}.json`.
 - Per-item JSON: `/api/v1/{type}/{slug}.json`.

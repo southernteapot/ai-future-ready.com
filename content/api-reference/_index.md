@@ -40,6 +40,7 @@ Draft paid API targets use `/api/pro/v1/`. They are not implemented yet.
 | [`/feed.xml`](/feed.xml) | RSS | RSS mirror of the change feed |
 | [`/sitemap.xml`](/sitemap.xml) | XML | Sitemap with both HTML and raw content URLs |
 | [`/robots.txt`](/robots.txt) | Text | Agent access permissions |
+| [`/status`](/status) | HTML/JSON view | Human and agent-readable operational status |
 
 ## JSON API
 
@@ -50,6 +51,7 @@ Base URL: `/api/v1/`
 | [`/api/v1/index.json`](/api/v1/index.json) | All content types with descriptions and counts |
 | [`/api/v1/openapi.json`](/api/v1/openapi.json) | OpenAPI 3.1 contract for API clients and agent tool generation |
 | [`/api/v1/schema.json`](/api/v1/schema.json) | Observed fields, value types, coverage, examples, and generated fields |
+| [`/api/v1/status.json`](/api/v1/status.json) | Build freshness, content freshness, internal-link health, and source metadata coverage |
 | [`/api/v1/models.json`](/api/v1/models.json) | All models with pricing, benchmarks, context windows, and metadata |
 | [`/api/v1/models-filter.json?capability=vision&availability_status=available`](/api/v1/models-filter.json?capability=vision&availability_status=available) | Queryable model filter for agent routing |
 | [`/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6`](/api/v1/diff.json?a=gpt-5.4&b=claude-opus-4.6) | Structured model-to-model diff for pricing, benchmarks, metadata, capabilities, and sources |

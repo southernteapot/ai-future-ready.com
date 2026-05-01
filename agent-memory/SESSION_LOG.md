@@ -37,3 +37,10 @@ Do not paste raw terminal logs here.
 - Cost responses include per-component token counts, USD-per-1M price sources, estimated cost, missing price components, pricing confidence, and availability metadata.
 - Updated OpenAPI, `/.well-known/ai.json`, `/api/v1/index.json`, sitemap, API reference docs, agent usage docs, and smoke tests for the cost endpoint.
 - Validation passed: `npm run validate:content`, `npm run build`, `npm run lint`, `npm run test:smoke`.
+
+## 2026-05-01 - Status reporting
+
+- Added generated `/api/v1/status.json` and `src/lib/status-data.json` with build timestamp, content freshness by type, internal-link health, and source metadata coverage.
+- Added `/status` as a static page that shows raw JSON in agent mode and a human-readable status view in human mode.
+- Updated OpenAPI, `/.well-known/ai.json`, `/api/v1/index.json`, API reference docs, agent usage docs, sitemap, navigation, and smoke tests for status reporting.
+- Validation passed: `npm run validate:content`, `npm run build`, `npm run lint`, `npm run test:smoke`.
