@@ -4,9 +4,17 @@ type: model
 id: "nemotron-cascade-2"
 provider: "NVIDIA"
 model_type: "open-source"
+api_model_id: "nvidia/Nemotron-Cascade-2"
 release_date: "2026-03"
 description: "NVIDIA's 30B MoE with only 3B active parameters that achieves gold-medal performance on IMO, IOI, and ICPC. Beats the larger Nemotron 3 Super 120B on coding and instruction following. Fits on a single RTX 4090 (24GB VRAM with Q4). Hybrid Mamba-2 + Transformer architecture enables a 1M token context window."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "high"
 context_window: "1M tokens"
 website: "https://build.nvidia.com"
 license: "NVIDIA Open Model License"
@@ -28,6 +36,19 @@ benchmarks:
   writing: 78
   multilingual: 75
   speed: 92
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "NVIDIA Nemotron-Cascade 2 research page"
+  url: "https://research.nvidia.com/labs/nemotron/nemotron-cascade-2/"
+benchmark_sources:
+- title: "NVIDIA Nemotron-Cascade 2 research page"
+  url: "https://research.nvidia.com/labs/nemotron/nemotron-cascade-2/"
 parameters: "30B total (3B active)"
 hardware_requirements: "1x RTX 4090 24GB (Q4); 1x RTX 3090 with Q3 quantization"
 best_for:

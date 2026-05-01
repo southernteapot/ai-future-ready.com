@@ -4,9 +4,17 @@ type: model
 id: "llama-4-scout"
 provider: "Meta"
 model_type: "open-source"
+api_model_id: "meta-llama/Llama-4-Scout-17B-16E-Instruct"
 release_date: "2025-04"
 description: "Meta's efficient open-source MoE model with 109B total parameters (17B active). Features the largest context window of any model at 10M tokens."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "medium"
+benchmark_confidence: "low"
 context_window: "10M tokens"
 website: "https://llama.meta.com"
 license: "Llama Community License"
@@ -29,6 +37,20 @@ benchmarks:
   writing: 81
   multilingual: 79
   speed: 88
+capabilities:
+- "vision"
+- "streaming"
+- "structured_output"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Meta Llama models"
+  url: "https://www.llama.com/models/llama-4/"
+- title: "NVIDIA Llama 4 Scout and Maverick technical blog"
+  url: "https://developer.nvidia.com/blog/nvidia-accelerates-inference-on-meta-llama-4-scout-and-maverick/"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "109B total (17B active)"
 hardware_requirements: "1x A100 80GB (FP16); single RTX 4090 with Q4 quantization"
 best_for:
@@ -46,4 +68,4 @@ Scout is the practical choice for teams that need long-context processing on the
 
 The quality tradeoffs are real. Reasoning (80), coding (79), and math (77) are all a clear step below Maverick and well behind proprietary models. Scout is not the model you choose for hard problems -- it's the model you choose for problems that require absorbing enormous amounts of text before answering. Think retrieval-heavy RAG pipelines, long-form document QA, or codebase-wide search.
 
-**When to pick something else:** For anything quality-sensitive that doesn't require extreme context, Maverick is the better Llama. For coding, DeepSeek V3.2 at $0.27/$1.10 is both smarter and cheaper via API. Scout's unique value is that 10M context window -- if you don't need it, you're leaving quality on the table by choosing this over stronger models.
+**When to pick something else:** For anything quality-sensitive that doesn't require extreme context, Maverick is the better Llama. For coding, DeepSeek V3.2 at $0.28/$0.42 is both smarter and cheaper via API. Scout's unique value is that 10M context window -- if you don't need it, you're leaving quality on the table by choosing this over stronger models.

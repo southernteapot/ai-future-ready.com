@@ -4,18 +4,28 @@ type: model
 id: "kimi-k2.5"
 provider: "Moonshot AI"
 model_type: "open-source"
+api_model_id: "moonshotai/Kimi-K2.5"
 release_date: "2025"
-description: "Chinese AI model achieving 96% on AIME 2025, outperforming most proprietary models on math. Strong reasoning and mathematical capabilities."
-last_updated: "2026-04-10"
+description: "Open multimodal agentic model from Moonshot AI achieving 96% on AIME 2025, outperforming most proprietary models on math. Strong reasoning and mathematical capabilities."
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "low"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://www.moonshot.cn"
-license: "MIT"
+license: "Modified MIT"
 modality:
 - "text"
+- "image"
 tags:
 - "moonshot ai"
 - "open-source"
 - "text"
+- "image"
 pricing:
   input: "Free (self-hosted)"
   output: "Free (self-hosted)"
@@ -28,6 +38,22 @@ benchmarks:
   writing: 78
   multilingual: 80
   speed: 72
+capabilities:
+- "function_calling"
+- "vision"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Kimi K2.5 model card"
+  url: "https://huggingface.co/moonshotai/Kimi-K2.5"
+- title: "Kimi K2.5 NVIDIA NIM model card"
+  url: "https://build.nvidia.com/moonshotai/kimi-k2.5/modelcard"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "MoE (undisclosed)"
 hardware_requirements: "Multi-GPU setup required"
 best_for:

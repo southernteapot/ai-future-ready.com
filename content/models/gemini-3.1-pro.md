@@ -4,9 +4,18 @@ type: model
 id: "gemini-3.1-pro"
 provider: "Google"
 model_type: "proprietary"
-release_date: "2026-02"
+api_model_id: "gemini-3.1-pro-preview"
+release_date: "2026-02-19"
 description: "Google's most capable model, building on the Gemini 3 series with improved reasoning, multimodal, and agentic capabilities. Native multimodal across text, images, video, and audio."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2025-01"
+availability_status: "preview"
+deprecated: false
+tool_schema_format: "gemini"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "1M tokens"
 website: "https://deepmind.google"
 license: "Proprietary"
@@ -25,7 +34,13 @@ tags:
 pricing:
   input: "$2.00 / 1M tokens"
   output: "$12.00 / 1M tokens"
-  note: "Free tier via Google AI Studio"
+  input_per_1m: 2
+  output_per_1m: 12
+  currency: "USD"
+  cache_read_per_1m: 0.2
+  long_context_input_per_1m: 4
+  long_context_output_per_1m: 18
+  note: "Preview pricing; prompts over 200K tokens use higher input/output rates."
 benchmarks:
   reasoning: 93
   coding: 91
@@ -33,6 +48,29 @@ benchmarks:
   writing: 89
   multilingual: 93
   speed: 78
+capabilities:
+- "function_calling"
+- "vision"
+- "audio_input"
+- "video"
+- "web_search"
+- "file_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Gemini 3.1 Pro announcement"
+  url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+- title: "Gemini 3.1 Pro model card"
+  url: "https://deepmind.google/models/model-cards/gemini-3-1-pro/"
+- title: "Gemini Developer API pricing"
+  url: "https://ai.google.dev/pricing"
+benchmark_sources:
+- title: "Gemini 3.1 Pro model card"
+  url: "https://deepmind.google/models/model-cards/gemini-3-1-pro/"
 best_for:
 - "Long document analysis"
 - "Multimodal tasks"
@@ -42,7 +80,7 @@ best_for:
 
 # Gemini 3.1 Pro
 
-The best value among frontier models. At $2/$12 per million tokens, Gemini 3.1 Pro delivers 93/100 reasoning and 92/100 math -- numbers that rival GPT-5.4 at less than half the price. Add a generous free tier through Google AI Studio and this becomes the easiest model to start experimenting with.
+The best value among frontier models. At $2/$12 per million tokens for standard prompts, Gemini 3.1 Pro delivers 93/100 reasoning and 92/100 math -- numbers that rival GPT-5.4 at less than half the price. It is still a preview model, so treat rate limits, exact model IDs, and availability as more volatile than stable Gemini releases.
 
 The multimodal story is where Gemini genuinely leads. It's the only frontier model with native support across text, images, video, and audio -- not bolted-on, but trained natively. If your workflow involves analyzing video content, processing audio, or mixing modalities, no competitor matches this breadth. The 93/100 multilingual score also makes it the strongest proprietary option for non-English work alongside Qwen 3.
 

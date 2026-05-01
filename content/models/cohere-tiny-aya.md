@@ -4,10 +4,18 @@ type: model
 id: "cohere-tiny-aya"
 provider: "Cohere"
 model_type: "open-source"
-release_date: "2026-02"
+api_model_id: "tiny-aya-global"
+release_date: "2026-02-17"
 description: "Multilingual specialist supporting 70+ languages at only 3.35B parameters. Designed for laptop and edge deployment. CC-BY-NC license."
-last_updated: "2026-04-10"
-context_window: "32K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "cohere"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "8K tokens"
 website: "https://cohere.com"
 license: "CC-BY-NC 4.0"
 modality:
@@ -27,6 +35,18 @@ benchmarks:
   writing: 68
   multilingual: 85
   speed: 96
+capabilities:
+- "streaming"
+sources:
+- title: "Cohere Tiny Aya documentation"
+  url: "https://docs.cohere.com/docs/tiny-aya"
+- title: "Cohere Tiny Aya research page"
+  url: "https://cohere.com/research/aya"
+- title: "Cohere Labs Tiny Aya Global model card"
+  url: "https://huggingface.co/CohereLabs/tiny-aya-global"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "3.35B"
 hardware_requirements: "2GB VRAM; runs on laptops and edge devices"
 best_for:

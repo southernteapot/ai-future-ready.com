@@ -4,9 +4,17 @@ type: model
 id: "qwen-3.5"
 provider: "Alibaba"
 model_type: "open-source"
+api_model_id: "Qwen/Qwen3.5-397B-A17B"
 release_date: "2026-02"
 description: "Alibaba's generational leap. Natively multimodal, 256K context, 201 languages. The flagship 397B-A17B MoE model activates only 17B parameters per token. Apache 2.0. Most downloaded model family on HuggingFace."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "256K tokens"
 website: "https://qwenlm.github.io"
 license: "Apache 2.0"
@@ -30,6 +38,20 @@ benchmarks:
   writing: 84
   multilingual: 97
   speed: 82
+capabilities:
+- "function_calling"
+- "vision"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Qwen3.5 397B-A17B model card"
+  url: "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "397B total (17B active)"
 hardware_requirements: "4x A100 80GB (FP16); single GPU with Q4 quantization (17B active)"
 best_for:

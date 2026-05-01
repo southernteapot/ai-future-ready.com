@@ -6,7 +6,14 @@ provider: "Google"
 model_type: "open-source"
 release_date: "2025"
 description: "Google's open model family optimized for on-device and edge deployment. Multimodal from 4B parameters. Sizes from 1B to 27B."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://ai.google.dev/gemma"
 license: "Gemma Terms of Use"
@@ -29,6 +36,19 @@ benchmarks:
   writing: 76
   multilingual: 78
   speed: 93
+capabilities:
+- "vision"
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Google Gemma 3 model card"
+  url: "https://ai.google.dev/gemma/docs/core/model_card_3"
+- title: "Google Gemma documentation"
+  url: "https://ai.google.dev/gemma"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "1B to 27B variants"
 hardware_requirements: "27B: 16GB VRAM; 4B: runs on phones; 1B: runs on embedded devices"
 best_for:

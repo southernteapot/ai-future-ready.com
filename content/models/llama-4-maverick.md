@@ -4,9 +4,17 @@ type: model
 id: "llama-4-maverick"
 provider: "Meta"
 model_type: "open-source"
+api_model_id: "meta-llama/Llama-4-Maverick-17B-128E-Instruct"
 release_date: "2025-04"
 description: "Meta's flagship open-source MoE model with 400B total parameters (17B active). Scored #2 on LMArena leaderboard (ELO 1,417). Native multimodal capabilities."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "medium"
+benchmark_confidence: "low"
 context_window: "1M tokens"
 website: "https://llama.meta.com"
 license: "Llama Community License"
@@ -30,6 +38,20 @@ benchmarks:
   writing: 86
   multilingual: 84
   speed: 80
+capabilities:
+- "vision"
+- "streaming"
+- "structured_output"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Meta Llama models"
+  url: "https://www.llama.com/models/llama-4/"
+- title: "NVIDIA Llama 4 Scout and Maverick technical blog"
+  url: "https://developer.nvidia.com/blog/nvidia-accelerates-inference-on-meta-llama-4-scout-and-maverick/"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "400B total (17B active)"
 hardware_requirements: "4x A100 80GB or 8x RTX 4090 (FP16); single GPU with heavy quantization"
 best_for:

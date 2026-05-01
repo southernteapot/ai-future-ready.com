@@ -4,9 +4,17 @@ type: model
 id: "yi-1.5-34b"
 provider: "01.AI"
 model_type: "open-source"
+api_model_id: "01-ai/Yi-1.5-34B"
 release_date: "2025"
 description: "Strong bilingual (English/Chinese) model from 01.AI that competes with much larger models on benchmarks. Excellent reasoning and code generation at a deployable 34B size. Apache 2.0 license."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "32K tokens"
 website: "https://01.ai"
 license: "Apache 2.0"
@@ -27,6 +35,17 @@ benchmarks:
   writing: 80
   multilingual: 82
   speed: 85
+capabilities:
+- "streaming"
+- "reasoning"
+sources:
+- title: "Yi-1.5 34B model card"
+  url: "https://huggingface.co/01-ai/Yi-1.5-34B"
+- title: "Yi 34B model card"
+  url: "https://huggingface.co/01-ai/Yi-34B"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "34B (also 6B, 9B variants)"
 hardware_requirements: "1x RTX 4090 24GB (Q4); 1x A100 40GB (FP16)"
 best_for:

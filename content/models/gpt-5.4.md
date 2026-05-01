@@ -4,26 +4,40 @@ type: model
 id: "gpt-5.4"
 provider: "OpenAI"
 model_type: "proprietary"
-release_date: "2026-03"
-description: "OpenAI's flagship model combining frontier reasoning, coding, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with 45% fewer hallucinations than GPT-4o."
-last_updated: "2026-04-10"
-context_window: "1M tokens"
+api_model_id: "gpt-5.4"
+release_date: "2026-03-05"
+description: "OpenAI's flagship model combining frontier reasoning, coding, computer-use, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with stronger factuality than GPT-5.2."
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2025-08-31"
+availability_status: "available"
+deprecated: false
+superseded_by: "gpt-5.5"
+tool_schema_format: "openai"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "1.05M tokens"
 website: "https://openai.com"
 license: "Proprietary"
 modality:
 - "text"
 - "image"
-- "audio"
 tags:
 - "openai"
 - "proprietary"
 - "text"
 - "image"
-- "audio"
 pricing:
-  input: "$5.00 / 1M tokens"
+  input: "$2.50 / 1M tokens"
   output: "$15.00 / 1M tokens"
-  note: "Pricing varies by variant"
+  input_per_1m: 2.5
+  output_per_1m: 15
+  currency: "USD"
+  cache_read_per_1m: 0.25
+  long_context_input_per_1m: 5
+  long_context_output_per_1m: 22.5
+  note: "Prompts over 272K input tokens are priced at 2x input and 1.5x output for the full session."
 benchmarks:
   reasoning: 95
   coding: 92
@@ -31,6 +45,30 @@ benchmarks:
   writing: 93
   multilingual: 90
   speed: 80
+capabilities:
+- "function_calling"
+- "vision"
+- "web_search"
+- "file_search"
+- "code_execution"
+- "computer_use"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "tool_search"
+- "mcp"
+- "long_context"
+- "reasoning"
+sources:
+- title: "OpenAI GPT-5.4 model documentation"
+  url: "https://developers.openai.com/api/docs/models/gpt-5.4"
+- title: "Introducing GPT-5.4"
+  url: "https://openai.com/index/introducing-gpt-5-4/"
+- title: "OpenAI API pricing"
+  url: "https://developers.openai.com/api/docs/pricing"
+benchmark_sources:
+- title: "Introducing GPT-5.4 evaluations"
+  url: "https://openai.com/index/introducing-gpt-5-4/"
 best_for:
 - "Complex reasoning"
 - "Coding"
@@ -42,8 +80,8 @@ best_for:
 
 OpenAI's everything model. GPT-5.4 merges the reasoning line and the coding line into a single endpoint, and the result is the most well-rounded proprietary model available. A 95/100 reasoning score and 94.6% AIME put it at or near the top of every general benchmark.
 
-The real selling point is ecosystem. No other model has deeper integration with the tools people already use -- Microsoft 365, ChatGPT plugins, the Assistants API, and a sprawling third-party landscape. If you're building on OpenAI's platform, staying on GPT-5.4 is the path of least resistance. The 1M context window now matches Claude and Gemini, removing what used to be a disadvantage.
+The real selling point is ecosystem. No other model has deeper integration with the tools people already use -- Microsoft 365, ChatGPT plugins, the Responses API, and a sprawling third-party landscape. If you're building on OpenAI's platform, staying on GPT-5.4 is the path of least resistance. The 1.05M context window now matches Claude and Gemini, removing what used to be a disadvantage.
 
-Where it trails: coding. At 74.9% SWE-bench, it's solid but clearly behind Claude Opus 4.6's 80.8%. The 45% hallucination reduction over GPT-4o sounds impressive until you compare it to Grok 4.20's industry-leading factual accuracy. And at $5/$15 per million tokens, it's not cheap -- Gemini 3.1 Pro delivers comparable reasoning at $2/$12.
+Where it trails in this dataset: coding. Its coding score is solid but still behind Claude Opus 4.6. OpenAI reports lower factual-error rates than GPT-5.2, but factuality still needs source checks for high-stakes use. And at $2.50/$15 per million tokens, it's not cheap -- Gemini 3.1 Pro delivers comparable reasoning at $2/$12.
 
 **When to pick something else:** For pure coding dominance, Claude Opus 4.6 is the better call. For budget-conscious work that doesn't sacrifice much quality, Gemini 3.1 Pro or DeepSeek V3.2 undercut GPT-5.4 significantly. If you need extended thinking for competition-level math, use GPT-5.4 Thinking instead of burning tokens on the base model.

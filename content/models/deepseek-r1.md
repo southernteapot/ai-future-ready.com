@@ -6,7 +6,14 @@ provider: "DeepSeek"
 model_type: "open-source"
 release_date: "2025-01"
 description: "Powerful open-source reasoning model that exceeds OpenAI o1 on AIME and MATH benchmarks. Transparent chain-of-thought reasoning at extremely low cost. MIT license. Updated with R1-0528 in May 2025."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "low"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://deepseek.com"
 license: "MIT"
@@ -27,6 +34,18 @@ benchmarks:
   writing: 72
   multilingual: 70
   speed: 55
+capabilities:
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "DeepSeek R1 repository"
+  url: "https://github.com/deepseek-ai/DeepSeek-R1"
+- title: "DeepSeek models and pricing"
+  url: "https://api-docs.deepseek.com/quick_start/pricing"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "671B total (37B active)"
 hardware_requirements: "8x A100 80GB (FP16); 2x A100 with Q4 quantization"
 best_for:

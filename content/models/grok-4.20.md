@@ -4,9 +4,18 @@ type: model
 id: "grok-4.20"
 provider: "xAI"
 model_type: "proprietary"
+api_model_id: "x-ai/grok-4.20"
 release_date: "2026-03"
 description: "xAI's latest flagship with the lowest hallucination rate of any model (78% Omniscience) and #1 instruction following (83% IFBench). Features a novel multi-agent architecture and 2M token context window. 248 tokens/second output speed."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2025-09-01"
+availability_status: "preview"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "medium"
+model_listing_confidence: "medium"
+benchmark_confidence: "low"
 context_window: "2M tokens"
 website: "https://x.ai"
 license: "Proprietary"
@@ -21,6 +30,9 @@ tags:
 pricing:
   input: "$2.00 / 1M tokens"
   output: "$6.00 / 1M tokens"
+  input_per_1m: 2
+  output_per_1m: 6
+  currency: "USD"
   note: "Fast tier; Standard tier $20/$60"
 benchmarks:
   reasoning: 85
@@ -29,6 +41,21 @@ benchmarks:
   writing: 87
   multilingual: 82
   speed: 90
+capabilities:
+- "vision"
+- "web_search"
+- "structured_output"
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "xAI models and pricing"
+  url: "https://docs.x.ai/docs/models"
+- title: "OpenRouter Grok 4.20 model page"
+  url: "https://openrouter.ai/x-ai/grok-4.20"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 best_for:
 - "Factual accuracy"
 - "Legal/medical/financial AI"

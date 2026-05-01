@@ -4,12 +4,20 @@ type: model
 id: "gpt-oss-120b"
 provider: "OpenAI"
 model_type: "open-source"
-release_date: "2026"
+api_model_id: "gpt-oss-120b"
+release_date: "2025-08-05"
 description: "OpenAI's first fully open-weight LLMs since GPT-2. Matches or surpasses o4-mini on core benchmarks. Can run on a single 80GB GPU. Optimized for vLLM, llama.cpp, and Ollama."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://openai.com"
-license: "OpenAI Open Weight License"
+license: "Apache 2.0"
 modality:
 - "text"
 tags:
@@ -27,6 +35,25 @@ benchmarks:
   writing: 87
   multilingual: 86
   speed: 75
+capabilities:
+- "function_calling"
+- "web_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "json_mode"
+- "long_context"
+- "reasoning"
+sources:
+- title: "OpenAI gpt-oss-120b model documentation"
+  url: "https://platform.openai.com/docs/models/gpt-oss-120b"
+- title: "OpenAI gpt-oss model card"
+  url: "https://openai.com/research/gpt-oss-model-card/"
+- title: "OpenAI gpt-oss-120b Hugging Face model card"
+  url: "https://huggingface.co/openai/gpt-oss-120b"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "120B"
 hardware_requirements: "1x H100 80GB (FP16); 1x RTX 4090 with Q4 quantization"
 best_for:
@@ -44,6 +71,6 @@ What makes this interesting is not the raw numbers (Qwen 3.5 and GLM-5 beat it o
 
 The writing score of 87 is quietly the best in its class among open models at this size, reflecting OpenAI's years of RLHF expertise. For teams that need polished, human-sounding output from a self-hosted model, this is hard to beat. The 120B dense architecture is less efficient than MoE alternatives, which explains the speed score of 75.
 
-The OpenAI Open Weight License is more permissive than expected but still not Apache 2.0 -- read the fine print before building commercial products.
+The Apache 2.0 license is the practical surprise here: commercial use, redistribution, and modification are far simpler than most prior frontier open-weight releases.
 
 **When to pick something else:** If raw performance matters more than ecosystem, Qwen 3.5 and GLM-5 are stronger on every technical benchmark. If you need maximum efficiency on consumer hardware, MoE models like Mistral Small 4 or Nemotron-Cascade 2 run circles around a 120B dense model.

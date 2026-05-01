@@ -6,7 +6,13 @@ provider: "Google"
 model_type: "open-source"
 release_date: "2026-04"
 description: "Google's most capable open model, built from the same research as Gemini 3. The 31B dense variant ranks #3 on Arena AI (1,452 Elo). First Gemma release under Apache 2.0. Four variants from edge (E2B) to workstation (31B). Natively multimodal with 140+ language support."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+availability_status: "unverified"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "low"
+model_listing_confidence: "low"
+benchmark_confidence: "low"
 context_window: "256K tokens"
 website: "https://ai.google.dev/gemma"
 license: "Apache 2.0"
@@ -33,6 +39,19 @@ benchmarks:
   writing: 83
   multilingual: 90
   speed: 85
+capabilities:
+- "vision"
+- "audio_input"
+- "video"
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Google Gemma documentation"
+  url: "https://ai.google.dev/gemma"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "E2B, E4B, 26B MoE (3.8B active), 31B Dense"
 hardware_requirements: "31B: 24GB VRAM (RTX 4090); 26B MoE: 8GB; E4B/E2B: runs on phones"
 best_for:

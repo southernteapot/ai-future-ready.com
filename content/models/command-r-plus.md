@@ -4,9 +4,18 @@ type: model
 id: "command-r-plus"
 provider: "Cohere"
 model_type: "open-source"
-release_date: "2025-08"
+api_model_id: "command-r-plus-08-2024"
+release_date: "2024-08"
 description: "Cohere's flagship model purpose-built for enterprise RAG (Retrieval-Augmented Generation). Excels at grounded generation with citations, multi-step tool use, and structured outputs. Strong bilingual English/French support."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2024-06-01"
+availability_status: "legacy"
+deprecated: false
+tool_schema_format: "cohere"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://cohere.com"
 license: "CC-BY-NC 4.0"
@@ -19,6 +28,9 @@ tags:
 pricing:
   input: "$2.50 / 1M tokens"
   output: "$10.00 / 1M tokens"
+  input_per_1m: 2.5
+  output_per_1m: 10
+  currency: "USD"
   note: "Also available as open weights (CC-BY-NC)"
 benchmarks:
   reasoning: 82
@@ -27,6 +39,21 @@ benchmarks:
   writing: 85
   multilingual: 88
   speed: 78
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Cohere Command R+ model documentation"
+  url: "https://docs.cohere.com/v2/docs/command-r-plus"
+- title: "Cohere pricing documentation"
+  url: "https://docs.cohere.com/docs/how-does-cohere-pricing-work"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "104B"
 hardware_requirements: "2x A100 80GB (FP16); 1x A100 with Q4 quantization"
 best_for:

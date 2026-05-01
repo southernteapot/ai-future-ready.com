@@ -3,7 +3,7 @@ title: "AI for Image Generation"
 type: use-case
 id: "use-case-images"
 description: "Learn how to use AI image generators like DALL-E, Midjourney, Stable Diffusion, and Adobe Firefly. Includes prompt-writing tips and use cases for marketing, social media, and product design."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
 tags:
   - image-generation
   - dall-e
@@ -81,7 +81,7 @@ The image generation landscape continues to expand rapidly. Other tools worth ex
 
 ## A Note on AI Video Generation
 
-OpenAI's Sora video generation tool was shut down on March 25, 2026. OpenAI has pivoted its focus away from video generation toward robotics. For AI video generation, the current leading tools are Runway Gen-4.5, Kling 3.0, Google Veo 3.1, and Pika 2.5.
+OpenAI's Sora web and app experiences were discontinued on April 26, 2026, and the Sora API is scheduled to be discontinued on September 24, 2026. For AI video generation, the current leading tools are Runway Gen-4.5, Kling 3.0, Google Veo 3.1, and Pika 2.5.
 
 ---
 

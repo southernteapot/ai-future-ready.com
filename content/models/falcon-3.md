@@ -4,12 +4,20 @@ type: model
 id: "falcon-3"
 provider: "Technology Innovation Institute"
 model_type: "open-source"
+api_model_id: "tiiuae/Falcon3-10B-Instruct"
 release_date: "2025"
 description: "Runs on regular (non-gaming) laptops. Designed for accessibility and low-resource deployment. From UAE-based Technology Innovation Institute."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "32K tokens"
 website: "https://falconllm.tii.ae"
-license: "Apache 2.0"
+license: "TII Falcon-LLM License 2.0"
 modality:
 - "text"
 tags:
@@ -17,8 +25,8 @@ tags:
 - "open-source"
 - "text"
 pricing:
-  input: "Free (Apache 2.0)"
-  output: "Free (Apache 2.0)"
+  input: "Free (open weights)"
+  output: "Free (open weights)"
   free: true
 benchmarks:
   reasoning: 70
@@ -27,6 +35,15 @@ benchmarks:
   writing: 72
   multilingual: 70
   speed: 94
+capabilities:
+- "function_calling"
+- "streaming"
+sources:
+- title: "Falcon3 10B Instruct model card"
+  url: "https://huggingface.co/tiiuae/Falcon3-10B-Instruct"
+benchmark_sources:
+- title: "Falcon3 10B Instruct model card"
+  url: "https://huggingface.co/tiiuae/Falcon3-10B-Instruct"
 parameters: "3B to 10B variants"
 hardware_requirements: "10B: 8GB VRAM; 3B: 4GB VRAM; runs on consumer laptops"
 best_for:
@@ -43,7 +60,7 @@ The model built for the laptop you already own. Falcon 3 does not chase benchmar
 
 The benchmarks are honest about the trade-off: reasoning 70, coding 68, math 67, writing 72, multilingual 70. These are not impressive numbers in absolute terms. But evaluated against the hardware requirement of "a regular laptop," they are genuinely useful. You get a functional AI assistant that works offline, keeps data local, and costs nothing to run.
 
-The Technology Innovation Institute in the UAE designed Falcon 3 with developing regions and education in mind, and it shows. Apache 2.0 licensing, minimal hardware requirements, and straightforward deployment make it the most accessible open model available. No GPU rental, no API keys, no internet connection required.
+The Technology Innovation Institute in the UAE designed Falcon 3 with developing regions and education in mind, and it shows. Open-weight licensing, minimal hardware requirements, and straightforward deployment make it one of the most accessible open models available. No GPU rental, no API keys, no internet connection required.
 
 Compared to SmolLM3 3B at the same parameter count, Falcon 3 trades slightly lower coding scores for better writing and multilingual capability. Compared to Gemma 3's 4B variant, Falcon is less capable but lighter on resources.
 

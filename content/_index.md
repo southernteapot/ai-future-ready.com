@@ -3,7 +3,7 @@ title: "AI Future Ready"
 type: index
 id: "site-index"
 description: "Agent-ready AI reference. Structured markdown with YAML frontmatter, JSON APIs, and machine-readable discovery. Built for both humans and AI agents."
-last_updated: "2026-04-24"
+last_updated: "2026-04-30"
 agent_protocols:
   well_known_ai: "/.well-known/ai.json"
   llms_txt: "/llms.txt"
@@ -91,11 +91,11 @@ Every content file uses YAML frontmatter. Common fields:
 - `content_hash` / `sha256` — generated SHA-256 hash of the raw markdown in JSON outputs
 - `relationships` — generated internal links and related content in JSON outputs
 
-Model-specific fields: `id`, `provider`, `pricing`, `benchmarks`, `context_window`, `best_for`, `tags`
+Model-specific fields: `id`, `provider`, `api_model_id`, `pricing`, `benchmarks`, `context_window`, `knowledge_cutoff`, `capabilities`, `availability_status`, `tool_schema_format`, `sources`, `best_for`, `tags`
 Agent-specific fields: `id`, `category`, `website`, `license`, `pricing`, `languages`, `best_for`
 
 ## About
 
 This site demonstrates agent-ready web architecture: structured content, machine-readable metadata, multiple access protocols, and dual-audience design. The AI reference library is both useful content and a living proof-of-concept.
 
-Last updated: 2026-04-24
+Last updated: 2026-04-30

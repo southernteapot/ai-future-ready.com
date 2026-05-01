@@ -4,9 +4,17 @@ type: model
 id: "hermes-4-405b"
 provider: "Nous Research"
 model_type: "open-source"
+api_model_id: "NousResearch/Hermes-4-405B"
 release_date: "2025-08"
 description: "Nous Research's flagship open-weight model with hybrid reasoning (toggle between standard and explicit chain-of-thought with think tags). Based on Llama 3.1, trained with rejection sampling via 1,000+ task verifiers. Known for minimal content restrictions and user-directed behavior."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "hermes"
+pricing_confidence: "low"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://nousresearch.com"
 license: "Llama Community License"
@@ -28,6 +36,21 @@ benchmarks:
   writing: 85
   multilingual: 78
   speed: 55
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "json_mode"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Hermes 4 405B Hugging Face model card"
+  url: "https://huggingface.co/NousResearch/Hermes-4-405B"
+- title: "Nous Portal models"
+  url: "https://portal.nousresearch.com/models"
+benchmark_sources:
+- title: "Hermes 4 405B Hugging Face model card"
+  url: "https://huggingface.co/NousResearch/Hermes-4-405B"
 parameters: "405B (also available in 14B, 70B)"
 hardware_requirements: "4x A100 80GB (FP16); 2x RTX 4090 with Q4 quantization"
 best_for:

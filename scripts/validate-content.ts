@@ -80,9 +80,195 @@ const TYPE_RULES: Record<
   },
 };
 
+const MODEL_CAPABILITIES = new Set([
+  "function_calling",
+  "vision",
+  "audio_input",
+  "audio_output",
+  "video",
+  "web_search",
+  "file_search",
+  "code_execution",
+  "computer_use",
+  "structured_output",
+  "streaming",
+  "json_mode",
+  "prompt_caching",
+  "tool_search",
+  "mcp",
+  "long_context",
+  "reasoning",
+  "extended_thinking",
+  "adaptive_thinking",
+]);
+const MODEL_AVAILABILITY_STATUSES = new Set([
+  "available",
+  "preview",
+  "legacy",
+  "deprecated",
+  "retired",
+  "unavailable",
+  "unverified",
+]);
+const MODEL_TOOL_SCHEMA_FORMATS = new Set([
+  "openai",
+  "anthropic",
+  "gemini",
+  "mistral",
+  "cohere",
+  "hermes",
+  "openai-compatible",
+  "none",
+]);
+const CONFIDENCE_VALUES = new Set([
+  "high",
+  "medium",
+  "low",
+  "unverified",
+  "not_applicable",
+]);
+
 interface ValidationIssue {
   file: string;
   message: string;
+}
+
+function addIssue(issues: ValidationIssue[], file: string, message: string) {
+  issues.push({ file, message });
+}
+
+function validateOptionalEnum(
+  issues: ValidationIssue[],
+  file: string,
+  data: Record<string, unknown>,
+  field: string,
+  allowed: Set<string>
+) {
+  const value = data[field];
+  if (value === undefined) return;
+  if (typeof value !== "string" || !allowed.has(value)) {
+    addIssue(
+      issues,
+      file,
+      `"${field}" must be one of: ${Array.from(allowed).sort().join(", ")}`
+    );
+  }
+}
+
+function validateOptionalNumber(
+  issues: ValidationIssue[],
+  file: string,
+  data: Record<string, unknown>,
+  field: string
+) {
+  const value = data[field];
+  if (value !== undefined && typeof value !== "number") {
+    addIssue(issues, file, `"${field}" must be a number when present`);
+  }
+}
+
+function validateOptionalString(
+  issues: ValidationIssue[],
+  file: string,
+  data: Record<string, unknown>,
+  field: string
+) {
+  const value = data[field];
+  if (value !== undefined && (typeof value !== "string" || value.trim().length === 0)) {
+    addIssue(issues, file, `"${field}" must be a non-empty string when present`);
+  }
+}
+
+function validateOptionalSourceList(
+  issues: ValidationIssue[],
+  file: string,
+  data: Record<string, unknown>,
+  field: string
+) {
+  const value = data[field];
+  if (value === undefined) return;
+  if (!Array.isArray(value) || value.length === 0) {
+    addIssue(issues, file, `"${field}" must be a non-empty list when present`);
+    return;
+  }
+
+  for (const item of value) {
+    if (
+      typeof item !== "object" ||
+      item === null ||
+      Array.isArray(item) ||
+      typeof (item as Record<string, unknown>).title !== "string" ||
+      typeof (item as Record<string, unknown>).url !== "string"
+    ) {
+      addIssue(issues, file, `"${field}" entries must include string title and url`);
+      return;
+    }
+  }
+}
+
+function validateModelFields(
+  issues: ValidationIssue[],
+  file: string,
+  data: Record<string, unknown>
+) {
+  validateOptionalString(issues, file, data, "api_model_id");
+  validateOptionalString(issues, file, data, "knowledge_cutoff");
+  validateOptionalString(issues, file, data, "superseded_by");
+  validateOptionalString(issues, file, data, "variant_of");
+  validateOptionalEnum(issues, file, data, "availability_status", MODEL_AVAILABILITY_STATUSES);
+  validateOptionalEnum(issues, file, data, "tool_schema_format", MODEL_TOOL_SCHEMA_FORMATS);
+
+  for (const field of [
+    "pricing_confidence",
+    "model_listing_confidence",
+    "benchmark_confidence",
+  ]) {
+    validateOptionalEnum(issues, file, data, field, CONFIDENCE_VALUES);
+  }
+
+  const deprecated = data.deprecated;
+  if (deprecated !== undefined && typeof deprecated !== "boolean") {
+    addIssue(issues, file, `"deprecated" must be a boolean when present`);
+  }
+
+  if (data.capabilities !== undefined) {
+    if (
+      !Array.isArray(data.capabilities) ||
+      data.capabilities.length === 0 ||
+      data.capabilities.some(
+        (item: unknown) => typeof item !== "string" || !MODEL_CAPABILITIES.has(item)
+      )
+    ) {
+      addIssue(
+        issues,
+        file,
+        `"capabilities" must be a non-empty list of supported capability enum values`
+      );
+    }
+  }
+
+  validateOptionalSourceList(issues, file, data, "sources");
+  validateOptionalSourceList(issues, file, data, "benchmark_sources");
+
+  const pricing = data.pricing;
+  if (pricing && typeof pricing === "object" && !Array.isArray(pricing)) {
+    const pricingData = pricing as Record<string, unknown>;
+    validateOptionalEnum(issues, file, pricingData, "currency", new Set(["USD"]));
+    for (const field of [
+      "input_per_1m",
+      "output_per_1m",
+      "cache_read_per_1m",
+      "cache_write_per_1m",
+      "cache_write_5m_per_1m",
+      "cache_write_1h_per_1m",
+      "batch_input_per_1m",
+      "batch_output_per_1m",
+      "long_context_input_per_1m",
+      "long_context_output_per_1m",
+    ]) {
+      validateOptionalNumber(issues, file, pricingData, field);
+    }
+  }
 }
 
 function walk(dir: string): string[] {
@@ -264,6 +450,10 @@ function validateContentFiles(validRoutes: Set<string>): ValidationIssue[] {
           message: `missing required object field "${field}" for type "${String(data.type)}"`,
         });
       }
+    }
+
+    if (data.type === "model") {
+      validateModelFields(issues, relativeFile, data);
     }
 
     const mdPath = `/${relativeFile.replace(/^content\//, "content/")}`;

@@ -4,10 +4,18 @@ type: model
 id: "minimax-m2.7"
 provider: "MiniMax"
 model_type: "open-source"
+api_model_id: "MiniMaxAI/MiniMax-M2.7"
 release_date: "2026-03"
 description: "Third iteration of MiniMax's M2 line with tighter factual accuracy and lower cost. Intelligence index of 49.62 places it near frontier models at a fraction of the price. Open weights."
-last_updated: "2026-04-10"
-context_window: "128K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "low"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "205K tokens"
 website: "https://minimax.io"
 license: "Modified MIT"
 modality:
@@ -28,6 +36,23 @@ benchmarks:
   writing: 82
   multilingual: 83
   speed: 85
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "MiniMax M2.7 model page"
+  url: "https://www.minimax.io/models/text/m27"
+- title: "MiniMax M2.7 Hugging Face model card"
+  url: "https://huggingface.co/MiniMaxAI/MiniMax-M2.7"
+- title: "MiniMax M2.7 GitHub repository"
+  url: "https://github.com/MiniMax-AI/MiniMax-M2.7"
+benchmark_sources:
+- title: "MiniMax M2.7 Hugging Face model card"
+  url: "https://huggingface.co/MiniMaxAI/MiniMax-M2.7"
 parameters: "MoE (undisclosed active/total)"
 hardware_requirements: "Multi-GPU setup recommended"
 best_for:

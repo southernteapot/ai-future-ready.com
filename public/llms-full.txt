@@ -1,6 +1,6 @@
 # AI Future Ready — Full Content
 > All content from ai-future-ready.com in a single file.
-> Generated: 2026-04-24
+> Generated: 2026-04-30
 > Total files: 123
 
 ---
@@ -830,7 +830,7 @@ title: "Agent API Reference"
 type: index
 id: "api-reference"
 description: "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search."
-last_updated: "2026-04-24"
+last_updated: "2026-04-30"
 ---
 
 # Agent API Reference
@@ -938,7 +938,7 @@ Every content item includes at minimum:
 | `description` | string | One-line summary |
 | `last_updated` | date | ISO 8601 date of last change |
 
-Model-specific fields: `provider`, `pricing` (input/output), `benchmarks`, `context_window`, `best_for`, `tags`
+Model-specific fields: `provider`, `api_model_id`, `pricing` (human strings plus optional numeric per-1M fields), `benchmarks`, `context_window`, `knowledge_cutoff`, `capabilities`, `availability_status`, `tool_schema_format`, `sources`, `best_for`, `tags`
 
 Agent-specific fields: `category`, `license`, `pricing`, `languages`, `github`, `website`
 
@@ -1102,9 +1102,18 @@ type: model
 id: "claude-haiku-4.5"
 provider: "Anthropic"
 model_type: "proprietary"
-release_date: "2025-11"
+api_model_id: "claude-haiku-4-5"
+release_date: "2025-10-15"
 description: "Anthropic's fastest and most cost-efficient model. Matches Claude Sonnet 4's performance on coding and agent tasks while being dramatically faster and cheaper."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2025-02"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "anthropic"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "200K tokens"
 website: "https://anthropic.com"
 license: "Proprietary"
@@ -1119,6 +1128,14 @@ tags:
 pricing:
   input: "$1.00 / 1M tokens"
   output: "$5.00 / 1M tokens"
+  input_per_1m: 1
+  output_per_1m: 5
+  currency: "USD"
+  cache_read_per_1m: 0.1
+  cache_write_5m_per_1m: 1.25
+  cache_write_1h_per_1m: 2
+  batch_input_per_1m: 0.5
+  batch_output_per_1m: 2.5
 benchmarks:
   reasoning: 82
   coding: 84
@@ -1126,6 +1143,28 @@ benchmarks:
   writing: 83
   multilingual: 80
   speed: 95
+capabilities:
+- "function_calling"
+- "vision"
+- "web_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "tool_search"
+- "long_context"
+- "reasoning"
+- "extended_thinking"
+sources:
+- title: "Anthropic Claude Haiku 4.5"
+  url: "https://www.anthropic.com/claude/haiku"
+- title: "Anthropic Claude models overview"
+  url: "https://platform.claude.com/docs/en/about-claude/models/overview"
+- title: "Anthropic API pricing"
+  url: "https://platform.claude.com/docs/en/about-claude/pricing"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 best_for:
 - "High-volume tasks"
 - "Quick queries"
@@ -1139,7 +1178,7 @@ The speed king of the Claude lineup. Haiku 4.5 matches what Sonnet 4 could do --
 
 For prototyping, classification, extraction, and high-volume pipelines, Haiku is the obvious choice. An 84/100 coding score means it handles routine programming tasks without issue. The 200K context window is smaller than the 1M offered by Sonnet and Opus, but for most real workloads you won't hit that ceiling.
 
-The direct competitor is Gemini 3 Flash at $0.15/$0.60 -- significantly cheaper, with a 1M context window. Flash wins on price and context size, but Haiku edges it on coding (84 vs 80) and writing (83 vs 83). If you're in the Anthropic ecosystem and want the fastest Claude available, Haiku is the pick. If raw cost is the only metric, Flash is hard to beat.
+The direct competitor is Gemini 3 Flash at $0.50/$3.00 -- still cheaper, with a 1M context window. Flash wins on price and context size, but Haiku edges it on coding (84 vs 80) and writing (83 vs 83). If you're in the Anthropic ecosystem and want the fastest Claude available, Haiku is the pick. If raw cost is the only metric, Flash is hard to beat.
 
 **When to pick something else:** Anything requiring deep reasoning or nuanced multi-step analysis should go to Sonnet 4.6 or Opus 4.6. Haiku's 82/100 reasoning score is good but not frontier-class. For budget workloads where you don't need the Claude instruction-following style, Gemini 3 Flash saves you 85% on input costs.
 
@@ -1153,9 +1192,19 @@ type: model
 id: "claude-opus-4.6"
 provider: "Anthropic"
 model_type: "proprietary"
+api_model_id: "claude-opus-4-6"
 release_date: "2026-02"
 description: "Anthropic's most capable model and the first Opus-class model with a 1M token context window. Leads on coding benchmarks with 80.8% SWE-bench. Internal codename \"Fennec.\""
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2025-05"
+availability_status: "available"
+deprecated: false
+superseded_by: "claude-opus-4.7"
+tool_schema_format: "anthropic"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "1M tokens"
 website: "https://anthropic.com"
 license: "Proprietary"
@@ -1170,6 +1219,14 @@ tags:
 pricing:
   input: "$5.00 / 1M tokens"
   output: "$25.00 / 1M tokens"
+  input_per_1m: 5
+  output_per_1m: 25
+  currency: "USD"
+  cache_read_per_1m: 0.5
+  cache_write_5m_per_1m: 6.25
+  cache_write_1h_per_1m: 10
+  batch_input_per_1m: 2.5
+  batch_output_per_1m: 12.5
   note: "Significantly cheaper than Opus 4.5"
 benchmarks:
   reasoning: 96
@@ -1178,6 +1235,28 @@ benchmarks:
   writing: 95
   multilingual: 88
   speed: 62
+capabilities:
+- "function_calling"
+- "vision"
+- "web_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "tool_search"
+- "long_context"
+- "reasoning"
+- "adaptive_thinking"
+sources:
+- title: "Anthropic Claude models overview"
+  url: "https://platform.claude.com/docs/en/about-claude/models/overview"
+- title: "Anthropic API pricing"
+  url: "https://platform.claude.com/docs/en/about-claude/pricing"
+- title: "Anthropic Transparency Hub"
+  url: "https://www.anthropic.com/transparency/model-report"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 best_for:
 - "Complex coding projects"
 - "Long-form analysis"
@@ -1205,9 +1284,18 @@ type: model
 id: "claude-sonnet-4.6"
 provider: "Anthropic"
 model_type: "proprietary"
-release_date: "2026-02"
+api_model_id: "claude-sonnet-4-6"
+release_date: "2026-02-17"
 description: "The first Sonnet model preferred over a previous Opus in coding evaluations. Excellent balance of speed, quality, and cost with a full 1M token context window."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2025-08"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "anthropic"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "1M tokens"
 website: "https://anthropic.com"
 license: "Proprietary"
@@ -1222,6 +1310,14 @@ tags:
 pricing:
   input: "$3.00 / 1M tokens"
   output: "$15.00 / 1M tokens"
+  input_per_1m: 3
+  output_per_1m: 15
+  currency: "USD"
+  cache_read_per_1m: 0.3
+  cache_write_5m_per_1m: 3.75
+  cache_write_1h_per_1m: 6
+  batch_input_per_1m: 1.5
+  batch_output_per_1m: 7.5
 benchmarks:
   reasoning: 91
   coding: 93
@@ -1229,6 +1325,29 @@ benchmarks:
   writing: 92
   multilingual: 87
   speed: 82
+capabilities:
+- "function_calling"
+- "vision"
+- "web_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "tool_search"
+- "long_context"
+- "reasoning"
+- "extended_thinking"
+- "adaptive_thinking"
+sources:
+- title: "Anthropic Claude models overview"
+  url: "https://platform.claude.com/docs/en/about-claude/models/overview"
+- title: "Anthropic API pricing"
+  url: "https://platform.claude.com/docs/en/about-claude/pricing"
+- title: "Anthropic release notes"
+  url: "https://platform.claude.com/docs/en/release-notes/overview"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 best_for:
 - "Daily coding tasks"
 - "Content creation"
@@ -1244,7 +1363,7 @@ A 93/100 coding score puts Sonnet in striking distance of frontier models that c
 
 Compared to GPT-5.4, Sonnet is cheaper on input ($3 vs $5) and matches on output ($15), while trading some reasoning headroom (91 vs 95). Against Gemini 3.1 Pro, Sonnet wins on coding and writing but costs more. The honest assessment: Sonnet 4.6 is the model you should default to unless you have a specific reason to reach for something else.
 
-**When to pick something else:** When the task genuinely requires the last 5% of capability -- complex multi-file refactors, intricate reasoning chains -- upgrade to Opus 4.6. For high-volume, cost-sensitive workloads where quality can flex a bit, Haiku 4.5 at $1/$5 or Gemini 3 Flash at $0.15/$0.60 will save you serious money.
+**When to pick something else:** When the task genuinely requires the last 5% of capability -- complex multi-file refactors, intricate reasoning chains -- upgrade to Opus 4.6. For high-volume, cost-sensitive workloads where quality can flex a bit, Haiku 4.5 at $1/$5 or Gemini 3 Flash at $0.50/$3.00 will save you serious money.
 
 ---
 
@@ -1256,10 +1375,18 @@ type: model
 id: "cohere-tiny-aya"
 provider: "Cohere"
 model_type: "open-source"
-release_date: "2026-02"
+api_model_id: "tiny-aya-global"
+release_date: "2026-02-17"
 description: "Multilingual specialist supporting 70+ languages at only 3.35B parameters. Designed for laptop and edge deployment. CC-BY-NC license."
-last_updated: "2026-04-10"
-context_window: "32K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "cohere"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "8K tokens"
 website: "https://cohere.com"
 license: "CC-BY-NC 4.0"
 modality:
@@ -1279,6 +1406,18 @@ benchmarks:
   writing: 68
   multilingual: 85
   speed: 96
+capabilities:
+- "streaming"
+sources:
+- title: "Cohere Tiny Aya documentation"
+  url: "https://docs.cohere.com/docs/tiny-aya"
+- title: "Cohere Tiny Aya research page"
+  url: "https://cohere.com/research/aya"
+- title: "Cohere Labs Tiny Aya Global model card"
+  url: "https://huggingface.co/CohereLabs/tiny-aya-global"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "3.35B"
 hardware_requirements: "2GB VRAM; runs on laptops and edge devices"
 best_for:
@@ -1310,9 +1449,18 @@ type: model
 id: "command-r-plus"
 provider: "Cohere"
 model_type: "open-source"
-release_date: "2025-08"
+api_model_id: "command-r-plus-08-2024"
+release_date: "2024-08"
 description: "Cohere's flagship model purpose-built for enterprise RAG (Retrieval-Augmented Generation). Excels at grounded generation with citations, multi-step tool use, and structured outputs. Strong bilingual English/French support."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2024-06-01"
+availability_status: "legacy"
+deprecated: false
+tool_schema_format: "cohere"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://cohere.com"
 license: "CC-BY-NC 4.0"
@@ -1325,6 +1473,9 @@ tags:
 pricing:
   input: "$2.50 / 1M tokens"
   output: "$10.00 / 1M tokens"
+  input_per_1m: 2.5
+  output_per_1m: 10
+  currency: "USD"
   note: "Also available as open weights (CC-BY-NC)"
 benchmarks:
   reasoning: 82
@@ -1333,6 +1484,21 @@ benchmarks:
   writing: 85
   multilingual: 88
   speed: 78
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Cohere Command R+ model documentation"
+  url: "https://docs.cohere.com/v2/docs/command-r-plus"
+- title: "Cohere pricing documentation"
+  url: "https://docs.cohere.com/docs/how-does-cohere-pricing-work"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "104B"
 hardware_requirements: "2x A100 80GB (FP16); 1x A100 with Q4 quantization"
 best_for:
@@ -1366,7 +1532,14 @@ provider: "DeepSeek"
 model_type: "open-source"
 release_date: "2025-01"
 description: "Powerful open-source reasoning model that exceeds OpenAI o1 on AIME and MATH benchmarks. Transparent chain-of-thought reasoning at extremely low cost. MIT license. Updated with R1-0528 in May 2025."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "low"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://deepseek.com"
 license: "MIT"
@@ -1387,6 +1560,18 @@ benchmarks:
   writing: 72
   multilingual: 70
   speed: 55
+capabilities:
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "DeepSeek R1 repository"
+  url: "https://github.com/deepseek-ai/DeepSeek-R1"
+- title: "DeepSeek models and pricing"
+  url: "https://api-docs.deepseek.com/quick_start/pricing"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "671B total (37B active)"
 hardware_requirements: "8x A100 80GB (FP16); 2x A100 with Q4 quantization"
 best_for:
@@ -1416,9 +1601,17 @@ type: model
 id: "deepseek-v3.2"
 provider: "DeepSeek"
 model_type: "open-source"
+api_model_id: "deepseek-chat"
 release_date: "2025-09"
 description: "On par with GPT-5.1 and Gemini 3.0 Pro on benchmarks. Uses sparse attention for efficiency. MIT license. Dramatically cheaper than Western alternatives."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://deepseek.com"
 license: "MIT"
@@ -1429,8 +1622,12 @@ tags:
 - "open-source"
 - "text"
 pricing:
-  input: "$0.27 / 1M tokens"
-  output: "$1.10 / 1M tokens"
+  input: "$0.28 / 1M tokens"
+  output: "$0.42 / 1M tokens"
+  input_per_1m: 0.28
+  output_per_1m: 0.42
+  currency: "USD"
+  cache_read_per_1m: 0.028
   free: true
   note: "MIT license for self-hosting"
 benchmarks:
@@ -1440,6 +1637,24 @@ benchmarks:
   writing: 84
   multilingual: 80
   speed: 82
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "json_mode"
+- "prompt_caching"
+- "long_context"
+- "reasoning"
+sources:
+- title: "DeepSeek models and pricing"
+  url: "https://api-docs.deepseek.com/quick_start/pricing"
+- title: "DeepSeek API model list"
+  url: "https://api-docs.deepseek.com/api/list-models"
+- title: "DeepSeek V3.2 announcement"
+  url: "https://api-docs.deepseek.com/news/news250929"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "671B total (37B active)"
 hardware_requirements: "8x A100 80GB (FP16); 2x A100 with Q4 quantization"
 best_for:
@@ -1451,7 +1666,7 @@ best_for:
 
 # DeepSeek V3.2
 
-The model that proved frontier quality doesn't require frontier pricing. At $0.27/$1.10 per million tokens, DeepSeek V3.2 costs roughly 5% of what GPT-5.4 charges -- and with 88/100 on both reasoning and coding, the quality gap is far smaller than the price gap suggests. The MIT license means you can self-host with zero licensing concerns.
+The model that proved frontier quality doesn't require frontier pricing. At $0.28/$0.42 per million tokens for cache-miss input and output via the DeepSeek API, DeepSeek V3.2 costs a fraction of what GPT-5.4 charges -- and with 88/100 on both reasoning and coding, the quality gap is far smaller than the price gap suggests. The MIT license means you can self-host with zero licensing concerns.
 
 V3.2 uses sparse attention across its 671B parameter MoE architecture (37B active) to keep inference fast. The 82/100 speed score is respectable, and the model's efficiency makes it one of the most cost-effective options for self-hosting if you have the hardware (8x A100 for FP16, or 2x A100 quantized). For API users who don't want to manage infrastructure, DeepSeek's hosted API is already one of the cheapest in the market.
 
@@ -1469,12 +1684,20 @@ type: model
 id: "falcon-3"
 provider: "Technology Innovation Institute"
 model_type: "open-source"
+api_model_id: "tiiuae/Falcon3-10B-Instruct"
 release_date: "2025"
 description: "Runs on regular (non-gaming) laptops. Designed for accessibility and low-resource deployment. From UAE-based Technology Innovation Institute."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "32K tokens"
 website: "https://falconllm.tii.ae"
-license: "Apache 2.0"
+license: "TII Falcon-LLM License 2.0"
 modality:
 - "text"
 tags:
@@ -1482,8 +1705,8 @@ tags:
 - "open-source"
 - "text"
 pricing:
-  input: "Free (Apache 2.0)"
-  output: "Free (Apache 2.0)"
+  input: "Free (open weights)"
+  output: "Free (open weights)"
   free: true
 benchmarks:
   reasoning: 70
@@ -1492,6 +1715,15 @@ benchmarks:
   writing: 72
   multilingual: 70
   speed: 94
+capabilities:
+- "function_calling"
+- "streaming"
+sources:
+- title: "Falcon3 10B Instruct model card"
+  url: "https://huggingface.co/tiiuae/Falcon3-10B-Instruct"
+benchmark_sources:
+- title: "Falcon3 10B Instruct model card"
+  url: "https://huggingface.co/tiiuae/Falcon3-10B-Instruct"
 parameters: "3B to 10B variants"
 hardware_requirements: "10B: 8GB VRAM; 3B: 4GB VRAM; runs on consumer laptops"
 best_for:
@@ -1508,7 +1740,7 @@ The model built for the laptop you already own. Falcon 3 does not chase benchmar
 
 The benchmarks are honest about the trade-off: reasoning 70, coding 68, math 67, writing 72, multilingual 70. These are not impressive numbers in absolute terms. But evaluated against the hardware requirement of "a regular laptop," they are genuinely useful. You get a functional AI assistant that works offline, keeps data local, and costs nothing to run.
 
-The Technology Innovation Institute in the UAE designed Falcon 3 with developing regions and education in mind, and it shows. Apache 2.0 licensing, minimal hardware requirements, and straightforward deployment make it the most accessible open model available. No GPU rental, no API keys, no internet connection required.
+The Technology Innovation Institute in the UAE designed Falcon 3 with developing regions and education in mind, and it shows. Open-weight licensing, minimal hardware requirements, and straightforward deployment make it one of the most accessible open models available. No GPU rental, no API keys, no internet connection required.
 
 Compared to SmolLM3 3B at the same parameter count, Falcon 3 trades slightly lower coding scores for better writing and multilingual capability. Compared to Gemma 3's 4B variant, Falcon is less capable but lighter on resources.
 
@@ -1524,9 +1756,17 @@ type: model
 id: "gemini-3-flash"
 provider: "Google"
 model_type: "proprietary"
+api_model_id: "gemini-3-flash-preview"
 release_date: "2025-12"
 description: "Google's fast, cost-efficient model replacing Gemini 2.5 Flash. Designed for high-throughput applications with up to 1M token context at an extremely low price."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "preview"
+deprecated: false
+tool_schema_format: "gemini"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "1M tokens"
 website: "https://deepmind.google"
 license: "Proprietary"
@@ -1543,9 +1783,15 @@ tags:
 - "video"
 - "audio"
 pricing:
-  input: "$0.15 / 1M tokens"
-  output: "$0.60 / 1M tokens"
-  note: "Free tier available"
+  input: "$0.50 / 1M tokens"
+  output: "$3.00 / 1M tokens"
+  input_per_1m: 0.5
+  output_per_1m: 3
+  currency: "USD"
+  cache_read_per_1m: 0.05
+  batch_input_per_1m: 0.25
+  batch_output_per_1m: 1.5
+  note: "Free tier available; audio input is priced separately."
 benchmarks:
   reasoning: 82
   coding: 80
@@ -1553,6 +1799,27 @@ benchmarks:
   writing: 83
   multilingual: 85
   speed: 95
+capabilities:
+- "function_calling"
+- "vision"
+- "audio_input"
+- "video"
+- "web_search"
+- "file_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Google Gemini API pricing"
+  url: "https://ai.google.dev/gemini-api/docs/pricing"
+- title: "Google Gemini 3 API documentation"
+  url: "https://ai.google.dev/gemini-api/docs/models/gemini-3"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 best_for:
 - "High-volume tasks"
 - "Cost-sensitive applications"
@@ -1562,7 +1829,7 @@ best_for:
 
 # Gemini 3 Flash
 
-The cheapest way to run a competent model at scale. At $0.15/$0.60 per million tokens with a free tier on top, Gemini 3 Flash costs roughly one-tenth of what Claude Haiku charges -- and it comes with a 1M token context window that Haiku's 200K can't touch.
+The cheapest way to run a competent model at scale. At $0.50/$3.00 per million tokens for standard text, image, and video prompts with a free tier on top, Gemini 3 Flash is still materially cheaper than Claude Haiku -- and it comes with a 1M token context window that Haiku's 200K can't touch.
 
 Flash is not a frontier model and doesn't pretend to be. An 82/100 reasoning score and 80/100 coding score are adequate for classification, summarization, extraction, and simple Q&A. The 95/100 speed score means responses come back almost instantly. For high-throughput pipelines where you're processing thousands of documents, Flash is the model that makes the economics work.
 
@@ -1580,9 +1847,18 @@ type: model
 id: "gemini-3.1-pro"
 provider: "Google"
 model_type: "proprietary"
-release_date: "2026-02"
+api_model_id: "gemini-3.1-pro-preview"
+release_date: "2026-02-19"
 description: "Google's most capable model, building on the Gemini 3 series with improved reasoning, multimodal, and agentic capabilities. Native multimodal across text, images, video, and audio."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2025-01"
+availability_status: "preview"
+deprecated: false
+tool_schema_format: "gemini"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "1M tokens"
 website: "https://deepmind.google"
 license: "Proprietary"
@@ -1601,7 +1877,13 @@ tags:
 pricing:
   input: "$2.00 / 1M tokens"
   output: "$12.00 / 1M tokens"
-  note: "Free tier via Google AI Studio"
+  input_per_1m: 2
+  output_per_1m: 12
+  currency: "USD"
+  cache_read_per_1m: 0.2
+  long_context_input_per_1m: 4
+  long_context_output_per_1m: 18
+  note: "Preview pricing; prompts over 200K tokens use higher input/output rates."
 benchmarks:
   reasoning: 93
   coding: 91
@@ -1609,6 +1891,29 @@ benchmarks:
   writing: 89
   multilingual: 93
   speed: 78
+capabilities:
+- "function_calling"
+- "vision"
+- "audio_input"
+- "video"
+- "web_search"
+- "file_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Gemini 3.1 Pro announcement"
+  url: "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-1-pro/"
+- title: "Gemini 3.1 Pro model card"
+  url: "https://deepmind.google/models/model-cards/gemini-3-1-pro/"
+- title: "Gemini Developer API pricing"
+  url: "https://ai.google.dev/pricing"
+benchmark_sources:
+- title: "Gemini 3.1 Pro model card"
+  url: "https://deepmind.google/models/model-cards/gemini-3-1-pro/"
 best_for:
 - "Long document analysis"
 - "Multimodal tasks"
@@ -1618,7 +1923,7 @@ best_for:
 
 # Gemini 3.1 Pro
 
-The best value among frontier models. At $2/$12 per million tokens, Gemini 3.1 Pro delivers 93/100 reasoning and 92/100 math -- numbers that rival GPT-5.4 at less than half the price. Add a generous free tier through Google AI Studio and this becomes the easiest model to start experimenting with.
+The best value among frontier models. At $2/$12 per million tokens for standard prompts, Gemini 3.1 Pro delivers 93/100 reasoning and 92/100 math -- numbers that rival GPT-5.4 at less than half the price. It is still a preview model, so treat rate limits, exact model IDs, and availability as more volatile than stable Gemini releases.
 
 The multimodal story is where Gemini genuinely leads. It's the only frontier model with native support across text, images, video, and audio -- not bolted-on, but trained natively. If your workflow involves analyzing video content, processing audio, or mixing modalities, no competitor matches this breadth. The 93/100 multilingual score also makes it the strongest proprietary option for non-English work alongside Qwen 3.
 
@@ -1638,7 +1943,14 @@ provider: "Google"
 model_type: "open-source"
 release_date: "2025"
 description: "Google's open model family optimized for on-device and edge deployment. Multimodal from 4B parameters. Sizes from 1B to 27B."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://ai.google.dev/gemma"
 license: "Gemma Terms of Use"
@@ -1661,6 +1973,19 @@ benchmarks:
   writing: 76
   multilingual: 78
   speed: 93
+capabilities:
+- "vision"
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Google Gemma 3 model card"
+  url: "https://ai.google.dev/gemma/docs/core/model_card_3"
+- title: "Google Gemma documentation"
+  url: "https://ai.google.dev/gemma"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "1B to 27B variants"
 hardware_requirements: "27B: 16GB VRAM; 4B: runs on phones; 1B: runs on embedded devices"
 best_for:
@@ -1695,7 +2020,13 @@ provider: "Google"
 model_type: "open-source"
 release_date: "2026-04"
 description: "Google's most capable open model, built from the same research as Gemini 3. The 31B dense variant ranks #3 on Arena AI (1,452 Elo). First Gemma release under Apache 2.0. Four variants from edge (E2B) to workstation (31B). Natively multimodal with 140+ language support."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+availability_status: "unverified"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "low"
+model_listing_confidence: "low"
+benchmark_confidence: "low"
 context_window: "256K tokens"
 website: "https://ai.google.dev/gemma"
 license: "Apache 2.0"
@@ -1722,6 +2053,19 @@ benchmarks:
   writing: 83
   multilingual: 90
   speed: 85
+capabilities:
+- "vision"
+- "audio_input"
+- "video"
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Google Gemma documentation"
+  url: "https://ai.google.dev/gemma"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "E2B, E4B, 26B MoE (3.8B active), 31B Dense"
 hardware_requirements: "31B: 24GB VRAM (RTX 4090); 26B MoE: 8GB; E4B/E2B: runs on phones"
 best_for:
@@ -1754,10 +2098,18 @@ type: model
 id: "glm-5"
 provider: "Zhipu AI"
 model_type: "open-source"
+api_model_id: "zai-org/GLM-5"
 release_date: "2026-02"
 description: "Large MoE model with strongest coding benchmark among open models (77.8% SWE-bench). 50.4% on Humanity's Last Exam. MIT license with no usage restrictions."
-last_updated: "2026-04-10"
-context_window: "128K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "high"
+context_window: "202K tokens"
 website: "https://www.zhipuai.cn"
 license: "MIT"
 modality:
@@ -1778,6 +2130,21 @@ benchmarks:
   writing: 82
   multilingual: 83
   speed: 70
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "GLM-5 model card"
+  url: "https://huggingface.co/zai-org/GLM-5"
+- title: "GLM-5 NVIDIA NIM model card"
+  url: "https://build.nvidia.com/z-ai/glm5/modelcard"
+benchmark_sources:
+- title: "GLM-5 benchmark table"
+  url: "https://huggingface.co/zai-org/GLM-5"
 parameters: "744B total (40B active)"
 hardware_requirements: "8x A100 80GB (FP16); 2x A100 with Q4 quantization"
 best_for:
@@ -1809,25 +2176,41 @@ type: model
 id: "gpt-5.4-thinking"
 provider: "OpenAI"
 model_type: "proprietary"
-release_date: "2026-03"
-description: "Extended thinking mode of GPT-5.4 for the hardest problems. Uses chain-of-thought reasoning for math, science, and complex analysis. Successor to the o1/o3 reasoning line."
-last_updated: "2026-04-10"
-context_window: "256K tokens"
+api_model_id: "gpt-5.4"
+variant_of: "gpt-5.4"
+release_date: "2026-03-05"
+description: "Extended reasoning use of GPT-5.4 for the hardest problems. In the API, use the GPT-5.4 model with higher reasoning effort; in ChatGPT this is exposed as GPT-5.4 Thinking."
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2025-08-31"
+availability_status: "available"
+deprecated: false
+superseded_by: "gpt-5.5"
+tool_schema_format: "openai"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "1.05M tokens"
 website: "https://openai.com"
 license: "Proprietary"
 modality:
 - "text"
 - "image"
-- "audio"
 tags:
 - "openai"
 - "proprietary"
 - "text"
 - "image"
-- "audio"
 pricing:
-  input: "$10.00 / 1M tokens"
-  output: "$40.00 / 1M tokens"
+  input: "$2.50 / 1M tokens"
+  output: "$15.00 / 1M tokens"
+  input_per_1m: 2.5
+  output_per_1m: 15
+  currency: "USD"
+  cache_read_per_1m: 0.25
+  long_context_input_per_1m: 5
+  long_context_output_per_1m: 22.5
+  note: "Higher reasoning effort is billed as output tokens; prompts over 272K input tokens use long-context pricing."
 benchmarks:
   reasoning: 98
   coding: 93
@@ -1835,6 +2218,30 @@ benchmarks:
   writing: 85
   multilingual: 88
   speed: 45
+capabilities:
+- "function_calling"
+- "vision"
+- "web_search"
+- "file_search"
+- "code_execution"
+- "computer_use"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "tool_search"
+- "mcp"
+- "long_context"
+- "reasoning"
+sources:
+- title: "OpenAI GPT-5.4 model documentation"
+  url: "https://developers.openai.com/api/docs/models/gpt-5.4"
+- title: "Introducing GPT-5.4"
+  url: "https://openai.com/index/introducing-gpt-5-4/"
+- title: "OpenAI API pricing"
+  url: "https://developers.openai.com/api/docs/pricing"
+benchmark_sources:
+- title: "Introducing GPT-5.4 evaluations"
+  url: "https://openai.com/index/introducing-gpt-5-4/"
 best_for:
 - "Advanced math"
 - "Scientific reasoning"
@@ -1844,13 +2251,13 @@ best_for:
 
 # GPT-5.4 Thinking
 
-The highest-reasoning model you can buy from any provider. With a 98/100 reasoning score and 97/100 in math, GPT-5.4 Thinking is the successor to the o1/o3 line and it shows -- 80% fewer hallucinations than o3 while being substantially more capable.
+The highest-reasoning configuration in OpenAI's GPT-5.4 family. With a 98/100 reasoning score and 97/100 in math, GPT-5.4 Thinking is the successor to the o1/o3 line in this site's taxonomy, optimized for tasks where extra reasoning tokens are worth the latency and cost.
 
-This is a specialist. You pay $10/$40 per million tokens (double to quadruple the base GPT-5.4 rate) and you get a model that thinks slowly and deliberately. The 256K context window is a quarter of what the base model offers, and the speed score of 45/100 means you'll be waiting. That's the tradeoff: when the problem is genuinely hard -- competition math, multi-step scientific reasoning, formal proofs -- nothing else comes close.
+This is a specialist mode, not a separate API model. In the API, use `gpt-5.4` with higher reasoning effort; in ChatGPT, OpenAI exposes this behavior as GPT-5.4 Thinking. Reasoning tokens are billed as output tokens, so hard problems can still cost materially more than straightforward calls even though the listed token rates match the base model. The speed score of 45/100 means you'll be waiting. That's the tradeoff: when the problem is genuinely hard -- competition math, multi-step scientific reasoning, formal proofs -- nothing else comes close.
 
 The open-source alternative here is DeepSeek R1, which hits 94/100 in math at $0.55/$2.19 per million tokens. R1 is impressive for the price, but GPT-5.4 Thinking pulls ahead on reasoning breadth and produces more polished outputs. If you're doing AIME-level problems professionally, the cost premium is justified.
 
-**When to pick something else:** For anything that isn't genuinely difficult reasoning, use the base GPT-5.4 -- it's faster, cheaper, and has a larger context window. For coding specifically, Claude Opus 4.6 outperforms this model while costing less. Don't use Thinking mode for writing tasks; its 85/100 writing score reflects the fact that chain-of-thought optimization comes at the expense of prose quality.
+**When to pick something else:** For anything that isn't genuinely difficult reasoning, use the base GPT-5.4 with lower reasoning effort -- it's faster and cheaper in practice because it emits fewer reasoning tokens. For coding specifically, Claude Opus 4.6 is still the stronger pick in this dataset. Don't use Thinking mode for writing tasks; its 85/100 writing score reflects the fact that reasoning optimization comes at the expense of prose quality.
 
 ---
 
@@ -1862,26 +2269,40 @@ type: model
 id: "gpt-5.4"
 provider: "OpenAI"
 model_type: "proprietary"
-release_date: "2026-03"
-description: "OpenAI's flagship model combining frontier reasoning, coding, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with 45% fewer hallucinations than GPT-4o."
-last_updated: "2026-04-10"
-context_window: "1M tokens"
+api_model_id: "gpt-5.4"
+release_date: "2026-03-05"
+description: "OpenAI's flagship model combining frontier reasoning, coding, computer-use, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with stronger factuality than GPT-5.2."
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2025-08-31"
+availability_status: "available"
+deprecated: false
+superseded_by: "gpt-5.5"
+tool_schema_format: "openai"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "1.05M tokens"
 website: "https://openai.com"
 license: "Proprietary"
 modality:
 - "text"
 - "image"
-- "audio"
 tags:
 - "openai"
 - "proprietary"
 - "text"
 - "image"
-- "audio"
 pricing:
-  input: "$5.00 / 1M tokens"
+  input: "$2.50 / 1M tokens"
   output: "$15.00 / 1M tokens"
-  note: "Pricing varies by variant"
+  input_per_1m: 2.5
+  output_per_1m: 15
+  currency: "USD"
+  cache_read_per_1m: 0.25
+  long_context_input_per_1m: 5
+  long_context_output_per_1m: 22.5
+  note: "Prompts over 272K input tokens are priced at 2x input and 1.5x output for the full session."
 benchmarks:
   reasoning: 95
   coding: 92
@@ -1889,6 +2310,30 @@ benchmarks:
   writing: 93
   multilingual: 90
   speed: 80
+capabilities:
+- "function_calling"
+- "vision"
+- "web_search"
+- "file_search"
+- "code_execution"
+- "computer_use"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "tool_search"
+- "mcp"
+- "long_context"
+- "reasoning"
+sources:
+- title: "OpenAI GPT-5.4 model documentation"
+  url: "https://developers.openai.com/api/docs/models/gpt-5.4"
+- title: "Introducing GPT-5.4"
+  url: "https://openai.com/index/introducing-gpt-5-4/"
+- title: "OpenAI API pricing"
+  url: "https://developers.openai.com/api/docs/pricing"
+benchmark_sources:
+- title: "Introducing GPT-5.4 evaluations"
+  url: "https://openai.com/index/introducing-gpt-5-4/"
 best_for:
 - "Complex reasoning"
 - "Coding"
@@ -1900,9 +2345,9 @@ best_for:
 
 OpenAI's everything model. GPT-5.4 merges the reasoning line and the coding line into a single endpoint, and the result is the most well-rounded proprietary model available. A 95/100 reasoning score and 94.6% AIME put it at or near the top of every general benchmark.
 
-The real selling point is ecosystem. No other model has deeper integration with the tools people already use -- Microsoft 365, ChatGPT plugins, the Assistants API, and a sprawling third-party landscape. If you're building on OpenAI's platform, staying on GPT-5.4 is the path of least resistance. The 1M context window now matches Claude and Gemini, removing what used to be a disadvantage.
+The real selling point is ecosystem. No other model has deeper integration with the tools people already use -- Microsoft 365, ChatGPT plugins, the Responses API, and a sprawling third-party landscape. If you're building on OpenAI's platform, staying on GPT-5.4 is the path of least resistance. The 1.05M context window now matches Claude and Gemini, removing what used to be a disadvantage.
 
-Where it trails: coding. At 74.9% SWE-bench, it's solid but clearly behind Claude Opus 4.6's 80.8%. The 45% hallucination reduction over GPT-4o sounds impressive until you compare it to Grok 4.20's industry-leading factual accuracy. And at $5/$15 per million tokens, it's not cheap -- Gemini 3.1 Pro delivers comparable reasoning at $2/$12.
+Where it trails in this dataset: coding. Its coding score is solid but still behind Claude Opus 4.6. OpenAI reports lower factual-error rates than GPT-5.2, but factuality still needs source checks for high-stakes use. And at $2.50/$15 per million tokens, it's not cheap -- Gemini 3.1 Pro delivers comparable reasoning at $2/$12.
 
 **When to pick something else:** For pure coding dominance, Claude Opus 4.6 is the better call. For budget-conscious work that doesn't sacrifice much quality, Gemini 3.1 Pro or DeepSeek V3.2 undercut GPT-5.4 significantly. If you need extended thinking for competition-level math, use GPT-5.4 Thinking instead of burning tokens on the base model.
 
@@ -1916,12 +2361,20 @@ type: model
 id: "gpt-oss-120b"
 provider: "OpenAI"
 model_type: "open-source"
-release_date: "2026"
+api_model_id: "gpt-oss-120b"
+release_date: "2025-08-05"
 description: "OpenAI's first fully open-weight LLMs since GPT-2. Matches or surpasses o4-mini on core benchmarks. Can run on a single 80GB GPU. Optimized for vLLM, llama.cpp, and Ollama."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://openai.com"
-license: "OpenAI Open Weight License"
+license: "Apache 2.0"
 modality:
 - "text"
 tags:
@@ -1939,6 +2392,25 @@ benchmarks:
   writing: 87
   multilingual: 86
   speed: 75
+capabilities:
+- "function_calling"
+- "web_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "json_mode"
+- "long_context"
+- "reasoning"
+sources:
+- title: "OpenAI gpt-oss-120b model documentation"
+  url: "https://platform.openai.com/docs/models/gpt-oss-120b"
+- title: "OpenAI gpt-oss model card"
+  url: "https://openai.com/research/gpt-oss-model-card/"
+- title: "OpenAI gpt-oss-120b Hugging Face model card"
+  url: "https://huggingface.co/openai/gpt-oss-120b"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "120B"
 hardware_requirements: "1x H100 80GB (FP16); 1x RTX 4090 with Q4 quantization"
 best_for:
@@ -1956,7 +2428,7 @@ What makes this interesting is not the raw numbers (Qwen 3.5 and GLM-5 beat it o
 
 The writing score of 87 is quietly the best in its class among open models at this size, reflecting OpenAI's years of RLHF expertise. For teams that need polished, human-sounding output from a self-hosted model, this is hard to beat. The 120B dense architecture is less efficient than MoE alternatives, which explains the speed score of 75.
 
-The OpenAI Open Weight License is more permissive than expected but still not Apache 2.0 -- read the fine print before building commercial products.
+The Apache 2.0 license is the practical surprise here: commercial use, redistribution, and modification are far simpler than most prior frontier open-weight releases.
 
 **When to pick something else:** If raw performance matters more than ecosystem, Qwen 3.5 and GLM-5 are stronger on every technical benchmark. If you need maximum efficiency on consumer hardware, MoE models like Mistral Small 4 or Nemotron-Cascade 2 run circles around a 120B dense model.
 
@@ -1972,7 +2444,14 @@ provider: "xAI"
 model_type: "proprietary"
 release_date: "2025-11"
 description: "xAI's flagship model with 65% fewer hallucinations than its predecessor (down to 4.22%). Available in both Thinking and Non-thinking configurations."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "unverified"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "medium"
+model_listing_confidence: "low"
+benchmark_confidence: "low"
 context_window: "128K tokens"
 website: "https://x.ai"
 license: "Proprietary"
@@ -1987,6 +2466,9 @@ tags:
 pricing:
   input: "$3.00 / 1M tokens"
   output: "$15.00 / 1M tokens"
+  input_per_1m: 3
+  output_per_1m: 15
+  currency: "USD"
   note: "Available via xAI API"
 benchmarks:
   reasoning: 91
@@ -1995,6 +2477,19 @@ benchmarks:
   writing: 87
   multilingual: 80
   speed: 76
+capabilities:
+- "function_calling"
+- "vision"
+- "structured_output"
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "xAI models and pricing"
+  url: "https://docs.x.ai/docs/models"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 best_for:
 - "Current events analysis"
 - "Technical reasoning"
@@ -2022,9 +2517,18 @@ type: model
 id: "grok-4.20"
 provider: "xAI"
 model_type: "proprietary"
+api_model_id: "x-ai/grok-4.20"
 release_date: "2026-03"
 description: "xAI's latest flagship with the lowest hallucination rate of any model (78% Omniscience) and #1 instruction following (83% IFBench). Features a novel multi-agent architecture and 2M token context window. 248 tokens/second output speed."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2025-09-01"
+availability_status: "preview"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "medium"
+model_listing_confidence: "medium"
+benchmark_confidence: "low"
 context_window: "2M tokens"
 website: "https://x.ai"
 license: "Proprietary"
@@ -2039,6 +2543,9 @@ tags:
 pricing:
   input: "$2.00 / 1M tokens"
   output: "$6.00 / 1M tokens"
+  input_per_1m: 2
+  output_per_1m: 6
+  currency: "USD"
   note: "Fast tier; Standard tier $20/$60"
 benchmarks:
   reasoning: 85
@@ -2047,6 +2554,21 @@ benchmarks:
   writing: 87
   multilingual: 82
   speed: 90
+capabilities:
+- "vision"
+- "web_search"
+- "structured_output"
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "xAI models and pricing"
+  url: "https://docs.x.ai/docs/models"
+- title: "OpenRouter Grok 4.20 model page"
+  url: "https://openrouter.ai/x-ai/grok-4.20"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 best_for:
 - "Factual accuracy"
 - "Legal/medical/financial AI"
@@ -2074,9 +2596,17 @@ type: model
 id: "hermes-4-405b"
 provider: "Nous Research"
 model_type: "open-source"
+api_model_id: "NousResearch/Hermes-4-405B"
 release_date: "2025-08"
 description: "Nous Research's flagship open-weight model with hybrid reasoning (toggle between standard and explicit chain-of-thought with think tags). Based on Llama 3.1, trained with rejection sampling via 1,000+ task verifiers. Known for minimal content restrictions and user-directed behavior."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "hermes"
+pricing_confidence: "low"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://nousresearch.com"
 license: "Llama Community License"
@@ -2098,6 +2628,21 @@ benchmarks:
   writing: 85
   multilingual: 78
   speed: 55
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "json_mode"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Hermes 4 405B Hugging Face model card"
+  url: "https://huggingface.co/NousResearch/Hermes-4-405B"
+- title: "Nous Portal models"
+  url: "https://portal.nousresearch.com/models"
+benchmark_sources:
+- title: "Hermes 4 405B Hugging Face model card"
+  url: "https://huggingface.co/NousResearch/Hermes-4-405B"
 parameters: "405B (also available in 14B, 70B)"
 hardware_requirements: "4x A100 80GB (FP16); 2x RTX 4090 with Q4 quantization"
 best_for:
@@ -2127,18 +2672,28 @@ type: model
 id: "kimi-k2.5"
 provider: "Moonshot AI"
 model_type: "open-source"
+api_model_id: "moonshotai/Kimi-K2.5"
 release_date: "2025"
-description: "Chinese AI model achieving 96% on AIME 2025, outperforming most proprietary models on math. Strong reasoning and mathematical capabilities."
-last_updated: "2026-04-10"
+description: "Open multimodal agentic model from Moonshot AI achieving 96% on AIME 2025, outperforming most proprietary models on math. Strong reasoning and mathematical capabilities."
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "low"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://www.moonshot.cn"
-license: "MIT"
+license: "Modified MIT"
 modality:
 - "text"
+- "image"
 tags:
 - "moonshot ai"
 - "open-source"
 - "text"
+- "image"
 pricing:
   input: "Free (self-hosted)"
   output: "Free (self-hosted)"
@@ -2151,6 +2706,22 @@ benchmarks:
   writing: 78
   multilingual: 80
   speed: 72
+capabilities:
+- "function_calling"
+- "vision"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Kimi K2.5 model card"
+  url: "https://huggingface.co/moonshotai/Kimi-K2.5"
+- title: "Kimi K2.5 NVIDIA NIM model card"
+  url: "https://build.nvidia.com/moonshotai/kimi-k2.5/modelcard"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "MoE (undisclosed)"
 hardware_requirements: "Multi-GPU setup required"
 best_for:
@@ -2182,9 +2753,17 @@ type: model
 id: "llama-4-maverick"
 provider: "Meta"
 model_type: "open-source"
+api_model_id: "meta-llama/Llama-4-Maverick-17B-128E-Instruct"
 release_date: "2025-04"
 description: "Meta's flagship open-source MoE model with 400B total parameters (17B active). Scored #2 on LMArena leaderboard (ELO 1,417). Native multimodal capabilities."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "medium"
+benchmark_confidence: "low"
 context_window: "1M tokens"
 website: "https://llama.meta.com"
 license: "Llama Community License"
@@ -2208,6 +2787,20 @@ benchmarks:
   writing: 86
   multilingual: 84
   speed: 80
+capabilities:
+- "vision"
+- "streaming"
+- "structured_output"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Meta Llama models"
+  url: "https://www.llama.com/models/llama-4/"
+- title: "NVIDIA Llama 4 Scout and Maverick technical blog"
+  url: "https://developer.nvidia.com/blog/nvidia-accelerates-inference-on-meta-llama-4-scout-and-maverick/"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "400B total (17B active)"
 hardware_requirements: "4x A100 80GB or 8x RTX 4090 (FP16); single GPU with heavy quantization"
 best_for:
@@ -2237,9 +2830,17 @@ type: model
 id: "llama-4-scout"
 provider: "Meta"
 model_type: "open-source"
+api_model_id: "meta-llama/Llama-4-Scout-17B-16E-Instruct"
 release_date: "2025-04"
 description: "Meta's efficient open-source MoE model with 109B total parameters (17B active). Features the largest context window of any model at 10M tokens."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "medium"
+benchmark_confidence: "low"
 context_window: "10M tokens"
 website: "https://llama.meta.com"
 license: "Llama Community License"
@@ -2262,6 +2863,20 @@ benchmarks:
   writing: 81
   multilingual: 79
   speed: 88
+capabilities:
+- "vision"
+- "streaming"
+- "structured_output"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Meta Llama models"
+  url: "https://www.llama.com/models/llama-4/"
+- title: "NVIDIA Llama 4 Scout and Maverick technical blog"
+  url: "https://developer.nvidia.com/blog/nvidia-accelerates-inference-on-meta-llama-4-scout-and-maverick/"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "109B total (17B active)"
 hardware_requirements: "1x A100 80GB (FP16); single RTX 4090 with Q4 quantization"
 best_for:
@@ -2279,7 +2894,7 @@ Scout is the practical choice for teams that need long-context processing on the
 
 The quality tradeoffs are real. Reasoning (80), coding (79), and math (77) are all a clear step below Maverick and well behind proprietary models. Scout is not the model you choose for hard problems -- it's the model you choose for problems that require absorbing enormous amounts of text before answering. Think retrieval-heavy RAG pipelines, long-form document QA, or codebase-wide search.
 
-**When to pick something else:** For anything quality-sensitive that doesn't require extreme context, Maverick is the better Llama. For coding, DeepSeek V3.2 at $0.27/$1.10 is both smarter and cheaper via API. Scout's unique value is that 10M context window -- if you don't need it, you're leaving quality on the table by choosing this over stronger models.
+**When to pick something else:** For anything quality-sensitive that doesn't require extreme context, Maverick is the better Llama. For coding, DeepSeek V3.2 at $0.28/$0.42 is both smarter and cheaper via API. Scout's unique value is that 10M context window -- if you don't need it, you're leaving quality on the table by choosing this over stronger models.
 
 ---
 
@@ -2291,10 +2906,18 @@ type: model
 id: "minimax-m2.7"
 provider: "MiniMax"
 model_type: "open-source"
+api_model_id: "MiniMaxAI/MiniMax-M2.7"
 release_date: "2026-03"
 description: "Third iteration of MiniMax's M2 line with tighter factual accuracy and lower cost. Intelligence index of 49.62 places it near frontier models at a fraction of the price. Open weights."
-last_updated: "2026-04-10"
-context_window: "128K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "low"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "205K tokens"
 website: "https://minimax.io"
 license: "Modified MIT"
 modality:
@@ -2315,6 +2938,23 @@ benchmarks:
   writing: 82
   multilingual: 83
   speed: 85
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "MiniMax M2.7 model page"
+  url: "https://www.minimax.io/models/text/m27"
+- title: "MiniMax M2.7 Hugging Face model card"
+  url: "https://huggingface.co/MiniMaxAI/MiniMax-M2.7"
+- title: "MiniMax M2.7 GitHub repository"
+  url: "https://github.com/MiniMax-AI/MiniMax-M2.7"
+benchmark_sources:
+- title: "MiniMax M2.7 Hugging Face model card"
+  url: "https://huggingface.co/MiniMaxAI/MiniMax-M2.7"
 parameters: "MoE (undisclosed active/total)"
 hardware_requirements: "Multi-GPU setup recommended"
 best_for:
@@ -2346,19 +2986,31 @@ provider: "Mistral AI"
 model_type: "open-source"
 release_date: "2025-12"
 description: "Mistral's flagship model suite with Apache 2.0 license. A European alternative focused on enterprise compliance, adopting a DeepSeek-style MoE architecture for efficiency."
-last_updated: "2026-04-10"
-context_window: "128K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "mistral"
+pricing_confidence: "low"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "256K tokens"
 website: "https://mistral.ai"
 license: "Apache 2.0"
 modality:
 - "text"
+- "image"
 tags:
 - "mistral ai"
 - "open-source"
 - "text"
+- "image"
 pricing:
   input: "$2.00 / 1M tokens"
   output: "$6.00 / 1M tokens"
+  input_per_1m: 2
+  output_per_1m: 6
+  currency: "USD"
 benchmarks:
   reasoning: 86
   coding: 87
@@ -2366,6 +3018,24 @@ benchmarks:
   writing: 86
   multilingual: 92
   speed: 78
+capabilities:
+- "function_calling"
+- "vision"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Introducing Mistral 3"
+  url: "https://mistral.ai/news/mistral-3"
+- title: "Mistral models overview"
+  url: "https://mistral.ai/models"
+- title: "Mistral pricing"
+  url: "https://mistral.ai/pricing"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "675B total (41B active)"
 hardware_requirements: "8x A100 80GB (FP16); multi-GPU setup required"
 best_for:
@@ -2379,11 +3049,11 @@ best_for:
 
 The model you pick when European compliance isn't optional. Mistral 3 ships under Apache 2.0 from a Paris-based company, making it the cleanest open-source option for organizations navigating EU AI Act requirements and GDPR data sovereignty. The 92/100 multilingual score -- second only to Qwen 3 -- reflects genuine strength across European languages.
 
-The DeepSeek-style MoE architecture (675B total, 41B active) keeps Mistral 3 efficient, and the benchmark profile is solid if unspectacular: 87/100 coding, 86/100 reasoning, 86/100 writing. At $2/$6 per million tokens via Mistral's API, the pricing is competitive with Gemini 3.1 Pro. Self-hosting requires a serious multi-GPU setup (8x A100), but the Apache 2.0 license gives you complete freedom in how you deploy.
+The DeepSeek-style MoE architecture (675B total, 41B active) keeps Mistral 3 efficient, and the benchmark profile is solid if unspectacular: 87/100 coding, 86/100 reasoning, 86/100 writing. Its 256K context window and multimodal support make it more capable than the older Mistral Small line for document and image-heavy workflows. Self-hosting requires a serious multi-GPU setup (8x A100), but the Apache 2.0 license gives you complete freedom in how you deploy.
 
 The challenge is that Mistral 3 doesn't clearly lead in any single dimension except European compliance. DeepSeek V3.2 offers similar capability at a fraction of the API cost. Qwen 3 beats it on multilingual, math, and coding. Llama 4 Maverick has a far larger community. Mistral's ecosystem is growing but remains smaller than its competitors'.
 
-**When to pick something else:** If European compliance isn't a factor, DeepSeek V3.2 delivers comparable quality at $0.27/$1.10 -- nearly 10x cheaper. For the strongest open-source coding, Qwen 3 (90/100) or MiniMax M2.7 (95/100) pull ahead. Mistral 3's value proposition is clearest for European enterprises that need a local, compliant, well-rounded model under a permissive license.
+**When to pick something else:** If European compliance isn't a factor, DeepSeek V3.2 delivers comparable quality at $0.28/$0.42 -- far cheaper via hosted API. For the strongest open-source coding, Qwen 3 (90/100) or MiniMax M2.7 (95/100) pull ahead. Mistral 3's value proposition is clearest for European enterprises that need a local, compliant, well-rounded model under a permissive license.
 
 ---
 
@@ -2395,10 +3065,19 @@ type: model
 id: "mistral-small-3"
 provider: "Mistral AI"
 model_type: "open-source"
-release_date: "2025"
+api_model_id: "mistral-small-2501"
+release_date: "2025-01-30"
 description: "Efficient 24B model that competes with models 2-3x its size. Apache 2.0 license. Strong for real-time applications."
-last_updated: "2026-04-10"
-context_window: "128K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "retired"
+deprecated: true
+superseded_by: "mistral-small-3.2"
+tool_schema_format: "mistral"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "32K tokens"
 website: "https://mistral.ai"
 license: "Apache 2.0"
 modality:
@@ -2418,6 +3097,19 @@ benchmarks:
   writing: 80
   multilingual: 85
   speed: 90
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+sources:
+- title: "Mistral Small 3.0 model card"
+  url: "https://docs.mistral.ai/models/model-cards/mistral-small-3-0-25-01"
+- title: "Mistral Small 3 announcement"
+  url: "https://mistral.ai/news/mistral-small-3"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "24B"
 hardware_requirements: "16GB VRAM (FP16); 1x RTX 4090 with Q4"
 best_for:
@@ -2431,7 +3123,7 @@ best_for:
 
 The sweet spot for self-hosted production. Mistral Small 3 delivers scores of 79-85 across every benchmark category while running on 16GB of VRAM at FP16 -- that is a single RTX 4090 or even an RTX 4080. For teams that need a real-time, self-hosted model that actually works in production, this hits the price-performance bullseye.
 
-The multilingual score of 85 is the standout, reflecting Mistral AI's European roots and intentional focus on French, German, Spanish, and other EU languages. Coding at 80 and writing at 80 are both solid. Speed at 90/100 means sub-second responses for most queries. The 128K context window handles long documents without the compromises you accept with smaller models.
+The multilingual score of 85 is the standout, reflecting Mistral AI's European roots and intentional focus on French, German, Spanish, and other EU languages. Coding at 80 and writing at 80 are both solid. Speed at 90/100 means sub-second responses for most queries. The 32K context window is smaller than newer Mistral releases, but still handles most everyday chat and document tasks.
 
 Apache 2.0 licensing and a Paris-based company make this the default choice for European enterprises navigating GDPR and AI Act compliance. Running the model on your own infrastructure, in your own data center, with no data leaving the EU -- Mistral Small 3 was designed for exactly that use case.
 
@@ -2449,10 +3141,18 @@ type: model
 id: "mistral-small-4"
 provider: "Mistral AI"
 model_type: "open-source"
+api_model_id: "mistral-small-2603"
 release_date: "2026-03"
 description: "Efficient MoE model with 119B total parameters but only 6.5B active — the knowledge capacity of a large model at the inference cost of a small one. Multimodal with hybrid reasoning. Apache 2.0 license."
-last_updated: "2026-04-10"
-context_window: "128K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "mistral"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "256K tokens"
 website: "https://mistral.ai"
 license: "Apache 2.0"
 modality:
@@ -2464,10 +3164,13 @@ tags:
 - "text"
 - "image"
 pricing:
-  input: "Free (Apache 2.0)"
-  output: "Free (Apache 2.0)"
+  input: "$0.15 / 1M tokens"
+  output: "$0.60 / 1M tokens"
+  input_per_1m: 0.15
+  output_per_1m: 0.6
+  currency: "USD"
   free: true
-  note: "Also via Mistral API"
+  note: "Also available as Apache 2.0 open weights."
 benchmarks:
   reasoning: 76
   coding: 78
@@ -2475,6 +3178,22 @@ benchmarks:
   writing: 78
   multilingual: 86
   speed: 92
+capabilities:
+- "function_calling"
+- "vision"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Mistral Small 4 model card"
+  url: "https://docs.mistral.ai/models/mistral-small-4-0-26-03"
+- title: "Mistral Small 4 lifecycle documentation"
+  url: "https://legal.mistral.ai/ai-governance/models/mistral-small-4"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "119B total (6.5B active)"
 hardware_requirements: "8GB VRAM (Q4, 6.5B active); fits on consumer GPUs"
 best_for:
@@ -2490,7 +3209,7 @@ The model that puts 119B of knowledge into 8GB of VRAM. Mistral Small 4 is an Mo
 
 Benchmark scores are honestly lower than its predecessor Mistral Small 3 in absolute terms (reasoning 76 vs 79, math 74 vs 77), which seems counterintuitive for a newer model. The explanation: Mistral Small 4 trades peak single-task accuracy for dramatically better efficiency and multimodal capability. The multilingual score actually improved to 86, and you gain image understanding that Small 3 lacks entirely.
 
-The hybrid reasoning capability lets the model switch between fast responses and deeper thinking on harder queries. Combined with 128K context and Apache 2.0 licensing, this is Mistral's answer to the European compliance question: full-featured AI that runs on hardware you already have, in a data center you already control.
+The hybrid reasoning capability lets the model switch between fast responses and deeper thinking on harder queries. Combined with 256K context and Apache 2.0 licensing, this is Mistral's answer to the European compliance question: full-featured AI that runs on hardware you already have, in a data center you already control.
 
 The Mistral API is available if you prefer managed hosting, but the self-hosting story is the selling point. An 8GB consumer GPU running a model with 119B total parameters was not possible a year ago.
 
@@ -2506,10 +3225,19 @@ type: model
 id: "nemotron-3-super"
 provider: "NVIDIA"
 model_type: "open-source"
+api_model_id: "nvidia/nemotron-3-super-120b-a12b"
 release_date: "2026-03"
 description: "NVIDIA's open-weight MoE model with 120B total parameters and 12B active. Designed to fit on hardware most companies already own. Serves as the anchor for NVIDIA's agent toolkit strategy, optimized for TensorRT-LLM and NIM."
-last_updated: "2026-04-10"
-context_window: "128K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2026-02"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "high"
+context_window: "1M tokens"
 website: "https://build.nvidia.com"
 license: "NVIDIA Open Model License"
 modality:
@@ -2530,8 +3258,23 @@ benchmarks:
   writing: 79
   multilingual: 78
   speed: 88
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "NVIDIA Nemotron 3 Super model card"
+  url: "https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard"
+- title: "NVIDIA Nemotron 3 Super Hugging Face model card"
+  url: "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8"
+benchmark_sources:
+- title: "NVIDIA Nemotron 3 Super model card"
+  url: "https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard"
 parameters: "120B total (12B active)"
-hardware_requirements: "1x A100 80GB (FP16); 1x RTX 4090 with Q4 quantization"
+hardware_requirements: "2x H100 80GB (FP8); 8x H100 80GB (BF16)"
 best_for:
 - "Enterprise deployment"
 - "NVIDIA hardware optimization"
@@ -2543,7 +3286,7 @@ best_for:
 
 NVIDIA's play to own the enterprise AI stack from GPU to model. Nemotron 3 Super is a 120B MoE model with 12B active parameters, purpose-built for TensorRT-LLM and NIM -- NVIDIA's inference and deployment frameworks. If your company already runs NVIDIA hardware (and statistically, it does), this model is optimized for it in ways that generic open models are not.
 
-Coding at 82 and reasoning at 80 anchor the benchmark profile, with math (78), writing (79), and multilingual (78) rounding out a solidly mid-tier picture. Speed at 88/100 reflects the TensorRT optimization. A single A100 80GB runs it at FP16, or an RTX 4090 handles Q4 quantization -- the kind of hardware sitting in most enterprise data centers already.
+Coding at 82 and reasoning at 80 anchor the benchmark profile, with math (78), writing (79), and multilingual (78) rounding out a solidly mid-tier picture. Speed at 88/100 reflects the TensorRT optimization. The official deployment targets are heavier than the original draft implied: plan for multi-H100 infrastructure rather than a single workstation GPU.
 
 The agent toolkit strategy is the bigger story. NVIDIA is positioning Nemotron 3 Super as the default model for their agent workflow ecosystem, meaning it gets first-class support for tool calling, multi-step planning, and agentic deployment patterns. If you are building AI agents on NVIDIA infrastructure, the integration is seamless.
 
@@ -2561,9 +3304,17 @@ type: model
 id: "nemotron-cascade-2"
 provider: "NVIDIA"
 model_type: "open-source"
+api_model_id: "nvidia/Nemotron-Cascade-2"
 release_date: "2026-03"
 description: "NVIDIA's 30B MoE with only 3B active parameters that achieves gold-medal performance on IMO, IOI, and ICPC. Beats the larger Nemotron 3 Super 120B on coding and instruction following. Fits on a single RTX 4090 (24GB VRAM with Q4). Hybrid Mamba-2 + Transformer architecture enables a 1M token context window."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "high"
 context_window: "1M tokens"
 website: "https://build.nvidia.com"
 license: "NVIDIA Open Model License"
@@ -2585,6 +3336,19 @@ benchmarks:
   writing: 78
   multilingual: 75
   speed: 92
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "NVIDIA Nemotron-Cascade 2 research page"
+  url: "https://research.nvidia.com/labs/nemotron/nemotron-cascade-2/"
+benchmark_sources:
+- title: "NVIDIA Nemotron-Cascade 2 research page"
+  url: "https://research.nvidia.com/labs/nemotron/nemotron-cascade-2/"
 parameters: "30B total (3B active)"
 hardware_requirements: "1x RTX 4090 24GB (Q4); 1x RTX 3090 with Q3 quantization"
 best_for:
@@ -2616,9 +3380,17 @@ type: model
 id: "phi-4"
 provider: "Microsoft"
 model_type: "open-source"
+api_model_id: "microsoft/phi-4"
 release_date: "2025"
 description: "Microsoft's small-but-capable model using state-of-the-art training techniques and high-quality data. Punches well above its weight class despite small parameter count."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "16K tokens"
 website: "https://azure.microsoft.com/en-us/products/phi"
 license: "MIT"
@@ -2640,6 +3412,17 @@ benchmarks:
   writing: 77
   multilingual: 72
   speed: 92
+capabilities:
+- "streaming"
+- "reasoning"
+sources:
+- title: "Microsoft Phi-4 model card"
+  url: "https://huggingface.co/microsoft/phi-4-gguf"
+- title: "Microsoft Phi-4 reasoning model card"
+  url: "https://huggingface.co/microsoft/Phi-4-reasoning"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "14B"
 hardware_requirements: "8GB VRAM (Q4); 12GB VRAM (FP16)"
 best_for:
@@ -2671,9 +3454,17 @@ type: model
 id: "qwen-3.5"
 provider: "Alibaba"
 model_type: "open-source"
+api_model_id: "Qwen/Qwen3.5-397B-A17B"
 release_date: "2026-02"
 description: "Alibaba's generational leap. Natively multimodal, 256K context, 201 languages. The flagship 397B-A17B MoE model activates only 17B parameters per token. Apache 2.0. Most downloaded model family on HuggingFace."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "256K tokens"
 website: "https://qwenlm.github.io"
 license: "Apache 2.0"
@@ -2697,6 +3488,20 @@ benchmarks:
   writing: 84
   multilingual: 97
   speed: 82
+capabilities:
+- "function_calling"
+- "vision"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Qwen3.5 397B-A17B model card"
+  url: "https://huggingface.co/Qwen/Qwen3.5-397B-A17B"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "397B total (17B active)"
 hardware_requirements: "4x A100 80GB (FP16); single GPU with Q4 quantization (17B active)"
 best_for:
@@ -2728,9 +3533,17 @@ type: model
 id: "qwen-3"
 provider: "Alibaba"
 model_type: "open-source"
+api_model_id: "Qwen/Qwen3-235B-A22B"
 release_date: "2025-06"
 description: "Alibaba's flagship open model family. Overtook Llama as the most-downloaded model family on HuggingFace in late 2025. Hybrid reasoning with think/non-think modes. 119 languages supported."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://qwenlm.github.io"
 license: "Apache 2.0"
@@ -2752,6 +3565,21 @@ benchmarks:
   writing: 82
   multilingual: 95
   speed: 80
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Qwen3 235B-A22B model card"
+  url: "https://huggingface.co/Qwen/Qwen3-235B-A22B"
+- title: "Amazon Bedrock Qwen3 model card"
+  url: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-235b-a22b-2507.html"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "1T+ total (MoE, various active sizes)"
 hardware_requirements: "Varies by variant; 0.6B runs on phones, 235B needs multi-GPU"
 best_for:
@@ -2781,10 +3609,18 @@ type: model
 id: "smollm3-3b"
 provider: "Hugging Face"
 model_type: "open-source"
+api_model_id: "HuggingFaceTB/SmolLM3-3B"
 release_date: "2026"
 description: "Fully open instruct and reasoning model with unprecedented transparency — Hugging Face published the complete engineering blueprint. Outperforms Llama-3.2-3B and Qwen2.5-3B at the 3B scale."
-last_updated: "2026-04-10"
-context_window: "32K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "64K native, 128K with YaRN"
 website: "https://huggingface.co/HuggingFaceTB/SmolLM3-3B"
 license: "Apache 2.0"
 modality:
@@ -2804,6 +3640,16 @@ benchmarks:
   writing: 70
   multilingual: 65
   speed: 96
+capabilities:
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "SmolLM3 3B model card"
+  url: "https://huggingface.co/HuggingFaceTB/SmolLM3-3B"
+benchmark_sources:
+- title: "SmolLM3 3B model card"
+  url: "https://huggingface.co/HuggingFaceTB/SmolLM3-3B"
 parameters: "3B"
 hardware_requirements: "2GB VRAM; runs on Raspberry Pi"
 best_for:
@@ -2835,9 +3681,17 @@ type: model
 id: "yi-1.5-34b"
 provider: "01.AI"
 model_type: "open-source"
+api_model_id: "01-ai/Yi-1.5-34B"
 release_date: "2025"
 description: "Strong bilingual (English/Chinese) model from 01.AI that competes with much larger models on benchmarks. Excellent reasoning and code generation at a deployable 34B size. Apache 2.0 license."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "32K tokens"
 website: "https://01.ai"
 license: "Apache 2.0"
@@ -2858,6 +3712,17 @@ benchmarks:
   writing: 80
   multilingual: 82
   speed: 85
+capabilities:
+- "streaming"
+- "reasoning"
+sources:
+- title: "Yi-1.5 34B model card"
+  url: "https://huggingface.co/01-ai/Yi-1.5-34B"
+- title: "Yi 34B model card"
+  url: "https://huggingface.co/01-ai/Yi-34B"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "34B (also 6B, 9B variants)"
 hardware_requirements: "1x RTX 4090 24GB (Q4); 1x A100 40GB (FP16)"
 best_for:
@@ -7289,7 +8154,7 @@ title: "AI for Image Generation"
 type: use-case
 id: "use-case-images"
 description: "Learn how to use AI image generators like DALL-E, Midjourney, Stable Diffusion, and Adobe Firefly. Includes prompt-writing tips and use cases for marketing, social media, and product design."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
 tags:
   - image-generation
   - dall-e
@@ -7367,7 +8232,7 @@ The image generation landscape continues to expand rapidly. Other tools worth ex
 
 ## A Note on AI Video Generation
 
-OpenAI's Sora video generation tool was shut down on March 25, 2026. OpenAI has pivoted its focus away from video generation toward robotics. For AI video generation, the current leading tools are Runway Gen-4.5, Kling 3.0, Google Veo 3.1, and Pika 2.5.
+OpenAI's Sora web and app experiences were discontinued on April 26, 2026, and the Sora API is scheduled to be discontinued on September 24, 2026. For AI video generation, the current leading tools are Runway Gen-4.5, Kling 3.0, Google Veo 3.1, and Pika 2.5.
 
 ---
 

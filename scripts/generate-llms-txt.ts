@@ -131,12 +131,16 @@ function parseUsd(value: unknown): number | null {
   return match ? Number(match[1]) : null;
 }
 
+function numberField(value: unknown): number | null {
+  return typeof value === "number" && Number.isFinite(value) ? value : null;
+}
+
 function getPricingCost(meta: Record<string, unknown>): number | null {
   const pricing = meta.pricing as Record<string, unknown> | undefined;
   if (!pricing || typeof pricing !== "object") return null;
 
-  const input = parseUsd(pricing.input);
-  const output = parseUsd(pricing.output);
+  const input = numberField(pricing.input_per_1m) ?? parseUsd(pricing.input);
+  const output = numberField(pricing.output_per_1m) ?? parseUsd(pricing.output);
   if (input === null && output === null) return null;
   return (input ?? 0) + (output ?? 0);
 }
@@ -464,6 +468,19 @@ function summarizeEntry(entry: Entry) {
     content_hash: entry.contentHash,
     sha256: entry.contentHash,
     ...(entry.meta.provider && { provider: entry.meta.provider }),
+    ...(entry.meta.api_model_id && { api_model_id: entry.meta.api_model_id }),
+    ...(entry.meta.knowledge_cutoff && { knowledge_cutoff: entry.meta.knowledge_cutoff }),
+    ...(entry.meta.capabilities && { capabilities: entry.meta.capabilities }),
+    ...(entry.meta.availability_status && { availability_status: entry.meta.availability_status }),
+    ...(typeof entry.meta.deprecated === "boolean" && { deprecated: entry.meta.deprecated }),
+    ...(entry.meta.superseded_by && { superseded_by: entry.meta.superseded_by }),
+    ...(entry.meta.variant_of && { variant_of: entry.meta.variant_of }),
+    ...(entry.meta.tool_schema_format && { tool_schema_format: entry.meta.tool_schema_format }),
+    ...(entry.meta.pricing_confidence && { pricing_confidence: entry.meta.pricing_confidence }),
+    ...(entry.meta.model_listing_confidence && { model_listing_confidence: entry.meta.model_listing_confidence }),
+    ...(entry.meta.benchmark_confidence && { benchmark_confidence: entry.meta.benchmark_confidence }),
+    ...(entry.meta.sources && { sources: entry.meta.sources }),
+    ...(entry.meta.benchmark_sources && { benchmark_sources: entry.meta.benchmark_sources }),
     ...(entry.meta.pricing && { pricing: entry.meta.pricing }),
     ...(entry.meta.benchmarks && { benchmarks: entry.meta.benchmarks }),
     ...(entry.meta.tags && { tags: entry.meta.tags }),
@@ -564,10 +581,25 @@ const contentTypes = fs
   .filter((d) => d.isDirectory())
   .map((d) => d.name);
 
+function entriesForType(t: string): Entry[] {
+  return contentEntries.filter((entry) => typeFromMdPath(entry.mdPath) === t);
+}
+
+function indexEntryForType(t: string): Entry | undefined {
+  return allEntries.find((entry) => entry.mdPath === `/content/${t}/_index.md`);
+}
+
+function publicEntriesForType(t: string): Entry[] {
+  const items = entriesForType(t);
+  if (items.length > 0) return items;
+  const index = indexEntryForType(t);
+  return index ? [index] : [];
+}
+
 const typeIndex = contentTypes.map((t) => {
   const indexFile = path.join(CONTENT_DIR, t, "_index.md");
   const indexData = fs.existsSync(indexFile) ? matter(fs.readFileSync(indexFile, "utf-8")).data : {};
-  const items = contentEntries.filter((entry) => typeFromMdPath(entry.mdPath) === t);
+  const items = publicEntriesForType(t);
   return {
     type: t,
     title: (indexData.title as string) || t,
@@ -588,6 +620,19 @@ const schema: Record<string, unknown> = {
   recommended_fields: [
     "last_verified",
     "sources",
+    "knowledge_cutoff",
+    "capabilities",
+    "availability_status",
+    "deprecated",
+    "superseded_by",
+    "tool_schema_format",
+    "pricing.input_per_1m",
+    "pricing.output_per_1m",
+    "pricing.currency",
+    "benchmark_sources",
+    "pricing_confidence",
+    "model_listing_confidence",
+    "benchmark_confidence",
     "tags",
     "relationships",
     "content_hash",
@@ -601,7 +646,7 @@ for (const t of contentTypes) {
     string,
     { count: number; types: Set<string>; examples: unknown[] }
   >();
-  const items = contentEntries.filter((entry) => typeFromMdPath(entry.mdPath) === t);
+  const items = publicEntriesForType(t);
 
   for (const entry of items) {
     for (const [field, value] of Object.entries(entry.meta)) {
@@ -755,13 +800,13 @@ fs.writeFileSync(
 
 // Per-type JSON files
 for (const t of contentTypes) {
-  const items = contentEntries
-    .filter((entry) => typeFromMdPath(entry.mdPath) === t)
+  const itemEntries = entriesForType(t)
     .sort((a, b) => a.title.localeCompare(b.title));
+  const publicItems = publicEntriesForType(t).sort((a, b) => a.title.localeCompare(b.title));
   const itemDir = path.join(apiDir, t);
   fs.mkdirSync(itemDir, { recursive: true });
 
-  for (const entry of items) {
+  for (const entry of itemEntries) {
     fs.writeFileSync(
       path.join(itemDir, `${slugFromMdPath(entry.mdPath)}.json`),
       JSON.stringify(serializeEntry(entry)),
@@ -773,10 +818,10 @@ for (const t of contentTypes) {
     path.join(apiDir, `${t}.json`),
     JSON.stringify({
       type: t,
-      count: items.length,
+      count: publicItems.length,
       schema_url: "/api/v1/schema.json",
       item_api_pattern: `/api/v1/${t}/{slug}.json`,
-      items: items.map(summarizeEntry),
+      items: publicItems.map(summarizeEntry),
     }),
     "utf-8"
   );
@@ -917,25 +962,41 @@ const pricingSnapshots = modelEntries
           : providerEntry
             ? getObjectList(providerEntry.meta, "sources")
             : [];
-    const inputUsd = parseUsd(pricing.input);
-    const outputUsd = parseUsd(pricing.output);
+    const inputUsd = numberField(pricing.input_per_1m) ?? parseUsd(pricing.input);
+    const outputUsd = numberField(pricing.output_per_1m) ?? parseUsd(pricing.output);
 
     return {
       slug: slugFromMdPath(entry.mdPath),
       id: String(entry.meta.id ?? slugFromMdPath(entry.mdPath)),
       title: entry.title,
+      api_model_id: String(entry.meta.api_model_id ?? ""),
       provider,
       model_type: String(entry.meta.model_type ?? ""),
       context_window: String(entry.meta.context_window ?? ""),
+      knowledge_cutoff: String(entry.meta.knowledge_cutoff ?? ""),
+      availability_status: String(entry.meta.availability_status ?? "unverified"),
+      deprecated: entry.meta.deprecated === true,
+      superseded_by: String(entry.meta.superseded_by ?? ""),
       pricing: {
         input: pricing.input ?? null,
         output: pricing.output ?? null,
         note: pricing.note ?? null,
+        currency: pricing.currency ?? null,
         free: pricing.free === true,
       },
       parsed_usd_per_1m_tokens: {
         input: inputUsd,
         output: outputUsd,
+        cache_read: numberField(pricing.cache_read_per_1m),
+        cache_write:
+          numberField(pricing.cache_write_per_1m) ??
+          numberField(pricing.cache_write_5m_per_1m),
+        cache_write_5m: numberField(pricing.cache_write_5m_per_1m),
+        cache_write_1h: numberField(pricing.cache_write_1h_per_1m),
+        batch_input: numberField(pricing.batch_input_per_1m),
+        batch_output: numberField(pricing.batch_output_per_1m),
+        long_context_input: numberField(pricing.long_context_input_per_1m),
+        long_context_output: numberField(pricing.long_context_output_per_1m),
         input_output_total: getPricingCost(entry.meta),
       },
       last_updated: String(entry.meta.last_updated ?? ""),

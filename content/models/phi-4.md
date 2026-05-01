@@ -4,9 +4,17 @@ type: model
 id: "phi-4"
 provider: "Microsoft"
 model_type: "open-source"
+api_model_id: "microsoft/phi-4"
 release_date: "2025"
 description: "Microsoft's small-but-capable model using state-of-the-art training techniques and high-quality data. Punches well above its weight class despite small parameter count."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "16K tokens"
 website: "https://azure.microsoft.com/en-us/products/phi"
 license: "MIT"
@@ -28,6 +36,17 @@ benchmarks:
   writing: 77
   multilingual: 72
   speed: 92
+capabilities:
+- "streaming"
+- "reasoning"
+sources:
+- title: "Microsoft Phi-4 model card"
+  url: "https://huggingface.co/microsoft/phi-4-gguf"
+- title: "Microsoft Phi-4 reasoning model card"
+  url: "https://huggingface.co/microsoft/Phi-4-reasoning"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "14B"
 hardware_requirements: "8GB VRAM (Q4); 12GB VRAM (FP16)"
 best_for:

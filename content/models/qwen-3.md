@@ -4,9 +4,17 @@ type: model
 id: "qwen-3"
 provider: "Alibaba"
 model_type: "open-source"
+api_model_id: "Qwen/Qwen3-235B-A22B"
 release_date: "2025-06"
 description: "Alibaba's flagship open model family. Overtook Llama as the most-downloaded model family on HuggingFace in late 2025. Hybrid reasoning with think/non-think modes. 119 languages supported."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "128K tokens"
 website: "https://qwenlm.github.io"
 license: "Apache 2.0"
@@ -28,6 +36,21 @@ benchmarks:
   writing: 82
   multilingual: 95
   speed: 80
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Qwen3 235B-A22B model card"
+  url: "https://huggingface.co/Qwen/Qwen3-235B-A22B"
+- title: "Amazon Bedrock Qwen3 model card"
+  url: "https://docs.aws.amazon.com/bedrock/latest/userguide/model-card-qwen-qwen3-235b-a22b-2507.html"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "1T+ total (MoE, various active sizes)"
 hardware_requirements: "Varies by variant; 0.6B runs on phones, 235B needs multi-GPU"
 best_for:

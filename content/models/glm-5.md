@@ -4,10 +4,18 @@ type: model
 id: "glm-5"
 provider: "Zhipu AI"
 model_type: "open-source"
+api_model_id: "zai-org/GLM-5"
 release_date: "2026-02"
 description: "Large MoE model with strongest coding benchmark among open models (77.8% SWE-bench). 50.4% on Humanity's Last Exam. MIT license with no usage restrictions."
-last_updated: "2026-04-10"
-context_window: "128K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "high"
+context_window: "202K tokens"
 website: "https://www.zhipuai.cn"
 license: "MIT"
 modality:
@@ -28,6 +36,21 @@ benchmarks:
   writing: 82
   multilingual: 83
   speed: 70
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "GLM-5 model card"
+  url: "https://huggingface.co/zai-org/GLM-5"
+- title: "GLM-5 NVIDIA NIM model card"
+  url: "https://build.nvidia.com/z-ai/glm5/modelcard"
+benchmark_sources:
+- title: "GLM-5 benchmark table"
+  url: "https://huggingface.co/zai-org/GLM-5"
 parameters: "744B total (40B active)"
 hardware_requirements: "8x A100 80GB (FP16); 2x A100 with Q4 quantization"
 best_for:

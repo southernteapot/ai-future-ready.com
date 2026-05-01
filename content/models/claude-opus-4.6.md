@@ -4,9 +4,19 @@ type: model
 id: "claude-opus-4.6"
 provider: "Anthropic"
 model_type: "proprietary"
+api_model_id: "claude-opus-4-6"
 release_date: "2026-02"
 description: "Anthropic's most capable model and the first Opus-class model with a 1M token context window. Leads on coding benchmarks with 80.8% SWE-bench. Internal codename \"Fennec.\""
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2025-05"
+availability_status: "available"
+deprecated: false
+superseded_by: "claude-opus-4.7"
+tool_schema_format: "anthropic"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
 context_window: "1M tokens"
 website: "https://anthropic.com"
 license: "Proprietary"
@@ -21,6 +31,14 @@ tags:
 pricing:
   input: "$5.00 / 1M tokens"
   output: "$25.00 / 1M tokens"
+  input_per_1m: 5
+  output_per_1m: 25
+  currency: "USD"
+  cache_read_per_1m: 0.5
+  cache_write_5m_per_1m: 6.25
+  cache_write_1h_per_1m: 10
+  batch_input_per_1m: 2.5
+  batch_output_per_1m: 12.5
   note: "Significantly cheaper than Opus 4.5"
 benchmarks:
   reasoning: 96
@@ -29,6 +47,28 @@ benchmarks:
   writing: 95
   multilingual: 88
   speed: 62
+capabilities:
+- "function_calling"
+- "vision"
+- "web_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "tool_search"
+- "long_context"
+- "reasoning"
+- "adaptive_thinking"
+sources:
+- title: "Anthropic Claude models overview"
+  url: "https://platform.claude.com/docs/en/about-claude/models/overview"
+- title: "Anthropic API pricing"
+  url: "https://platform.claude.com/docs/en/about-claude/pricing"
+- title: "Anthropic Transparency Hub"
+  url: "https://www.anthropic.com/transparency/model-report"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 best_for:
 - "Complex coding projects"
 - "Long-form analysis"

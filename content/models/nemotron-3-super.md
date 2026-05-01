@@ -4,10 +4,19 @@ type: model
 id: "nemotron-3-super"
 provider: "NVIDIA"
 model_type: "open-source"
+api_model_id: "nvidia/nemotron-3-super-120b-a12b"
 release_date: "2026-03"
 description: "NVIDIA's open-weight MoE model with 120B total parameters and 12B active. Designed to fit on hardware most companies already own. Serves as the anchor for NVIDIA's agent toolkit strategy, optimized for TensorRT-LLM and NIM."
-last_updated: "2026-04-10"
-context_window: "128K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+knowledge_cutoff: "2026-02"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "high"
+context_window: "1M tokens"
 website: "https://build.nvidia.com"
 license: "NVIDIA Open Model License"
 modality:
@@ -28,8 +37,23 @@ benchmarks:
   writing: 79
   multilingual: 78
   speed: 88
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "NVIDIA Nemotron 3 Super model card"
+  url: "https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard"
+- title: "NVIDIA Nemotron 3 Super Hugging Face model card"
+  url: "https://huggingface.co/nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8"
+benchmark_sources:
+- title: "NVIDIA Nemotron 3 Super model card"
+  url: "https://build.nvidia.com/nvidia/nemotron-3-super-120b-a12b/modelcard"
 parameters: "120B total (12B active)"
-hardware_requirements: "1x A100 80GB (FP16); 1x RTX 4090 with Q4 quantization"
+hardware_requirements: "2x H100 80GB (FP8); 8x H100 80GB (BF16)"
 best_for:
 - "Enterprise deployment"
 - "NVIDIA hardware optimization"
@@ -41,7 +65,7 @@ best_for:
 
 NVIDIA's play to own the enterprise AI stack from GPU to model. Nemotron 3 Super is a 120B MoE model with 12B active parameters, purpose-built for TensorRT-LLM and NIM -- NVIDIA's inference and deployment frameworks. If your company already runs NVIDIA hardware (and statistically, it does), this model is optimized for it in ways that generic open models are not.
 
-Coding at 82 and reasoning at 80 anchor the benchmark profile, with math (78), writing (79), and multilingual (78) rounding out a solidly mid-tier picture. Speed at 88/100 reflects the TensorRT optimization. A single A100 80GB runs it at FP16, or an RTX 4090 handles Q4 quantization -- the kind of hardware sitting in most enterprise data centers already.
+Coding at 82 and reasoning at 80 anchor the benchmark profile, with math (78), writing (79), and multilingual (78) rounding out a solidly mid-tier picture. Speed at 88/100 reflects the TensorRT optimization. The official deployment targets are heavier than the original draft implied: plan for multi-H100 infrastructure rather than a single workstation GPU.
 
 The agent toolkit strategy is the bigger story. NVIDIA is positioning Nemotron 3 Super as the default model for their agent workflow ecosystem, meaning it gets first-class support for tool calling, multi-step planning, and agentic deployment patterns. If you are building AI agents on NVIDIA infrastructure, the integration is seamless.
 

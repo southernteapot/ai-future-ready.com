@@ -6,7 +6,14 @@ provider: "xAI"
 model_type: "proprietary"
 release_date: "2025-11"
 description: "xAI's flagship model with 65% fewer hallucinations than its predecessor (down to 4.22%). Available in both Thinking and Non-thinking configurations."
-last_updated: "2026-04-10"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "unverified"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "medium"
+model_listing_confidence: "low"
+benchmark_confidence: "low"
 context_window: "128K tokens"
 website: "https://x.ai"
 license: "Proprietary"
@@ -21,6 +28,9 @@ tags:
 pricing:
   input: "$3.00 / 1M tokens"
   output: "$15.00 / 1M tokens"
+  input_per_1m: 3
+  output_per_1m: 15
+  currency: "USD"
   note: "Available via xAI API"
 benchmarks:
   reasoning: 91
@@ -29,6 +39,19 @@ benchmarks:
   writing: 87
   multilingual: 80
   speed: 76
+capabilities:
+- "function_calling"
+- "vision"
+- "structured_output"
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "xAI models and pricing"
+  url: "https://docs.x.ai/docs/models"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 best_for:
 - "Current events analysis"
 - "Technical reasoning"

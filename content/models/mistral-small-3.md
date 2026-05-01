@@ -4,10 +4,19 @@ type: model
 id: "mistral-small-3"
 provider: "Mistral AI"
 model_type: "open-source"
-release_date: "2025"
+api_model_id: "mistral-small-2501"
+release_date: "2025-01-30"
 description: "Efficient 24B model that competes with models 2-3x its size. Apache 2.0 license. Strong for real-time applications."
-last_updated: "2026-04-10"
-context_window: "128K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "retired"
+deprecated: true
+superseded_by: "mistral-small-3.2"
+tool_schema_format: "mistral"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "32K tokens"
 website: "https://mistral.ai"
 license: "Apache 2.0"
 modality:
@@ -27,6 +36,19 @@ benchmarks:
   writing: 80
   multilingual: 85
   speed: 90
+capabilities:
+- "function_calling"
+- "structured_output"
+- "streaming"
+- "tool_search"
+sources:
+- title: "Mistral Small 3.0 model card"
+  url: "https://docs.mistral.ai/models/model-cards/mistral-small-3-0-25-01"
+- title: "Mistral Small 3 announcement"
+  url: "https://mistral.ai/news/mistral-small-3"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "24B"
 hardware_requirements: "16GB VRAM (FP16); 1x RTX 4090 with Q4"
 best_for:
@@ -40,7 +62,7 @@ best_for:
 
 The sweet spot for self-hosted production. Mistral Small 3 delivers scores of 79-85 across every benchmark category while running on 16GB of VRAM at FP16 -- that is a single RTX 4090 or even an RTX 4080. For teams that need a real-time, self-hosted model that actually works in production, this hits the price-performance bullseye.
 
-The multilingual score of 85 is the standout, reflecting Mistral AI's European roots and intentional focus on French, German, Spanish, and other EU languages. Coding at 80 and writing at 80 are both solid. Speed at 90/100 means sub-second responses for most queries. The 128K context window handles long documents without the compromises you accept with smaller models.
+The multilingual score of 85 is the standout, reflecting Mistral AI's European roots and intentional focus on French, German, Spanish, and other EU languages. Coding at 80 and writing at 80 are both solid. Speed at 90/100 means sub-second responses for most queries. The 32K context window is smaller than newer Mistral releases, but still handles most everyday chat and document tasks.
 
 Apache 2.0 licensing and a Paris-based company make this the default choice for European enterprises navigating GDPR and AI Act compliance. Running the model on your own infrastructure, in your own data center, with no data leaving the EU -- Mistral Small 3 was designed for exactly that use case.
 

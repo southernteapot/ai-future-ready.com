@@ -3,7 +3,7 @@ title: "Agent API Reference"
 type: index
 id: "api-reference"
 description: "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search."
-last_updated: "2026-04-24"
+last_updated: "2026-04-30"
 ---
 
 # Agent API Reference
@@ -111,7 +111,7 @@ Every content item includes at minimum:
 | `description` | string | One-line summary |
 | `last_updated` | date | ISO 8601 date of last change |
 
-Model-specific fields: `provider`, `pricing` (input/output), `benchmarks`, `context_window`, `best_for`, `tags`
+Model-specific fields: `provider`, `api_model_id`, `pricing` (human strings plus optional numeric per-1M fields), `benchmarks`, `context_window`, `knowledge_cutoff`, `capabilities`, `availability_status`, `tool_schema_format`, `sources`, `best_for`, `tags`
 
 Agent-specific fields: `category`, `license`, `pricing`, `languages`, `github`, `website`
 

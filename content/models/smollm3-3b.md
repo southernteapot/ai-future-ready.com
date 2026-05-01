@@ -4,10 +4,18 @@ type: model
 id: "smollm3-3b"
 provider: "Hugging Face"
 model_type: "open-source"
+api_model_id: "HuggingFaceTB/SmolLM3-3B"
 release_date: "2026"
 description: "Fully open instruct and reasoning model with unprecedented transparency — Hugging Face published the complete engineering blueprint. Outperforms Llama-3.2-3B and Qwen2.5-3B at the 3B scale."
-last_updated: "2026-04-10"
-context_window: "32K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai-compatible"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "64K native, 128K with YaRN"
 website: "https://huggingface.co/HuggingFaceTB/SmolLM3-3B"
 license: "Apache 2.0"
 modality:
@@ -27,6 +35,16 @@ benchmarks:
   writing: 70
   multilingual: 65
   speed: 96
+capabilities:
+- "streaming"
+- "long_context"
+- "reasoning"
+sources:
+- title: "SmolLM3 3B model card"
+  url: "https://huggingface.co/HuggingFaceTB/SmolLM3-3B"
+benchmark_sources:
+- title: "SmolLM3 3B model card"
+  url: "https://huggingface.co/HuggingFaceTB/SmolLM3-3B"
 parameters: "3B"
 hardware_requirements: "2GB VRAM; runs on Raspberry Pi"
 best_for:

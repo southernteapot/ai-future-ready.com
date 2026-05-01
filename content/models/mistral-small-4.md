@@ -4,10 +4,18 @@ type: model
 id: "mistral-small-4"
 provider: "Mistral AI"
 model_type: "open-source"
+api_model_id: "mistral-small-2603"
 release_date: "2026-03"
 description: "Efficient MoE model with 119B total parameters but only 6.5B active — the knowledge capacity of a large model at the inference cost of a small one. Multimodal with hybrid reasoning. Apache 2.0 license."
-last_updated: "2026-04-10"
-context_window: "128K tokens"
+last_updated: "2026-04-30"
+last_verified: "2026-04-30"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "mistral"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "256K tokens"
 website: "https://mistral.ai"
 license: "Apache 2.0"
 modality:
@@ -19,10 +27,13 @@ tags:
 - "text"
 - "image"
 pricing:
-  input: "Free (Apache 2.0)"
-  output: "Free (Apache 2.0)"
+  input: "$0.15 / 1M tokens"
+  output: "$0.60 / 1M tokens"
+  input_per_1m: 0.15
+  output_per_1m: 0.6
+  currency: "USD"
   free: true
-  note: "Also via Mistral API"
+  note: "Also available as Apache 2.0 open weights."
 benchmarks:
   reasoning: 76
   coding: 78
@@ -30,6 +41,22 @@ benchmarks:
   writing: 78
   multilingual: 86
   speed: 92
+capabilities:
+- "function_calling"
+- "vision"
+- "structured_output"
+- "streaming"
+- "tool_search"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Mistral Small 4 model card"
+  url: "https://docs.mistral.ai/models/mistral-small-4-0-26-03"
+- title: "Mistral Small 4 lifecycle documentation"
+  url: "https://legal.mistral.ai/ai-governance/models/mistral-small-4"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
 parameters: "119B total (6.5B active)"
 hardware_requirements: "8GB VRAM (Q4, 6.5B active); fits on consumer GPUs"
 best_for:
@@ -45,7 +72,7 @@ The model that puts 119B of knowledge into 8GB of VRAM. Mistral Small 4 is an Mo
 
 Benchmark scores are honestly lower than its predecessor Mistral Small 3 in absolute terms (reasoning 76 vs 79, math 74 vs 77), which seems counterintuitive for a newer model. The explanation: Mistral Small 4 trades peak single-task accuracy for dramatically better efficiency and multimodal capability. The multilingual score actually improved to 86, and you gain image understanding that Small 3 lacks entirely.
 
-The hybrid reasoning capability lets the model switch between fast responses and deeper thinking on harder queries. Combined with 128K context and Apache 2.0 licensing, this is Mistral's answer to the European compliance question: full-featured AI that runs on hardware you already have, in a data center you already control.
+The hybrid reasoning capability lets the model switch between fast responses and deeper thinking on harder queries. Combined with 256K context and Apache 2.0 licensing, this is Mistral's answer to the European compliance question: full-featured AI that runs on hardware you already have, in a data center you already control.
 
 The Mistral API is available if you prefer managed hosting, but the self-hosting story is the selling point. An 8GB consumer GPU running a model with 119B total parameters was not possible a year ago.
 
