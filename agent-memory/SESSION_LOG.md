@@ -6,6 +6,12 @@ Do not paste raw terminal logs here.
 
 ## Sessions
 
+## 2026-06-21 - Cloudflare Email Routing provisioned
+
+- Enabled Cloudflare Email Routing for `ai-future-ready.com`; Wrangler reports `Enabled: true` and `Status: ready`.
+- Created rule `654288a229c64f608658206d2096417b`: `support@ai-future-ready.com` forwards to verified destination `bdclark1@gmail.com`; catch-all remains disabled/drop.
+- Delivery verification is not fully complete: local Himalaya/Gmail auth failed with `Invalid credentials`; a direct SMTP/MX probe reached Cloudflare and was rejected for fake-sender SPF, which confirms MX reachability but not Gmail delivery.
+
 ## 2026-06-19 - Audit requestable end-to-end
 
 - Built `/request-audit`: a client-side self-assessment + intake form (`src/components/AuditIntake.tsx`, `src/app/request-audit/page.tsx`). On submit it composes a structured `mailto:support@ai-future-ready.com` and shows a copy-to-clipboard fallback. No backend/secrets — honest "working path" for a static Cloudflare Workers site. Brian chose support@ as the role inbox (still needs Cloudflare Email Routing provisioned — DNS task).

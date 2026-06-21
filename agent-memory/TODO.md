@@ -24,7 +24,7 @@ Track current project tasks here. This is a practical Kanban board for moving AI
 
 ### Now
 
-- [ ] Provision Cloudflare Email Routing for the role inbox support@ai-future-ready.com so audit-intake emails actually deliver (DNS/dashboard task; the site-side request path is already live).
+- [ ] Verify real delivery to `support@ai-future-ready.com` from an external sender after refreshing local Gmail/Himalaya credentials or by checking Gmail manually; Cloudflare route is configured, but local Himalaya send/search failed with Gmail `Invalid credentials`.
 - [ ] Review/adjust the introductory audit pricing set on 2026-06-10 ($750 site / $2,500 docs / implementation from $2,000).
 - [ ] Consider explicit cache headers / ETag documentation for generated API and feed artifacts.
 
@@ -42,6 +42,7 @@ Track current project tasks here. This is a practical Kanban board for moving AI
 
 ### Done / parked
 
+- [x] 2026-06-21: Provisioned Cloudflare Email Routing for `ai-future-ready.com`; route `support@ai-future-ready.com` forwards to verified destination `bdclark1@gmail.com`; catch-all remains disabled/drop. Wrangler reports routing enabled/status ready. Full inbox delivery test is still pending because local Himalaya/Gmail auth failed with `Invalid credentials`, and a direct MX fake-sender test reached Cloudflare but was rejected for SPF as expected.
 - [x] 2026-06-19: Made the audit requestable end-to-end — added /request-audit self-assessment + intake form (mailto to support@ai-future-ready.com with copy fallback), replaced "coming soon" on /contact, pointed homepage + standard + pricing CTAs at the audit offer. verify green, /status no drift.
 - [x] 2026-06-10: Defined the first paid audit offer (packages, prices, turnaround, boundaries on /pricing/agent-readiness-audit).
 - [x] 2026-06-10: Created sample audit report at /pricing/sample-audit-report.
