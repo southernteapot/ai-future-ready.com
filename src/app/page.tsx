@@ -33,9 +33,9 @@ export default function HomePage() {
           architecture.
         </p>
         <div className="home-actions">
+          <Link href="/pricing/agent-readiness-audit">Get an agent readiness audit</Link>
           <Link href="/models">Compare AI models</Link>
           <Link href="/api-reference">Use the agent API</Link>
-          <Link href="/pricing/pro-data">Review Pro Data</Link>
         </div>
       </section>
       <section className="home-paths human-only" aria-label="Primary paths">

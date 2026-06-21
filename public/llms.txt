@@ -5,7 +5,7 @@
 - [Standard](/content/standard/_index.md): Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds.
 - [Checklist](/content/checklist/_index.md): A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.
 - [API Reference](/content/api-reference/_index.md): Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.
-- [Models](/content/models/_index.md): Compare 33+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.
+- [Models](/content/models/_index.md): Compare 37+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.
 - [Providers](/content/providers/_index.md): Provider profiles for major AI labs and model ecosystems, focused on agent-useful strengths, tradeoffs, models, pricing posture, and selection guidance.
 - [Agent Platforms](/content/agents/_index.md): Directory of AI agent platforms — personal agents, developer frameworks, orchestration tools, coding agents, and no-code builders.
 - [Comparisons](/content/comparisons/_index.md): Head-to-head comparisons of popular AI models. Structured analysis for agents and humans making model selection decisions.
@@ -21,8 +21,11 @@
 - [Data Changelog](/content/api-reference/data-changelog.md): How AI Future Ready tracks data updates, pricing changes, model changes, verification updates, hashes, and alert-ready change records.
 
 ## Models
+- [Claude Fable 5](/content/models/claude-fable-5.md): Anthropic's most capable widely released model. First public Mythos-class model, released under Project Glasswing safeguards. 80.3% SWE-bench Pro. 1M context, adaptive thinking always on.
 - [Claude Haiku 4.5](/content/models/claude-haiku-4.5.md): Anthropic's fastest and most cost-efficient model. Matches Claude Sonnet 4's performance on coding and agent tasks while being dramatically faster and cheaper.
 - [Claude Opus 4.6](/content/models/claude-opus-4.6.md): Anthropic's most capable model and the first Opus-class model with a 1M token context window. Leads on coding benchmarks with 80.8% SWE-bench. Internal codename "Fennec."
+- [Claude Opus 4.7](/content/models/claude-opus-4.7.md): Short-lived Opus generation between 4.6 and 4.8. Introduced the new tokenizer (~30% more tokens for the same text) and adaptive thinking. Superseded by Opus 4.8 after six weeks.
+- [Claude Opus 4.8](/content/models/claude-opus-4.8.md): Anthropic's most capable Opus-tier model for complex reasoning and long-horizon agentic coding. 69.2% SWE-bench Pro, 1M context on by default, user-level effort control, adaptive thinking.
 - [Claude Sonnet 4.6](/content/models/claude-sonnet-4.6.md): The first Sonnet model preferred over a previous Opus in coding evaluations. Excellent balance of speed, quality, and cost with a full 1M token context window.
 - [Cohere Tiny Aya 3.35B](/content/models/cohere-tiny-aya.md): Multilingual specialist supporting 70+ languages at only 3.35B parameters. Designed for laptop and edge deployment. CC-BY-NC license.
 - [Command R+](/content/models/command-r-plus.md): Cohere's flagship model purpose-built for enterprise RAG (Retrieval-Augmented Generation). Excels at grounded generation with citations, multi-step tool use, and structured outputs. Strong bilingual English/French support.
@@ -36,6 +39,7 @@
 - [GLM-5](/content/models/glm-5.md): Large MoE model with strongest coding benchmark among open models (77.8% SWE-bench). 50.4% on Humanity's Last Exam. MIT license with no usage restrictions.
 - [GPT-5.4 Thinking](/content/models/gpt-5.4-thinking.md): Extended reasoning use of GPT-5.4 for the hardest problems. In the API, use the GPT-5.4 model with higher reasoning effort; in ChatGPT this is exposed as GPT-5.4 Thinking.
 - [GPT-5.4](/content/models/gpt-5.4.md): OpenAI's flagship model combining frontier reasoning, coding, computer-use, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with stronger factuality than GPT-5.2.
+- [GPT-5.5](/content/models/gpt-5.5.md): OpenAI's flagship model (codename Spud). Strong agentic coding, computer use, and frontier math. 1.05M context, 128K max output. $5/$30 per 1M tokens.
 - [GPT-OSS-120B](/content/models/gpt-oss-120b.md): OpenAI's first fully open-weight LLMs since GPT-2. Matches or surpasses o4-mini on core benchmarks. Can run on a single 80GB GPU. Optimized for vLLM, llama.cpp, and Ollama.
 - [Grok 4.1](/content/models/grok-4.1.md): xAI's flagship model with 65% fewer hallucinations than its predecessor (down to 4.22%). Available in both Thinking and Non-thinking configurations.
 - [Grok 4.20](/content/models/grok-4.20.md): xAI's latest flagship with the lowest hallucination rate of any model (78% Omniscience) and #1 instruction following (83% IFBench). Features a novel multi-agent architecture and 2M token context window. 248 tokens/second output speed.
@@ -133,12 +137,13 @@
 - [The Rise of Open Source AI: How DeepSeek, Qwen, and MiniMax Are Changing the Game](/content/blog/rise-of-open-source-ai-deepseek-qwen-minimax.md): Open-source AI models are closing the gap with proprietary giants. We analyze how DeepSeek, Qwen, and MiniMax are reshaping the AI landscape and what it means for developers.
 
 ## Pricing
-- [Agent Readiness Audit](/content/pricing/agent-readiness-audit.md): Draft service package for making a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor.
+- [Agent Readiness Audit](/content/pricing/agent-readiness-audit.md): A fixed-scope audit that makes a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor. Concrete packages, deliverables, turnaround, and introductory pricing.
 - [Change Alerts](/content/pricing/change-alerts.md): Draft product concept for AI model and provider change alerts, including price changes, source verification, new models, license changes, and recommendation movement.
 - [Commercial Data License](/content/pricing/commercial-license.md): Draft terms outline for commercial use of AI Future Ready structured data in products, internal tools, RAG systems, model routers, and procurement workflows.
 - [Pro Data Sample](/content/pricing/pro-data-sample.md): A public sample showing the shape of the planned Pro Data package: model record, provider record, pricing snapshot, recommendation, change record, and source record.
 - [Pro Data](/content/pricing/pro-data.md): Draft product definition for the paid AI Future Ready Pro Data package: structured exports, pricing snapshots, source metadata, recommendations, changes, and commercial-ready fields.
 - [Public Roadmap](/content/pricing/roadmap.md): Roadmap for AI Future Ready as an agent-readable AI reference dataset, including trust, Pro Data, pricing snapshots, change tracking, and commercial readiness.
+- [Sample Audit Report](/content/pricing/sample-audit-report.md): A complete sample Agent Readiness Audit report for a fictional SaaS documentation site, showing the exact format, scoring, and priority fix list buyers receive.
 - [Sponsor Policy](/content/pricing/sponsor-policy.md): Disclosure and ranking rules for sponsorships, paid placements, affiliate links, referral links, and commercial relationships on AI Future Ready.
 
 ## About
@@ -151,7 +156,7 @@
 - [AI Model Compatibility Matrix](/content/compatibility.md): Which AI models work with which agent frameworks, coding tools, and platforms. Structured for agent consumption.
 
 ## Contact
-- [Contact](/content/contact.md): Contact AI Future Ready to request Pro Data access, ask about a commercial data license, sponsorship, or prepare an Agent Readiness Audit request. No checkout or payment flow is configured.
+- [Contact](/content/contact.md): Contact AI Future Ready to request an Agent Readiness Audit, Pro Data access, a commercial data license, or sponsorship. Audit requests use the intake form at /request-audit; email support@ai-future-ready.com for everything else. No checkout or payment flow is configured.
 
 ## MCP Access
 - [MCP Access](/content/mcp.md): How to connect AI Future Ready through the Model Context Protocol (MCP), including startup commands, available tools, and example workflows.

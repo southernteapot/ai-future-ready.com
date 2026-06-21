@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://ai-future-ready.com</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>
   <url><loc>https://ai-future-ready.com/status</loc><changefreq>daily</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/request-audit</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://ai-future-ready.com/score</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/.well-known/ai.json</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ai-future-ready.com/llms.txt</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ai-future-ready.com/llms-full.txt</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
@@ -48,12 +50,21 @@
   <url><loc>https://ai-future-ready.com/models</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/_index.md</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/models.json</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/models/claude-fable-5</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/models/claude-fable-5.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/claude-fable-5.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/claude-haiku-4.5</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/claude-haiku-4.5.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/models/claude-haiku-4.5.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/claude-opus-4.6</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/claude-opus-4.6.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/models/claude-opus-4.6.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/models/claude-opus-4.7</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/models/claude-opus-4.7.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/claude-opus-4.7.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/models/claude-opus-4.8</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/models/claude-opus-4.8.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/claude-opus-4.8.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/claude-sonnet-4.6</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/claude-sonnet-4.6.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/models/claude-sonnet-4.6.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
@@ -93,6 +104,9 @@
   <url><loc>https://ai-future-ready.com/models/gpt-5.4</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/gpt-5.4.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/models/gpt-5.4.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/models/gpt-5.5</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/models/gpt-5.5.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/models/gpt-5.5.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/models/gpt-oss-120b</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/models/gpt-oss-120b.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/models/gpt-oss-120b.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
@@ -384,6 +398,9 @@
   <url><loc>https://ai-future-ready.com/pricing/roadmap</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/pricing/roadmap.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/pricing/roadmap.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
+  <url><loc>https://ai-future-ready.com/pricing/sample-audit-report</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://ai-future-ready.com/content/pricing/sample-audit-report.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://ai-future-ready.com/api/v1/pricing/sample-audit-report.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://ai-future-ready.com/pricing/sponsor-policy</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://ai-future-ready.com/content/pricing/sponsor-policy.md</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://ai-future-ready.com/api/v1/pricing/sponsor-policy.json</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>

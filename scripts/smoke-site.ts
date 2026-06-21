@@ -432,6 +432,34 @@ async function main() {
       "MCP page content is missing"
     );
 
+    const requestAudit = await fetch(`${BASE_URL}/request-audit`);
+    const requestAuditHtml = await requestAudit.text();
+    assert(requestAudit.ok, "Request-audit page did not return 200");
+    assert(
+      requestAuditHtml.includes("send audit request"),
+      "Request-audit page is missing the intake form"
+    );
+    assert(
+      requestAuditHtml.includes("site URL (required)"),
+      "Request-audit page is missing the self-assessment fields"
+    );
+
+    const contactPage = await fetch(`${BASE_URL}/contact`);
+    const contactHtml = await contactPage.text();
+    assert(contactPage.ok, "Contact page did not return 200");
+    assert(
+      contactHtml.includes("support@ai-future-ready.com"),
+      "Contact page is missing the support channel"
+    );
+    assert(
+      !contactHtml.toLowerCase().includes("coming soon"),
+      "Contact page still advertises a 'coming soon' channel"
+    );
+    assert(
+      contactHtml.includes("/request-audit"),
+      "Contact page does not link to the audit intake form"
+    );
+
     const ogImage = await fetch(`${BASE_URL}/opengraph-image`);
     assert(ogImage.ok, "Open Graph image route did not return 200");
     assert(

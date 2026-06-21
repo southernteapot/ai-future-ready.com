@@ -919,6 +919,43 @@ td {
   margin-right: 1ch;
 }
 
+.audit-intake label {
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+.audit-intake input,
+.audit-intake select,
+.audit-intake textarea,
+.audit-intake-message {
+  max-width: 36rem;
+  width: 100%;
+}
+
+.audit-intake textarea,
+.audit-intake-message {
+  resize: vertical;
+}
+
+.audit-intake-error {
+  color: var(--accent, inherit);
+  font-weight: 700;
+}
+
+.audit-intake-message {
+  margin-top: 0.75rem;
+}
+
+:root[data-view-mode="human"] .audit-intake input,
+:root[data-view-mode="human"] .audit-intake select,
+:root[data-view-mode="human"] .audit-intake textarea,
+:root[data-view-mode="human"] .audit-intake-message {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 0.45rem 0.6rem;
+}
+
 :root[data-view-mode="human"] .self-audit {
   margin-top: 1.75rem;
 }

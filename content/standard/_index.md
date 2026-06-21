@@ -284,3 +284,5 @@ Most of the agent-readiness benefit comes from reaching Level 2.
 ## Reference Implementation
 
 This site — [ai-future-ready.com](https://ai-future-ready.com) — implements this standard at Level 3. Every feature described above is live and inspectable. See the [checklist](/checklist) for our honest self-assessment and the specific gaps we're working on.
+
+**Want this for your own site?** The [Agent Readiness Audit](/pricing/agent-readiness-audit) scores your site against this standard and delivers a priority fix list. [Request an audit](/request-audit) or run the free [self-audit scorecard](/score) first.

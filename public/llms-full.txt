@@ -1,7 +1,7 @@
 # AI Future Ready — Full Content
 > All content from ai-future-ready.com in a single file.
-> Generated: 2026-05-01
-> Total files: 123
+> Generated: 2026-06-21
+> Total files: 128
 
 ---
 
@@ -293,6 +293,8 @@ Most of the agent-readiness benefit comes from reaching Level 2.
 ## Reference Implementation
 
 This site — [ai-future-ready.com](https://ai-future-ready.com) — implements this standard at Level 3. Every feature described above is live and inspectable. See the [checklist](/checklist) for our honest self-assessment and the specific gaps we're working on.
+
+**Want this for your own site?** The [Agent Readiness Audit](/pricing/agent-readiness-audit) scores your site against this standard and delivers a priority fix list. [Request an audit](/request-audit) or run the free [self-audit scorecard](/score) first.
 
 ---
 
@@ -809,6 +811,8 @@ This checklist is v0.1 — a starting point, not a finished standard.
 
 **Go deeper.** The [Agent-Ready Web Standard](/standard) has the technical specifications: format definitions, metadata schemas, API patterns, and protocol details for implementers.
 
+**Want it done for you?** The [Agent Readiness Audit](/pricing/agent-readiness-audit) reviews your site against these criteria and delivers a scored report with a priority fix list — see the [sample report](/pricing/sample-audit-report) first.
+
 ---
 
 ### Want help?
@@ -1085,8 +1089,8 @@ Agents and monitoring systems should alert on:
 title: "AI Model Comparison"
 type: index
 id: "models"
-description: "Compare 33+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case."
-last_updated: "2026-04-24"
+description: "Compare 37+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case."
+last_updated: "2026-06-10"
 ---
 
 # AI Model Comparison
@@ -1097,8 +1101,12 @@ Comprehensive comparison of current AI models with benchmarks, pricing, and reco
 
 | Model | Provider | Context | Reasoning | Coding | Pricing (input) |
 |-------|----------|---------|-----------|--------|-----------------|
-| [GPT-5.4](gpt-5.4.md) | OpenAI | 1M tokens | 95 | 92 | $5.00 / 1M tokens |
+| [Claude Fable 5](claude-fable-5.md) | Anthropic | 1M tokens | 99 | 99 | $10.00 / 1M tokens |
+| [Claude Opus 4.8](claude-opus-4.8.md) | Anthropic | 1M tokens | 97 | 98 | $5.00 / 1M tokens |
+| [GPT-5.5](gpt-5.5.md) | OpenAI | 1.05M tokens | 97 | 95 | $5.00 / 1M tokens |
+| [GPT-5.4](gpt-5.4.md) | OpenAI | 1M tokens | 95 | 92 | $2.50 / 1M tokens |
 | [GPT-5.4 Thinking](gpt-5.4-thinking.md) | OpenAI | 256K tokens | 98 | 93 | $10.00 / 1M tokens |
+| [Claude Opus 4.7](claude-opus-4.7.md) | Anthropic | 1M tokens | 96 | 97 | $5.00 / 1M tokens |
 | [Claude Opus 4.6](claude-opus-4.6.md) | Anthropic | 1M tokens | 96 | 97 | $5.00 / 1M tokens |
 | [Claude Sonnet 4.6](claude-sonnet-4.6.md) | Anthropic | 1M tokens | 91 | 93 | $3.00 / 1M tokens |
 | [Claude Haiku 4.5](claude-haiku-4.5.md) | Anthropic | 200K tokens | 82 | 84 | $1.00 / 1M tokens |
@@ -1138,6 +1146,94 @@ Comprehensive comparison of current AI models with benchmarks, pricing, and reco
 
 ---
 
+<!-- file: /content/models/claude-fable-5.md -->
+
+---
+title: "Claude Fable 5"
+type: model
+id: "claude-fable-5"
+provider: "Anthropic"
+model_type: "proprietary"
+api_model_id: "claude-fable-5"
+release_date: "2026-06-09"
+description: "Anthropic's most capable widely released model. First public Mythos-class model, released under Project Glasswing safeguards. 80.3% SWE-bench Pro. 1M context, adaptive thinking always on."
+last_updated: "2026-06-10"
+last_verified: "2026-06-10"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "anthropic"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "low"
+context_window: "1M tokens"
+website: "https://anthropic.com"
+license: "Proprietary"
+modality:
+- "text"
+- "image"
+tags:
+- "anthropic"
+- "proprietary"
+- "text"
+- "image"
+- "frontier"
+pricing:
+  input: "$10.00 / 1M tokens"
+  output: "$50.00 / 1M tokens"
+  input_per_1m: 10
+  output_per_1m: 50
+  currency: "USD"
+  note: "Double Opus 4.8 pricing. Uses the Opus 4.7 tokenizer: the same text produces roughly 30% more tokens than pre-4.7 Claude models."
+benchmarks:
+  reasoning: 99
+  coding: 99
+  math: 97
+  writing: 97
+  multilingual: 92
+  speed: 60
+capabilities:
+- "function_calling"
+- "vision"
+- "web_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "tool_search"
+- "long_context"
+- "reasoning"
+- "adaptive_thinking"
+sources:
+- title: "Anthropic: Claude Fable 5 and Claude Mythos 5"
+  url: "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+- title: "Anthropic Claude models overview"
+  url: "https://platform.claude.com/docs/en/about-claude/models/overview"
+- title: "TechCrunch: Anthropic releases Claude Fable 5"
+  url: "https://techcrunch.com/2026/06/09/anthropic-released-claude-fable-5-its-most-powerful-model-publicly-days-after-warning-ai-is-getting-too-dangerous/"
+benchmark_sources:
+- title: "Anthropic: Claude Fable 5 and Claude Mythos 5"
+  url: "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
+best_for:
+- "Hardest reasoning and research tasks"
+- "Long-horizon agentic coding"
+- "High-stakes knowledge work"
+- "Scientific analysis"
+---
+
+# Claude Fable 5
+
+The most capable model anyone can buy as of June 2026. Fable 5 is the first Mythos-class model Anthropic has released publicly -- the same underlying model as the restricted Claude Mythos 5, but with safeguards that block responses in specific high-risk areas like cybersecurity and biology. When a safeguard triggers (Anthropic says under 5% of sessions on average), the query is answered by Opus 4.8 instead.
+
+The capability gap is real, not marketing. On SWE-bench Pro, Fable 5 scores 80.3% against 69.2% for Opus 4.8, 58.6% for GPT-5.5, and 54.2% for Gemini 3.1 Pro. Anthropic reports state-of-the-art results across software engineering, knowledge work, vision, and scientific research. Adaptive thinking is always on -- there is no extended-thinking toggle -- and the model decides how much reasoning each task needs.
+
+The costs are equally real. At $10/$50 per million tokens it is double Opus 4.8, and it uses the Opus 4.7 tokenizer, so the same text produces roughly 30% more tokens than on pre-4.7 models. One policy caveat matters for enterprises: Anthropic requires 30-day data retention on all Fable 5 traffic, even for customers with prior zero-retention agreements.
+
+**When to pick something else:** If your workload doesn't need the absolute frontier, Opus 4.8 delivers most of the capability at half the price with no retention caveat. For high-volume or latency-sensitive work, Sonnet 4.6 remains the practical default. If your domain regularly touches the safeguarded areas, the silent fallback to Opus 4.8 makes behavior harder to predict -- benchmark your actual traffic before committing.
+
+---
+
 <!-- file: /content/models/claude-haiku-4.5.md -->
 
 ---
@@ -1149,8 +1245,8 @@ model_type: "proprietary"
 api_model_id: "claude-haiku-4-5"
 release_date: "2025-10-15"
 description: "Anthropic's fastest and most cost-efficient model. Matches Claude Sonnet 4's performance on coding and agent tasks while being dramatically faster and cheaper."
-last_updated: "2026-04-30"
-last_verified: "2026-04-30"
+last_updated: "2026-06-10"
+last_verified: "2026-06-10"
 knowledge_cutoff: "2025-02"
 availability_status: "available"
 deprecated: false
@@ -1224,7 +1320,7 @@ For prototyping, classification, extraction, and high-volume pipelines, Haiku is
 
 The direct competitor is Gemini 3 Flash at $0.50/$3.00 -- still cheaper, with a 1M context window. Flash wins on price and context size, but Haiku edges it on coding (84 vs 80) and writing (83 vs 83). If you're in the Anthropic ecosystem and want the fastest Claude available, Haiku is the pick. If raw cost is the only metric, Flash is hard to beat.
 
-**When to pick something else:** Anything requiring deep reasoning or nuanced multi-step analysis should go to Sonnet 4.6 or Opus 4.6. Haiku's 82/100 reasoning score is good but not frontier-class. For budget workloads where you don't need the Claude instruction-following style, Gemini 3 Flash saves you 85% on input costs.
+**When to pick something else:** Anything requiring deep reasoning or nuanced multi-step analysis should go to Sonnet 4.6 or Opus 4.8. Haiku's 82/100 reasoning score is good but not frontier-class. For budget workloads where you don't need the Claude instruction-following style, Gemini 3 Flash saves you 85% on input costs.
 
 ---
 
@@ -1239,10 +1335,10 @@ model_type: "proprietary"
 api_model_id: "claude-opus-4-6"
 release_date: "2026-02"
 description: "Anthropic's most capable model and the first Opus-class model with a 1M token context window. Leads on coding benchmarks with 80.8% SWE-bench. Internal codename \"Fennec.\""
-last_updated: "2026-04-30"
-last_verified: "2026-04-30"
+last_updated: "2026-06-10"
+last_verified: "2026-06-10"
 knowledge_cutoff: "2025-05"
-availability_status: "available"
+availability_status: "legacy"
 deprecated: false
 superseded_by: "claude-opus-4.7"
 tool_schema_format: "anthropic"
@@ -1310,13 +1406,185 @@ best_for:
 
 # Claude Opus 4.6
 
-The best coding model available. At 80.8% SWE-bench and a 97/100 coding score, Opus 4.6 leads every other model on the benchmarks that matter most for real-world software engineering. If you're choosing between this and GPT-5.4, the decision comes down to whether you value SWE-bench leadership (Opus) or broader ecosystem integrations (GPT).
+A legacy model as of mid-2026, but still available and still strong. Opus 4.6 led the coding benchmarks at release (80.8% SWE-bench, 97/100 coding score) and has since been superseded twice: by Opus 4.7 in April 2026 and Opus 4.8 in May 2026. Anthropic now lists it under legacy models. New projects should start on [Opus 4.8](claude-opus-4.8.md).
 
 The 1M context window with no surcharge is a genuine differentiator -- Opus can hold an entire mid-size codebase in one pass. The agent teams feature is unique to Claude and worth exploring if you're building multi-step workflows. Writing quality at 95/100 is also best-in-class among frontier models, making this the rare model that excels at both code and prose.
 
 At $5/$25 per million tokens, the output pricing is higher than GPT-5.4's $15, but significantly cheaper than the previous Opus 4.5. The speed score of 62/100 means Opus is not the model for rapid-fire chat -- it thinks carefully, and you feel it. For complex tasks that's a feature, not a bug.
 
-**When to pick something else:** If you mostly need quick answers and speed matters, Sonnet 4.6 is 80% of the quality at nearly half the output cost. For math-heavy work, GPT-5.4 Thinking edges ahead with a 97/100 math score vs. Opus's 93. And if you're locked into the OpenAI ecosystem with existing tooling, the switching cost may not be worth it.
+**When to pick something else:** For new work, [Opus 4.8](claude-opus-4.8.md) at the same $5/$25 rate card is the obvious upgrade -- but note the tokenizer change introduced in Opus 4.7 produces ~30% more tokens for the same text, so effective costs rise even though prices don't. If you mostly need quick answers and speed matters, Sonnet 4.6 is 80% of the quality at nearly half the output cost. One reason to stay on 4.6 deliberately: it is the last Opus on the old tokenizer.
+
+---
+
+<!-- file: /content/models/claude-opus-4.7.md -->
+
+---
+title: "Claude Opus 4.7"
+type: model
+id: "claude-opus-4.7"
+provider: "Anthropic"
+model_type: "proprietary"
+api_model_id: "claude-opus-4-7"
+release_date: "2026-04"
+description: "Short-lived Opus generation between 4.6 and 4.8. Introduced the new tokenizer (~30% more tokens for the same text) and adaptive thinking. Superseded by Opus 4.8 after six weeks."
+last_updated: "2026-06-10"
+last_verified: "2026-06-10"
+knowledge_cutoff: "2026-01"
+availability_status: "legacy"
+deprecated: false
+superseded_by: "claude-opus-4.8"
+tool_schema_format: "anthropic"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "medium"
+context_window: "1M tokens"
+website: "https://anthropic.com"
+license: "Proprietary"
+modality:
+- "text"
+- "image"
+tags:
+- "anthropic"
+- "proprietary"
+- "text"
+- "image"
+- "legacy"
+pricing:
+  input: "$5.00 / 1M tokens"
+  output: "$25.00 / 1M tokens"
+  input_per_1m: 5
+  output_per_1m: 25
+  currency: "USD"
+  note: "Same rate card as Opus 4.6 and 4.8, but the new tokenizer produces ~30% more tokens for the same text, raising effective costs by up to 35% versus Opus 4.6."
+benchmarks:
+  reasoning: 96
+  coding: 97
+  math: 93
+  writing: 95
+  multilingual: 88
+  speed: 62
+capabilities:
+- "function_calling"
+- "vision"
+- "web_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "tool_search"
+- "long_context"
+- "reasoning"
+- "adaptive_thinking"
+sources:
+- title: "Anthropic Claude models overview (legacy models)"
+  url: "https://platform.claude.com/docs/en/about-claude/models/overview"
+- title: "Anthropic API pricing"
+  url: "https://platform.claude.com/docs/en/about-claude/pricing"
+benchmark_sources:
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
+best_for:
+- "Existing Opus 4.7 integrations pending migration"
+---
+
+# Claude Opus 4.7
+
+The transitional Opus. Released in mid-April 2026 and superseded by Opus 4.8 just six weeks later, Opus 4.7 mainly matters now for what it introduced: the new tokenizer that all subsequent Anthropic frontier models (Opus 4.8, Fable 5, Mythos 5) use, and always-on adaptive thinking in place of the extended-thinking toggle.
+
+The tokenizer is the trap. The same text produces roughly 30% more tokens than on Opus 4.6 and earlier, which raised effective costs by up to 35% for some workloads despite the unchanged $5/$25 rate card. Teams that skipped 4.7 still hit this when migrating from 4.6 to 4.8. Its reliable knowledge cutoff is January 2026 -- notably fresher than Opus 4.6's May 2025.
+
+**When to pick something else:** Almost always. Opus 4.8 is a config-only upgrade -- same API surface, tokenizer, context window, and pricing -- with better capability and cheaper Fast Mode. There is no reason to start a new project on 4.7.
+
+---
+
+<!-- file: /content/models/claude-opus-4.8.md -->
+
+---
+title: "Claude Opus 4.8"
+type: model
+id: "claude-opus-4.8"
+provider: "Anthropic"
+model_type: "proprietary"
+api_model_id: "claude-opus-4-8"
+release_date: "2026-05-28"
+description: "Anthropic's most capable Opus-tier model for complex reasoning and long-horizon agentic coding. 69.2% SWE-bench Pro, 1M context on by default, user-level effort control, adaptive thinking."
+last_updated: "2026-06-10"
+last_verified: "2026-06-10"
+knowledge_cutoff: "2026-01"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "anthropic"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "low"
+context_window: "1M tokens"
+website: "https://anthropic.com"
+license: "Proprietary"
+modality:
+- "text"
+- "image"
+tags:
+- "anthropic"
+- "proprietary"
+- "text"
+- "image"
+pricing:
+  input: "$5.00 / 1M tokens"
+  output: "$25.00 / 1M tokens"
+  input_per_1m: 5
+  output_per_1m: 25
+  currency: "USD"
+  cache_read_per_1m: 0.5
+  batch_input_per_1m: 2.5
+  batch_output_per_1m: 12.5
+  note: "Same rate card as Opus 4.5 through 4.7. Long-context input pricing applies over 200K tokens. Fast Mode (2.5x speed) is $10/$50. US-only inference is 1.1x. Minimum cacheable prompt is 1,024 tokens."
+benchmarks:
+  reasoning: 97
+  coding: 98
+  math: 94
+  writing: 96
+  multilingual: 89
+  speed: 65
+capabilities:
+- "function_calling"
+- "vision"
+- "web_search"
+- "code_execution"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "tool_search"
+- "long_context"
+- "reasoning"
+- "adaptive_thinking"
+sources:
+- title: "Anthropic Claude models overview"
+  url: "https://platform.claude.com/docs/en/about-claude/models/overview"
+- title: "Anthropic API pricing"
+  url: "https://platform.claude.com/docs/en/about-claude/pricing"
+- title: "Claude Opus 4.8"
+  url: "https://www.anthropic.com/claude/opus"
+benchmark_sources:
+- title: "Anthropic: Claude Fable 5 and Claude Mythos 5 (comparison table)"
+  url: "https://www.anthropic.com/news/claude-fable-5-mythos-5"
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
+best_for:
+- "Complex coding projects"
+- "Long-horizon agentic workflows"
+- "High-stakes enterprise tasks"
+- "Knowledge work"
+---
+
+# Claude Opus 4.8
+
+The default frontier workhorse. Released May 28, 2026 -- just six weeks after Opus 4.7 -- Opus 4.8 is Anthropic's most capable Opus-tier model and the best price-to-capability option at the top of the market. At 69.2% SWE-bench Pro it leads every generally available model except Fable 5, and it keeps the $5/$25 rate card that has held since Opus 4.5.
+
+The headline feature is user-level effort control: `low`, `high` (the default), `extra`, and `max`. Higher effort consumes more tokens at the same per-token rate, so you tune cost-versus-depth per request instead of switching models. Adaptive thinking adjusts reasoning depth to task complexity automatically. The 1M context window is on by default with 128K max output, and Fast Mode gives a 2.5x-speed variant at $10/$50 -- three times cheaper than Fast Mode was on Opus 4.7.
+
+Migration math matters here. Coming from Opus 4.7, the upgrade is config-only: same API surface, same tokenizer, same pricing. Coming from Opus 4.6 or earlier, the Opus 4.7 tokenizer change still applies -- the same text produces roughly 30% more tokens, which raised effective costs by up to 35% for some workloads. Budget for that before assuming flat costs.
+
+**When to pick something else:** Fable 5 is meaningfully stronger (80.3% vs 69.2% SWE-bench Pro) if you can justify double the price and a 30-day retention requirement. Sonnet 4.6 at $3/$15 remains the right call for the large majority of production traffic that doesn't need Opus-level depth. For rapid-fire low-stakes work, Haiku 4.5 at $1/$5 is the volume play.
 
 ---
 
@@ -1331,8 +1599,8 @@ model_type: "proprietary"
 api_model_id: "claude-sonnet-4-6"
 release_date: "2026-02-17"
 description: "The first Sonnet model preferred over a previous Opus in coding evaluations. Excellent balance of speed, quality, and cost with a full 1M token context window."
-last_updated: "2026-04-30"
-last_verified: "2026-04-30"
+last_updated: "2026-06-10"
+last_verified: "2026-06-10"
 knowledge_cutoff: "2025-08"
 availability_status: "available"
 deprecated: false
@@ -1403,11 +1671,11 @@ best_for:
 
 The best daily-driver model in AI right now. Sonnet 4.6 is the first mid-tier model to beat a previous Opus in coding evaluations, and at $3/$15 per million tokens with a 1M context window, the value proposition is hard to argue with.
 
-A 93/100 coding score puts Sonnet in striking distance of frontier models that cost two to three times as much. It's faster than Opus 4.6 (82 vs 62 speed score), and the writing quality at 92/100 means you're not sacrificing much for the speedup. For the vast majority of coding, analysis, and content work, Sonnet handles it without breaking a sweat.
+A 93/100 coding score puts Sonnet in striking distance of frontier models that cost two to three times as much. It's faster than the Opus tier (82 vs low-60s speed scores), and the writing quality at 92/100 means you're not sacrificing much for the speedup. For the vast majority of coding, analysis, and content work, Sonnet handles it without breaking a sweat.
 
 Compared to GPT-5.4, Sonnet is cheaper on input ($3 vs $5) and matches on output ($15), while trading some reasoning headroom (91 vs 95). Against Gemini 3.1 Pro, Sonnet wins on coding and writing but costs more. The honest assessment: Sonnet 4.6 is the model you should default to unless you have a specific reason to reach for something else.
 
-**When to pick something else:** When the task genuinely requires the last 5% of capability -- complex multi-file refactors, intricate reasoning chains -- upgrade to Opus 4.6. For high-volume, cost-sensitive workloads where quality can flex a bit, Haiku 4.5 at $1/$5 or Gemini 3 Flash at $0.50/$3.00 will save you serious money.
+**When to pick something else:** When the task genuinely requires the last 5% of capability -- complex multi-file refactors, intricate reasoning chains -- upgrade to Opus 4.8. For high-volume, cost-sensitive workloads where quality can flex a bit, Haiku 4.5 at $1/$5 or Gemini 3 Flash at $0.50/$3.00 will save you serious money.
 
 ---
 
@@ -2316,8 +2584,8 @@ model_type: "proprietary"
 api_model_id: "gpt-5.4"
 release_date: "2026-03-05"
 description: "OpenAI's flagship model combining frontier reasoning, coding, computer-use, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with stronger factuality than GPT-5.2."
-last_updated: "2026-04-30"
-last_verified: "2026-04-30"
+last_updated: "2026-06-10"
+last_verified: "2026-06-10"
 knowledge_cutoff: "2025-08-31"
 availability_status: "available"
 deprecated: false
@@ -2387,13 +2655,105 @@ best_for:
 
 # GPT-5.4
 
-OpenAI's everything model. GPT-5.4 merges the reasoning line and the coding line into a single endpoint, and the result is the most well-rounded proprietary model available. A 95/100 reasoning score and 94.6% AIME put it at or near the top of every general benchmark.
+OpenAI's previous flagship, superseded by [GPT-5.5](gpt-5.5.md) in April 2026 but still available -- and now the value play in OpenAI's lineup at $2.50/$15 versus GPT-5.5's $5/$30. GPT-5.4 merged the reasoning line and the coding line into a single endpoint. A 95/100 reasoning score and 94.6% AIME still put it near the top of general benchmarks.
 
 The real selling point is ecosystem. No other model has deeper integration with the tools people already use -- Microsoft 365, ChatGPT plugins, the Responses API, and a sprawling third-party landscape. If you're building on OpenAI's platform, staying on GPT-5.4 is the path of least resistance. The 1.05M context window now matches Claude and Gemini, removing what used to be a disadvantage.
 
 Where it trails in this dataset: coding. Its coding score is solid but still behind Claude Opus 4.6. OpenAI reports lower factual-error rates than GPT-5.2, but factuality still needs source checks for high-stakes use. And at $2.50/$15 per million tokens, it's not cheap -- Gemini 3.1 Pro delivers comparable reasoning at $2/$12.
 
-**When to pick something else:** For pure coding dominance, Claude Opus 4.6 is the better call. For budget-conscious work that doesn't sacrifice much quality, Gemini 3.1 Pro or DeepSeek V3.2 undercut GPT-5.4 significantly. If you need extended thinking for competition-level math, use GPT-5.4 Thinking instead of burning tokens on the base model.
+**When to pick something else:** If you want OpenAI's current frontier for agentic work and math, [GPT-5.5](gpt-5.5.md) is the upgrade -- at double the price. For pure coding dominance, Claude Opus 4.8 is the better call. For budget-conscious work that doesn't sacrifice much quality, Gemini 3.1 Pro or DeepSeek V3.2 undercut GPT-5.4 significantly. If you need extended thinking for competition-level math, use GPT-5.4 Thinking instead of burning tokens on the base model.
+
+---
+
+<!-- file: /content/models/gpt-5.5.md -->
+
+---
+title: "GPT-5.5"
+type: model
+id: "gpt-5.5"
+provider: "OpenAI"
+model_type: "proprietary"
+api_model_id: "gpt-5.5"
+release_date: "2026-04-23"
+description: "OpenAI's flagship model (codename Spud). Strong agentic coding, computer use, and frontier math. 1.05M context, 128K max output. $5/$30 per 1M tokens."
+last_updated: "2026-06-10"
+last_verified: "2026-06-10"
+knowledge_cutoff: "2025-12"
+availability_status: "available"
+deprecated: false
+tool_schema_format: "openai"
+pricing_confidence: "high"
+model_listing_confidence: "high"
+benchmark_confidence: "low"
+context_window: "1.05M tokens"
+website: "https://openai.com"
+license: "Proprietary"
+modality:
+- "text"
+- "image"
+tags:
+- "openai"
+- "proprietary"
+- "text"
+- "image"
+pricing:
+  input: "$5.00 / 1M tokens"
+  output: "$30.00 / 1M tokens"
+  input_per_1m: 5
+  output_per_1m: 30
+  currency: "USD"
+  cache_read_per_1m: 0.5
+  long_context_input_per_1m: 10
+  long_context_output_per_1m: 45
+  note: "Long-context requests are billed at $10/$45. GPT-5.5 Pro is $30/$180. GPT-5.5 Instant serves ChatGPT as chat-latest at $5/$30."
+benchmarks:
+  reasoning: 97
+  coding: 95
+  math: 97
+  writing: 94
+  multilingual: 91
+  speed: 72
+capabilities:
+- "function_calling"
+- "vision"
+- "web_search"
+- "file_search"
+- "code_execution"
+- "computer_use"
+- "structured_output"
+- "streaming"
+- "prompt_caching"
+- "mcp"
+- "long_context"
+- "reasoning"
+sources:
+- title: "Introducing GPT-5.5"
+  url: "https://openai.com/index/introducing-gpt-5-5/"
+- title: "OpenAI GPT-5.5 model documentation"
+  url: "https://developers.openai.com/api/docs/models/gpt-5.5"
+- title: "OpenAI API pricing"
+  url: "https://developers.openai.com/api/docs/pricing"
+benchmark_sources:
+- title: "Introducing GPT-5.5 evaluations"
+  url: "https://openai.com/index/introducing-gpt-5-5/"
+- title: "AI Future Ready benchmark methodology"
+  url: "https://ai-future-ready.com/guides/benchmark-methodology"
+best_for:
+- "Agentic coding and computer use"
+- "Frontier math and research"
+- "Knowledge work across tools"
+- "OpenAI ecosystem integrations"
+---
+
+# GPT-5.5
+
+OpenAI's flagship since April 23, 2026. GPT-5.5 (codename "Spud") pushes hardest on agentic work: operating software, moving across tools, researching online, and finishing multi-step tasks. OpenAI reports 82.7% on Terminal-Bench 2.0 and the strongest FrontierMath results published to date (51.7% on Tiers 1-3, 35.4% on Tier 4), and the model line extends to GPT-5.5 Pro ($30/$180) for maximum reasoning and GPT-5.5 Instant, which replaced GPT-5.3 Instant as the ChatGPT default with 52.5% fewer hallucinated claims on high-stakes prompts.
+
+Pricing moved up with capability: $5/$30 versus GPT-5.4's $2.50/$15, with long-context requests billed at $10/$45. The 1.05M context window and 128K max output match the Claude frontier on paper, and the toolchain -- web search, file search, code interpreter, computer use, MCP -- is the broadest of any provider.
+
+Where it sits in the current field: on coding-specific evals it trails Anthropic's frontier (58.6% SWE-bench Pro versus 69.2% for Opus 4.8 and 80.3% for Fable 5), while on math and tool-driven knowledge work it is at or near the top. The ecosystem argument from GPT-5.4 still applies in full.
+
+**When to pick something else:** For pure software engineering depth, Opus 4.8 wins at a lower output price ($25 vs $30). If you're cost-sensitive and GPT-5.4 handled your workload, the 2x price jump may not pay for itself -- GPT-5.4 remains available. For math-heavy batch work where latency doesn't matter, GPT-5.5 Pro exists, but at $180 per million output tokens it needs to earn it.
 
 ---
 
@@ -3116,7 +3476,7 @@ last_updated: "2026-04-30"
 last_verified: "2026-04-30"
 availability_status: "retired"
 deprecated: true
-superseded_by: "mistral-small-3.2"
+superseded_by: "mistral-small-4"
 tool_schema_format: "mistral"
 pricing_confidence: "high"
 model_listing_confidence: "high"
@@ -11116,7 +11476,7 @@ title: "Pricing and Pro Data"
 type: index
 id: "pricing"
 description: "Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready."
-last_updated: "2026-04-24"
+last_updated: "2026-06-10"
 ---
 
 # Pricing and Pro Data
@@ -11130,14 +11490,15 @@ This site stays plain, readable, and useful without an account. The paid product
 | Free | Humans and AI agents browsing the public reference | HTML pages, raw markdown, `llms.txt`, public JSON API, search index, change feed, and sitemap | Available |
 | Pro Data | Builders, researchers, and internal tools that need structured AI market data | Full JSON exports, richer pricing snapshots, source metadata, change history, recommendation slices, hashes, and commercial-ready metadata | Draft |
 | Commercial Data License | Companies using the dataset inside products, workflows, RAG systems, or model routers | Commercial reuse rights, attribution terms, snapshot delivery, support window, and integration notes | Draft |
-| Agent Readiness Audit | Teams that want their own docs or website to work well for AI agents | `llms.txt`, markdown export review, structured API plan, metadata audit, robots/sitemap review, and agent access score | Draft |
+| Agent Readiness Audit | Teams that want their own docs or website to work well for AI agents | `llms.txt`, markdown export review, structured API plan, metadata audit, robots/sitemap review, and agent access score | Available — from $750 |
 
 ## Paid Products
 
 - [Pro Data](pro-data.md) - detailed dataset, API, and export plan.
 - [Pro Data Sample](pro-data-sample.md) - public sample export shape with no checkout or account.
 - [Commercial Data License](commercial-license.md) - draft licensing shape for product and internal use.
-- [Agent Readiness Audit](agent-readiness-audit.md) - service package for making a site readable by agents.
+- [Agent Readiness Audit](agent-readiness-audit.md) - fixed-scope audit service for making a site readable by agents. From $750.
+- [Sample Audit Report](sample-audit-report.md) - the exact report format an audit delivers, free to read.
 - [Change Alerts](change-alerts.md) - draft alert and digest product for model, price, source, and recommendation changes.
 - [Sponsor Policy](sponsor-policy.md) - disclosure and ranking rules for commercial relationships.
 - [Public Roadmap](roadmap.md) - current, next, later, and not-planned items.
@@ -11211,9 +11572,13 @@ Up-to-date pricing comparison for AI model APIs.
 
 | Model | Provider | Input | Output | Free Tier | Notes |
 |-------|----------|-------|--------|-----------|-------|
-| GPT-5.4 | OpenAI | $5.00 / 1M tokens | $15.00 / 1M tokens | No | Pricing varies by variant |
+| Claude Fable 5 | Anthropic | $10.00 / 1M tokens | $50.00 / 1M tokens | No | Mythos-class; 30-day data retention required |
+| Claude Opus 4.8 | Anthropic | $5.00 / 1M tokens | $25.00 / 1M tokens | No | Fast Mode $10/$50; long-context surcharge over 200K |
+| GPT-5.5 | OpenAI | $5.00 / 1M tokens | $30.00 / 1M tokens | No | Long context $10/$45; Pro variant $30/$180 |
+| GPT-5.4 | OpenAI | $2.50 / 1M tokens | $15.00 / 1M tokens | No | Pricing varies by variant |
 | GPT-5.4 Thinking | OpenAI | $10.00 / 1M tokens | $40.00 / 1M tokens | No |  |
-| Claude Opus 4.6 | Anthropic | $5.00 / 1M tokens | $25.00 / 1M tokens | No | Significantly cheaper than Opus 4.5 |
+| Claude Opus 4.7 | Anthropic | $5.00 / 1M tokens | $25.00 / 1M tokens | No | Legacy; new tokenizer raises effective cost ~30% |
+| Claude Opus 4.6 | Anthropic | $5.00 / 1M tokens | $25.00 / 1M tokens | No | Legacy; last Opus on the old tokenizer |
 | Claude Sonnet 4.6 | Anthropic | $3.00 / 1M tokens | $15.00 / 1M tokens | No |  |
 | Claude Haiku 4.5 | Anthropic | $1.00 / 1M tokens | $5.00 / 1M tokens | No |  |
 | Gemini 3.1 Pro | Google | $2.00 / 1M tokens | $12.00 / 1M tokens | No | Free tier via Google AI Studio |
@@ -11250,7 +11615,7 @@ Up-to-date pricing comparison for AI model APIs.
 | Nemotron 3 Super | NVIDIA | Free | Free / Free (open weights) | NVIDIA Open Model License |
 | Nemotron-Cascade 2 | NVIDIA | Free | Free / Free (open weights) | NVIDIA Open Model License |
 
-*Prices as of April 2026. Check provider websites for current rates.*
+*Prices as of June 2026. Check provider websites for current rates.*
 
 ---
 
@@ -11260,12 +11625,28 @@ Up-to-date pricing comparison for AI model APIs.
 title: "Agent Readiness Audit"
 type: pricing
 id: "agent-readiness-audit"
-description: "Draft service package for making a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor."
-last_updated: "2026-04-24"
-status: "draft"
-price_target:
-  small_site: "$500-$2,500"
-  company_docs: "$5,000+"
+description: "A fixed-scope audit that makes a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor. Concrete packages, deliverables, turnaround, and introductory pricing."
+last_updated: "2026-06-19"
+status: "available"
+request_form: "/request-audit"
+sample_report: "/pricing/sample-audit-report"
+packages:
+  site_audit:
+    name: "Agent-Ready Site Audit"
+    scope: "up to 50 pages"
+    price: "$750"
+    turnaround: "5 business days"
+  documentation_audit:
+    name: "Documentation Audit"
+    scope: "up to 500 pages sampled"
+    price: "$2,500"
+    turnaround: "10 business days"
+  implementation:
+    name: "Implementation Package"
+    scope: "scoped after audit"
+    price: "from $2,000"
+    turnaround: "scoped after audit"
+pricing_note: "Introductory pricing while the offer is new; subject to change."
 tags:
 - "pricing"
 - "audit"
@@ -11279,6 +11660,10 @@ tags:
 The Agent Readiness Audit is a service for teams that want their site, docs, or knowledge base to work better for AI agents.
 
 The goal is practical: make content easy to discover, fetch, parse, cite, verify, and monitor.
+
+**Ready to start?** [Request an audit](/request-audit) — a short self-assessment fills in your details and sends them for you, with a yes/no on fit within 2 business days.
+
+**See exactly what you get before paying:** read the [sample audit report](sample-audit-report.md). This site is the proof of concept — run the [self-audit scorecard](/score) against your own site first if you want a free starting point.
 
 ## Included Review
 
@@ -11322,30 +11707,34 @@ Draft score categories:
 | Citation and source quality | 10 |
 | Performance and accessibility | 5 |
 
-## Package Options
+## Packages
 
-### Small Site Audit
+Introductory pricing while the offer is new.
+
+### Agent-Ready Site Audit — $750, 5 business days
 
 For a marketing site, docs microsite, or small content library.
 
-- 10 to 50 pages reviewed.
-- One markdown report.
-- Suggested `llms.txt`.
-- Priority fix list.
+- Up to 50 pages reviewed.
+- Scored markdown report (same format as the [sample](sample-audit-report.md)).
+- Suggested `llms.txt` written for your site.
+- Priority fix list with effort estimates.
+- 30-minute walkthrough call.
 
-### Documentation Audit
+### Documentation Audit — $2,500, 10 business days
 
 For product docs, developer docs, or knowledge bases.
 
-- 50 to 500 pages sampled.
+- Up to 500 pages sampled.
+- Everything in the Site Audit, plus:
 - Content structure review.
 - Metadata and API recommendations.
-- Agent workflow tests.
-- Implementation plan.
+- Agent workflow tests (real agents attempting real tasks against your docs).
+- Implementation plan your team can execute.
 
-### Implementation Package
+### Implementation Package — from $2,000, scoped after audit
 
-For teams that want the fixes applied.
+For teams that want the fixes applied rather than just diagnosed.
 
 - Add or improve `llms.txt`.
 - Add markdown or text export.
@@ -11353,6 +11742,17 @@ For teams that want the fixes applied.
 - Add source/freshness fields.
 - Add sitemap and robots updates.
 - Add basic changed-since feed where practical.
+
+## Boundaries
+
+- Audits assess agent accessibility, not content accuracy or legal compliance.
+- No guarantee of ranking, traffic, or inclusion in any AI system's results.
+- Implementation work requires repository or CMS access and is scoped separately.
+- Re-audits after implementation are included in the Implementation Package, otherwise billed as a new audit at 50%.
+
+## How to request
+
+Use the [audit intake form](/request-audit) — it runs a short self-assessment, builds a structured request, and emails it to the audit team for you. Prefer email? Send the intake details listed on the [contact page](/contact) to support@ai-future-ready.com. Either way, you will get a yes/no on fit within 2 business days.
 
 ## Good Fit
 
@@ -11369,18 +11769,6 @@ For teams that want the fixes applied.
 - Sites that cannot expose useful content outside client-side rendering.
 - Teams that want hidden paid influence over recommendations.
 - Projects that need legal compliance review more than technical implementation.
-
-## First Implementation Step
-
-Create a short intake form or contact path with:
-
-- Site URL.
-- Content type.
-- Number of pages.
-- Whether raw markdown exists.
-- Whether an API exists.
-- Whether AI crawling is allowed.
-- Main agent use case.
 
 ---
 
@@ -11935,6 +12323,74 @@ This roadmap keeps the site honest about what exists now and what is still draft
 
 ---
 
+<!-- file: /content/pricing/sample-audit-report.md -->
+
+---
+title: "Sample Audit Report"
+type: pricing
+id: "sample-audit-report"
+description: "A complete sample Agent Readiness Audit report for a fictional SaaS documentation site, showing the exact format, scoring, and priority fix list buyers receive."
+last_updated: "2026-06-10"
+status: "sample"
+tags:
+- "pricing"
+- "audit"
+- "agent-ready"
+- "sample"
+- "report"
+---
+
+# Sample Audit Report
+
+This is a complete sample of the report an [Agent Readiness Audit](agent-readiness-audit.md) produces. The subject is **Acme Docs**, a fictional SaaS documentation site of about 120 pages. Every finding below is the kind of thing real audits surface; the site itself is invented.
+
+---
+
+## Agent Readiness Audit: docs.acme.example
+
+**Audited:** 2026-06-10 · **Pages sampled:** 48 of ~120 · **Auditor:** AI Future Ready
+
+### Overall Score: 31 / 100 — Largely invisible to agents
+
+| Category | Weight | Score | Notes |
+|----------|--------|-------|-------|
+| Discovery | 20 | 4 | No `llms.txt`. Sitemap covers 60% of pages. No `.well-known/ai.json`. |
+| Raw content access | 20 | 0 | No markdown/text endpoints. All content requires JS rendering. |
+| Structured metadata | 20 | 8 | Title/description present. No canonical IDs, no typed fields. |
+| Freshness and verification | 15 | 5 | No last-updated dates on 41 of 48 sampled pages. |
+| Change tracking | 10 | 0 | No feed, no changelog, no changed-since API. |
+| Citation and source quality | 10 | 8 | URLs are stable. Headings are clean and citable. |
+| Performance and accessibility | 5 | 6 | Fast TTFB. Content blocked behind client-side rendering. |
+
+### What this means in practice
+
+An AI agent asked "how do I rotate an Acme API key?" cannot answer from your docs today. The page exists, but it is invisible: it renders client-side only, appears in no machine-readable index, and gives an agent no way to confirm the answer is current. Agents fall back to third-party blog posts — some outdated, none controlled by you.
+
+### Priority fixes
+
+1. **Serve raw content.** Expose each docs page as markdown at a stable URL (e.g. `/docs/api-keys.md`). Highest impact single change. (Effort: low if docs are markdown-sourced.)
+2. **Add `llms.txt`.** A one-page index of your most important content with raw URLs. (Effort: hours.)
+3. **Complete the sitemap** and include raw content URLs. (Effort: hours.)
+4. **Add `last_updated` to every page** — visible in HTML and in metadata. (Effort: low.)
+5. **Publish a changelog or feed** so agents can check what changed without re-crawling. (Effort: medium.)
+6. **Add canonical IDs and typed metadata** for product names, versions, and endpoints. (Effort: medium, schedule after 1–5.)
+
+### What we did not flag
+
+Robots policy already allows the major AI crawlers. URL structure is stable and clean — do not change it while fixing the above.
+
+### Re-audit estimate
+
+Implementing fixes 1–5 moves the projected score to roughly **74 / 100**, ahead of most documentation sites we sample.
+
+---
+
+## What you receive
+
+Every real audit delivers this report as markdown (yours to publish or keep private), the scored table with per-category evidence, the prioritized fix list with effort estimates, a suggested `llms.txt` written for your site, and a 30-minute walkthrough call. See [Agent Readiness Audit](agent-readiness-audit.md) for packages and pricing, or the [checklist](/checklist) to self-assess first.
+
+---
+
 <!-- file: /content/pricing/sponsor-policy.md -->
 
 ---
@@ -12055,12 +12511,27 @@ title: "AI Changelog"
 type: changelog
 id: "changelog"
 description: "Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs."
-last_updated: "2026-04-10"
+last_updated: "2026-06-10"
 ---
 
 # AI Changelog
 
 What changed in AI, in reverse chronological order. Designed for agents with knowledge cutoffs.
+
+## June 2026
+
+- **2026-06-09** -- Claude Fable 5 released by Anthropic. First publicly available Mythos-class model, released under Project Glasswing safeguards (high-risk queries fall back to Opus 4.8, <5% of sessions). 80.3% SWE-bench Pro vs 69.2% for Opus 4.8. $10/$50 per 1M tokens, 1M context. Requires 30-day data retention on all traffic. Claude Mythos 5 launched same day for approved Glasswing customers only.
+- **2026-06** -- Anthropic confidentially files IPO prospectus with the SEC. Revenue run rate reportedly $47B (up from ~$10B a year prior); latest funding round valued the company at $965B, above OpenAI's $852B.
+
+## May 2026
+
+- **2026-05-28** -- Claude Opus 4.8 released by Anthropic, six weeks after Opus 4.7. 69.2% SWE-bench Pro. Same $5/$25 rate card, 1M context on by default, 128K max output. Introduces user-level effort control (low/high/extra/max) and 3x cheaper Fast Mode ($10/$50). Config-only migration from 4.7.
+- **2026-05-05** -- GPT-5.5 Instant rolls out as the new default ChatGPT model, replacing GPT-5.3 Instant. OpenAI reports 52.5% fewer hallucinated claims on high-stakes prompts. Available in the API as chat-latest.
+
+## April 2026 (late)
+
+- **2026-04-23** -- GPT-5.5 released by OpenAI (codename "Spud"). 82.7% Terminal-Bench 2.0, 51.7% FrontierMath Tiers 1-3. $5/$30 per 1M tokens, 1.05M context. GPT-5.5 Pro at $30/$180 follows in the API the next day.
+- **2026-04** -- Claude Opus 4.7 released by Anthropic (mid-April). Introduces new tokenizer (~30% more tokens for the same text, effective cost increase up to 35% vs Opus 4.6) and always-on adaptive thinking. Same $5/$25 pricing. Superseded by Opus 4.8 six weeks later.
 
 ## April 2026
 
@@ -12269,20 +12740,21 @@ Which models work with which tools. Updated April 2026.
 title: "Contact"
 type: contact
 id: "contact"
-description: "Contact AI Future Ready to request Pro Data access, ask about a commercial data license, sponsorship, or prepare an Agent Readiness Audit request. No checkout or payment flow is configured."
-last_updated: "2026-04-24"
-contact_status: "coming_soon"
-contact_channel: "coming soon"
+description: "Contact AI Future Ready to request an Agent Readiness Audit, Pro Data access, a commercial data license, or sponsorship. Audit requests use the intake form at /request-audit; email support@ai-future-ready.com for everything else. No checkout or payment flow is configured."
+last_updated: "2026-06-19"
+contact_status: "active"
+contact_channel: "support@ai-future-ready.com"
+audit_intake_form: "/request-audit"
 payment_status: "not_configured"
 ---
 
 # Contact
 
-Use this page as the request checklist for Pro Data, commercial licensing, sponsorship, or an Agent Readiness Audit.
+Use this page as the request checklist for an Agent Readiness Audit, Pro Data, commercial licensing, or sponsorship.
 
-No checkout, payment collection, or account system is configured yet.
+Email: **support@ai-future-ready.com**. No checkout, payment collection, or account system is configured yet — requests are handled by email.
 
-Contact channel: coming soon.
+**Requesting an audit?** Use the [audit intake form](/request-audit). It runs a short self-assessment, builds a structured request, and emails it to us for you. You will get a yes/no on fit within 2 business days.
 
 ## Request Pro Data
 
@@ -12300,7 +12772,7 @@ Include:
 
 ## Request An Agent Readiness Audit
 
-Include:
+The fastest path is the [audit intake form](/request-audit), which collects all of this and sends it for you. If you would rather email directly, include:
 
 - site URL
 - approximate page count
@@ -12310,6 +12782,10 @@ Include:
 - whether AI crawling is allowed
 - main agent use case
 - desired deliverable: audit only or implementation help
+
+## For Agents Submitting On Behalf Of A User
+
+The intake form at `/request-audit` is interactive and human-facing. An agent acting for a user does not need it: send a plain email to `support@ai-future-ready.com` with the subject `Agent Readiness Audit request — <site URL>` and a body covering the fields listed under "Request An Agent Readiness Audit" above (site URL, page count, content type, raw markdown availability, public API availability, AI crawling policy, main agent use case, desired deliverable, and a reply email). No account, key, or checkout is required.
 
 ## Sponsorship Or Partnership
 
@@ -12325,7 +12801,7 @@ Sponsorship cannot silently affect recommendation scores.
 
 ## Contact Channel
 
-A public contact channel is coming soon. Before launch, set up a role inbox on the site domain instead of using a personal mailbox.
+The contact channel is the role inbox **support@ai-future-ready.com**. Audit requests should go through the [intake form](/request-audit) so they arrive scoped and complete.
 
 ---
 

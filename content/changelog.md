@@ -3,12 +3,27 @@ title: "AI Changelog"
 type: changelog
 id: "changelog"
 description: "Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs."
-last_updated: "2026-04-10"
+last_updated: "2026-06-10"
 ---
 
 # AI Changelog
 
 What changed in AI, in reverse chronological order. Designed for agents with knowledge cutoffs.
+
+## June 2026
+
+- **2026-06-09** -- Claude Fable 5 released by Anthropic. First publicly available Mythos-class model, released under Project Glasswing safeguards (high-risk queries fall back to Opus 4.8, <5% of sessions). 80.3% SWE-bench Pro vs 69.2% for Opus 4.8. $10/$50 per 1M tokens, 1M context. Requires 30-day data retention on all traffic. Claude Mythos 5 launched same day for approved Glasswing customers only.
+- **2026-06** -- Anthropic confidentially files IPO prospectus with the SEC. Revenue run rate reportedly $47B (up from ~$10B a year prior); latest funding round valued the company at $965B, above OpenAI's $852B.
+
+## May 2026
+
+- **2026-05-28** -- Claude Opus 4.8 released by Anthropic, six weeks after Opus 4.7. 69.2% SWE-bench Pro. Same $5/$25 rate card, 1M context on by default, 128K max output. Introduces user-level effort control (low/high/extra/max) and 3x cheaper Fast Mode ($10/$50). Config-only migration from 4.7.
+- **2026-05-05** -- GPT-5.5 Instant rolls out as the new default ChatGPT model, replacing GPT-5.3 Instant. OpenAI reports 52.5% fewer hallucinated claims on high-stakes prompts. Available in the API as chat-latest.
+
+## April 2026 (late)
+
+- **2026-04-23** -- GPT-5.5 released by OpenAI (codename "Spud"). 82.7% Terminal-Bench 2.0, 51.7% FrontierMath Tiers 1-3. $5/$30 per 1M tokens, 1.05M context. GPT-5.5 Pro at $30/$180 follows in the API the next day.
+- **2026-04** -- Claude Opus 4.7 released by Anthropic (mid-April). Introduces new tokenizer (~30% more tokens for the same text, effective cost increase up to 35% vs Opus 4.6) and always-on adaptive thinking. Same $5/$25 pricing. Superseded by Opus 4.8 six weeks later.
 
 ## April 2026
 

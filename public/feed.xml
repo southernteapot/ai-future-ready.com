@@ -4,7 +4,105 @@
   <title>AI Future Ready Updates</title>
   <link>https://ai-future-ready.com</link>
   <description>Machine-readable change feed for AI Future Ready.</description>
-  <lastBuildDate>Fri, 01 May 2026 00:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 19 Jun 2026 00:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Agent Readiness Audit</title>
+    <link>https://ai-future-ready.com/pricing/agent-readiness-audit</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/pricing/agent-readiness-audit</guid>
+    <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
+    <description>A fixed-scope audit that makes a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor. Concrete packages, deliverables, turnaround, and introductory pricing.</description>
+  </item>
+  <item>
+    <title>Contact</title>
+    <link>https://ai-future-ready.com/contact</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/contact</guid>
+    <pubDate>Fri, 19 Jun 2026 00:00:00 GMT</pubDate>
+    <description>Contact AI Future Ready to request an Agent Readiness Audit, Pro Data access, a commercial data license, or sponsorship. Audit requests use the intake form at /request-audit; email support@ai-future-ready.com for everything else. No checkout or payment flow is configured.</description>
+  </item>
+  <item>
+    <title>AI Model Comparison</title>
+    <link>https://ai-future-ready.com/models</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/models</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>Compare 37+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.</description>
+  </item>
+  <item>
+    <title>Claude Fable 5</title>
+    <link>https://ai-future-ready.com/models/claude-fable-5</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/models/claude-fable-5</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>Anthropic&apos;s most capable widely released model. First public Mythos-class model, released under Project Glasswing safeguards. 80.3% SWE-bench Pro. 1M context, adaptive thinking always on.</description>
+  </item>
+  <item>
+    <title>Claude Haiku 4.5</title>
+    <link>https://ai-future-ready.com/models/claude-haiku-4.5</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/models/claude-haiku-4.5</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>Anthropic&apos;s fastest and most cost-efficient model. Matches Claude Sonnet 4&apos;s performance on coding and agent tasks while being dramatically faster and cheaper.</description>
+  </item>
+  <item>
+    <title>Claude Opus 4.6</title>
+    <link>https://ai-future-ready.com/models/claude-opus-4.6</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/models/claude-opus-4.6</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>Anthropic&apos;s most capable model and the first Opus-class model with a 1M token context window. Leads on coding benchmarks with 80.8% SWE-bench. Internal codename &quot;Fennec.&quot;</description>
+  </item>
+  <item>
+    <title>Claude Opus 4.7</title>
+    <link>https://ai-future-ready.com/models/claude-opus-4.7</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/models/claude-opus-4.7</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>Short-lived Opus generation between 4.6 and 4.8. Introduced the new tokenizer (~30% more tokens for the same text) and adaptive thinking. Superseded by Opus 4.8 after six weeks.</description>
+  </item>
+  <item>
+    <title>Claude Opus 4.8</title>
+    <link>https://ai-future-ready.com/models/claude-opus-4.8</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/models/claude-opus-4.8</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>Anthropic&apos;s most capable Opus-tier model for complex reasoning and long-horizon agentic coding. 69.2% SWE-bench Pro, 1M context on by default, user-level effort control, adaptive thinking.</description>
+  </item>
+  <item>
+    <title>Claude Sonnet 4.6</title>
+    <link>https://ai-future-ready.com/models/claude-sonnet-4.6</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/models/claude-sonnet-4.6</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>The first Sonnet model preferred over a previous Opus in coding evaluations. Excellent balance of speed, quality, and cost with a full 1M token context window.</description>
+  </item>
+  <item>
+    <title>GPT-5.4</title>
+    <link>https://ai-future-ready.com/models/gpt-5.4</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/models/gpt-5.4</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>OpenAI&apos;s flagship model combining frontier reasoning, coding, computer-use, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with stronger factuality than GPT-5.2.</description>
+  </item>
+  <item>
+    <title>GPT-5.5</title>
+    <link>https://ai-future-ready.com/models/gpt-5.5</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/models/gpt-5.5</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>OpenAI&apos;s flagship model (codename Spud). Strong agentic coding, computer use, and frontier math. 1.05M context, 128K max output. $5/$30 per 1M tokens.</description>
+  </item>
+  <item>
+    <title>Pricing and Pro Data</title>
+    <link>https://ai-future-ready.com/pricing</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/pricing</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready.</description>
+  </item>
+  <item>
+    <title>Sample Audit Report</title>
+    <link>https://ai-future-ready.com/pricing/sample-audit-report</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/pricing/sample-audit-report</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>A complete sample Agent Readiness Audit report for a fictional SaaS documentation site, showing the exact format, scoring, and priority fix list buyers receive.</description>
+  </item>
+  <item>
+    <title>AI Changelog</title>
+    <link>https://ai-future-ready.com/changelog</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/changelog</guid>
+    <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
+    <description>Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs.</description>
+  </item>
   <item>
     <title>Agent API Reference</title>
     <link>https://ai-future-ready.com/api-reference</link>
@@ -18,27 +116,6 @@
     <guid isPermaLink="true">https://ai-future-ready.com/guides/agent-usage</guid>
     <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
     <description>Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes.</description>
-  </item>
-  <item>
-    <title>Claude Haiku 4.5</title>
-    <link>https://ai-future-ready.com/models/claude-haiku-4.5</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/models/claude-haiku-4.5</guid>
-    <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Anthropic&apos;s fastest and most cost-efficient model. Matches Claude Sonnet 4&apos;s performance on coding and agent tasks while being dramatically faster and cheaper.</description>
-  </item>
-  <item>
-    <title>Claude Opus 4.6</title>
-    <link>https://ai-future-ready.com/models/claude-opus-4.6</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/models/claude-opus-4.6</guid>
-    <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Anthropic&apos;s most capable model and the first Opus-class model with a 1M token context window. Leads on coding benchmarks with 80.8% SWE-bench. Internal codename &quot;Fennec.&quot;</description>
-  </item>
-  <item>
-    <title>Claude Sonnet 4.6</title>
-    <link>https://ai-future-ready.com/models/claude-sonnet-4.6</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/models/claude-sonnet-4.6</guid>
-    <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
-    <description>The first Sonnet model preferred over a previous Opus in coding evaluations. Excellent balance of speed, quality, and cost with a full 1M token context window.</description>
   </item>
   <item>
     <title>Cohere Tiny Aya 3.35B</title>
@@ -116,13 +193,6 @@
     <guid isPermaLink="true">https://ai-future-ready.com/models/gpt-5.4-thinking</guid>
     <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
     <description>Extended reasoning use of GPT-5.4 for the hardest problems. In the API, use the GPT-5.4 model with higher reasoning effort; in ChatGPT this is exposed as GPT-5.4 Thinking.</description>
-  </item>
-  <item>
-    <title>GPT-5.4</title>
-    <link>https://ai-future-ready.com/models/gpt-5.4</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/models/gpt-5.4</guid>
-    <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
-    <description>OpenAI&apos;s flagship model combining frontier reasoning, coding, computer-use, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with stronger factuality than GPT-5.2.</description>
   </item>
   <item>
     <title>GPT-OSS-120B</title>
@@ -270,13 +340,6 @@
     <guid isPermaLink="true">https://ai-future-ready.com/api-reference/data-changelog</guid>
     <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
     <description>How AI Future Ready tracks data updates, pricing changes, model changes, verification updates, hashes, and alert-ready change records.</description>
-  </item>
-  <item>
-    <title>AI Model Comparison</title>
-    <link>https://ai-future-ready.com/models</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/models</guid>
-    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Compare 33+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.</description>
   </item>
   <item>
     <title>AI Providers</title>
@@ -454,20 +517,6 @@
     <description>A practical recipe for using local or private AI models with sensitive documents, including retrieval, redaction, access control, and evaluation.</description>
   </item>
   <item>
-    <title>Pricing and Pro Data</title>
-    <link>https://ai-future-ready.com/pricing</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/pricing</guid>
-    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready.</description>
-  </item>
-  <item>
-    <title>Agent Readiness Audit</title>
-    <link>https://ai-future-ready.com/pricing/agent-readiness-audit</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/pricing/agent-readiness-audit</guid>
-    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Draft service package for making a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor.</description>
-  </item>
-  <item>
     <title>Change Alerts</title>
     <link>https://ai-future-ready.com/pricing/change-alerts</link>
     <guid isPermaLink="true">https://ai-future-ready.com/pricing/change-alerts</guid>
@@ -515,13 +564,6 @@
     <guid isPermaLink="true">https://ai-future-ready.com/about</guid>
     <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
     <description>What AI Future Ready is, why it exists, how it serves humans and AI agents, and how to interpret its model, provider, pricing, and recommendation data.</description>
-  </item>
-  <item>
-    <title>Contact</title>
-    <link>https://ai-future-ready.com/contact</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/contact</guid>
-    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Contact AI Future Ready to request Pro Data access, ask about a commercial data license, sponsorship, or prepare an Agent Readiness Audit request. No checkout or payment flow is configured.</description>
   </item>
   <item>
     <title>Lindy</title>
@@ -823,13 +865,6 @@
     <guid isPermaLink="true">https://ai-future-ready.com/timeline</guid>
     <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
     <description>Chronological history of artificial intelligence from 1950 to 2026 — key research breakthroughs, product launches, milestones, and policy events.</description>
-  </item>
-  <item>
-    <title>AI Changelog</title>
-    <link>https://ai-future-ready.com/changelog</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/changelog</guid>
-    <pubDate>Fri, 10 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs.</description>
   </item>
   <item>
     <title>AI Model Compatibility Matrix</title>

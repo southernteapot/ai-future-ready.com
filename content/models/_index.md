@@ -2,8 +2,8 @@
 title: "AI Model Comparison"
 type: index
 id: "models"
-description: "Compare 33+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case."
-last_updated: "2026-04-24"
+description: "Compare 37+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case."
+last_updated: "2026-06-10"
 ---
 
 # AI Model Comparison
@@ -14,8 +14,12 @@ Comprehensive comparison of current AI models with benchmarks, pricing, and reco
 
 | Model | Provider | Context | Reasoning | Coding | Pricing (input) |
 |-------|----------|---------|-----------|--------|-----------------|
-| [GPT-5.4](gpt-5.4.md) | OpenAI | 1M tokens | 95 | 92 | $5.00 / 1M tokens |
+| [Claude Fable 5](claude-fable-5.md) | Anthropic | 1M tokens | 99 | 99 | $10.00 / 1M tokens |
+| [Claude Opus 4.8](claude-opus-4.8.md) | Anthropic | 1M tokens | 97 | 98 | $5.00 / 1M tokens |
+| [GPT-5.5](gpt-5.5.md) | OpenAI | 1.05M tokens | 97 | 95 | $5.00 / 1M tokens |
+| [GPT-5.4](gpt-5.4.md) | OpenAI | 1M tokens | 95 | 92 | $2.50 / 1M tokens |
 | [GPT-5.4 Thinking](gpt-5.4-thinking.md) | OpenAI | 256K tokens | 98 | 93 | $10.00 / 1M tokens |
+| [Claude Opus 4.7](claude-opus-4.7.md) | Anthropic | 1M tokens | 96 | 97 | $5.00 / 1M tokens |
 | [Claude Opus 4.6](claude-opus-4.6.md) | Anthropic | 1M tokens | 96 | 97 | $5.00 / 1M tokens |
 | [Claude Sonnet 4.6](claude-sonnet-4.6.md) | Anthropic | 1M tokens | 91 | 93 | $3.00 / 1M tokens |
 | [Claude Haiku 4.5](claude-haiku-4.5.md) | Anthropic | 200K tokens | 82 | 84 | $1.00 / 1M tokens |

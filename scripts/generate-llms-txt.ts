@@ -672,6 +672,7 @@ function buildKnownRoutes(): Set<string> {
     "/",
     "/search",
     "/score",
+    "/request-audit",
     "/status",
     "/mcp",
     "/content/_index.md",
@@ -2015,6 +2016,7 @@ fs.writeFileSync(
       pro_data: "/pricing/pro-data",
       commercial_license: "/pricing/commercial-license",
       agent_readiness_audit: "/pricing/agent-readiness-audit",
+      request_audit: "/request-audit",
       pro_data_sample: "/api/v1/samples/pro-data.json",
       pricing_snapshots: "/api/v1/pricing-snapshots.json",
       model_verification: "/api/v1/model-verification.json",
@@ -2077,6 +2079,7 @@ fs.writeFileSync(
       pro_data: "/pricing/pro-data",
       commercial_license: "/pricing/commercial-license",
       agent_readiness_audit: "/pricing/agent-readiness-audit",
+      request_audit: "/request-audit",
       pro_data_sample: "/api/v1/samples/pro-data.json",
       pricing_snapshots: "/api/v1/pricing-snapshots.json",
       model_verification: "/api/v1/model-verification.json",
@@ -2644,6 +2647,8 @@ const sitemapEntries: string[] = [];
 
 sitemapEntries.push(`  <url><loc>${baseUrl}</loc><changefreq>weekly</changefreq><priority>1.0</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/status</loc><changefreq>daily</changefreq><priority>0.5</priority></url>`);
+sitemapEntries.push(`  <url><loc>${baseUrl}/request-audit</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>`);
+sitemapEntries.push(`  <url><loc>${baseUrl}/score</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/.well-known/ai.json</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/llms.txt</loc><changefreq>weekly</changefreq><priority>0.6</priority></url>`);
 sitemapEntries.push(`  <url><loc>${baseUrl}/llms-full.txt</loc><changefreq>weekly</changefreq><priority>0.5</priority></url>`);

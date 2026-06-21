@@ -10,6 +10,7 @@ const STATIC_ROUTES = [
   "/",
   "/search",
   "/score",
+  "/request-audit",
   "/status",
   "/mcp",
   "/content/_index.md",
@@ -216,12 +217,24 @@ function validateOptionalSourceList(
 function validateModelFields(
   issues: ValidationIssue[],
   file: string,
-  data: Record<string, unknown>
+  data: Record<string, unknown>,
+  modelIds: Set<string>
 ) {
   validateOptionalString(issues, file, data, "api_model_id");
   validateOptionalString(issues, file, data, "knowledge_cutoff");
   validateOptionalString(issues, file, data, "superseded_by");
   validateOptionalString(issues, file, data, "variant_of");
+
+  for (const field of ["superseded_by", "variant_of"]) {
+    const value = data[field];
+    if (typeof value === "string" && value.trim().length > 0 && !modelIds.has(value)) {
+      addIssue(
+        issues,
+        file,
+        `"${field}" references unknown model id "${value}" (no matching entry in content/models)`
+      );
+    }
+  }
   validateOptionalEnum(issues, file, data, "availability_status", MODEL_AVAILABILITY_STATUSES);
   validateOptionalEnum(issues, file, data, "tool_schema_format", MODEL_TOOL_SCHEMA_FORMATS);
 
@@ -381,10 +394,21 @@ function resolveMarkdownHref(href: string, mdPath: string): string | null {
   );
 }
 
+function collectModelIds(files: string[]): Set<string> {
+  const ids = new Set<string>();
+  for (const file of files) {
+    if (!file.includes(`${path.sep}models${path.sep}`)) continue;
+    const { data } = matter(fs.readFileSync(file, "utf8"));
+    if (typeof data.id === "string") ids.add(data.id);
+  }
+  return ids;
+}
+
 function validateContentFiles(validRoutes: Set<string>): ValidationIssue[] {
   const issues: ValidationIssue[] = [];
   const files = walk(CONTENT_DIR).filter((file) => file.endsWith(".md"));
   const seenIds = new Map<string, string>();
+  const modelIds = collectModelIds(files);
 
   for (const file of files) {
     const raw = fs.readFileSync(file, "utf8");
@@ -465,7 +489,7 @@ function validateContentFiles(validRoutes: Set<string>): ValidationIssue[] {
     }
 
     if (data.type === "model") {
-      validateModelFields(issues, relativeFile, data);
+      validateModelFields(issues, relativeFile, data, modelIds);
     }
 
     const mdPath = `/${relativeFile.replace(/^content\//, "content/")}`;

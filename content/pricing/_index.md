@@ -3,7 +3,7 @@ title: "Pricing and Pro Data"
 type: index
 id: "pricing"
 description: "Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready."
-last_updated: "2026-04-24"
+last_updated: "2026-06-10"
 ---
 
 # Pricing and Pro Data
@@ -17,14 +17,15 @@ This site stays plain, readable, and useful without an account. The paid product
 | Free | Humans and AI agents browsing the public reference | HTML pages, raw markdown, `llms.txt`, public JSON API, search index, change feed, and sitemap | Available |
 | Pro Data | Builders, researchers, and internal tools that need structured AI market data | Full JSON exports, richer pricing snapshots, source metadata, change history, recommendation slices, hashes, and commercial-ready metadata | Draft |
 | Commercial Data License | Companies using the dataset inside products, workflows, RAG systems, or model routers | Commercial reuse rights, attribution terms, snapshot delivery, support window, and integration notes | Draft |
-| Agent Readiness Audit | Teams that want their own docs or website to work well for AI agents | `llms.txt`, markdown export review, structured API plan, metadata audit, robots/sitemap review, and agent access score | Draft |
+| Agent Readiness Audit | Teams that want their own docs or website to work well for AI agents | `llms.txt`, markdown export review, structured API plan, metadata audit, robots/sitemap review, and agent access score | Available — from $750 |
 
 ## Paid Products
 
 - [Pro Data](pro-data.md) - detailed dataset, API, and export plan.
 - [Pro Data Sample](pro-data-sample.md) - public sample export shape with no checkout or account.
 - [Commercial Data License](commercial-license.md) - draft licensing shape for product and internal use.
-- [Agent Readiness Audit](agent-readiness-audit.md) - service package for making a site readable by agents.
+- [Agent Readiness Audit](agent-readiness-audit.md) - fixed-scope audit service for making a site readable by agents. From $750.
+- [Sample Audit Report](sample-audit-report.md) - the exact report format an audit delivers, free to read.
 - [Change Alerts](change-alerts.md) - draft alert and digest product for model, price, source, and recommendation changes.
 - [Sponsor Policy](sponsor-policy.md) - disclosure and ranking rules for commercial relationships.
 - [Public Roadmap](roadmap.md) - current, next, later, and not-planned items.
@@ -98,9 +99,13 @@ Up-to-date pricing comparison for AI model APIs.
 
 | Model | Provider | Input | Output | Free Tier | Notes |
 |-------|----------|-------|--------|-----------|-------|
-| GPT-5.4 | OpenAI | $5.00 / 1M tokens | $15.00 / 1M tokens | No | Pricing varies by variant |
+| Claude Fable 5 | Anthropic | $10.00 / 1M tokens | $50.00 / 1M tokens | No | Mythos-class; 30-day data retention required |
+| Claude Opus 4.8 | Anthropic | $5.00 / 1M tokens | $25.00 / 1M tokens | No | Fast Mode $10/$50; long-context surcharge over 200K |
+| GPT-5.5 | OpenAI | $5.00 / 1M tokens | $30.00 / 1M tokens | No | Long context $10/$45; Pro variant $30/$180 |
+| GPT-5.4 | OpenAI | $2.50 / 1M tokens | $15.00 / 1M tokens | No | Pricing varies by variant |
 | GPT-5.4 Thinking | OpenAI | $10.00 / 1M tokens | $40.00 / 1M tokens | No |  |
-| Claude Opus 4.6 | Anthropic | $5.00 / 1M tokens | $25.00 / 1M tokens | No | Significantly cheaper than Opus 4.5 |
+| Claude Opus 4.7 | Anthropic | $5.00 / 1M tokens | $25.00 / 1M tokens | No | Legacy; new tokenizer raises effective cost ~30% |
+| Claude Opus 4.6 | Anthropic | $5.00 / 1M tokens | $25.00 / 1M tokens | No | Legacy; last Opus on the old tokenizer |
 | Claude Sonnet 4.6 | Anthropic | $3.00 / 1M tokens | $15.00 / 1M tokens | No |  |
 | Claude Haiku 4.5 | Anthropic | $1.00 / 1M tokens | $5.00 / 1M tokens | No |  |
 | Gemini 3.1 Pro | Google | $2.00 / 1M tokens | $12.00 / 1M tokens | No | Free tier via Google AI Studio |
@@ -137,4 +142,4 @@ Up-to-date pricing comparison for AI model APIs.
 | Nemotron 3 Super | NVIDIA | Free | Free / Free (open weights) | NVIDIA Open Model License |
 | Nemotron-Cascade 2 | NVIDIA | Free | Free / Free (open weights) | NVIDIA Open Model License |
 
-*Prices as of April 2026. Check provider websites for current rates.*
+*Prices as of June 2026. Check provider websites for current rates.*

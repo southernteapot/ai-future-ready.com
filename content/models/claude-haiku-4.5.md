@@ -7,8 +7,8 @@ model_type: "proprietary"
 api_model_id: "claude-haiku-4-5"
 release_date: "2025-10-15"
 description: "Anthropic's fastest and most cost-efficient model. Matches Claude Sonnet 4's performance on coding and agent tasks while being dramatically faster and cheaper."
-last_updated: "2026-04-30"
-last_verified: "2026-04-30"
+last_updated: "2026-06-10"
+last_verified: "2026-06-10"
 knowledge_cutoff: "2025-02"
 availability_status: "available"
 deprecated: false
@@ -82,4 +82,4 @@ For prototyping, classification, extraction, and high-volume pipelines, Haiku is
 
 The direct competitor is Gemini 3 Flash at $0.50/$3.00 -- still cheaper, with a 1M context window. Flash wins on price and context size, but Haiku edges it on coding (84 vs 80) and writing (83 vs 83). If you're in the Anthropic ecosystem and want the fastest Claude available, Haiku is the pick. If raw cost is the only metric, Flash is hard to beat.
 
-**When to pick something else:** Anything requiring deep reasoning or nuanced multi-step analysis should go to Sonnet 4.6 or Opus 4.6. Haiku's 82/100 reasoning score is good but not frontier-class. For budget workloads where you don't need the Claude instruction-following style, Gemini 3 Flash saves you 85% on input costs.
+**When to pick something else:** Anything requiring deep reasoning or nuanced multi-step analysis should go to Sonnet 4.6 or Opus 4.8. Haiku's 82/100 reasoning score is good but not frontier-class. For budget workloads where you don't need the Claude instruction-following style, Gemini 3 Flash saves you 85% on input costs.

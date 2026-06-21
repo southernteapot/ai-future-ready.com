@@ -509,6 +509,8 @@ This checklist is v0.1 — a starting point, not a finished standard.
 
 **Go deeper.** The [Agent-Ready Web Standard](/standard) has the technical specifications: format definitions, metadata schemas, API patterns, and protocol details for implementers.
 
+**Want it done for you?** The [Agent Readiness Audit](/pricing/agent-readiness-audit) reviews your site against these criteria and delivers a scored report with a priority fix list — see the [sample report](/pricing/sample-audit-report) first.
+
 ---
 
 ### Want help?

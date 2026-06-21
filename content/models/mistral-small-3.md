@@ -11,7 +11,7 @@ last_updated: "2026-04-30"
 last_verified: "2026-04-30"
 availability_status: "retired"
 deprecated: true
-superseded_by: "mistral-small-3.2"
+superseded_by: "mistral-small-4"
 tool_schema_format: "mistral"
 pricing_confidence: "high"
 model_listing_confidence: "high"

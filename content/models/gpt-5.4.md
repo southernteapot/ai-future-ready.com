@@ -7,8 +7,8 @@ model_type: "proprietary"
 api_model_id: "gpt-5.4"
 release_date: "2026-03-05"
 description: "OpenAI's flagship model combining frontier reasoning, coding, computer-use, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with stronger factuality than GPT-5.2."
-last_updated: "2026-04-30"
-last_verified: "2026-04-30"
+last_updated: "2026-06-10"
+last_verified: "2026-06-10"
 knowledge_cutoff: "2025-08-31"
 availability_status: "available"
 deprecated: false
@@ -78,10 +78,10 @@ best_for:
 
 # GPT-5.4
 
-OpenAI's everything model. GPT-5.4 merges the reasoning line and the coding line into a single endpoint, and the result is the most well-rounded proprietary model available. A 95/100 reasoning score and 94.6% AIME put it at or near the top of every general benchmark.
+OpenAI's previous flagship, superseded by [GPT-5.5](gpt-5.5.md) in April 2026 but still available -- and now the value play in OpenAI's lineup at $2.50/$15 versus GPT-5.5's $5/$30. GPT-5.4 merged the reasoning line and the coding line into a single endpoint. A 95/100 reasoning score and 94.6% AIME still put it near the top of general benchmarks.
 
 The real selling point is ecosystem. No other model has deeper integration with the tools people already use -- Microsoft 365, ChatGPT plugins, the Responses API, and a sprawling third-party landscape. If you're building on OpenAI's platform, staying on GPT-5.4 is the path of least resistance. The 1.05M context window now matches Claude and Gemini, removing what used to be a disadvantage.
 
 Where it trails in this dataset: coding. Its coding score is solid but still behind Claude Opus 4.6. OpenAI reports lower factual-error rates than GPT-5.2, but factuality still needs source checks for high-stakes use. And at $2.50/$15 per million tokens, it's not cheap -- Gemini 3.1 Pro delivers comparable reasoning at $2/$12.
 
-**When to pick something else:** For pure coding dominance, Claude Opus 4.6 is the better call. For budget-conscious work that doesn't sacrifice much quality, Gemini 3.1 Pro or DeepSeek V3.2 undercut GPT-5.4 significantly. If you need extended thinking for competition-level math, use GPT-5.4 Thinking instead of burning tokens on the base model.
+**When to pick something else:** If you want OpenAI's current frontier for agentic work and math, [GPT-5.5](gpt-5.5.md) is the upgrade -- at double the price. For pure coding dominance, Claude Opus 4.8 is the better call. For budget-conscious work that doesn't sacrifice much quality, Gemini 3.1 Pro or DeepSeek V3.2 undercut GPT-5.4 significantly. If you need extended thinking for competition-level math, use GPT-5.4 Thinking instead of burning tokens on the base model.

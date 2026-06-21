@@ -6,6 +6,344 @@
   "description": "Machine-readable change feed for AI Future Ready. Track content updates without re-crawling the full site.",
   "items": [
     {
+      "id": "https://ai-future-ready.com/pricing/agent-readiness-audit",
+      "url": "https://ai-future-ready.com/pricing/agent-readiness-audit",
+      "title": "Agent Readiness Audit",
+      "summary": "A fixed-scope audit that makes a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor. Concrete packages, deliverables, turnaround, and introductory pricing.",
+      "date_published": "2026-06-19T00:00:00.000Z",
+      "date_modified": "2026-06-19T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "pricing",
+        "audit",
+        "agent-ready",
+        "llms.txt",
+        "service"
+      ],
+      "content_text": "A fixed-scope audit that makes a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor. Concrete packages, deliverables, turnaround, and introductory pricing.",
+      "_section": "Pricing",
+      "_markdown_url": "https://ai-future-ready.com/content/pricing/agent-readiness-audit.md",
+      "_content_hash": "1117d958d027feb46cd7be09efc47c782b7ba27a718ed91e07d5a4768b3cd61f",
+      "_sha256": "1117d958d027feb46cd7be09efc47c782b7ba27a718ed91e07d5a4768b3cd61f",
+      "_api_url": "https://ai-future-ready.com/api/v1/pricing/agent-readiness-audit.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/contact",
+      "url": "https://ai-future-ready.com/contact",
+      "title": "Contact",
+      "summary": "Contact AI Future Ready to request an Agent Readiness Audit, Pro Data access, a commercial data license, or sponsorship. Audit requests use the intake form at /request-audit; email support@ai-future-ready.com for everything else. No checkout or payment flow is configured.",
+      "date_published": "2026-06-19T00:00:00.000Z",
+      "date_modified": "2026-06-19T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "contact"
+      ],
+      "content_text": "Contact AI Future Ready to request an Agent Readiness Audit, Pro Data access, a commercial data license, or sponsorship. Audit requests use the intake form at /request-audit; email support@ai-future-ready.com for everything else. No checkout or payment flow is configured.",
+      "_section": "Contact",
+      "_markdown_url": "https://ai-future-ready.com/content/contact.md",
+      "_content_hash": "6cce0f94b646cdf534f58407d728a14bc7cff5f8e7a3df403dfa1a616ec62b4e",
+      "_sha256": "6cce0f94b646cdf534f58407d728a14bc7cff5f8e7a3df403dfa1a616ec62b4e"
+    },
+    {
+      "id": "https://ai-future-ready.com/models",
+      "url": "https://ai-future-ready.com/models",
+      "title": "AI Model Comparison",
+      "summary": "Compare 37+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.",
+      "date_published": "2026-06-10T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "models"
+      ],
+      "content_text": "Compare 37+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.",
+      "_section": "Models",
+      "_markdown_url": "https://ai-future-ready.com/content/models/_index.md",
+      "_content_hash": "5a15e6937d0d006d2bfbecebd8bc563967c5079ca371b2a8778ba6e17d862a7d",
+      "_sha256": "5a15e6937d0d006d2bfbecebd8bc563967c5079ca371b2a8778ba6e17d862a7d"
+    },
+    {
+      "id": "https://ai-future-ready.com/models/claude-fable-5",
+      "url": "https://ai-future-ready.com/models/claude-fable-5",
+      "title": "Claude Fable 5",
+      "summary": "Anthropic's most capable widely released model. First public Mythos-class model, released under Project Glasswing safeguards. 80.3% SWE-bench Pro. 1M context, adaptive thinking always on.",
+      "date_published": "2026-06-09T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "anthropic",
+        "proprietary",
+        "text",
+        "image",
+        "frontier"
+      ],
+      "content_text": "Anthropic's most capable widely released model. First public Mythos-class model, released under Project Glasswing safeguards. 80.3% SWE-bench Pro. 1M context, adaptive thinking always on.",
+      "_section": "Models",
+      "_markdown_url": "https://ai-future-ready.com/content/models/claude-fable-5.md",
+      "_content_hash": "50bf0fc6d4e12fb88b4e4ea0b57092e673cfe4327b47f823292c57dde28adf2b",
+      "_sha256": "50bf0fc6d4e12fb88b4e4ea0b57092e673cfe4327b47f823292c57dde28adf2b",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-fable-5.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/models/claude-haiku-4.5",
+      "url": "https://ai-future-ready.com/models/claude-haiku-4.5",
+      "title": "Claude Haiku 4.5",
+      "summary": "Anthropic's fastest and most cost-efficient model. Matches Claude Sonnet 4's performance on coding and agent tasks while being dramatically faster and cheaper.",
+      "date_published": "2025-10-15T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "anthropic",
+        "proprietary",
+        "text",
+        "image"
+      ],
+      "content_text": "Anthropic's fastest and most cost-efficient model. Matches Claude Sonnet 4's performance on coding and agent tasks while being dramatically faster and cheaper.",
+      "_section": "Models",
+      "_markdown_url": "https://ai-future-ready.com/content/models/claude-haiku-4.5.md",
+      "_content_hash": "a0a41c619ec0381d9f0c8751c6e5fae6b01eaede2fd2cb10f1ae12075f77db9d",
+      "_sha256": "a0a41c619ec0381d9f0c8751c6e5fae6b01eaede2fd2cb10f1ae12075f77db9d",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-haiku-4.5.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/models/claude-opus-4.6",
+      "url": "https://ai-future-ready.com/models/claude-opus-4.6",
+      "title": "Claude Opus 4.6",
+      "summary": "Anthropic's most capable model and the first Opus-class model with a 1M token context window. Leads on coding benchmarks with 80.8% SWE-bench. Internal codename \"Fennec.\"",
+      "date_published": "2026-02-01T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "anthropic",
+        "proprietary",
+        "text",
+        "image"
+      ],
+      "content_text": "Anthropic's most capable model and the first Opus-class model with a 1M token context window. Leads on coding benchmarks with 80.8% SWE-bench. Internal codename \"Fennec.\"",
+      "_section": "Models",
+      "_markdown_url": "https://ai-future-ready.com/content/models/claude-opus-4.6.md",
+      "_content_hash": "13f296a90d0cac19381aaedb208d033e57d9296e7093e0ce35be3b7c52487187",
+      "_sha256": "13f296a90d0cac19381aaedb208d033e57d9296e7093e0ce35be3b7c52487187",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-opus-4.6.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/models/claude-opus-4.7",
+      "url": "https://ai-future-ready.com/models/claude-opus-4.7",
+      "title": "Claude Opus 4.7",
+      "summary": "Short-lived Opus generation between 4.6 and 4.8. Introduced the new tokenizer (~30% more tokens for the same text) and adaptive thinking. Superseded by Opus 4.8 after six weeks.",
+      "date_published": "2026-04-01T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "anthropic",
+        "proprietary",
+        "text",
+        "image",
+        "legacy"
+      ],
+      "content_text": "Short-lived Opus generation between 4.6 and 4.8. Introduced the new tokenizer (~30% more tokens for the same text) and adaptive thinking. Superseded by Opus 4.8 after six weeks.",
+      "_section": "Models",
+      "_markdown_url": "https://ai-future-ready.com/content/models/claude-opus-4.7.md",
+      "_content_hash": "93c27b75af9c5781cdb0951706a25b82707f44f629791a7346e7a83babeeb7c4",
+      "_sha256": "93c27b75af9c5781cdb0951706a25b82707f44f629791a7346e7a83babeeb7c4",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-opus-4.7.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/models/claude-opus-4.8",
+      "url": "https://ai-future-ready.com/models/claude-opus-4.8",
+      "title": "Claude Opus 4.8",
+      "summary": "Anthropic's most capable Opus-tier model for complex reasoning and long-horizon agentic coding. 69.2% SWE-bench Pro, 1M context on by default, user-level effort control, adaptive thinking.",
+      "date_published": "2026-05-28T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "anthropic",
+        "proprietary",
+        "text",
+        "image"
+      ],
+      "content_text": "Anthropic's most capable Opus-tier model for complex reasoning and long-horizon agentic coding. 69.2% SWE-bench Pro, 1M context on by default, user-level effort control, adaptive thinking.",
+      "_section": "Models",
+      "_markdown_url": "https://ai-future-ready.com/content/models/claude-opus-4.8.md",
+      "_content_hash": "431eef12425bd97d93c3ebeb8a01b57f09b4308252b133ef2251864f6a5d2078",
+      "_sha256": "431eef12425bd97d93c3ebeb8a01b57f09b4308252b133ef2251864f6a5d2078",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-opus-4.8.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/models/claude-sonnet-4.6",
+      "url": "https://ai-future-ready.com/models/claude-sonnet-4.6",
+      "title": "Claude Sonnet 4.6",
+      "summary": "The first Sonnet model preferred over a previous Opus in coding evaluations. Excellent balance of speed, quality, and cost with a full 1M token context window.",
+      "date_published": "2026-02-17T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "anthropic",
+        "proprietary",
+        "text",
+        "image"
+      ],
+      "content_text": "The first Sonnet model preferred over a previous Opus in coding evaluations. Excellent balance of speed, quality, and cost with a full 1M token context window.",
+      "_section": "Models",
+      "_markdown_url": "https://ai-future-ready.com/content/models/claude-sonnet-4.6.md",
+      "_content_hash": "60288ca368e53486c5c918692401b592c6cb8bb5ccb2fda40296137b599a12cb",
+      "_sha256": "60288ca368e53486c5c918692401b592c6cb8bb5ccb2fda40296137b599a12cb",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-sonnet-4.6.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/models/gpt-5.4",
+      "url": "https://ai-future-ready.com/models/gpt-5.4",
+      "title": "GPT-5.4",
+      "summary": "OpenAI's flagship model combining frontier reasoning, coding, computer-use, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with stronger factuality than GPT-5.2.",
+      "date_published": "2026-03-05T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "openai",
+        "proprietary",
+        "text",
+        "image"
+      ],
+      "content_text": "OpenAI's flagship model combining frontier reasoning, coding, computer-use, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with stronger factuality than GPT-5.2.",
+      "_section": "Models",
+      "_markdown_url": "https://ai-future-ready.com/content/models/gpt-5.4.md",
+      "_content_hash": "40882911812f28563bf0879feda8c34d880deff51a86995670b321b331713908",
+      "_sha256": "40882911812f28563bf0879feda8c34d880deff51a86995670b321b331713908",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/gpt-5.4.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/models/gpt-5.5",
+      "url": "https://ai-future-ready.com/models/gpt-5.5",
+      "title": "GPT-5.5",
+      "summary": "OpenAI's flagship model (codename Spud). Strong agentic coding, computer use, and frontier math. 1.05M context, 128K max output. $5/$30 per 1M tokens.",
+      "date_published": "2026-04-23T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "openai",
+        "proprietary",
+        "text",
+        "image"
+      ],
+      "content_text": "OpenAI's flagship model (codename Spud). Strong agentic coding, computer use, and frontier math. 1.05M context, 128K max output. $5/$30 per 1M tokens.",
+      "_section": "Models",
+      "_markdown_url": "https://ai-future-ready.com/content/models/gpt-5.5.md",
+      "_content_hash": "c3b49f99ad6a640bf818789885dd2fa56c6ffc3f0c6b5664cbc1d038462322fb",
+      "_sha256": "c3b49f99ad6a640bf818789885dd2fa56c6ffc3f0c6b5664cbc1d038462322fb",
+      "_api_url": "https://ai-future-ready.com/api/v1/models/gpt-5.5.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/pricing",
+      "url": "https://ai-future-ready.com/pricing",
+      "title": "Pricing and Pro Data",
+      "summary": "Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready.",
+      "date_published": "2026-06-10T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "pricing"
+      ],
+      "content_text": "Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready.",
+      "_section": "Pricing",
+      "_markdown_url": "https://ai-future-ready.com/content/pricing/_index.md",
+      "_content_hash": "cd5888e1f845f16e0b1654c9230ab06635eb1443e6e36060b698f846b569976d",
+      "_sha256": "cd5888e1f845f16e0b1654c9230ab06635eb1443e6e36060b698f846b569976d"
+    },
+    {
+      "id": "https://ai-future-ready.com/pricing/sample-audit-report",
+      "url": "https://ai-future-ready.com/pricing/sample-audit-report",
+      "title": "Sample Audit Report",
+      "summary": "A complete sample Agent Readiness Audit report for a fictional SaaS documentation site, showing the exact format, scoring, and priority fix list buyers receive.",
+      "date_published": "2026-06-10T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "pricing",
+        "audit",
+        "agent-ready",
+        "sample",
+        "report"
+      ],
+      "content_text": "A complete sample Agent Readiness Audit report for a fictional SaaS documentation site, showing the exact format, scoring, and priority fix list buyers receive.",
+      "_section": "Pricing",
+      "_markdown_url": "https://ai-future-ready.com/content/pricing/sample-audit-report.md",
+      "_content_hash": "1f5bb1c04430ad6e763cb2ef19617cd40d23800e02f50ef5577ff68396f16976",
+      "_sha256": "1f5bb1c04430ad6e763cb2ef19617cd40d23800e02f50ef5577ff68396f16976",
+      "_api_url": "https://ai-future-ready.com/api/v1/pricing/sample-audit-report.json"
+    },
+    {
+      "id": "https://ai-future-ready.com/changelog",
+      "url": "https://ai-future-ready.com/changelog",
+      "title": "AI Changelog",
+      "summary": "Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs.",
+      "date_published": "2026-06-10T00:00:00.000Z",
+      "date_modified": "2026-06-10T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "changelog"
+      ],
+      "content_text": "Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs.",
+      "_section": "Changelog",
+      "_markdown_url": "https://ai-future-ready.com/content/changelog.md",
+      "_content_hash": "d7fa5348d56ff5a66fb6b7ee647f14ecd0d9b2f5b1c5919bd62645598952a911",
+      "_sha256": "d7fa5348d56ff5a66fb6b7ee647f14ecd0d9b2f5b1c5919bd62645598952a911"
+    },
+    {
       "id": "https://ai-future-ready.com/api-reference",
       "url": "https://ai-future-ready.com/api-reference",
       "title": "Agent API Reference",
@@ -51,81 +389,6 @@
       "_content_hash": "8bb27ad6819c4ff840b4e42ee6693e25cc235e1eea719210b46170e82a99ad23",
       "_sha256": "8bb27ad6819c4ff840b4e42ee6693e25cc235e1eea719210b46170e82a99ad23",
       "_api_url": "https://ai-future-ready.com/api/v1/guides/agent-usage.json"
-    },
-    {
-      "id": "https://ai-future-ready.com/models/claude-haiku-4.5",
-      "url": "https://ai-future-ready.com/models/claude-haiku-4.5",
-      "title": "Claude Haiku 4.5",
-      "summary": "Anthropic's fastest and most cost-efficient model. Matches Claude Sonnet 4's performance on coding and agent tasks while being dramatically faster and cheaper.",
-      "date_published": "2025-10-15T00:00:00.000Z",
-      "date_modified": "2026-04-30T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "anthropic",
-        "proprietary",
-        "text",
-        "image"
-      ],
-      "content_text": "Anthropic's fastest and most cost-efficient model. Matches Claude Sonnet 4's performance on coding and agent tasks while being dramatically faster and cheaper.",
-      "_section": "Models",
-      "_markdown_url": "https://ai-future-ready.com/content/models/claude-haiku-4.5.md",
-      "_content_hash": "2e8f88d4ec554eb78f9dc4a8a40a921c3b02fc388e9148f034c7aee77cd6b213",
-      "_sha256": "2e8f88d4ec554eb78f9dc4a8a40a921c3b02fc388e9148f034c7aee77cd6b213",
-      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-haiku-4.5.json"
-    },
-    {
-      "id": "https://ai-future-ready.com/models/claude-opus-4.6",
-      "url": "https://ai-future-ready.com/models/claude-opus-4.6",
-      "title": "Claude Opus 4.6",
-      "summary": "Anthropic's most capable model and the first Opus-class model with a 1M token context window. Leads on coding benchmarks with 80.8% SWE-bench. Internal codename \"Fennec.\"",
-      "date_published": "2026-02-01T00:00:00.000Z",
-      "date_modified": "2026-04-30T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "anthropic",
-        "proprietary",
-        "text",
-        "image"
-      ],
-      "content_text": "Anthropic's most capable model and the first Opus-class model with a 1M token context window. Leads on coding benchmarks with 80.8% SWE-bench. Internal codename \"Fennec.\"",
-      "_section": "Models",
-      "_markdown_url": "https://ai-future-ready.com/content/models/claude-opus-4.6.md",
-      "_content_hash": "6e6e2be52371769e07f647b6d7bf37372d5017bff505eefe24923152ccdebed5",
-      "_sha256": "6e6e2be52371769e07f647b6d7bf37372d5017bff505eefe24923152ccdebed5",
-      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-opus-4.6.json"
-    },
-    {
-      "id": "https://ai-future-ready.com/models/claude-sonnet-4.6",
-      "url": "https://ai-future-ready.com/models/claude-sonnet-4.6",
-      "title": "Claude Sonnet 4.6",
-      "summary": "The first Sonnet model preferred over a previous Opus in coding evaluations. Excellent balance of speed, quality, and cost with a full 1M token context window.",
-      "date_published": "2026-02-17T00:00:00.000Z",
-      "date_modified": "2026-04-30T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "anthropic",
-        "proprietary",
-        "text",
-        "image"
-      ],
-      "content_text": "The first Sonnet model preferred over a previous Opus in coding evaluations. Excellent balance of speed, quality, and cost with a full 1M token context window.",
-      "_section": "Models",
-      "_markdown_url": "https://ai-future-ready.com/content/models/claude-sonnet-4.6.md",
-      "_content_hash": "1177bf0cd619973d018d12eb80beb5cd282eb66cea43376bbd3f463e9b00a2d5",
-      "_sha256": "1177bf0cd619973d018d12eb80beb5cd282eb66cea43376bbd3f463e9b00a2d5",
-      "_api_url": "https://ai-future-ready.com/api/v1/models/claude-sonnet-4.6.json"
     },
     {
       "id": "https://ai-future-ready.com/models/cohere-tiny-aya",
@@ -403,31 +666,6 @@
       "_api_url": "https://ai-future-ready.com/api/v1/models/gpt-5.4-thinking.json"
     },
     {
-      "id": "https://ai-future-ready.com/models/gpt-5.4",
-      "url": "https://ai-future-ready.com/models/gpt-5.4",
-      "title": "GPT-5.4",
-      "summary": "OpenAI's flagship model combining frontier reasoning, coding, computer-use, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with stronger factuality than GPT-5.2.",
-      "date_published": "2026-03-05T00:00:00.000Z",
-      "date_modified": "2026-04-30T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "openai",
-        "proprietary",
-        "text",
-        "image"
-      ],
-      "content_text": "OpenAI's flagship model combining frontier reasoning, coding, computer-use, and agentic capabilities. Unifies the best of GPT-5.3-Codex into a single model with stronger factuality than GPT-5.2.",
-      "_section": "Models",
-      "_markdown_url": "https://ai-future-ready.com/content/models/gpt-5.4.md",
-      "_content_hash": "4c353e8be4b6e4576ae069db690480f6beb467268e8e3416b8dc33bf201e01cf",
-      "_sha256": "4c353e8be4b6e4576ae069db690480f6beb467268e8e3416b8dc33bf201e01cf",
-      "_api_url": "https://ai-future-ready.com/api/v1/models/gpt-5.4.json"
-    },
-    {
       "id": "https://ai-future-ready.com/models/gpt-oss-120b",
       "url": "https://ai-future-ready.com/models/gpt-oss-120b",
       "title": "GPT-OSS-120B",
@@ -669,8 +907,8 @@
       "content_text": "Efficient 24B model that competes with models 2-3x its size. Apache 2.0 license. Strong for real-time applications.",
       "_section": "Models",
       "_markdown_url": "https://ai-future-ready.com/content/models/mistral-small-3.md",
-      "_content_hash": "5eafdfc45ae39ffb52eb05d63836cf5c2acd7e40823b57e1a12192c845dfb5d4",
-      "_sha256": "5eafdfc45ae39ffb52eb05d63836cf5c2acd7e40823b57e1a12192c845dfb5d4",
+      "_content_hash": "c7dfd18249c41bd9f8f3ebfec44589a32d09619018a12b3345a8e437574e5ad1",
+      "_sha256": "c7dfd18249c41bd9f8f3ebfec44589a32d09619018a12b3345a8e437574e5ad1",
       "_api_url": "https://ai-future-ready.com/api/v1/models/mistral-small-3.json"
     },
     {
@@ -916,8 +1154,8 @@
       "content_text": "Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds.",
       "_section": "Standard",
       "_markdown_url": "https://ai-future-ready.com/content/standard/_index.md",
-      "_content_hash": "44723a95217bc49b580c30333a070dbf772ebae1fa8b75baefd490e01d064b5e",
-      "_sha256": "44723a95217bc49b580c30333a070dbf772ebae1fa8b75baefd490e01d064b5e"
+      "_content_hash": "0b23cd4527d99247259177f3a17164ff6c386913d0319a54a52de054337bbc5b",
+      "_sha256": "0b23cd4527d99247259177f3a17164ff6c386913d0319a54a52de054337bbc5b"
     },
     {
       "id": "https://ai-future-ready.com/api-reference/data-changelog",
@@ -944,27 +1182,6 @@
       "_content_hash": "3ffb6463fe2a2359f822ee2d746dc5ab9e7673ab513d8f7a18c2476b3421b355",
       "_sha256": "3ffb6463fe2a2359f822ee2d746dc5ab9e7673ab513d8f7a18c2476b3421b355",
       "_api_url": "https://ai-future-ready.com/api/v1/api-reference/data-changelog.json"
-    },
-    {
-      "id": "https://ai-future-ready.com/models",
-      "url": "https://ai-future-ready.com/models",
-      "title": "AI Model Comparison",
-      "summary": "Compare 33+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.",
-      "date_published": "2026-04-24T00:00:00.000Z",
-      "date_modified": "2026-04-24T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "models"
-      ],
-      "content_text": "Compare 33+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.",
-      "_section": "Models",
-      "_markdown_url": "https://ai-future-ready.com/content/models/_index.md",
-      "_content_hash": "3843ac5d6c3de09fc6338537d3bfbc0921bbc514acbabc2c1ebbbef3cf4ad310",
-      "_sha256": "3843ac5d6c3de09fc6338537d3bfbc0921bbc514acbabc2c1ebbbef3cf4ad310"
     },
     {
       "id": "https://ai-future-ready.com/providers",
@@ -1605,53 +1822,6 @@
       "_api_url": "https://ai-future-ready.com/api/v1/guides/local-models-for-private-documents.json"
     },
     {
-      "id": "https://ai-future-ready.com/pricing",
-      "url": "https://ai-future-ready.com/pricing",
-      "title": "Pricing and Pro Data",
-      "summary": "Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready.",
-      "date_published": "2026-04-24T00:00:00.000Z",
-      "date_modified": "2026-04-24T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "pricing"
-      ],
-      "content_text": "Free public access, Pro Data, commercial data licensing, agent-readiness audits, sponsor policy, and model pricing references for AI Future Ready.",
-      "_section": "Pricing",
-      "_markdown_url": "https://ai-future-ready.com/content/pricing/_index.md",
-      "_content_hash": "7e3e1728d8209aaf7373d320c077022596216246c2078bc8a4a42f39e54f99b7",
-      "_sha256": "7e3e1728d8209aaf7373d320c077022596216246c2078bc8a4a42f39e54f99b7"
-    },
-    {
-      "id": "https://ai-future-ready.com/pricing/agent-readiness-audit",
-      "url": "https://ai-future-ready.com/pricing/agent-readiness-audit",
-      "title": "Agent Readiness Audit",
-      "summary": "Draft service package for making a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor.",
-      "date_published": "2026-04-24T00:00:00.000Z",
-      "date_modified": "2026-04-24T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "pricing",
-        "audit",
-        "agent-ready",
-        "llms.txt",
-        "service"
-      ],
-      "content_text": "Draft service package for making a website, documentation set, or knowledge base easier for AI agents to discover, parse, cite, and monitor.",
-      "_section": "Pricing",
-      "_markdown_url": "https://ai-future-ready.com/content/pricing/agent-readiness-audit.md",
-      "_content_hash": "d4049087dd1ed8d859d0a6e6fce6a43396ae19991cbe7c51354852c75a44fa1c",
-      "_sha256": "d4049087dd1ed8d859d0a6e6fce6a43396ae19991cbe7c51354852c75a44fa1c",
-      "_api_url": "https://ai-future-ready.com/api/v1/pricing/agent-readiness-audit.json"
-    },
-    {
       "id": "https://ai-future-ready.com/pricing/change-alerts",
       "url": "https://ai-future-ready.com/pricing/change-alerts",
       "title": "Change Alerts",
@@ -1829,27 +1999,6 @@
       "_sha256": "a710d2456600b4ae00d8e5d7b1996274ccfc6e7081720b9c207dbd23be89a77e"
     },
     {
-      "id": "https://ai-future-ready.com/contact",
-      "url": "https://ai-future-ready.com/contact",
-      "title": "Contact",
-      "summary": "Contact AI Future Ready to request Pro Data access, ask about a commercial data license, sponsorship, or prepare an Agent Readiness Audit request. No checkout or payment flow is configured.",
-      "date_published": "2026-04-24T00:00:00.000Z",
-      "date_modified": "2026-04-24T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "contact"
-      ],
-      "content_text": "Contact AI Future Ready to request Pro Data access, ask about a commercial data license, sponsorship, or prepare an Agent Readiness Audit request. No checkout or payment flow is configured.",
-      "_section": "Contact",
-      "_markdown_url": "https://ai-future-ready.com/content/contact.md",
-      "_content_hash": "33561cfecb88dc97f8dbf69bd1f51454891e67def75a84b36148d16ad1b5dedd",
-      "_sha256": "33561cfecb88dc97f8dbf69bd1f51454891e67def75a84b36148d16ad1b5dedd"
-    },
-    {
       "id": "https://ai-future-ready.com/agents/lindy",
       "url": "https://ai-future-ready.com/agents/lindy",
       "title": "Lindy",
@@ -1913,8 +2062,8 @@
       "content_text": "A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.",
       "_section": "Checklist",
       "_markdown_url": "https://ai-future-ready.com/content/checklist/_index.md",
-      "_content_hash": "0de44dc9204f2d985c2b4fb0226e1d0d076cfa3580714a4402e6344066d70a63",
-      "_sha256": "0de44dc9204f2d985c2b4fb0226e1d0d076cfa3580714a4402e6344066d70a63"
+      "_content_hash": "3d6c66edb3b3a5aa2bbcfef490b403e0dae3b52524af54297d8070a8fe8c79d4",
+      "_sha256": "3d6c66edb3b3a5aa2bbcfef490b403e0dae3b52524af54297d8070a8fe8c79d4"
     },
     {
       "id": "https://ai-future-ready.com/agents",
@@ -2886,27 +3035,6 @@
       "_markdown_url": "https://ai-future-ready.com/content/timeline/_index.md",
       "_content_hash": "3ee39d2fffb4d4beac683a5c7fc89b88fc1412e55c23e5684478a1edffd11df3",
       "_sha256": "3ee39d2fffb4d4beac683a5c7fc89b88fc1412e55c23e5684478a1edffd11df3"
-    },
-    {
-      "id": "https://ai-future-ready.com/changelog",
-      "url": "https://ai-future-ready.com/changelog",
-      "title": "AI Changelog",
-      "summary": "Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs.",
-      "date_published": "2026-04-10T00:00:00.000Z",
-      "date_modified": "2026-04-10T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "changelog"
-      ],
-      "content_text": "Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs.",
-      "_section": "Changelog",
-      "_markdown_url": "https://ai-future-ready.com/content/changelog.md",
-      "_content_hash": "48954b732942c4d2ad8f15d0ab009c3aafb300e9c4fab586ac7310017b7943b0",
-      "_sha256": "48954b732942c4d2ad8f15d0ab009c3aafb300e9c4fab586ac7310017b7943b0"
     },
     {
       "id": "https://ai-future-ready.com/compatibility",
