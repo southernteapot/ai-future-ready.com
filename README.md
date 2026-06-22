@@ -1,36 +1,42 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# AI Future Ready
 
-## Getting Started
+AI Future Ready is Brian's agent-ready web standard and proof-of-concept site. It explains how websites can be structured so AI agents can read, navigate, cite, and act on them reliably.
 
-First, run the development server:
+## Current direction
+
+The site is a public standard + manual audit funnel:
+
+- `/checklist` — agent-ready website checklist and maturity model
+- `/standard` — technical companion standard
+- `/request-audit` — audit intake path
+- `/pricing/agent-readiness-audit` — scoped audit offer and introductory pricing
+- `/llms.txt`, `/llms-full.txt`, `/openapi.json`, `/api/v1/*`, raw `/content/*.md`, feeds, and `/status` — machine-readable proof-of-concept layer
+
+Cloudflare Email Routing is configured so `support@ai-future-ready.com` forwards to Brian's Gmail. The next business move is outreach: identify likely first audit targets or send one warm audit note.
+
+## Development
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Useful checks:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+npm run validate:content
+npm run lint
+npm run build
+npm run test:smoke
+npm run verify
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Architecture notes
 
-## Learn More
+- Next.js 16, React 19, Tailwind v4, Cloudflare/OpenNext.
+- Content lives in `content/` as Markdown with YAML frontmatter.
+- Public machine-readable content is generated/copied into `public/content/` plus `public/llms.txt`.
+- Do not hand-edit generated artifacts unless deliberately patching before generator support.
+- Before writing Next.js code, read the relevant docs in `node_modules/next/dist/docs/`; this project is on a newer Next.js than most training data.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See `AGENTS.md` and `agent-memory/` for project-specific agent guidance.

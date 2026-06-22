@@ -24,13 +24,13 @@ Track current project tasks here. This is a practical Kanban board for moving AI
 
 ### Now
 
-- [ ] Review/adjust the introductory audit pricing set on 2026-06-10 ($750 site / $2,500 docs / implementation from $2,000).
-- [ ] Consider explicit cache headers / ETag documentation for generated API and feed artifacts.
+- [ ] Fill the 10 target slots in `marketing/first-audit-outreach-2026-06-22.md` with real names/URLs from Brian's network or warm-intro paths.
+- [ ] Send or tailor the short direct outreach note from `marketing/first-audit-outreach-2026-06-22.md`.
 
 ### Next
 
-- [ ] Identify 10 likely first audit targets: personal sites, SaaS docs sites, AI tools, agencies, or local businesses with content-heavy websites.
-- [ ] Prepare a short direct outreach note that does not sound like spam garbage.
+- [ ] Review/adjust the introductory audit pricing set on 2026-06-10 ($750 site / $2,500 docs / implementation from $2,000).
+- [ ] Consider explicit cache headers / ETag documentation for generated API and feed artifacts.
 
 ### Later
 
