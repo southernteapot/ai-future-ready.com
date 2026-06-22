@@ -10,7 +10,7 @@ Do not paste raw terminal logs here.
 
 - Enabled Cloudflare Email Routing for `ai-future-ready.com`; Wrangler reports `Enabled: true` and `Status: ready`.
 - Created rule `654288a229c64f608658206d2096417b`: `support@ai-future-ready.com` forwards to verified destination `bdclark1@gmail.com`; catch-all remains disabled/drop.
-- Delivery verification is not fully complete: local Himalaya/Gmail auth failed with `Invalid credentials`; a direct SMTP/MX probe reached Cloudflare and was rejected for fake-sender SPF, which confirms MX reachability but not Gmail delivery.
+- Delivery verification completed after the initial local-tool blocker: Brian's self-test from Gmail produced Cloudflare's expected Gmail-deduplication notice, and an external test from Samantha's email landed in Brian's Gmail.
 
 ## 2026-06-19 - Audit requestable end-to-end
 
