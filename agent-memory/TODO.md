@@ -24,8 +24,9 @@ Track current project tasks here. This is a practical Kanban board for moving AI
 
 ### Now
 
-- [ ] Fill the 10 target slots in `marketing/first-audit-outreach-2026-06-22.md` with real names/URLs from Brian's network or warm-intro paths.
+- [ ] Pick one real warm target and fill in name, URL, and specific reason in `marketing/first-audit-outreach-2026-06-22.md`.
 - [ ] Send or tailor the short direct outreach note from `marketing/first-audit-outreach-2026-06-22.md`.
+- [ ] If momentum is good, fill the remaining target slots in the worksheet.
 
 ### Next
 
