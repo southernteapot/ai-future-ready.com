@@ -40,14 +40,16 @@ Brian should fill these with specific people/sites from his network, local conta
 
 ## One warm outreach note
 
-Subject: quick idea for making your site easier for AI agents to read
+Subject: are your site and tools ready for AI agents?
 
 ```text
-Hey [Name] — I’ve been working on a small project around “agent-ready” websites: basically, whether AI agents can reliably find, read, cite, and monitor a site without scraping messy HTML or guessing.
+Hey [Name] — I’ve been working on a small project around “agent-ready” websites and workflows: basically, whether AI agents can reliably find, read, cite, monitor, and safely act on a site or tool without scraping messy HTML, guessing, or doing something risky.
 
-I’m testing a fixed-scope Agent Readiness Audit and thought [site/company] might be a good fit because [specific reason: docs/resources/product pages/content library].
+I’m testing a fixed-scope Agent Readiness Audit and thought [site/company] might be a good fit because [specific reason: docs/resources/product pages/content library/tool workflow].
 
-The audit is practical: llms.txt, raw content access, sitemap/robots, metadata, freshness, citation/source fields, and a short priority fix list. No SEO magic, no chatbot pitch, no vague AI strategy deck.
+The audit is practical: llms.txt, raw content access, sitemap/robots, metadata, freshness, citation/source fields, agent-visible documentation, and a short priority fix list. If the use case involves agents taking action — clicking, typing, filing, escalating, or changing records — I also look for the boring safety controls: human approval gates, restricted permissions, logging, rollback paths, and incident escalation.
+
+No SEO magic, no chatbot pitch, no vague AI strategy deck. The question is simpler: are your AI tools safe enough to let them click, type, file, and escalate — or are they still unmanaged chatbots?
 
 If you’re open to it, I’d be glad to do a quick first-pass look and tell you whether a full audit would be useful. The overview is here:
 https://ai-future-ready.com/pricing/agent-readiness-audit
@@ -58,9 +60,11 @@ No pressure — I’m mainly looking for one or two serious early conversations 
 ## Shorter version
 
 ```text
-Hey [Name] — I’m testing a service that audits whether a site is readable by AI agents: llms.txt, raw content, metadata, freshness, APIs, and citation/source structure.
+Hey [Name] — I’m testing a service that audits whether a site or workflow is ready for AI agents: llms.txt, raw content, metadata, freshness, APIs, citation/source structure, and basic safety controls for agent actions.
 
-I thought [site] might be an interesting fit because [specific reason]. Would you be open to me doing a quick first-pass look and telling you whether a full audit would actually be useful?
+I thought [site] might be an interesting fit because [specific reason]. The core question is: are your AI tools safe enough to let them click, type, file, and escalate — or are they still unmanaged chatbots?
+
+Would you be open to me doing a quick first-pass look and telling you whether a full audit would actually be useful?
 
 Overview: https://ai-future-ready.com/pricing/agent-readiness-audit
 ```
