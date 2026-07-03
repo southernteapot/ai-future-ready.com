@@ -12,7 +12,7 @@ const SLUG = "contact";
 export async function generateMetadata(): Promise<Metadata> {
   const item = getStandaloneContent(SLUG);
   if (!item) return {};
-  return buildContentMetadata(item.meta, `/${SLUG}`);
+  return buildContentMetadata(item.meta, `/${SLUG}`, `/content/${SLUG}.md`);
 }
 
 export default async function ContactPage() {

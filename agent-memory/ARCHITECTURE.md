@@ -30,8 +30,10 @@ Next.js 16 app with file-based Markdown content and generated static machine-rea
 - `npm run build` runs `prebuild`, which runs content validation and `scripts/generate-llms-txt.ts`.
 - `scripts/generate-llms-txt.ts` generates `llms.txt`, `llms-full.txt`, `search-index.json`, `feed.json`, `feed.xml`, `sitemap.xml`, `robots.txt`, `public/.well-known/ai.json`, `src/lib/content-data.json`, `src/lib/changes-data.json`, and `public/api/v1/*`.
 - `scripts/generate-llms-txt.ts` generates `public/api/v1/status.json` and `src/lib/status-data.json` for operational status, freshness, internal-link health, and source metadata coverage.
-- `scripts/generate-llms-txt.ts` also generates `src/lib/models-data.json` for runtime model filter, diff, and cost routes.
+- `scripts/generate-llms-txt.ts` also generates `src/lib/models-data.json` for runtime model filter, diff, and cost routes, and `src/lib/search-data.json` for the runtime search route.
 - API docs and OpenAPI are generated from content/frontmatter shape rather than manually maintained.
+- `public/_headers` (Workers static assets format) sets CORS/X-Robots-Tag/Cache-Control for asset-served paths; `next.config.ts` headers() mirrors the same set for worker-rendered responses and `next dev`/`next start`. Keep both in sync.
+- `next.config.ts` redirects implement the markdown front door: `.md` suffix aliases and `Accept: text/markdown` negotiation (307 → `/content/...`); `src/lib/api-headers.ts` provides the shared preflight OPTIONS response.
 
 ## API Surface
 
@@ -40,6 +42,8 @@ Next.js 16 app with file-based Markdown content and generated static machine-rea
 - Versioned OpenAPI: `/api/v1/openapi.json`.
 - Status: `/status` and `/api/v1/status.json`.
 - Content schema: `/api/v1/schema.json`.
+- Ranked search: `/api/v1/search.json?q=cheap+coding+model&type=model&limit=10`.
+- Markdown from canonical URLs: `/{page}.md` alias and `Accept: text/markdown` both 307-redirect to the `/content/` path; HTML pages carry `<link rel="alternate" type="text/markdown">`.
 - Type indexes: `/api/v1/{type}.json`.
 - Per-item JSON: `/api/v1/{type}/{slug}.json`.
 - Model filter: `/api/v1/models-filter.json?capability=vision&availability_status=available`.

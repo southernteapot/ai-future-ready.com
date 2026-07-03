@@ -6,6 +6,101 @@
   "description": "Machine-readable change feed for AI Future Ready. Track content updates without re-crawling the full site.",
   "items": [
     {
+      "id": "https://ai-future-ready.com/standard",
+      "url": "https://ai-future-ready.com/standard",
+      "title": "The Agent-Ready Web Standard",
+      "summary": "Technical standard for agent-ready websites: raw content at canonical URLs, metadata schemas, llms.txt, JSON APIs, CORS, discovery, trust signals, hashes, change feeds, and usage policy.",
+      "date_published": "2026-07-03T00:00:00.000Z",
+      "date_modified": "2026-07-03T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "standard",
+        "specification",
+        "agent-ready",
+        "architecture"
+      ],
+      "content_text": "Technical standard for agent-ready websites: raw content at canonical URLs, metadata schemas, llms.txt, JSON APIs, CORS, discovery, trust signals, hashes, change feeds, and usage policy.",
+      "_section": "Standard",
+      "_markdown_url": "https://ai-future-ready.com/content/standard/_index.md",
+      "_content_hash": "1d9c29b30fe92c6781031904377ec8cb2b996a36e2558a5e336af7c8201638fa",
+      "_sha256": "1d9c29b30fe92c6781031904377ec8cb2b996a36e2558a5e336af7c8201638fa"
+    },
+    {
+      "id": "https://ai-future-ready.com/checklist",
+      "url": "https://ai-future-ready.com/checklist",
+      "title": "The Agent-Ready Website Checklist",
+      "summary": "A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.",
+      "date_published": "2026-07-03T00:00:00.000Z",
+      "date_modified": "2026-07-03T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "checklist",
+        "spec",
+        "agent-ready",
+        "architecture"
+      ],
+      "content_text": "A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.",
+      "_section": "Checklist",
+      "_markdown_url": "https://ai-future-ready.com/content/checklist/_index.md",
+      "_content_hash": "c5133e2240bbdd172f4cd58661492d0d70b5bd47f3fb9c56e1d3837a3d1442fd",
+      "_sha256": "c5133e2240bbdd172f4cd58661492d0d70b5bd47f3fb9c56e1d3837a3d1442fd"
+    },
+    {
+      "id": "https://ai-future-ready.com/api-reference",
+      "url": "https://ai-future-ready.com/api-reference",
+      "title": "Agent API Reference",
+      "summary": "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, ranked search, schema, changes, recommendations, pricing snapshots, and feeds.",
+      "date_published": "2026-07-03T00:00:00.000Z",
+      "date_modified": "2026-07-03T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "api reference"
+      ],
+      "content_text": "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, ranked search, schema, changes, recommendations, pricing snapshots, and feeds.",
+      "_section": "API Reference",
+      "_markdown_url": "https://ai-future-ready.com/content/api-reference/_index.md",
+      "_content_hash": "321f76789025cf068d515d223a3f221f9add707ea7d51bb76cd17e7bc4483614",
+      "_sha256": "321f76789025cf068d515d223a3f221f9add707ea7d51bb76cd17e7bc4483614"
+    },
+    {
+      "id": "https://ai-future-ready.com/guides/agent-usage",
+      "url": "https://ai-future-ready.com/guides/agent-usage",
+      "title": "Agent Usage Guide",
+      "summary": "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, search, schema, per-item JSON, model filtering, model diffing, recommendations, changes, hashes, and conditional requests.",
+      "date_published": "2026-07-03T00:00:00.000Z",
+      "date_modified": "2026-07-03T00:00:00.000Z",
+      "authors": [
+        {
+          "name": "AI Future Ready"
+        }
+      ],
+      "tags": [
+        "agents",
+        "api",
+        "discovery",
+        "markdown",
+        "schema"
+      ],
+      "content_text": "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, search, schema, per-item JSON, model filtering, model diffing, recommendations, changes, hashes, and conditional requests.",
+      "_section": "Guides",
+      "_markdown_url": "https://ai-future-ready.com/content/guides/agent-usage.md",
+      "_content_hash": "607b270d927921cfbcbe09dc44834218f6fae0accf2f23aff60f363ba2ffc010",
+      "_sha256": "607b270d927921cfbcbe09dc44834218f6fae0accf2f23aff60f363ba2ffc010",
+      "_api_url": "https://ai-future-ready.com/api/v1/guides/agent-usage.json"
+    },
+    {
       "id": "https://ai-future-ready.com/pricing/agent-readiness-audit",
       "url": "https://ai-future-ready.com/pricing/agent-readiness-audit",
       "title": "Agent Readiness Audit",
@@ -342,53 +437,6 @@
       "_markdown_url": "https://ai-future-ready.com/content/changelog.md",
       "_content_hash": "d7fa5348d56ff5a66fb6b7ee647f14ecd0d9b2f5b1c5919bd62645598952a911",
       "_sha256": "d7fa5348d56ff5a66fb6b7ee647f14ecd0d9b2f5b1c5919bd62645598952a911"
-    },
-    {
-      "id": "https://ai-future-ready.com/api-reference",
-      "url": "https://ai-future-ready.com/api-reference",
-      "title": "Agent API Reference",
-      "summary": "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.",
-      "date_published": "2026-05-01T00:00:00.000Z",
-      "date_modified": "2026-05-01T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "api reference"
-      ],
-      "content_text": "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.",
-      "_section": "API Reference",
-      "_markdown_url": "https://ai-future-ready.com/content/api-reference/_index.md",
-      "_content_hash": "232ea729bcd56417090b63c032206e4015b824f6e3529f6a654d346b45df72a2",
-      "_sha256": "232ea729bcd56417090b63c032206e4015b824f6e3529f6a654d346b45df72a2"
-    },
-    {
-      "id": "https://ai-future-ready.com/guides/agent-usage",
-      "url": "https://ai-future-ready.com/guides/agent-usage",
-      "title": "Agent Usage Guide",
-      "summary": "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes.",
-      "date_published": "2026-05-01T00:00:00.000Z",
-      "date_modified": "2026-05-01T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "agents",
-        "api",
-        "discovery",
-        "markdown",
-        "schema"
-      ],
-      "content_text": "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes.",
-      "_section": "Guides",
-      "_markdown_url": "https://ai-future-ready.com/content/guides/agent-usage.md",
-      "_content_hash": "8bb27ad6819c4ff840b4e42ee6693e25cc235e1eea719210b46170e82a99ad23",
-      "_sha256": "8bb27ad6819c4ff840b4e42ee6693e25cc235e1eea719210b46170e82a99ad23",
-      "_api_url": "https://ai-future-ready.com/api/v1/guides/agent-usage.json"
     },
     {
       "id": "https://ai-future-ready.com/models/cohere-tiny-aya",
@@ -1132,30 +1180,6 @@
       "_content_hash": "381adb6d935bc587b2c9f3a12c2b286eab778d9f61a42aae624262ec8935d6a1",
       "_sha256": "381adb6d935bc587b2c9f3a12c2b286eab778d9f61a42aae624262ec8935d6a1",
       "_api_url": "https://ai-future-ready.com/api/v1/use-cases/images.json"
-    },
-    {
-      "id": "https://ai-future-ready.com/standard",
-      "url": "https://ai-future-ready.com/standard",
-      "title": "The Agent-Ready Web Standard",
-      "summary": "Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds.",
-      "date_published": "2026-04-24T00:00:00.000Z",
-      "date_modified": "2026-04-24T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "standard",
-        "specification",
-        "agent-ready",
-        "architecture"
-      ],
-      "content_text": "Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds.",
-      "_section": "Standard",
-      "_markdown_url": "https://ai-future-ready.com/content/standard/_index.md",
-      "_content_hash": "0b23cd4527d99247259177f3a17164ff6c386913d0319a54a52de054337bbc5b",
-      "_sha256": "0b23cd4527d99247259177f3a17164ff6c386913d0319a54a52de054337bbc5b"
     },
     {
       "id": "https://ai-future-ready.com/api-reference/data-changelog",
@@ -2040,30 +2064,6 @@
       "_markdown_url": "https://ai-future-ready.com/content/mcp.md",
       "_content_hash": "e16ba87fc4529925b024f9c7b4be8f954c9411935ee73c217c026b03b05792e0",
       "_sha256": "e16ba87fc4529925b024f9c7b4be8f954c9411935ee73c217c026b03b05792e0"
-    },
-    {
-      "id": "https://ai-future-ready.com/checklist",
-      "url": "https://ai-future-ready.com/checklist",
-      "title": "The Agent-Ready Website Checklist",
-      "summary": "A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.",
-      "date_published": "2026-04-12T00:00:00.000Z",
-      "date_modified": "2026-04-12T00:00:00.000Z",
-      "authors": [
-        {
-          "name": "AI Future Ready"
-        }
-      ],
-      "tags": [
-        "checklist",
-        "spec",
-        "agent-ready",
-        "architecture"
-      ],
-      "content_text": "A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.",
-      "_section": "Checklist",
-      "_markdown_url": "https://ai-future-ready.com/content/checklist/_index.md",
-      "_content_hash": "3d6c66edb3b3a5aa2bbcfef490b403e0dae3b52524af54297d8070a8fe8c79d4",
-      "_sha256": "3d6c66edb3b3a5aa2bbcfef490b403e0dae3b52524af54297d8070a8fe8c79d4"
     },
     {
       "id": "https://ai-future-ready.com/agents",

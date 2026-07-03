@@ -2,13 +2,17 @@
 title: "Agent API Reference"
 type: index
 id: "api-reference"
-description: "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search."
-last_updated: "2026-05-01"
+description: "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, ranked search, schema, changes, recommendations, pricing snapshots, and feeds."
+last_updated: "2026-07-03"
 ---
 
 # Agent API Reference
 
 This site exposes structured content through multiple machine-readable access paths. All endpoints are public, require no authentication, and return typed data.
+
+Transport: every content and API response sends `Access-Control-Allow-Origin: *`, an `ETag` (send it back as `If-None-Match` for cheap `304` revalidation), and `Cache-Control: public, max-age=3600, stale-while-revalidate=86400`.
+
+Raw markdown for any canonical page URL: append `.md` (`/models/gpt-5.4.md`), send `Accept: text/markdown`, or follow the page's `<link rel="alternate" type="text/markdown">` tag. All three lead to the `/content/` path for that page.
 
 ## Commercial Access
 
@@ -51,6 +55,7 @@ Base URL: `/api/v1/`
 | [`/api/v1/index.json`](/api/v1/index.json) | All content types with descriptions and counts |
 | [`/api/v1/openapi.json`](/api/v1/openapi.json) | OpenAPI 3.1 contract for API clients and agent tool generation |
 | [`/api/v1/schema.json`](/api/v1/schema.json) | Observed fields, value types, coverage, examples, and generated fields |
+| [`/api/v1/search.json?q=cheap+coding+model`](/api/v1/search.json?q=cheap+coding+model) | Ranked keyword search across all content (`q`, optional `type`, `limit`) |
 | [`/api/v1/status.json`](/api/v1/status.json) | Build freshness, content freshness, internal-link health, and source metadata coverage |
 | [`/api/v1/models.json`](/api/v1/models.json) | All models with pricing, benchmarks, context windows, and metadata |
 | [`/api/v1/models-filter.json?capability=vision&availability_status=available`](/api/v1/models-filter.json?capability=vision&availability_status=available) | Queryable model filter for agent routing |

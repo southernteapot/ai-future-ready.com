@@ -28,7 +28,11 @@ export async function generateMetadata({
   const { type, slug } = await params;
   const item = getContent(type, slug);
   if (!item) return {};
-  return buildContentMetadata(item.meta, `/${type}/${slug}`);
+  return buildContentMetadata(
+    item.meta,
+    `/${type}/${slug}`,
+    `/content/${type}/${slug}.md`
+  );
 }
 
 export default async function ContentPage({

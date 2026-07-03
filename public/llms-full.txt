@@ -1,6 +1,6 @@
 # AI Future Ready — Full Content
 > All content from ai-future-ready.com in a single file.
-> Generated: 2026-06-21
+> Generated: 2026-07-03
 > Total files: 128
 
 ---
@@ -11,9 +11,9 @@
 title: "The Agent-Ready Web Standard"
 type: standard
 id: "agent-ready-web-standard"
-version: "0.1"
-description: "Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds."
-last_updated: "2026-04-24"
+version: "0.2"
+description: "Technical standard for agent-ready websites: raw content at canonical URLs, metadata schemas, llms.txt, JSON APIs, CORS, discovery, trust signals, hashes, change feeds, and usage policy."
+last_updated: "2026-07-03"
 status: "draft"
 tags:
   - standard
@@ -23,7 +23,9 @@ tags:
 ---
 
 # The Agent-Ready Web Standard
-**v0.1 — Draft — April 2026**
+**v0.2 — Draft — July 2026**
+
+Changes in v0.2: markdown must be reachable from canonical URLs (`.md` suffix, content negotiation, alternate links), CORS and conditional-request requirements, query endpoints, and machine-readable usage policy.
 
 This is the technical companion to the [Agent-Ready Website Checklist](/checklist). The checklist tells you *what* to build and *why*. This page specifies *how* — formats, schemas, and protocols.
 
@@ -119,6 +121,34 @@ Serve source content at predictable URLs alongside rendered HTML pages:
 /content/_index.md            → site index
 ```
 
+### Markdown from canonical URLs
+
+Agents arrive at canonical page URLs — from search results, citations, and links — not at your raw-content tree. The raw version must be reachable *from* the canonical URL, without prior knowledge of your conventions. Provide all three:
+
+1. **`.md` suffix alias.** `GET /models/gpt-5.4.md` returns (or redirects to) the raw markdown for `/models/gpt-5.4`.
+2. **Content negotiation.** `GET /models/gpt-5.4` with `Accept: text/markdown` returns (or redirects to) the raw markdown.
+3. **Alternate links.** Every HTML page declares its markdown source in the head:
+
+```html
+<link rel="alternate" type="text/markdown" href="/content/models/gpt-5.4.md" />
+```
+
+A redirect (307/308) to the raw file is acceptable and has the advantage of teaching agents the canonical raw-content mapping via the `Location` header.
+
+### Cross-origin access (CORS)
+
+Agents running in browser contexts — web apps, sandboxes, extensions — cannot use any of this without CORS. All content and API endpoints must send:
+
+```
+Access-Control-Allow-Origin: *
+```
+
+on GET responses, and answer preflight `OPTIONS` requests on endpoints accepting other methods or custom headers.
+
+### Caching and conditional requests
+
+Machine endpoints get polled. Serve `ETag` (and/or `Last-Modified`) on content and API responses, honor `If-None-Match` with `304 Not Modified`, and set an explicit `Cache-Control` with a non-zero `max-age` so well-behaved clients can skip redundant fetches entirely.
+
 ### JSON API
 
 Provide a structured API at a known base URL:
@@ -130,6 +160,16 @@ Provide a structured API at a known base URL:
 ```
 
 API responses must return typed fields — not HTML fragments.
+
+### Query endpoints
+
+Static indexes make agents download everything and filter locally. Sites with more than a handful of items should expose at least one server-side query endpoint so a question costs one call:
+
+```
+/api/v1/search.json?q=...     → ranked keyword search over all content
+```
+
+Domain-specific filters (e.g. `/api/v1/models-filter.json?capability=vision`) follow the same principle: the agent states constraints, the site does the matching.
 
 ### Bulk access
 
@@ -243,6 +283,22 @@ Include a hash of the body content so agents can check cache freshness:
 content_hash: "sha256:a3f2b8c..."
 ```
 
+### Usage policy
+
+An agent deciding whether it may ingest, cache, or republish your content needs the answer in machine-readable form — not buried in a terms-of-service page. Declare it in your discovery manifest:
+
+```json
+"usage_policy": {
+  "summary": "Free for human and agent consumption with attribution. Commercial redistribution requires a license.",
+  "attribution": "Suggested attribution string.",
+  "rate_limits": "Expectations, if any.",
+  "commercial_license": "/pricing/commercial-license",
+  "contact": "you@example.com"
+}
+```
+
+State at minimum: what consumption is allowed, what requires permission, attribution expectations, and a contact.
+
 ---
 
 ## Relationship Metadata
@@ -292,7 +348,7 @@ Most of the agent-readiness benefit comes from reaching Level 2.
 
 ## Reference Implementation
 
-This site — [ai-future-ready.com](https://ai-future-ready.com) — implements this standard at Level 3. Every feature described above is live and inspectable. See the [checklist](/checklist) for our honest self-assessment and the specific gaps we're working on.
+This site — [ai-future-ready.com](https://ai-future-ready.com) — implements this standard at Level 3, including the v0.2 additions: `.md` suffix aliases and `Accept: text/markdown` negotiation on every canonical URL, `text/markdown` alternate links, CORS on all machine endpoints, explicit cache headers with ETag revalidation, ranked search at [`/api/v1/search.json`](/api/v1/search.json?q=agent-ready), and a machine-readable usage policy in [`/.well-known/ai.json`](/.well-known/ai.json). See the [checklist](/checklist) for our honest self-assessment and the specific gaps we're working on.
 
 **Want this for your own site?** The [Agent Readiness Audit](/pricing/agent-readiness-audit) scores your site against this standard and delivers a priority fix list. [Request an audit](/request-audit) or run the free [self-audit scorecard](/score) first.
 
@@ -305,8 +361,8 @@ title: "The Agent-Ready Website Checklist"
 type: checklist
 id: "agent-ready-checklist"
 description: "A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native."
-last_updated: "2026-04-12"
-version: "0.1"
+last_updated: "2026-07-03"
+version: "0.2"
 tags:
   - checklist
   - spec
@@ -402,14 +458,18 @@ Ten areas, organized from "agents can find you" to "agents can trust and act on 
 
 **What good looks like.**
 - Every content page has a corresponding raw file at a predictable path. If the page is at `/models/gpt-5.4`, the raw content is at `/content/models/gpt-5.4.md`.
+- The raw version is reachable *from the canonical URL* — agents arrive at your HTML URLs, not your raw-content tree. Support a `.md` suffix alias (`/models/gpt-5.4.md`), `Accept: text/markdown` content negotiation, and a `<link rel="alternate" type="text/markdown">` tag in every HTML page.
 - The raw format is self-contained: content + metadata in one file (e.g., markdown with YAML frontmatter).
 - No JavaScript rendering required. No authentication for public content. No CAPTCHA.
+- Cross-origin access is allowed: `Access-Control-Allow-Origin: *` on all content and API responses, so browser-context agents aren't locked out.
 - A bulk-access option exists (e.g., `/llms-full.txt` with all content in one file) so agents don't need one request per page.
 
-**Common failure mode.** Content is generated server-side from a CMS or database. The only way to get it is to fetch the HTML page and strip the chrome. Some pages require JavaScript to render, so headless agents get empty `<div id="root"></div>`. The site has an API, but it requires an API key for public content.
+**Common failure mode.** Content is generated server-side from a CMS or database. The only way to get it is to fetch the HTML page and strip the chrome. Some pages require JavaScript to render, so headless agents get empty `<div id="root"></div>`. The site has an API, but it requires an API key for public content. Or: a raw markdown mirror exists, but nothing on the canonical pages points to it and CORS blocks every browser-based agent — so in practice nobody finds or uses it.
 
 **How this site does it.**
 - Every page: `/content/[type]/[slug].md` — raw markdown with YAML frontmatter
+- Canonical URLs serve markdown three ways: append `.md`, send `Accept: text/markdown`, or follow the `<link rel="alternate" type="text/markdown">` tag
+- `Access-Control-Allow-Origin: *`, ETags, and explicit cache headers on all machine endpoints
 - [`/llms-full.txt`](/llms-full.txt) — all content concatenated into one file
 - No JS rendering, no auth, no CAPTCHA on any content path
 
@@ -581,6 +641,8 @@ Partial implementation — this is an area we score ourselves honestly on:
 **How this site does it.**
 - [`/api/v1/index.json`](/api/v1/index.json) — full content API with typed fields
 - [`/api/v1/models.json`](/api/v1/models.json) — models with pricing, benchmarks, context windows
+- [`/api/v1/search.json?q=cheap+coding+model`](/api/v1/search.json?q=cheap+coding+model) — ranked keyword search in one call
+- [`/api/v1/models-filter.json`](/api/v1/models-filter.json?capability=vision) — constraint-based model filtering
 - [`/api/v1/recommend.json`](/api/v1/recommend.json) — pre-scored model rankings by task
 - All endpoints return structured JSON with consistent field naming
 
@@ -833,13 +895,17 @@ We're building tools and services around this spec.
 title: "Agent API Reference"
 type: index
 id: "api-reference"
-description: "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search."
-last_updated: "2026-05-01"
+description: "Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, ranked search, schema, changes, recommendations, pricing snapshots, and feeds."
+last_updated: "2026-07-03"
 ---
 
 # Agent API Reference
 
 This site exposes structured content through multiple machine-readable access paths. All endpoints are public, require no authentication, and return typed data.
+
+Transport: every content and API response sends `Access-Control-Allow-Origin: *`, an `ETag` (send it back as `If-None-Match` for cheap `304` revalidation), and `Cache-Control: public, max-age=3600, stale-while-revalidate=86400`.
+
+Raw markdown for any canonical page URL: append `.md` (`/models/gpt-5.4.md`), send `Accept: text/markdown`, or follow the page's `<link rel="alternate" type="text/markdown">` tag. All three lead to the `/content/` path for that page.
 
 ## Commercial Access
 
@@ -882,6 +948,7 @@ Base URL: `/api/v1/`
 | [`/api/v1/index.json`](/api/v1/index.json) | All content types with descriptions and counts |
 | [`/api/v1/openapi.json`](/api/v1/openapi.json) | OpenAPI 3.1 contract for API clients and agent tool generation |
 | [`/api/v1/schema.json`](/api/v1/schema.json) | Observed fields, value types, coverage, examples, and generated fields |
+| [`/api/v1/search.json?q=cheap+coding+model`](/api/v1/search.json?q=cheap+coding+model) | Ranked keyword search across all content (`q`, optional `type`, `limit`) |
 | [`/api/v1/status.json`](/api/v1/status.json) | Build freshness, content freshness, internal-link health, and source metadata coverage |
 | [`/api/v1/models.json`](/api/v1/models.json) | All models with pricing, benchmarks, context windows, and metadata |
 | [`/api/v1/models-filter.json?capability=vision&availability_status=available`](/api/v1/models-filter.json?capability=vision&availability_status=available) | Queryable model filter for agent routing |
@@ -6407,8 +6474,8 @@ Choose the least autonomous tool that can complete the workflow reliably. More a
 title: "Agent Usage Guide"
 type: guide
 id: "agent-usage-guide"
-description: "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes."
-last_updated: "2026-05-01"
+description: "Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, search, schema, per-item JSON, model filtering, model diffing, recommendations, changes, hashes, and conditional requests."
+last_updated: "2026-07-03"
 tags:
 - "agents"
 - "api"
@@ -6420,6 +6487,8 @@ tags:
 # Agent Usage Guide
 
 This site is meant to be read by agents directly. Start with discovery, then choose the smallest endpoint that answers your task.
+
+Transport notes: every content and API endpoint sends `Access-Control-Allow-Origin: *` (browser-context agents can fetch cross-origin), an `ETag`, and `Cache-Control: public, max-age=3600, stale-while-revalidate=86400`. No authentication, no rate limits — be polite by using conditional requests and the changes endpoint instead of re-crawling.
 
 ## 1. Discover the site
 
@@ -6446,6 +6515,20 @@ curl https://ai-future-ready.com/content/models/claude-opus-4.6.md
 
 The markdown file is canonical. It includes YAML frontmatter and body text in one self-contained document.
 
+You do not need to know the `/content/` mapping in advance. From any canonical page URL, all of these reach the same markdown:
+
+```bash
+# Append .md to the canonical URL (redirects to the /content/ path)
+curl -L https://ai-future-ready.com/models/claude-opus-4.6.md
+
+# Ask for markdown explicitly (redirects the same way)
+curl -L -H "Accept: text/markdown" https://ai-future-ready.com/models/claude-opus-4.6
+
+# Or read the <link rel="alternate" type="text/markdown"> tag in the HTML head
+```
+
+Raw markdown is roughly 10x cheaper in tokens than the rendered HTML page.
+
 ## 4. Fetch one content item as JSON
 
 ```bash
@@ -6463,13 +6546,20 @@ curl https://ai-future-ready.com/api/v1/status.json
 
 Use the schema endpoint before assuming field names. It lists observed fields, value types, coverage, examples, and generated fields. Use the status endpoint when you need build freshness, stale-content counts, internal-link health, and source metadata coverage.
 
-## 6. Search by structured index
+## 6. Search
+
+```bash
+curl "https://ai-future-ready.com/api/v1/search.json?q=cheap+coding+model"
+curl "https://ai-future-ready.com/api/v1/search.json?q=vision&type=model&limit=5"
+```
+
+Use the search endpoint for one-call ranked lookup across titles, descriptions, tags, providers, and IDs. Every term must match; results include markdown, HTML, and API URLs plus `token_estimate` so you can budget follow-up fetches.
 
 ```bash
 curl https://ai-future-ready.com/search-index.json
 ```
 
-Use the search index for lightweight discovery across titles, descriptions, tags, providers, routes, hashes, and generated relationships.
+If you prefer to match locally (offline indexing, embeddings, custom ranking), the full structured index is one fetch.
 
 ## 7. Get recommendations
 
@@ -6515,6 +6605,15 @@ Every generated JSON item includes:
 ```
 
 Compare this value against your cached copy before re-reading large content.
+
+For transport-level caching, send the `ETag` you received back as `If-None-Match` — a `304 Not Modified` costs almost nothing:
+
+```bash
+curl -s -D - https://ai-future-ready.com/api/v1/models.json -o models.json   # note the ETag header
+curl -s -o /dev/null -w "%{http_code}\n" \
+  -H 'If-None-Match: "<etag-from-previous-response>"' \
+  https://ai-future-ready.com/api/v1/models.json                              # 304 if unchanged
+```
 
 ## 11. Common workflows
 

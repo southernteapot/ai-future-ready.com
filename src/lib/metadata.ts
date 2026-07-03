@@ -37,11 +37,13 @@ export function buildPageMetadata({
   description,
   path,
   openGraphType = "website",
+  markdownPath,
 }: {
   title: string;
   description: string;
   path: string;
   openGraphType?: OpenGraphType;
+  markdownPath?: string;
 }): Metadata {
   const url = `${SITE_URL}${path}`;
 
@@ -50,7 +52,12 @@ export function buildPageMetadata({
     description,
     alternates: {
       canonical: path,
-      types: FEED_ALTERNATE_TYPES,
+      types: markdownPath
+        ? {
+            ...FEED_ALTERNATE_TYPES,
+            "text/markdown": `${SITE_URL}${markdownPath}`,
+          }
+        : FEED_ALTERNATE_TYPES,
     },
     openGraph: {
       type: openGraphType,
@@ -70,11 +77,16 @@ export function buildPageMetadata({
   };
 }
 
-export function buildContentMetadata(meta: ContentMeta, path: string): Metadata {
+export function buildContentMetadata(
+  meta: ContentMeta,
+  path: string,
+  markdownPath?: string
+): Metadata {
   return buildPageMetadata({
     title: meta.title,
     description: meta.description,
     path,
     openGraphType: getContentOpenGraphType(meta.type),
+    markdownPath,
   });
 }

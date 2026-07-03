@@ -374,9 +374,26 @@ for (const section of SECTIONS) {
 
 // ─── llms.txt (index only) ──────────────────────────────
 
+// Rough heuristic (~4 bytes/token for English markdown) so agents can budget
+// context before fetching. Not tokenizer-exact.
+function tokenEstimate(entry: { raw: string }): number {
+  return Math.round(Buffer.byteLength(entry.raw, "utf-8") / 4);
+}
+
+const corpusTokenEstimate = Math.round(
+  allEntries.reduce((sum, e) => sum + Buffer.byteLength(e.raw, "utf-8"), 0) / 4
+);
+
 const indexLines: string[] = [
   "# AI Future Ready",
   "> The agent-ready web — a specification, checklist, and working demonstration of websites built for both humans and AI agents. Includes a structured AI reference library with models, agents, comparisons, and analysis.",
+  "",
+  "Access notes for agents:",
+  "- Raw markdown for any page: append `.md` to its canonical URL, send `Accept: text/markdown`, or fetch the `/content/` path listed below. Each is ~10x cheaper in tokens than the HTML page.",
+  "- Query instead of crawling: `/api/v1/search.json?q=...`, model filter/diff/cost endpoints, and `/api/v1/changes.json?since=YYYY-MM-DD`. Discovery manifest: `/.well-known/ai.json`. Fetch patterns: `/content/guides/agent-usage.md`.",
+  `- Full corpus in one file: \`/llms-full.txt\` (~${Math.round(corpusTokenEstimate / 1000)}k tokens). Per-item JSON includes \`token_estimate\` and \`sha256\` so you can budget and cache.`,
+  "- All content and API responses send `Access-Control-Allow-Origin: *` and ETags; conditional requests are supported.",
+  "- Usage: free for human and agent consumption, caching, and citation with attribution. Commercial redistribution of the structured dataset requires a license — see `/content/pricing/commercial-license.md`.",
   "",
   "## Content Sections",
 ];
@@ -554,6 +571,7 @@ function serializeEntry(entry: Entry) {
     metadata: entry.meta,
     content_text: content.trim(),
     content_length: Buffer.byteLength(entry.raw, "utf-8"),
+    token_estimate: tokenEstimate(entry),
     generated_at: GENERATED_DATE,
   };
 }
@@ -613,6 +631,7 @@ const searchIndex = allEntries
       published_at: (entry.meta.date as string) || (entry.meta.release_date as string) || undefined,
       content_hash: entry.contentHash,
       sha256: entry.contentHash,
+      token_estimate: tokenEstimate(entry),
       relationships: buildRelationships(entry),
     };
   });
@@ -623,6 +642,15 @@ fs.writeFileSync(
   "utf-8"
 );
 console.log(`wrote public/search-index.json (${searchIndex.length} entries)`);
+
+// Same data as public/search-index.json, importable by the runtime
+// /api/v1/search.json route (no fs access in the worker).
+fs.writeFileSync(
+  path.join(process.cwd(), "src", "lib", "search-data.json"),
+  JSON.stringify(searchIndex),
+  "utf-8"
+);
+console.log(`wrote src/lib/search-data.json (${searchIndex.length} entries)`);
 
 // ─── api/v1/index.json (static API) ─────────────────────
 
@@ -687,6 +715,7 @@ function buildKnownRoutes(): Set<string> {
     "/api/v1/models-filter.json",
     "/api/v1/diff.json",
     "/api/v1/cost.json",
+    "/api/v1/search.json",
     "/api/v1/status.json",
     "/api/v1/changes.json",
     "/api/v1/model-verification.json",
@@ -966,7 +995,7 @@ function buildOpenApiSpec() {
       title: "AI Future Ready API",
       version: "v1",
       description:
-        "Public JSON API for AI Future Ready content, model metadata, recommendations, pricing snapshots, and change feeds.",
+        "Public JSON API for AI Future Ready content, model metadata, recommendations, pricing snapshots, and change feeds. All endpoints are GET (cost.json also accepts POST), send Access-Control-Allow-Origin: * and ETags, and support conditional requests. Raw markdown for any canonical page is available by appending .md to its URL or sending Accept: text/markdown.",
     },
     servers: [
       { url: SITE_URL, description: "Production" },
@@ -1361,6 +1390,40 @@ function buildOpenApiSpec() {
           },
         },
       },
+      "/api/v1/search.json": {
+        get: {
+          operationId: "searchContent",
+          summary: "Search all content by keyword, ranked by relevance",
+          parameters: [
+            {
+              name: "q",
+              in: "query",
+              required: true,
+              schema: { type: "string" },
+              description:
+                "Space-separated search terms. Every term must match the title, id, tags, provider, description, or section.",
+            },
+            {
+              name: "type",
+              in: "query",
+              required: false,
+              schema: { type: "string" },
+              description:
+                "Restrict results to one content type as it appears in search entries (e.g. model, agent, guide).",
+            },
+            {
+              name: "limit",
+              in: "query",
+              required: false,
+              schema: { type: "integer", minimum: 1, maximum: 50, default: 10 },
+            },
+          ],
+          responses: {
+            "200": jsonResponse(refSchema("SearchResponse")),
+            "400": { description: "Missing required q parameter" },
+          },
+        },
+      },
       "/search-index.json": {
         get: {
           operationId: "getSearchIndex",
@@ -1437,6 +1500,11 @@ function buildOpenApiSpec() {
                 metadata: { type: "object", additionalProperties: true },
                 content_text: { type: "string" },
                 content_length: { type: "integer", minimum: 0 },
+                token_estimate: {
+                  type: "integer",
+                  minimum: 0,
+                  description: "Approximate token count of the raw markdown (~4 bytes/token heuristic).",
+                },
                 generated_at: { type: "string", format: "date" },
               },
             },
@@ -1860,7 +1928,45 @@ function buildOpenApiSpec() {
             published_at: { type: "string" },
             content_hash: { type: "string" },
             sha256: { type: "string" },
+            token_estimate: {
+              type: "integer",
+              minimum: 0,
+              description: "Approximate token count of the raw markdown (~4 bytes/token heuristic).",
+            },
             relationships: refSchema("RelationshipMetadata"),
+          },
+          additionalProperties: true,
+        },
+        SearchResponse: {
+          type: "object",
+          required: ["type", "query", "count", "results"],
+          properties: {
+            type: { type: "string" },
+            query: {
+              type: "object",
+              properties: {
+                q: { type: "string" },
+                type: { type: ["string", "null"] },
+                limit: { type: "integer" },
+              },
+              additionalProperties: true,
+            },
+            index_size: { type: "integer", minimum: 0 },
+            count: { type: "integer", minimum: 0 },
+            results: {
+              type: "array",
+              items: {
+                allOf: [
+                  {
+                    type: "object",
+                    required: ["score"],
+                    properties: { score: { type: "number" } },
+                  },
+                  refSchema("SearchIndexEntry"),
+                ],
+              },
+            },
+            static_index: { type: "string" },
           },
           additionalProperties: true,
         },
@@ -2006,6 +2112,25 @@ fs.writeFileSync(
     sitemap: "/sitemap.xml",
     robots: "/robots.txt",
     mcp_docs: "/mcp",
+    search_api: "/api/v1/search.json?q={query}",
+    markdown_access: {
+      raw_content_base: "/content/",
+      md_suffix_alias:
+        "Append .md to any canonical page URL (e.g. /models/gpt-5.4.md) to be redirected to its raw markdown.",
+      content_negotiation:
+        "Request any canonical page URL with 'Accept: text/markdown' to be redirected to its raw markdown.",
+      html_alternate_links:
+        "Every content page's HTML head includes <link rel=\"alternate\" type=\"text/markdown\"> pointing at its markdown source.",
+    },
+    usage_policy: {
+      summary:
+        "Free public access for human and agent consumption, including caching and citation with attribution. Commercial redistribution of the structured dataset requires a commercial data license.",
+      attribution: "Suggested attribution: 'Source: AI Future Ready (ai-future-ready.com)'.",
+      rate_limits:
+        "No hard rate limits. Be polite: use conditional requests (If-None-Match with the response ETag) and poll /api/v1/changes.json instead of re-crawling.",
+      commercial_license: "/pricing/commercial-license",
+      contact: "support@ai-future-ready.com",
+    },
     view_modes: {
       default: "agent",
       agent: "Raw markdown view with YAML frontmatter.",
@@ -2039,6 +2164,13 @@ fs.writeFileSync(
       model_diffing: true,
       cost_calculation: true,
       status_reporting: true,
+      search_api: true,
+      markdown_suffix_alias: true,
+      markdown_content_negotiation: true,
+      markdown_alternate_links: true,
+      cors: true,
+      conditional_requests: true,
+      token_estimates: true,
       presentation_modes: ["agent", "human"],
     },
   }),
@@ -2064,6 +2196,7 @@ fs.writeFileSync(
       model_cost: "/api/v1/cost.json",
       status: "/api/v1/status.json",
       schema: "/api/v1/schema.json",
+      search_api: "/api/v1/search.json",
       search_index: "/search-index.json",
       changes: "/api/v1/changes.json",
       feed_json: "/feed.json",
@@ -2097,6 +2230,7 @@ fs.writeFileSync(
       model_cost: "/api/v1/cost.json?input_tokens=1000000&output_tokens=1000000",
       status: "/api/v1/status.json",
       changes_since: "/api/v1/changes.json?since=YYYY-MM-DD",
+      search: "/api/v1/search.json?q=cheap+coding+model&type=model&limit=10",
     },
     content_types: typeIndex,
   }),

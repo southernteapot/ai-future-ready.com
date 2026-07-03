@@ -4,7 +4,35 @@
   <title>AI Future Ready Updates</title>
   <link>https://ai-future-ready.com</link>
   <description>Machine-readable change feed for AI Future Ready.</description>
-  <lastBuildDate>Fri, 19 Jun 2026 00:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 03 Jul 2026 00:00:00 GMT</lastBuildDate>
+  <item>
+    <title>The Agent-Ready Web Standard</title>
+    <link>https://ai-future-ready.com/standard</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/standard</guid>
+    <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Technical standard for agent-ready websites: raw content at canonical URLs, metadata schemas, llms.txt, JSON APIs, CORS, discovery, trust signals, hashes, change feeds, and usage policy.</description>
+  </item>
+  <item>
+    <title>The Agent-Ready Website Checklist</title>
+    <link>https://ai-future-ready.com/checklist</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/checklist</guid>
+    <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
+    <description>A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.</description>
+  </item>
+  <item>
+    <title>Agent API Reference</title>
+    <link>https://ai-future-ready.com/api-reference</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/api-reference</guid>
+    <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, ranked search, schema, changes, recommendations, pricing snapshots, and feeds.</description>
+  </item>
+  <item>
+    <title>Agent Usage Guide</title>
+    <link>https://ai-future-ready.com/guides/agent-usage</link>
+    <guid isPermaLink="true">https://ai-future-ready.com/guides/agent-usage</guid>
+    <pubDate>Fri, 03 Jul 2026 00:00:00 GMT</pubDate>
+    <description>Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, search, schema, per-item JSON, model filtering, model diffing, recommendations, changes, hashes, and conditional requests.</description>
+  </item>
   <item>
     <title>Agent Readiness Audit</title>
     <link>https://ai-future-ready.com/pricing/agent-readiness-audit</link>
@@ -102,20 +130,6 @@
     <guid isPermaLink="true">https://ai-future-ready.com/changelog</guid>
     <pubDate>Wed, 10 Jun 2026 00:00:00 GMT</pubDate>
     <description>Chronological log of AI model releases, price changes, shutdowns, and major events. Designed for AI agents with knowledge cutoffs.</description>
-  </item>
-  <item>
-    <title>Agent API Reference</title>
-    <link>https://ai-future-ready.com/api-reference</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/api-reference</guid>
-    <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
-    <description>Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.</description>
-  </item>
-  <item>
-    <title>Agent Usage Guide</title>
-    <link>https://ai-future-ready.com/guides/agent-usage</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/guides/agent-usage</guid>
-    <pubDate>Fri, 01 May 2026 00:00:00 GMT</pubDate>
-    <description>Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes.</description>
   </item>
   <item>
     <title>Cohere Tiny Aya 3.35B</title>
@@ -326,13 +340,6 @@
     <guid isPermaLink="true">https://ai-future-ready.com/use-cases/images</guid>
     <pubDate>Thu, 30 Apr 2026 00:00:00 GMT</pubDate>
     <description>Learn how to use AI image generators like DALL-E, Midjourney, Stable Diffusion, and Adobe Firefly. Includes prompt-writing tips and use cases for marketing, social media, and product design.</description>
-  </item>
-  <item>
-    <title>The Agent-Ready Web Standard</title>
-    <link>https://ai-future-ready.com/standard</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/standard</guid>
-    <pubDate>Fri, 24 Apr 2026 00:00:00 GMT</pubDate>
-    <description>Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds.</description>
   </item>
   <item>
     <title>Data Changelog</title>
@@ -578,13 +585,6 @@
     <guid isPermaLink="true">https://ai-future-ready.com/mcp</guid>
     <pubDate>Tue, 21 Apr 2026 00:00:00 GMT</pubDate>
     <description>How to connect AI Future Ready through the Model Context Protocol (MCP), including startup commands, available tools, and example workflows.</description>
-  </item>
-  <item>
-    <title>The Agent-Ready Website Checklist</title>
-    <link>https://ai-future-ready.com/checklist</link>
-    <guid isPermaLink="true">https://ai-future-ready.com/checklist</guid>
-    <pubDate>Sun, 12 Apr 2026 00:00:00 GMT</pubDate>
-    <description>A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.</description>
   </item>
   <item>
     <title>AI Agent Platforms</title>

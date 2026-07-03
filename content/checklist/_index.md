@@ -3,8 +3,8 @@ title: "The Agent-Ready Website Checklist"
 type: checklist
 id: "agent-ready-checklist"
 description: "A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native."
-last_updated: "2026-04-12"
-version: "0.1"
+last_updated: "2026-07-03"
+version: "0.2"
 tags:
   - checklist
   - spec
@@ -100,14 +100,18 @@ Ten areas, organized from "agents can find you" to "agents can trust and act on 
 
 **What good looks like.**
 - Every content page has a corresponding raw file at a predictable path. If the page is at `/models/gpt-5.4`, the raw content is at `/content/models/gpt-5.4.md`.
+- The raw version is reachable *from the canonical URL* — agents arrive at your HTML URLs, not your raw-content tree. Support a `.md` suffix alias (`/models/gpt-5.4.md`), `Accept: text/markdown` content negotiation, and a `<link rel="alternate" type="text/markdown">` tag in every HTML page.
 - The raw format is self-contained: content + metadata in one file (e.g., markdown with YAML frontmatter).
 - No JavaScript rendering required. No authentication for public content. No CAPTCHA.
+- Cross-origin access is allowed: `Access-Control-Allow-Origin: *` on all content and API responses, so browser-context agents aren't locked out.
 - A bulk-access option exists (e.g., `/llms-full.txt` with all content in one file) so agents don't need one request per page.
 
-**Common failure mode.** Content is generated server-side from a CMS or database. The only way to get it is to fetch the HTML page and strip the chrome. Some pages require JavaScript to render, so headless agents get empty `<div id="root"></div>`. The site has an API, but it requires an API key for public content.
+**Common failure mode.** Content is generated server-side from a CMS or database. The only way to get it is to fetch the HTML page and strip the chrome. Some pages require JavaScript to render, so headless agents get empty `<div id="root"></div>`. The site has an API, but it requires an API key for public content. Or: a raw markdown mirror exists, but nothing on the canonical pages points to it and CORS blocks every browser-based agent — so in practice nobody finds or uses it.
 
 **How this site does it.**
 - Every page: `/content/[type]/[slug].md` — raw markdown with YAML frontmatter
+- Canonical URLs serve markdown three ways: append `.md`, send `Accept: text/markdown`, or follow the `<link rel="alternate" type="text/markdown">` tag
+- `Access-Control-Allow-Origin: *`, ETags, and explicit cache headers on all machine endpoints
 - [`/llms-full.txt`](/llms-full.txt) — all content concatenated into one file
 - No JS rendering, no auth, no CAPTCHA on any content path
 
@@ -279,6 +283,8 @@ Partial implementation — this is an area we score ourselves honestly on:
 **How this site does it.**
 - [`/api/v1/index.json`](/api/v1/index.json) — full content API with typed fields
 - [`/api/v1/models.json`](/api/v1/models.json) — models with pricing, benchmarks, context windows
+- [`/api/v1/search.json?q=cheap+coding+model`](/api/v1/search.json?q=cheap+coding+model) — ranked keyword search in one call
+- [`/api/v1/models-filter.json`](/api/v1/models-filter.json?capability=vision) — constraint-based model filtering
 - [`/api/v1/recommend.json`](/api/v1/recommend.json) — pre-scored model rankings by task
 - All endpoints return structured JSON with consistent field naming
 

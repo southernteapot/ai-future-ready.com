@@ -21,7 +21,7 @@ export async function generateMetadata({
   const { type } = await params;
   const index = getIndex(type);
   if (!index) return {};
-  return buildContentMetadata(index.meta, `/${type}`);
+  return buildContentMetadata(index.meta, `/${type}`, `/content/${type}/_index.md`);
 }
 
 export default async function TypeIndexPage({

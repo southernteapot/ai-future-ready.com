@@ -2,9 +2,9 @@
 title: "The Agent-Ready Web Standard"
 type: standard
 id: "agent-ready-web-standard"
-version: "0.1"
-description: "Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds."
-last_updated: "2026-04-24"
+version: "0.2"
+description: "Technical standard for agent-ready websites: raw content at canonical URLs, metadata schemas, llms.txt, JSON APIs, CORS, discovery, trust signals, hashes, change feeds, and usage policy."
+last_updated: "2026-07-03"
 status: "draft"
 tags:
   - standard
@@ -14,7 +14,9 @@ tags:
 ---
 
 # The Agent-Ready Web Standard
-**v0.1 — Draft — April 2026**
+**v0.2 — Draft — July 2026**
+
+Changes in v0.2: markdown must be reachable from canonical URLs (`.md` suffix, content negotiation, alternate links), CORS and conditional-request requirements, query endpoints, and machine-readable usage policy.
 
 This is the technical companion to the [Agent-Ready Website Checklist](/checklist). The checklist tells you *what* to build and *why*. This page specifies *how* — formats, schemas, and protocols.
 
@@ -110,6 +112,34 @@ Serve source content at predictable URLs alongside rendered HTML pages:
 /content/_index.md            → site index
 ```
 
+### Markdown from canonical URLs
+
+Agents arrive at canonical page URLs — from search results, citations, and links — not at your raw-content tree. The raw version must be reachable *from* the canonical URL, without prior knowledge of your conventions. Provide all three:
+
+1. **`.md` suffix alias.** `GET /models/gpt-5.4.md` returns (or redirects to) the raw markdown for `/models/gpt-5.4`.
+2. **Content negotiation.** `GET /models/gpt-5.4` with `Accept: text/markdown` returns (or redirects to) the raw markdown.
+3. **Alternate links.** Every HTML page declares its markdown source in the head:
+
+```html
+<link rel="alternate" type="text/markdown" href="/content/models/gpt-5.4.md" />
+```
+
+A redirect (307/308) to the raw file is acceptable and has the advantage of teaching agents the canonical raw-content mapping via the `Location` header.
+
+### Cross-origin access (CORS)
+
+Agents running in browser contexts — web apps, sandboxes, extensions — cannot use any of this without CORS. All content and API endpoints must send:
+
+```
+Access-Control-Allow-Origin: *
+```
+
+on GET responses, and answer preflight `OPTIONS` requests on endpoints accepting other methods or custom headers.
+
+### Caching and conditional requests
+
+Machine endpoints get polled. Serve `ETag` (and/or `Last-Modified`) on content and API responses, honor `If-None-Match` with `304 Not Modified`, and set an explicit `Cache-Control` with a non-zero `max-age` so well-behaved clients can skip redundant fetches entirely.
+
 ### JSON API
 
 Provide a structured API at a known base URL:
@@ -121,6 +151,16 @@ Provide a structured API at a known base URL:
 ```
 
 API responses must return typed fields — not HTML fragments.
+
+### Query endpoints
+
+Static indexes make agents download everything and filter locally. Sites with more than a handful of items should expose at least one server-side query endpoint so a question costs one call:
+
+```
+/api/v1/search.json?q=...     → ranked keyword search over all content
+```
+
+Domain-specific filters (e.g. `/api/v1/models-filter.json?capability=vision`) follow the same principle: the agent states constraints, the site does the matching.
 
 ### Bulk access
 
@@ -234,6 +274,22 @@ Include a hash of the body content so agents can check cache freshness:
 content_hash: "sha256:a3f2b8c..."
 ```
 
+### Usage policy
+
+An agent deciding whether it may ingest, cache, or republish your content needs the answer in machine-readable form — not buried in a terms-of-service page. Declare it in your discovery manifest:
+
+```json
+"usage_policy": {
+  "summary": "Free for human and agent consumption with attribution. Commercial redistribution requires a license.",
+  "attribution": "Suggested attribution string.",
+  "rate_limits": "Expectations, if any.",
+  "commercial_license": "/pricing/commercial-license",
+  "contact": "you@example.com"
+}
+```
+
+State at minimum: what consumption is allowed, what requires permission, attribution expectations, and a contact.
+
 ---
 
 ## Relationship Metadata
@@ -283,6 +339,6 @@ Most of the agent-readiness benefit comes from reaching Level 2.
 
 ## Reference Implementation
 
-This site — [ai-future-ready.com](https://ai-future-ready.com) — implements this standard at Level 3. Every feature described above is live and inspectable. See the [checklist](/checklist) for our honest self-assessment and the specific gaps we're working on.
+This site — [ai-future-ready.com](https://ai-future-ready.com) — implements this standard at Level 3, including the v0.2 additions: `.md` suffix aliases and `Accept: text/markdown` negotiation on every canonical URL, `text/markdown` alternate links, CORS on all machine endpoints, explicit cache headers with ETag revalidation, ranked search at [`/api/v1/search.json`](/api/v1/search.json?q=agent-ready), and a machine-readable usage policy in [`/.well-known/ai.json`](/.well-known/ai.json). See the [checklist](/checklist) for our honest self-assessment and the specific gaps we're working on.
 
 **Want this for your own site?** The [Agent Readiness Audit](/pricing/agent-readiness-audit) scores your site against this standard and delivers a priority fix list. [Request an audit](/request-audit) or run the free [self-audit scorecard](/score) first.

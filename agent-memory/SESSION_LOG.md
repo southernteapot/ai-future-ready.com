@@ -69,3 +69,14 @@ Do not paste raw terminal logs here.
 - Added `/status` as a static page that shows raw JSON in agent mode and a human-readable status view in human mode.
 - Updated OpenAPI, `/.well-known/ai.json`, `/api/v1/index.json`, API reference docs, agent usage docs, sitemap, navigation, and smoke tests for status reporting.
 - Validation passed: `npm run validate:content`, `npm run build`, `npm run lint`, `npm run test:smoke`.
+
+## 2026-07-03 - Agent-access hardening (review-driven)
+
+- Reviewed the site from an agent's perspective; found the raw-markdown tree undiscoverable from canonical URLs, no CORS anywhere, and next.config headers silently not applying to static assets in production (missing X-Robots-Tag confirmed live).
+- Made markdown reachable from every canonical URL: `.md` suffix alias + `Accept: text/markdown` negotiation (307 redirects in next.config, verified through the OpenNext worker via wrangler dev) + `<link rel="alternate" type="text/markdown">` on all content pages.
+- Added `public/_headers` so static assets actually send CORS, X-Robots-Tag, and explicit cache headers; mirrored in next.config for worker responses; OPTIONS preflight on dynamic routes.
+- Added `/api/v1/search.json` ranked search over generator-emitted `src/lib/search-data.json`.
+- Generator: `usage_policy`, `markdown_access`, `search_api`, capability flags in ai.json; "Access notes for agents" + corpus token estimate in llms.txt; `token_estimate` on per-item JSON and search entries; OpenAPI search path + schema updates.
+- Standard and checklist bumped to v0.2 (markdown-from-canonical-URLs, CORS, conditional requests, query endpoints, usage policy as criteria); agent-usage and api-reference docs updated.
+- Validation: `npm run verify` green (incl. new smoke checks); `opennextjs-cloudflare build` + `wrangler dev` confirmed _headers, redirects, negotiation, search, 304 revalidation, and preflight at the Workers layer.
+- Next wave agreed with Brian: scorecard API (`/api/v1/score?url=`), hosted remote MCP, agent-completable audit-request endpoint.

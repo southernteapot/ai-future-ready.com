@@ -424,6 +424,178 @@ async function main() {
       '/tools/prompts redirect does not point to "/prompt-patterns"'
     );
 
+    // Markdown front door: .md suffix aliases
+    const mdSuffix = await fetch(`${BASE_URL}/models/claude-opus-4.6.md`, {
+      redirect: "manual",
+    });
+    assert(
+      mdSuffix.status >= 300 &&
+        mdSuffix.status < 400 &&
+        mdSuffix.headers.get("location") === "/content/models/claude-opus-4.6.md",
+      ".md suffix alias for an item page did not redirect to its /content/ markdown"
+    );
+
+    const mdSuffixIndex = await fetch(`${BASE_URL}/models.md`, { redirect: "manual" });
+    assert(
+      mdSuffixIndex.status >= 300 &&
+        mdSuffixIndex.status < 400 &&
+        mdSuffixIndex.headers.get("location") === "/content/models/_index.md",
+      ".md suffix alias for a type index did not redirect to its /content/ markdown"
+    );
+
+    const mdSuffixStandalone = await fetch(`${BASE_URL}/about.md`, { redirect: "manual" });
+    assert(
+      mdSuffixStandalone.status >= 300 &&
+        mdSuffixStandalone.status < 400 &&
+        mdSuffixStandalone.headers.get("location") === "/content/about.md",
+      ".md suffix alias for a standalone page did not redirect to its /content/ markdown"
+    );
+
+    // Markdown front door: Accept: text/markdown content negotiation
+    const negotiated = await fetch(`${BASE_URL}/models/claude-opus-4.6`, {
+      redirect: "manual",
+      headers: { accept: "text/markdown" },
+    });
+    assert(
+      negotiated.status >= 300 &&
+        negotiated.status < 400 &&
+        negotiated.headers.get("location") === "/content/models/claude-opus-4.6.md",
+      "Accept: text/markdown on a canonical URL did not redirect to its markdown"
+    );
+
+    const negotiatedHome = await fetch(`${BASE_URL}/`, {
+      redirect: "manual",
+      headers: { accept: "text/markdown" },
+    });
+    assert(
+      negotiatedHome.status >= 300 &&
+        negotiatedHome.status < 400 &&
+        negotiatedHome.headers.get("location") === "/content/_index.md",
+      "Accept: text/markdown on the homepage did not redirect to the master index"
+    );
+
+    const browserAccept = await fetch(`${BASE_URL}/models/claude-opus-4.6`, {
+      redirect: "manual",
+      headers: {
+        accept:
+          "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,*/*;q=0.8",
+      },
+    });
+    assert(
+      browserAccept.status === 200,
+      "A browser-like Accept header must not trigger the markdown redirect"
+    );
+
+    // Markdown alternate advertised in HTML head
+    assert(
+      pageHtml.includes(
+        'type="text/markdown" href="https://ai-future-ready.com/content/models/claude-opus-4.6.md"'
+      ),
+      "Model page is missing the text/markdown alternate link"
+    );
+
+    // CORS + cache headers on machine endpoints
+    assert(
+      rawContent.headers.get("access-control-allow-origin") === "*",
+      "Raw markdown endpoint is missing Access-Control-Allow-Origin"
+    );
+    assert(
+      rawContent.headers.get("cache-control")?.includes("max-age=3600"),
+      "Raw markdown endpoint is missing explicit cache headers"
+    );
+    assert(
+      itemJson.headers.get("access-control-allow-origin") === "*",
+      "Per-item JSON endpoint is missing Access-Control-Allow-Origin"
+    );
+    assert(
+      modelFilter.headers.get("access-control-allow-origin") === "*",
+      "Model filter endpoint is missing Access-Control-Allow-Origin"
+    );
+
+    const preflight = await fetch(`${BASE_URL}/api/v1/cost.json`, {
+      method: "OPTIONS",
+      headers: {
+        origin: "https://example.com",
+        "access-control-request-method": "POST",
+        "access-control-request-headers": "content-type",
+      },
+    });
+    assert(
+      preflight.status === 204 &&
+        preflight.headers.get("access-control-allow-origin") === "*" &&
+        preflight.headers.get("access-control-allow-methods")?.includes("POST"),
+      "cost.json preflight OPTIONS did not return CORS allowances"
+    );
+
+    // Search endpoint
+    const search = await fetch(`${BASE_URL}/api/v1/search.json?q=fable&type=model`);
+    const searchBody = (await search.json()) as {
+      query?: { q?: string; type?: string | null };
+      count?: number;
+      results?: Array<{ id?: string; score?: number; mdPath?: string; token_estimate?: number }>;
+    };
+    assert(search.ok, "Search endpoint did not return 200");
+    assert(
+      searchBody.query?.q === "fable" && searchBody.query?.type === "model",
+      "Search endpoint did not echo its query"
+    );
+    assert(
+      Array.isArray(searchBody.results) &&
+        searchBody.results.length > 0 &&
+        searchBody.results[0]?.id === "claude-fable-5",
+      "Search endpoint did not rank the obvious match first"
+    );
+    assert(
+      typeof searchBody.results[0]?.mdPath === "string" &&
+        typeof searchBody.results[0]?.token_estimate === "number",
+      "Search results are missing markdown URLs or token estimates"
+    );
+
+    const searchMissingQ = await fetch(`${BASE_URL}/api/v1/search.json`);
+    assert(
+      searchMissingQ.status === 400,
+      "Search endpoint without q should return 400 with usage info"
+    );
+
+    // Discovery updates
+    const aiManifestFull = (await (
+      await fetch(`${BASE_URL}/.well-known/ai.json`)
+    ).json()) as {
+      search_api?: string;
+      usage_policy?: { summary?: string };
+      markdown_access?: { md_suffix_alias?: string };
+      capabilities?: Record<string, unknown>;
+    };
+    assert(
+      aiManifestFull.search_api?.startsWith("/api/v1/search.json"),
+      ".well-known/ai.json is missing search_api discovery"
+    );
+    assert(
+      typeof aiManifestFull.usage_policy?.summary === "string",
+      ".well-known/ai.json is missing usage_policy"
+    );
+    assert(
+      typeof aiManifestFull.markdown_access?.md_suffix_alias === "string",
+      ".well-known/ai.json is missing markdown_access documentation"
+    );
+    assert(
+      aiManifestFull.capabilities?.cors === true &&
+        aiManifestFull.capabilities?.markdown_content_negotiation === true,
+      ".well-known/ai.json capabilities are missing cors/markdown negotiation flags"
+    );
+    assert(
+      Boolean(openApiBody.paths?.["/api/v1/search.json"]),
+      "OpenAPI endpoint is missing the search path"
+    );
+
+    const llmsTxt = await fetch(`${BASE_URL}/llms.txt`);
+    const llmsTxtBody = await llmsTxt.text();
+    assert(llmsTxt.ok, "llms.txt did not return 200");
+    assert(
+      llmsTxtBody.includes("Access notes for agents"),
+      "llms.txt is missing the agent access notes header"
+    );
+
     const mcpPage = await fetch(`${BASE_URL}/mcp`);
     const mcpHtml = await mcpPage.text();
     assert(mcpPage.ok, "MCP page did not return 200");

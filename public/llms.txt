@@ -1,10 +1,17 @@
 # AI Future Ready
 > The agent-ready web — a specification, checklist, and working demonstration of websites built for both humans and AI agents. Includes a structured AI reference library with models, agents, comparisons, and analysis.
 
+Access notes for agents:
+- Raw markdown for any page: append `.md` to its canonical URL, send `Accept: text/markdown`, or fetch the `/content/` path listed below. Each is ~10x cheaper in tokens than the HTML page.
+- Query instead of crawling: `/api/v1/search.json?q=...`, model filter/diff/cost endpoints, and `/api/v1/changes.json?since=YYYY-MM-DD`. Discovery manifest: `/.well-known/ai.json`. Fetch patterns: `/content/guides/agent-usage.md`.
+- Full corpus in one file: `/llms-full.txt` (~144k tokens). Per-item JSON includes `token_estimate` and `sha256` so you can budget and cache.
+- All content and API responses send `Access-Control-Allow-Origin: *` and ETags; conditional requests are supported.
+- Usage: free for human and agent consumption, caching, and citation with attribution. Commercial redistribution of the structured dataset requires a license — see `/content/pricing/commercial-license.md`.
+
 ## Content Sections
-- [Standard](/content/standard/_index.md): Technical standard for agent-ready websites: raw content, metadata schemas, llms.txt, JSON APIs, discovery, trust signals, hashes, and change feeds.
+- [Standard](/content/standard/_index.md): Technical standard for agent-ready websites: raw content at canonical URLs, metadata schemas, llms.txt, JSON APIs, CORS, discovery, trust signals, hashes, change feeds, and usage policy.
 - [Checklist](/content/checklist/_index.md): A practical checklist and spec for making any website work for AI agents. Criteria, examples, failure modes, and a maturity model — from scrape-only to agent-native.
-- [API Reference](/content/api-reference/_index.md): Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, schema, changes, recommendations, pricing snapshots, feeds, and search.
+- [API Reference](/content/api-reference/_index.md): Use the AI Future Ready agent API: JSON indexes, per-item data, raw markdown, ranked search, schema, changes, recommendations, pricing snapshots, and feeds.
 - [Models](/content/models/_index.md): Compare 37+ AI models by provider, pricing, context window, coding score, reasoning score, open-source status, and best-use case.
 - [Providers](/content/providers/_index.md): Provider profiles for major AI labs and model ecosystems, focused on agent-useful strengths, tradeoffs, models, pricing posture, and selection guidance.
 - [Agent Platforms](/content/agents/_index.md): Directory of AI agent platforms — personal agents, developer frameworks, orchestration tools, coding agents, and no-code builders.
@@ -96,7 +103,7 @@
 
 ## Guides
 - [Agent Tooling Compatibility](/content/guides/agent-tooling-compatibility.md): Compatibility matrix for AI agent tools and frameworks: coding agents, dev frameworks, orchestration tools, no-code automation, and when to choose each.
-- [Agent Usage Guide](/content/guides/agent-usage.md): Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, schema, per-item JSON, model filtering, model diffing, recommendations, changes, and hashes.
+- [Agent Usage Guide](/content/guides/agent-usage.md): Concrete fetch patterns for AI agents using AI Future Ready: discovery, raw markdown, search, schema, per-item JSON, model filtering, model diffing, recommendations, changes, hashes, and conditional requests.
 - [Benchmark Methodology](/content/guides/benchmark-methodology.md): How AI Future Ready model scores should be interpreted by agents: normalized task scores, confidence limits, subjective judgment, and verification needs.
 - [Best-For Task Matrix](/content/guides/best-for-task-matrix.md): A task-to-model matrix for agents choosing between best overall, cheaper, local, and cautionary options across common AI workloads.
 - [Build a Coding Agent Stack](/content/guides/build-a-coding-agent-stack.md): A practical recipe for building a coding-agent workflow with model selection, repo access, tests, permissions, review, and rollback.

@@ -30,18 +30,23 @@ Track current project tasks here. This is a practical Kanban board for moving AI
 
 ### Next
 
+- [ ] After Brian pushes the 2026-07-03 agent-access changes: verify on production that /content/*.md sends Access-Control-Allow-Origin/X-Robots-Tag/Cache-Control (the _headers file), that /models/{slug}.md and Accept: text/markdown redirect correctly, and that /api/v1/search.json works.
+- [ ] Scorecard API: automate the deterministic checklist checks as GET /api/v1/score?url=... (SSRF guards, rate limiting, cache). Converts the checklist into an agent tool and an audit lead magnet.
+- [ ] Hosted remote MCP server (Streamable HTTP on Cloudflare, tools mirroring the API: search, get, filter, diff, cost, changes, recommend). Promoted from Later — it is the flagship agent-native proof and now unblocked by the query layer.
+- [ ] Agent-completable audit intake: POST /api/v1/audit-request that emails support@ via Cloudflare (mailto form stays as human path).
 - [ ] Review/adjust the introductory audit pricing set on 2026-06-10 ($750 site / $2,500 docs / implementation from $2,000).
-- [ ] Consider explicit cache headers / ETag documentation for generated API and feed artifacts.
 
 ### Later
 
-- [ ] Evaluate hosted remote MCP after the API contract and query layer are stronger.
 - [ ] Turn repeated manual audit findings into a productized self-serve assessment.
 - [ ] Build a public gallery of agent-ready examples and teardown notes.
 - [ ] Consider a small paid implementation package after at least one manual audit validates demand.
+- [ ] Consider a formal content license choice (e.g. CC-style vs custom) — usage_policy in ai.json currently describes practice without naming a license.
 
 ### Done / parked
 
+- [x] 2026-07-03: Agent-access hardening — markdown reachable from canonical URLs (.md suffix + Accept: text/markdown negotiation + rel=alternate links), CORS + cache headers + X-Robots-Tag actually applied to static assets via public/_headers (next.config headers never reached them in prod), /api/v1/search.json ranked search, usage_policy + markdown_access in ai.json, token_estimate on all items, llms.txt access notes, standard/checklist bumped to v0.2. verify green; behaviors confirmed through wrangler dev.
+- [x] 2026-07-03 (was: Consider explicit cache headers / ETag documentation): explicit Cache-Control everywhere, 304 revalidation verified, If-None-Match documented in agent-usage guide.
 - [x] 2026-06-21: Provisioned and externally verified Cloudflare Email Routing for `ai-future-ready.com`; route `support@ai-future-ready.com` forwards to verified destination `bdclark1@gmail.com`; catch-all remains disabled/drop. Wrangler reports routing enabled/status ready. A self-test from Brian's Gmail was deduplicated by Gmail, but an external test from Samantha's email landed successfully.
 - [x] 2026-06-19: Made the audit requestable end-to-end — added /request-audit self-assessment + intake form (mailto to support@ai-future-ready.com with copy fallback), replaced "coming soon" on /contact, pointed homepage + standard + pricing CTAs at the audit offer. verify green, /status no drift.
 - [x] 2026-06-10: Defined the first paid audit offer (packages, prices, turnaround, boundaries on /pricing/agent-readiness-audit).

@@ -1,4 +1,9 @@
 import modelsData from "@/lib/models-data.json";
+import { corsPreflightResponse } from "@/lib/api-headers";
+
+export function OPTIONS() {
+  return corsPreflightResponse();
+}
 
 type Source = {
   title?: string;

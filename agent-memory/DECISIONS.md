@@ -45,3 +45,24 @@ Project/system: Public operational status and trust reporting.
 Decision: Generate `/api/v1/status.json` and `src/lib/status-data.json` from `scripts/generate-llms-txt.ts`, then render `/status` from the generated data.
 Reason: Freshness, broken internal links, and source metadata coverage should come from the same content graph as the public API instead of a manually maintained status page.
 Consequences: Status reports build timestamp, content freshness by type, internal-link health, and source URL structural validity. It intentionally does not perform external HTTP health checks during build.
+
+## 2026-07-03 - Markdown must be reachable from canonical URLs
+
+Project/system: Agent access layer and the Agent-Ready Web Standard.
+Decision: Serve raw markdown from every canonical page URL via `.md` suffix aliases and `Accept: text/markdown` content negotiation, implemented as 307 redirects in `next.config.ts` (path patterns + `has` header matching), plus `<link rel="alternate" type="text/markdown">` on every content page. The redirect (rather than serving bytes directly) deliberately teaches agents the canonical `/content/` mapping via the Location header and avoids content-negotiation cache ambiguity.
+Reason: Agents arrive at canonical URLs from search results and citations; the parallel `/content/` tree was undiscoverable from there. Raw markdown is ~10x cheaper in tokens than the HTML page.
+Consequences: Content-type and root-page allowlists live in `next.config.ts` and must be extended when a new content type or standalone page is added; smoke tests cover aliases, negotiation, and the browser-Accept non-redirect case; the standard and checklist were bumped to v0.2 with these as criteria.
+
+## 2026-07-03 - Static-asset headers come from public/_headers, not next.config
+
+Project/system: Cloudflare Workers deployment.
+Decision: Set CORS (`Access-Control-Allow-Origin: *`), `X-Robots-Tag: noindex, follow`, and `Cache-Control: public, max-age=3600, stale-while-revalidate=86400` for `/content/`, `/api/`, llms files, feeds, search index, OpenAPI, and `/.well-known/` via a `public/_headers` file (Workers static assets format). Keep the same header set in `next.config.ts` headers() for worker-rendered responses and dev parity.
+Reason: Discovered in production that next.config headers() never reach static assets on Cloudflare — assets are served before the worker runs. The intended noindex protection was silently absent, and CORS could not be fixed at the Next layer alone.
+Consequences: The two header sources must be kept in sync manually; `_headers` ships into `.open-next/assets/` at build; wrangler dev is the authoritative local check for asset-layer behavior. Dynamic API routes additionally export OPTIONS (shared helper in `src/lib/api-headers.ts`) for browser preflight.
+
+## 2026-07-03 - Search is a dynamic route over generator-emitted data
+
+Project/system: Public query API.
+Decision: Implement `/api/v1/search.json` (params `q`, `type`, `limit`) as a Next route handler importing `src/lib/search-data.json`, which the generator writes from the exact same array as `public/search-index.json`. All-terms-must-match scoring over title/id/tags/provider/description/section.
+Reason: Agents should get one-call ranked answers instead of downloading the 240KB static index and implementing matching; emitting the same array twice guarantees shape parity between static and dynamic search.
+Consequences: OpenAPI, ai.json, index.json, agent-usage guide, api-reference, and smoke tests include search; the static index remains for offline/local-matching use cases; search results carry token_estimate so agents can budget follow-up fetches.

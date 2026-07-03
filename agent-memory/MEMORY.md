@@ -19,8 +19,13 @@ The site is being hardened as machine-readable AI infrastructure: structured mar
 - OpenAPI is generated at both `public/openapi.json` and `public/api/v1/openapi.json`.
 - Status data is generated at `public/api/v1/status.json` and `src/lib/status-data.json`; `/status` renders the same payload for humans and agents.
 - Model runtime data is generated at `src/lib/models-data.json` and served by `/api/v1/models-filter.json`, `/api/v1/diff.json`, and `/api/v1/cost.json`.
+- Search runtime data is generated at `src/lib/search-data.json` (same array as `public/search-index.json`) and served by `/api/v1/search.json?q=...&type=...&limit=...`.
+- Markdown is reachable from every canonical URL three ways: `.md` suffix alias, `Accept: text/markdown` negotiation (both 307 redirects defined in `next.config.ts` redirects, incl. `has` header matching — confirmed working through the OpenNext worker), and `<link rel="alternate" type="text/markdown">` from `buildPageMetadata`.
+- IMPORTANT deploy fact: `next.config.ts` headers() only reach worker-rendered responses on Cloudflare. Static assets (public/) are served before the worker and take headers from `public/_headers` (Workers static assets format). The two must be kept in sync; `_headers` is copied into `.open-next/assets/` by the OpenNext build.
+- All machine endpoints send `Access-Control-Allow-Origin: *`, ETag, and `Cache-Control: public, max-age=3600, stale-while-revalidate=86400`; dynamic API routes export OPTIONS via `src/lib/api-headers.ts` for preflight.
+- `/.well-known/ai.json` carries `usage_policy`, `markdown_access`, `search_api`, and capability flags; llms.txt opens with "Access notes for agents" incl. corpus token estimate; per-item JSON and search entries carry `token_estimate` (~4 bytes/token heuristic).
 - Build pipeline runs `validate:content` and the generator through `prebuild`.
-- Main validation commands used successfully: `npm run validate:content`, `npm run build`, `npm run lint`, `npm run test:smoke`.
+- Main validation commands used successfully: `npm run verify` (lint + build + smoke), `npm run validate:content`; Cloudflare-layer behavior verified via `npx opennextjs-cloudflare build` + `npx wrangler dev`.
 
 ## Notes
 

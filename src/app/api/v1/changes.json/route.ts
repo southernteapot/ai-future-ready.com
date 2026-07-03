@@ -1,4 +1,9 @@
 import changesData from "@/lib/changes-data.json";
+import { corsPreflightResponse } from "@/lib/api-headers";
+
+export function OPTIONS() {
+  return corsPreflightResponse();
+}
 
 type ChangeEntry = {
   changed_at: string;

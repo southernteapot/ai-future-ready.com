@@ -1,10 +1,23 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ContentView from "@/components/ContentView";
 import { getMasterIndex } from "@/lib/content";
 import { SITE_URL } from "@/lib/site";
+import { FEED_ALTERNATE_TYPES } from "@/lib/metadata";
 
 export const dynamic = "force-static";
+
+// Only alternates: title/description/OG are inherited from the root layout.
+export const metadata: Metadata = {
+  alternates: {
+    canonical: "/",
+    types: {
+      ...FEED_ALTERNATE_TYPES,
+      "text/markdown": `${SITE_URL}/content/_index.md`,
+    },
+  },
+};
 
 export default function HomePage() {
   const index = getMasterIndex();
