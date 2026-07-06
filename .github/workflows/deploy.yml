@@ -1,8 +1,9 @@
 name: Deploy to Cloudflare
 
+# Manual-only for now: deploys run from Brian's desktop (cf-autodeploy.timer).
+# To deploy from GitHub instead: set the CLOUDFLARE_API_TOKEN repo secret and
+# restore the push trigger (on: push: branches: [main, master]).
 on:
-  push:
-    branches: [main, master]
   workflow_dispatch:
 
 jobs:
