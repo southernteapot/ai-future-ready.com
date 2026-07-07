@@ -14,9 +14,10 @@ import { SITE_DOMAIN, SITE_URL } from "../src/lib/site";
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const PUBLIC_DIR = path.join(process.cwd(), "public");
 const PUBLIC_CONTENT_DIR = path.join(PUBLIC_DIR, "content");
-const GENERATED_DATE = new Date().toISOString().split("T")[0];
-const BUILD_TIMESTAMP =
-  process.env.BUILD_TIMESTAMP ?? `${GENERATED_DATE}T00:00:00.000Z`;
+// GENERATED_DATE / BUILD_TIMESTAMP are derived from the content itself (see
+// latestContentDate below) so that rebuilding unchanged inputs produces
+// byte-identical output. Wall-clock stamps dirtied ~130 tracked files on
+// every build and broke cf-autodeploy's fast-forward pulls.
 const STALE_AFTER_DAYS = 30;
 const SOURCE_FIELDS = ["sources", "pricing_sources", "benchmark_sources"] as const;
 
@@ -433,6 +434,27 @@ for (const sf of STANDALONE_FILES) {
     allEntries.push(entry);
   }
 }
+
+// Latest date declared anywhere in the content frontmatter. Used as the
+// "generated" date so identical inputs always produce identical output
+// (a wall-clock date would dirty the git tree on every rebuild). age_days
+// therefore measures staleness relative to the freshest content edit.
+const CONTENT_DATE_FIELDS = ["last_updated", "last_verified", "date", "release_date"] as const;
+
+function latestContentDate(entries: Entry[]): string {
+  let latest = "1970-01-01";
+  for (const entry of entries) {
+    for (const field of CONTENT_DATE_FIELDS) {
+      const value = normalizeDate(entry.meta[field]);
+      if (value && value > latest) latest = value;
+    }
+  }
+  return latest;
+}
+
+const GENERATED_DATE = latestContentDate(allEntries);
+const BUILD_TIMESTAMP =
+  process.env.BUILD_TIMESTAMP ?? `${GENERATED_DATE}T00:00:00.000Z`;
 
 const contentEntries = allEntries.filter((e) => !e.mdPath.endsWith("/_index.md"));
 const entriesByMdPath = new Map(allEntries.map((entry) => [entry.mdPath, entry]));
