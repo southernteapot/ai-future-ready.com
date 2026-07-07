@@ -53,3 +53,5 @@ Next.js 16 app with file-based Markdown content and generated static machine-rea
 - Pricing snapshots: `/api/v1/pricing-snapshots.json`.
 - Model verification: `/api/v1/model-verification.json`.
 - Changes endpoint: `/api/v1/changes.json?since=YYYY-MM-DD&type=model`.
+
+- Public deployment: Cloudflare Workers via OpenNext (`wrangler.jsonc`, `open-next.config.ts`). Deployed automatically by desktop timer `cf-autodeploy.timer` (polls GitHub every 5 min; on new commits: pull → build → `wrangler deploy`; log at `~/.local/state/cf-autodeploy.log`). CI workflow `.github/workflows/deploy.yml` exists but is manual-only (no CLOUDFLARE_API_TOKEN secret set).

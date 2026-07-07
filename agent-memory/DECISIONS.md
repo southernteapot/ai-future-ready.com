@@ -66,3 +66,4 @@ Project/system: Public query API.
 Decision: Implement `/api/v1/search.json` (params `q`, `type`, `limit`) as a Next route handler importing `src/lib/search-data.json`, which the generator writes from the exact same array as `public/search-index.json`. All-terms-must-match scoring over title/id/tags/provider/description/section.
 Reason: Agents should get one-call ranked answers instead of downloading the 240KB static index and implementing matching; emitting the same array twice guarantees shape parity between static and dynamic search.
 Consequences: OpenAPI, ai.json, index.json, agent-usage guide, api-reference, and smoke tests include search; the static index remains for offline/local-matching use cases; search results carry token_estimate so agents can budget follow-up fetches.
+- 2026-07-06: Deploy to Cloudflare Workers with desktop-driven auto-deploy (not GitHub Actions) so trip-time merges go live without CI secrets; desktop is always-on.
