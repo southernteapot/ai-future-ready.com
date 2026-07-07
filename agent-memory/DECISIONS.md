@@ -67,3 +67,10 @@ Decision: Implement `/api/v1/search.json` (params `q`, `type`, `limit`) as a Nex
 Reason: Agents should get one-call ranked answers instead of downloading the 240KB static index and implementing matching; emitting the same array twice guarantees shape parity between static and dynamic search.
 Consequences: OpenAPI, ai.json, index.json, agent-usage guide, api-reference, and smoke tests include search; the static index remains for offline/local-matching use cases; search results carry token_estimate so agents can budget follow-up fetches.
 - 2026-07-06: Deploy to Cloudflare Workers with desktop-driven auto-deploy (not GitHub Actions) so trip-time merges go live without CI secrets; desktop is always-on.
+
+## 2026-07-07 - Generated timestamps derive from content dates, not the wall clock
+
+Project/system: Data generator (`scripts/generate-llms-txt.ts`) and cf-autodeploy pipeline.
+Decision: `GENERATED_DATE` is the latest declared frontmatter date across all content (`last_updated`, `last_verified`, `date`, `release_date`); `BUILD_TIMESTAMP` defaults to `${GENERATED_DATE}T00:00:00.000Z` (BUILD_TIMESTAMP env override retained). `age_days` and stale counts therefore measure staleness relative to the freshest content edit rather than build time.
+Reason: Wall-clock stamps regenerated ~130 tracked JSON files on every build, dirtying the tree and eventually blocking cf-autodeploy's fast-forward `git pull` (this broke claimreadytx and resume-ready). Content-declared dates were chosen over `git log -1` of the content dir because committing regenerated output moves the commit date and would re-dirty the tree on the next timer build. Render-time freshness was rejected: `age_days` is not displayed to visitors and `/api/v1/status.json` is a static artifact, so it would have forced static endpoints to become dynamic routes.
+Consequences: Rebuilding unchanged inputs is byte-identical (verified). `generated_at` now reads as a "data as of" date; if all content goes untouched, items never cross the stale threshold on their own. Any future generator output must avoid `new Date()`/`Date.now()` in committed artifacts.

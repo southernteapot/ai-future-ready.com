@@ -52,7 +52,6 @@ Track current project tasks here. This is a practical Kanban board for moving AI
 - [x] 2026-06-10: Defined the first paid audit offer (packages, prices, turnaround, boundaries on /pricing/agent-readiness-audit).
 - [x] 2026-06-10: Created sample audit report at /pricing/sample-audit-report.
 - [x] 2026-06-10: Freshness sweep — added Fable 5, Opus 4.8, Opus 4.7, GPT-5.5; fixed dangling superseded_by refs and wrong GPT-5.4 price; validator now rejects unknown superseded_by/variant_of ids.
+- [x] 2026-07-07: Made the data generator deterministic — GENERATED_DATE/BUILD_TIMESTAMP now derive from the latest declared content frontmatter date instead of the wall clock, so rebuilding unchanged inputs produces byte-identical output and cf-autodeploy's fast-forward pulls stay safe. age_days now means "days older than the freshest content edit". (Flagged 2026-07-07 fleet audit.)
 - [x] Repositioned project from AI reference wiki to agent-ready web standard + proof-of-concept.
 - [x] Added structured model metadata, OpenAPI discovery, filtering, diffing, costing, and status reporting.
-
-- [ ] Make the data generator deterministic (stop stamping generated_at/age_days into ~130 committed JSON files) so builds don't dirty the tree and risk blocking cf-autodeploy pulls (flagged 2026-07-07 fleet audit).

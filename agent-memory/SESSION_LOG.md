@@ -80,3 +80,11 @@ Do not paste raw terminal logs here.
 - Standard and checklist bumped to v0.2 (markdown-from-canonical-URLs, CORS, conditional requests, query endpoints, usage policy as criteria); agent-usage and api-reference docs updated.
 - Validation: `npm run verify` green (incl. new smoke checks); `opennextjs-cloudflare build` + `wrangler dev` confirmed _headers, redirects, negotiation, search, 304 revalidation, and preflight at the Workers layer.
 - Next wave agreed with Brian: scorecard API (`/api/v1/score?url=`), hosted remote MCP, agent-completable audit-request endpoint.
+
+## 2026-07-07 - Deterministic generator (autodeploy churn fix)
+
+- Root cause of the daily ~130-file churn: `scripts/generate-llms-txt.ts` stamped wall-clock `GENERATED_DATE`/`BUILD_TIMESTAMP` into every generated JSON file and recomputed `age_days` against the wall clock, so each cf-autodeploy build dirtied the tree (the same failure mode that broke claimreadytx and resume-ready).
+- Fix: derive `GENERATED_DATE` from the latest declared frontmatter date across all content (`last_updated`/`last_verified`/`date`/`release_date`); `BUILD_TIMESTAMP` defaults to that date (env override kept). Chose content-declared dates over git commit dates because committing regenerated files would move the commit date and re-dirty the tree.
+- `age_days`/stale semantics shift: staleness is now relative to the freshest content edit, not build time. Not moved to render time because `age_days` is never shown to visitors (status page shows only stale_count) and `/api/v1/status.json` is a static artifact.
+- Determinism proven: generator run three times, `git diff` checksum identical across runs; tree stayed clean after full `npm run verify` (lint + build + smoke, all green) and after the autodeploy timer's own build.
+- Committed churn + fix together (2a4289a), pushed; desktop timer deployed it and production verified 200.
